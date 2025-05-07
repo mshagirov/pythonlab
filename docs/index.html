@@ -1,29 +1,38 @@
 <!doctype html>
-<html>
+<html lang="en">
     <head>
         <!-- Recommended meta tags -->
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <meta name="viewport" content="width=0.8*device-width,initial-scale=1.0">
         <!-- PyScript CSS -->
-        <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+        <!-- <link  rel="stylesheet" href="https://pyscript.net/releases/2025.2.4/core.css"> -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
         <!-- This script tag bootstraps PyScript -->
-        <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+        <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script>
+        <!-- <script type="module" src="https://pyscript.net/releases/2025.2.4/core.js"></script> -->
     </head>
     <body>
-<py-script config="pyscript.json" async="false">
+<!-- <py-script config="pyscript.json" async="false"> -->
+<!-- import sys -->
+<!-- from pyscript import display -->
+<!---->
+<!-- display(sys.version) -->
+<!-- </py-script> -->
+
+<script type="mpy" terminal worker config="pyscript.json">
+async def start_term():
+  import code
+  code.interact()
+await start_term()
+</script>
+
+<script type="py-editor" worker config="pyscript.json">
 import sys
-from pyscript import display
+print(sys.version)
 
-display(sys.version)
-</py-script>
-
-<script type="mpy" terminal worker>
-# name = input("What is your name? ")
-# print(f"Hello, {name}")
-
-import code
-
-code.interact()
+import numpy as np
+size = (10,)
+print(f"np.ones({size}):", np.ones(10))
 </script>
 <!-- <script type="mpy" src="main.py" terminal worker config="pyscript.json" async="false"> -->
 <!-- name = input("What is your name? ") -->
