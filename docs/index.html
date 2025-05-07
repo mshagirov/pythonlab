@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+    <head>
+        <!-- Recommended meta tags -->
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <!-- PyScript CSS -->
+        <link rel="stylesheet" href="https://pyscript.net/releases/2025.3.1/core.css">
+        <!-- This script tag bootstraps PyScript -->
+        <script type="module" src="https://pyscript.net/releases/2025.3.1/core.js"></script>
+    </head>
+    <body>
+<py-script config="pyscript.json" async="false">
+import sys
+from pyscript import display
+
+display(sys.version)
+</py-script>
+
+<script type="py" terminal worker>
+# name = input("What is your name? ")
+# print(f"Hello, {name}")
+
+import code
+
+code.interact()
+</script>
+<!-- <script type="mpy" src="main.py" terminal worker config="pyscript.json" async="false"> -->
+<!-- name = input("What is your name? ") -->
+<!-- print(f"Hello, {name}") -->
+<!-- </script> -->
+
+</body>
+</html>
+
