@@ -2,15 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=0.8*device-width,initial-scale=1.0">
-    <title>Learning Python in a Browser</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Python Lab</title>
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
-    <meta name="description" content="Python exercises"/>
+    <meta name="description" content="Learn Python in Your Browser"/>
     <meta name="author" content="Murat Shagirov"/>
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
-    <!-- This script tag bootstraps PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
@@ -21,6 +17,23 @@
       font-weight: 400;
       font-style: normal;
       font-size: 14px;
+    }
+    body {
+      background-color: #fff;
+      color: rgb(2 6 23);
+      margin: 0;
+      padding: 0;
+      line-height: 1.4rem;
+      box-sizing: border-box;
+    }
+    .container {
+      display: block;
+      width: 100%;
+      max-width: 658px;
+      margin: 40 auto;
+      margin-left: auto;
+      margin-right:auto;
+      padding: 0 20;
     }
     h1, h2, h3 {
       font-weight: 800;
@@ -35,16 +48,12 @@
     }
     </style>
   </head>
-<body>
-    <h2>Learning Python 🐍</h2>
-<pre><script type="py-editor" worker config="pyscript.json">
-import sys
-print(sys.version)
-</script></pre>
-<pre><script type="py-editor" worker config="pyscript.json">
-import numpy as np
-size = (10,)
-print(f"np.ones({size}):", np.ones(size))
-</script></pre>
-</body>
+<body><div class="container">
+    <h1>Python Lab</h1>
+    <ol>
+      <li><a href="/pythonlab/terminal">Terminal</a></li>
+      <li><a href="/pythonlan/01-exercise">Exercise 1</a></li>
+    </ol>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p><p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+<div></body>
 </html>
