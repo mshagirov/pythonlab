@@ -11,9 +11,10 @@ Most importantly, due to its wide adoption, Python boasts a vast ecosystem of
 libraries, frameworks, and packages that extend its capabilities for diverse
 tasks. These tasks or domains include, but not limited to,
 
-- Server-side web development
-- Automation (a.k.a., scripting)
-- Machine learning and Data analysis
+- Server-side web development,
+- Automation (a.k.a., scripting),
+- Machine learning,
+- Data analysis,
 - "Scientific computing".
 
 ## Python Standard Library
