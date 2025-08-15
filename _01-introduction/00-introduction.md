@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Python
-permalink: /introduction/1
+permalink: /introduction/1-python
 ---
 
 [Python](https://www.python.org/) is a general-purpose programming language
