@@ -1,4 +1,8 @@
-# Getting Started with Python
+---
+layout : page
+title: Getting Started with Python
+permalink: /introduction/2
+---
 
 ## Language
 

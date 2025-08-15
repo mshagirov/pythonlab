@@ -1,27 +1,33 @@
-# Python Introduction
+---
+layout: page
+title: Python
+permalink: /introduction/1
+---
 
 [Python](https://www.python.org/) is a general-purpose programming language
 used for a wide range of domains. In addition to its versatility,
 Python's intuitive syntax is relatively easy to read, and makes it perfect for
 beginners as well as efficient for experienced code maintainers. For instance,
-you can read and understand following python code as if it is written in "plain
-English" (if you ignore the parentheses),
+you can read and understand following Python code as if it was written in "plain
+English",
 
-```python
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
 print("Hello there")
 print("General Kenobi")
-```
+</script></pre></div>
 
-These, as you might have guessed, just print two lines,
+Hover over with your mouse and click the *run button* (green triangle). As you
+might have guessed, this code just prints following two lines:
 
 ```sh
 Hello there
 General Kenobi
 ```
 
-`print` here is a Python command, or more correctly a function, that takes its
-input which is everything between following `(` and `)` and outputs it to the
-*console*.
+In the code, `print` is a Python command, or more correctly a function, that
+takes its input which is everything between following `(` and `)` and outputs it
+to the *console*.
 
 > Console in programming refers to any interface for interacting with a computer
 program. Console is usually text based interface, like a terminal application.

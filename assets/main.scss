@@ -1,0 +1,86 @@
+---
+---
+/* Override theme defaults */
+// $base-font-family: HelveticaNeu;
+// $brand-color: darkgray;
+
+/* load _sass/minima.scss */
+@import "minima";
+
+/* Put any custom CSS here */
+* {
+  font-family: "JetBrains Mono", monospace;
+}
+.page-content {
+  font-optical-sizing: auto;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+}
+h1, h2, h3 {
+  font-weight: 800;
+}
+h1 {
+  font-size: 28px;
+}
+h2 {
+  font-size: 20px;
+}
+h3, h4 {
+  font-size: 16px; 
+}
+a {
+  text-decoration: none;
+  color: #0014EE;
+}
+a:hover {
+  text-decoration: underline;
+}
+/* Code */
+pre > * {
+  font-size: 14px;
+}
+.py-editor-input > * {
+  font-size: 14px;
+}
+/* For intro lines */
+.introduction {
+  color: #696969;
+  font-size: 18px;
+  display: inline-block;
+  position: relative;
+  text-shadow: 
+        0 0 5px #E3EEFF,
+        0 0 10px #E3EEFF,
+        0 0 20px #E3EEFF,
+        0 0 40px #E3EEFF; /* Neon glow effect */
+}
+/* Style and animate the cursor */
+.cursor {
+  display: inline-block;
+  width: 8px;
+  height: 18px;
+  background-color: #696969;
+  vertical-align: top;
+  animation: blink 1s step-end infinite;
+  position: relative;
+  top: 2px;
+  margin-left: 2px;
+  box-shadow: 
+        0 0 5px #E3EEFF,
+        0 0 10px #E3EEFF,
+        0 0 20px #E3EEFF; /* Glow effect for cursor */
+}
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+/* footer */
+.site-footer * {
+  font-weight: 400;
+  font-size: 13px;
+}

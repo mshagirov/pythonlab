@@ -1,0 +1,16 @@
+title: Python Workshop
+email: shagirov(at)nus.edu.sg
+description: Introduction to Python
+baseurl: ""
+url: "https://mshagirov.github.io/pythonlab"
+
+github_username:  mshagirov
+
+theme: minima
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+collections:
+  01-introduction:
+    output: true
