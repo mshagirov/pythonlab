@@ -1,7 +1,7 @@
 ---
 layout : page
 title: Getting Started with Python
-permalink: /introduction/2-syntax
+permalink: /introduction/01
 ---
 
 ## Language

@@ -1,26 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://mshagirov.github.io/pythonlab/introduction/1-python</loc>
-<lastmod>2025-08-17T01:44:18+08:00</lastmod>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/introduction/00</loc>
+<lastmod>2025-08-17T01:50:23+08:00</lastmod>
 </url>
 <url>
-<loc>https://mshagirov.github.io/pythonlab/introduction/2-syntax</loc>
-<lastmod>2025-08-17T01:44:18+08:00</lastmod>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/introduction/01</loc>
+<lastmod>2025-08-17T01:50:23+08:00</lastmod>
 </url>
 <url>
-<loc>https://mshagirov.github.io/pythonlab/introduction/</loc>
-<lastmod>2025-08-17T01:44:18+08:00</lastmod>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/introduction/</loc>
+<lastmod>2025-08-17T01:50:23+08:00</lastmod>
 </url>
 <url>
-<loc>https://mshagirov.github.io/pythonlab/</loc>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/</loc>
 </url>
 <url>
-<loc>https://mshagirov.github.io/pythonlab/99-exercise/</loc>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/99-exercise/</loc>
 <lastmod>2025-08-15T20:56:51+08:00</lastmod>
 </url>
 <url>
-<loc>https://mshagirov.github.io/pythonlab/terminal/</loc>
+<loc>https://mshagirov.github.io/pythonlab/pythonlab/terminal/</loc>
 <lastmod>2025-08-15T20:56:51+08:00</lastmod>
 </url>
 </urlset>

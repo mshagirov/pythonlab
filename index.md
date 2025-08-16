@@ -1,8 +1,7 @@
 ---
 layout: page
+title: Python Lab 🚀
 ---
-
-# Python Lab 🚀
 
 - [Introduction](introduction)
 - [Terminal](terminal/)
