@@ -18,7 +18,7 @@ print("General Kenobi")
 </script></pre></div>
 
 Hover over with your mouse and click the *run button* (green triangle). As you
-might have guessed, this code just prints following two lines:
+might have guessed, this code just prints the following two lines:
 
 ```sh
 Hello there
