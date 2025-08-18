@@ -51,3 +51,6 @@ The following sessions will follow up with the applications of Python using the
 > Science stack is a loosely defined term for a collection of packages
 and libraries generally used for scientific computing. We will learn more about
 science stack after we learn basic Python and practice writing some Python code.
+
+<div class="prevnextlinks"><a href="/pythonlab/introduction/">Previous: Index</a>
+<a href="01">Next: Getting started with Python</a></div>

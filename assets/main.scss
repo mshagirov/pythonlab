@@ -43,6 +43,11 @@ pre > * {
 .py-editor-input > * {
   font-size: 14px;
 }
+/* Navigation links */
+.prevnextlinks {
+  display: flex;
+  justify-content: space-between
+}
 /* For intro lines */
 .introduction {
   color: #696969;
