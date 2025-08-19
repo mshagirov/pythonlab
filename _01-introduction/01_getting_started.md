@@ -4,50 +4,69 @@ title: Getting Started with Python
 permalink: /introduction/01
 ---
 
-## Language
+## Python Syntax
 
-Language:
+Syntax in programming refers to the *grammar rule* of the programming language.
+The syntax, just like in human-languages, determines how the code it structures
+and used. I believe it is easier to learn the Python and its syntax by
+trying and breaking it instead of reading the syntax documentation.
 
-- What is syntax?
-- Python syntax: basic arithmetics, strings, printing instructions.
-- Sequence of commands (serial execution).
-- Syntax errors (will be helpful with debugging). Demo.
-- Logical errors (unexpected behaviour)
-- comments
+## Basic Arithmetics
 
-### Variables
+For example, let's start with basic arithmetics with two numbers `a` and `b`. To
+do basic arithmetics Python uses the following operators,
 
-- updating/mutating variables (this is why it's called a variable)
-- assignment: storing values
-- naming variables: "snake_case", words are lowercase and separated by underscores
+- addition: `a + b`,
 
-### Data Types
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(40 + 2)
+</script></pre></div>
 
-- variable types: string, integer, float, boolean
-- "type()" command
-- None type
-- Dynamic Typing: be carefull and updating values.
-- Strings :
-  - F-Strings examples
-  - string concatination
-- multivariable declaration/assignment
+- substraction `a - b`,
 
-Exercise by computing mean (int/float), concat and format (strings/numbers),
-examining variable types and updating variables (int, float, string, None,
-boolean).  
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(45 - 3)
+</script></pre></div>
 
-### Functions (basic) & Identation in Python
+- multiplication `a * b`,
 
-### Multiparameter Functions
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(21 * 2)
+</script></pre></div>
 
-### Return and Return None
+- and division `a / b` operators.
 
-E.g. when printing
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(294 / 7)
+</script></pre></div>
 
-### Declaration and Usage Sequence
+In addition to these, Python also has *integer division* and modulo operators,
 
-Variable and func: declare before using/calling.
+- floor or integer division: `a // b`, divides `a` by `b` then returns integer
+part of the quotient (rounds down the result to the nearest whole number),
 
-### Returning Multiple Values
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(294 // 7)
+</script></pre></div>
 
-### Default values for func args
+- modulo: `a % b`, returns the remainder of the division.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(85 % 43)
+</script></pre></div>
+
+> Try to run the above commands in the  [terminal](/pythonlab/terminal/){:target="_blank"}.
+You don't need to use `print` in the terminal to see the output of the command.
+Keep the terminal open when reading through the pages of this site to quickly
+try out different variations of the commands.
+
+<div class="prevnextlinks">
+    <a href="00"><h4>Previous: Python</h4></a>
+    <a href="02"><h4>Next: More Syntax</h4></a>
+</div>

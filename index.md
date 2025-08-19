@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Python Lab 🚀
 ---
 
 - [Introduction](introduction)

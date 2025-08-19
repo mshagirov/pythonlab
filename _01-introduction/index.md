@@ -1,6 +1,6 @@
 ---
 layout: home
-title: Introduction to Python
+title: Contents
 permalink: /introduction/
 ---
 

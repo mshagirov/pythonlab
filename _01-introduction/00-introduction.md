@@ -4,7 +4,8 @@ title: Python
 permalink: /introduction/00
 ---
 
-[Python](https://www.python.org/) is a general-purpose programming language
+[Python](https://www.python.org/){:target="_blank"} is a general-purpose
+programming language
 used for a wide range of domains. In addition to its versatility,
 Python's intuitive syntax is relatively easy to read, and makes it perfect for
 beginners as well as efficient for experienced code maintainers. For instance,
@@ -30,19 +31,28 @@ takes its input which is everything between following `(` and `)` and outputs it
 to the *console*.
 
 > Console in programming refers to any interface for interacting with a computer
-program. Console is usually text based interface, like a terminal application.
-All executable code and their output fields on this site are also an example of
-console.
+program. Console is usually text based interface, e.g.,
+the following [terminal](/pythonlab/terminal/){:target="_blank"} webapp.
+All executable code and their output fields on this site are also examples of
+console applications.
+
+Now, try to modify the following code to print a greeting by replacing the
+question mark `?` with your name:
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print("Hello ?")
+</script></pre></div>
 
 Due to Python's wide adoption, Python boasts a vast ecosystem of
 libraries, frameworks, and packages that extend its capabilities for diverse
 tasks. These tasks or domains include, but not limited to,
 
-- Server-side web development,
+- Web development,
 - Automation (scripting),
 - Machine learning,
 - Data analysis,
-- "Scientific computing".
+- Scientific computing.
 
 This workshop session will mainly focus on the Python language and its features.
 The following sessions will follow up with the applications of Python using the
@@ -52,5 +62,7 @@ The following sessions will follow up with the applications of Python using the
 and libraries generally used for scientific computing. We will learn more about
 science stack after we learn basic Python and practice writing some Python code.
 
-<div class="prevnextlinks"><a href="/pythonlab/introduction/">Previous: Index</a>
-<a href="01">Next: Getting started with Python</a></div>
+<div class="prevnextlinks">
+    <h4><a href="/pythonlab/introduction/">Previous: Contents</a></h4>
+    <h4><a href="01">Next: Getting Started with Python</a></h4>
+</div>
