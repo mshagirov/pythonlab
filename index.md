@@ -2,7 +2,7 @@
 layout: page
 ---
 
-### Workshops & Tutorials
+### Workshops and Tutorials
 
 - [Introduction to Python](introduction)
 
