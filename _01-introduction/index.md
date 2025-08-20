@@ -1,8 +1,10 @@
 ---
 layout: home
-title: Contents
+title: Introduction to Python
 permalink: /introduction/
 ---
+
+### Contents
 
 1. [Python](00) 👈 ***start here***
 1. [The Standard Library](01) 
