@@ -63,6 +63,6 @@ and libraries generally used for scientific computing. We will learn more about
 science stack after we learn basic Python and practice writing some Python code.
 
 <div class="prevnextlinks">
-    <h4><a href="/pythonlab/introduction/">Previous: Contents</a></h4>
-    <h4><a href="01">Next: Getting Started with Python</a></h4>
+    <a href="/pythonlab/introduction/">Previous: Contents</a>
+    <a href="01">Next: Standard Library</a>
 </div>

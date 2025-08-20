@@ -46,7 +46,9 @@ pre > * {
 /* Navigation links */
 .prevnextlinks {
   display: flex;
-  justify-content: space-between
+  justify-content: space-between;
+  font-weight: 600;
+  font-size: 16px;
 }
 /* For intro lines */
 .introduction {

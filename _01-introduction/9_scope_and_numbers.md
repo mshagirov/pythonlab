@@ -1,7 +1,6 @@
 ---
 layout : page
 title: Working with Numb3rs
-permalink: /introduction/03
 ---
 
 ## Scope: Variable and Function scopes

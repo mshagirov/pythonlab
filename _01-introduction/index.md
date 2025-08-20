@@ -4,5 +4,14 @@ title: Contents
 permalink: /introduction/
 ---
 
-1. [Python](00)
-1. [Getting started with Python](01)
+1. [Python](00) 👈 ***start here***
+1. [The Standard Library](01) 
+1. [Syntax and Arithmetics](02)
+1. [Strings](03)
+1. [Variables](04)
+1. [Functions](05)
+
+<div class="prevnextlinks">
+    <a href="/pythonlab/">Previous: Workshops</a>
+    <a href="00">Next: Python</a>
+</div>
