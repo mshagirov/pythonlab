@@ -3,7 +3,7 @@ layout: home
 ---
 
 <div class="terminal-link"><div class="glowtext">
-    <a href="terminal/">Terminal...<span class="cursor"></span></a>
+    <a href="terminal/">Launch terminal<span class="cursor"></span></a>
 </div></div>
 
 **Workshops and Tutorials**
