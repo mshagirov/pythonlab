@@ -4,18 +4,18 @@ title: Functions
 permalink: /introduction/05
 ---
 
-### Functions (basic) & Identation in Python
+## Functions (basic) & Identation in Python
 
-### Multiparameter Functions
+## Multiparameter Functions
 
-### Return and Return None
+## Return and Return None
 
 E.g. when printing
 
-### Declaration and Usage Sequence
+## Declaration and Usage Sequence
 
 Variable and func: declare before using/calling.
 
-### Returning Multiple Values
+## Returning Multiple Values
 
-### Default values for func args
+## Default values for func args
