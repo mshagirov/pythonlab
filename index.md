@@ -2,17 +2,14 @@
 layout: home
 ---
 
+<div class="terminal-link"><div class="glowtext">
+    <a href="terminal/">Terminal...<span class="cursor"></span></a>
+</div></div>
+
 **Workshops and Tutorials**
 
 - [Introduction to Python](introduction)
 
-**Possible tutorials**
+**Planned Workshop Topics**
 
-- Preparing figures.
-- Tabular data.
-- Working with images.
-- Accessing and using RNA-seq datasets.
-
-**Terminal**
-
-- [Terminal](terminal/)
+- Preparing figures, tabular data. Working with images.

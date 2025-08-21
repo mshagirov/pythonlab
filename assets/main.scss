@@ -51,33 +51,47 @@ pre > * {
   font-size: 16px;
   margin-top: 40px;
 }
+.terminal-link {
+  border-color: black;
+  background-color: black;
+  position: absolute;
+  top: 65px;
+  right: 10px;
+  z-index: 2;
+  margin: 10px;
+}
 /* For intro lines */
-.introduction {
-  color: #696969;
+.glowtext > * {
+  color: #0f0;
   font-size: 18px;
   display: inline-block;
   position: relative;
+  margin: 18px;
   text-shadow: 
-        0 0 5px #E3EEFF,
-        0 0 10px #E3EEFF,
-        0 0 20px #E3EEFF,
-        0 0 40px #E3EEFF; /* Neon glow effect */
+        0 0 5px #0f0,
+        0 0 10px #0f0,
+        0 0 20px #0f0,
+        0 0 40px #0f0; /* Neon glow effect */
+}
+.terminal-link a {
+  color: #0f0;
+  text-decoration: none;
 }
 /* Style and animate the cursor */
 .cursor {
   display: inline-block;
   width: 8px;
   height: 18px;
-  background-color: #696969;
+  background-color: #0f0;
   vertical-align: top;
   animation: blink 1s step-end infinite;
   position: relative;
   top: 2px;
   margin-left: 2px;
   box-shadow: 
-        0 0 5px #E3EEFF,
-        0 0 10px #E3EEFF,
-        0 0 20px #E3EEFF; /* Glow effect for cursor */
+        0 0 5px #0f0,
+        0 0 10px #0f0,
+        0 0 20px #0f0; /* Glow effect for cursor */
 }
 @keyframes blink {
   0%, 50% {
