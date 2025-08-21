@@ -2,17 +2,17 @@
 layout: home
 ---
 
-### Workshops and Tutorials
+**Workshops and Tutorials**
 
 - [Introduction to Python](introduction)
 
-### Possible tutorials
+**Possible tutorials**
 
 - Preparing figures.
 - Tabular data.
 - Working with images.
 - Accessing and using RNA-seq datasets.
 
-### Terminal
+**Terminal**
 
 - [Terminal](terminal/)
