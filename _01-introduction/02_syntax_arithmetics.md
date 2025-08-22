@@ -4,7 +4,7 @@ title: Syntax and Arithmetics
 permalink: /introduction/02
 ---
 
-## Python Syntax
+#### Python Syntax
 
 *Syntax* in programming refers to the grammar rules of the programming language.
 The syntax, just like in human-languages, determines how the code is structured
@@ -12,7 +12,7 @@ and how it runs. I believe it is easier to learn the Python and its syntax by
 trying and breaking it instead of reading the syntax documentation. So, let's
 try running some code.
 
-## Basic Arithmetics
+#### Basic Arithmetics
 
 For example, let's start with basic arithmetics. To
 do basic arithmetics Python uses the following operators,
@@ -67,7 +67,7 @@ You don't need to use `print` in the terminal to see the output of the command.
 Keep the terminal open when reading through the pages of this site to quickly
 try out different variations of the commands.
 
-## Indentation
+### Indentation
 
 Note that, compared to other programming languages, *indentation* is important
 in Python. E.g., this will produce an error.
