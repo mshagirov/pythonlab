@@ -4,15 +4,15 @@ title: Variables and Types
 permalink: /introduction/04
 ---
 
-*Variables* in programming represent named values with a location in
+*Variable* in programming represents a named location in
 [memory](https://en.wikipedia.org/wiki/Computer_memory){:target="_blank"}
-that stores its value. The value of a variable represents a specific type of
+that stores a value. The value of a variable represents a specific type of
 data such as a number or a text.
 
 The *type* (data type) of a variable determines what its value actually represents.
 Python standard library comes with a wide range of
 [built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}.
-We already have seen *integers* (`int`), *floats* (`float`), and *strings*
+We have already used *integers* (`int`), *floats* (`float`), and *strings*
 (`str`) which respectfully represent, whole numbers, (approximate) real
 numbers, and text objects. So far we have been using values directly without
 *assigning* them (variable) names.
@@ -25,20 +25,20 @@ It is very simple to define a varible in Python, all you need is:
 variable_name = value
 ```
 
-where `variable_name` is any alphanumeric sequence of characters that start with
-a letter or an underscore (`_`). `value` could be any value with a built-in or
+where `variable_name` is any alphanumeric sequence of characters that starts with
+a letter or an underscore `_`. `value` could be any value with a built-in or
 valid user defined type.
 
 > You can look up built-in types from Python documentation. We will not cover
 user defined data types in this workshop session. I plan to demonstrate custom types
-in the comming workshops that cover more advanced topics.
+in the coming workshops that cover more advanced topics.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-my_name = "Alice"
-__password__ = "p@sword123"
-print(f"My name is {my_name}")
-print(f"My password is {__password__}")
+user_name = "Alice"
+__file_name__ = "data.tif"
+print(f"User: {user_name}")
+print(f"File: {__file_name__}")
 </script></pre></div>
 
 By convention, Python programmers use *snake case* when naming their variables.

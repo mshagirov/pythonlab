@@ -9,18 +9,18 @@ permalink: /introduction/02
 *Syntax* in programming refers to the grammar rules of the programming language.
 The syntax, just like in human-languages, determines how the code is structured
 and how it runs. I believe it is easier to learn the Python and its syntax by
-trying and breaking it instead of reading the syntax documentation. So, let's
-try running some code.
+trying and breaking it instead of reading the documentation. So, let's
+try breaking and running some code.
 
 #### Basic Arithmetics
 
-For example, let's start with basic arithmetics. To
-do basic arithmetics Python uses the following operators,
+For example, let's start with the basic arithmetics. Python uses the following
+operators to do basic arithmetics, 
 
-- addition `+`,
-- subtraction `-`,
-- multiplication `*`,
-- and division `/`.
+- `+` : addition,
+- `-` : subtraction,
+- `*` : multiplication,
+- `/` : division.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -30,8 +30,12 @@ print(42 * 2)
 print(42 / 3)
 </script></pre></div>
 
+> Feel free to edit the code cells on this and coming pages. If you need to reset
+code to the default state, just reload the page.
+
 When you run your code, Python interprets the code *sequentially* line-by-line.
-Try switching the sequence of the print statements above to see the effect.
+Try switching the sequence of, deleting, and adding the print statements above
+to see the effect. 
 
 The order of the arithmetic operations follows the usual *operator precedence*:
 
@@ -42,6 +46,9 @@ The order of the arithmetic operations follows the usual *operator precedence*:
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 print((1 + 2)* 3)
+</script></pre></div>
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
 print( 1 + 2 * 3)
 </script></pre></div>
 
@@ -54,6 +61,9 @@ part of the quotient (rounds down the result to the nearest whole number),
 <pre class="highlight"><script type="py-editor" worker>
 print(294 // 7)
 </script></pre></div>
+
+> Try `//` (and `/`) with the negative numbers and see what floor division does
+in that case.
 
 - modulo: `a % b`, returns the remainder of the division.
 
