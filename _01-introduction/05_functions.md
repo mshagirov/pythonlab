@@ -19,3 +19,9 @@ Variable and func: declare before using/calling.
 ## Returning Multiple Values
 
 ## Default values for func args
+
+<div class="prevnextlinks">
+    <a id="previous" href="04">Previous: Variables</a>
+    <a id="next" href="06">Next: Scope</a>
+</div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

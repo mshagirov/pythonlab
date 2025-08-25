@@ -65,6 +65,7 @@ You will learn more about science stack after we learn basic Python and practice
 writing some code.
 
 <div class="prevnextlinks">
-    <a href="/pythonlab/introduction/">Previous: Contents</a>
-    <a href="01">Next: Standard Library</a>
+    <a id="previous" href="/pythonlab/introduction/">Previous: Contents</a>
+    <a id="next" href="01">Next: Standard Library</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

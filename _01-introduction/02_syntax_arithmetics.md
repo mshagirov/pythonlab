@@ -93,6 +93,7 @@ the importance of indentation when defining *functions*. For now, try fixing the
 error in the above code so that it is able to run.
 
 <div class="prevnextlinks">
-    <a href="01">Previous: Standard Library</a>
-    <a href="03">Next: Strings</a>
+    <a id="previous" href="01">Previous: Standard Library</a>
+    <a id="next" href="03">Next: Strings</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

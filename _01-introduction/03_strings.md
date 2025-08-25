@@ -95,6 +95,7 @@ Oh no! I broke Python syntax. Fix the following code so that it prints two lines
 print("Neo: 'I know kung-fu'\nMorpheus: 'Show me'')
 </script></pre></div>
 <div class="prevnextlinks">
-    <a href="02">Previous: Arithmetics</a>
-    <a href="04">Next: Variables</a>
+    <a id="previous" href="02">Previous: Arithmetics</a>
+    <a id="next" href="04">Next: Variables</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>

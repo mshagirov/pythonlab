@@ -14,6 +14,7 @@ permalink: /introduction/
 1. [Functions](05)
 
 <div class="prevnextlinks">
-    <a href="/pythonlab/">Previous: Workshops</a>
-    <a href="00">Next: Python</a>
+    <a id="previous" href="/pythonlab/">Previous: Workshops</a>
+    <a id="next" href="00">Next: Python</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

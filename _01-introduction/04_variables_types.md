@@ -36,9 +36,9 @@ in the coming workshops that cover more advanced topics.
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 user_name = "Alice"
-__file_name__ = "data.tif"
+__file__ = "data.tif"
 print(f"User: {user_name}")
-print(f"File: {__file_name__}")
+print(f"File: {__file__}")
 </script></pre></div>
 
 By convention, Python programmers use *snake case* when naming their variables.
@@ -238,8 +238,8 @@ print(x)
 
 ### Calculate Sum and Average
 
-Complete the following code so that it computes and prints an average of the given
-numbers. 
+Complete the following code so that it computes and prints a sum and and average
+of given numbers. 
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -253,11 +253,8 @@ avg = ?
 print(f"sum = {s}; average = {avg}")
 </script></pre></div>
 
- concat and format (strings/numbers),
-examining variable types and updating variables (int, float, string, None,
-boolean).  
-
 <div class="prevnextlinks">
-    <a href="03">Previous: Strings</a>
-    <a href="05">Next: Functions</a>
+    <a id="previous" href="03">Previous: Strings</a>
+    <a id="next" href="05">Next: Functions</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>

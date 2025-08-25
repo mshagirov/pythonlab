@@ -16,6 +16,7 @@ and functions of the Python Standard Library.
 handy and to consult it when you are getting yourself familiar with Python.
 
 <div class="prevnextlinks">
-    <a href="00">Previous: Python</a>
-    <a href="02">Next: Syntax & Arithmetics</a>
+    <a id="previous" href="00">Previous: Python</a>
+    <a id="next" href="02">Next: Syntax & Arithmetics</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
