@@ -24,7 +24,3 @@ document.addEventListener('keydown', (event) => {
     }
   }
 });
-
-document.addEventListener('DOMContentLoaded', () => {
-  document.body.focus();
-});

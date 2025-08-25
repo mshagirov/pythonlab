@@ -4,21 +4,35 @@ title: Functions
 permalink: /introduction/05
 ---
 
-## Functions (basic) & Identation in Python
+#### Definition
 
-## Multiparameter Functions
+```python
+def FUNCTION_NAME(ARGS):
+    BODY
+```
 
-## Return and Return None
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def greeter(name):
+  print(f"Hello {name}!")
+
+# try: replace "World" with your name (as a str)
+greeter('World')
+</script></pre></div>
+
+#### Multiparameter Functions
+
+#### Return Statement
 
 E.g. when printing
 
-## Declaration and Usage Sequence
+#### Declaration and Usage Sequence
 
 Variable and func: declare before using/calling.
 
-## Returning Multiple Values
+#### Returning Multiple Values
 
-## Default values for func args
+#### Default values for func args
 
 <div class="prevnextlinks">
     <a id="previous" href="04">Previous: Variables</a>
