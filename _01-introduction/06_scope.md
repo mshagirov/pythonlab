@@ -9,6 +9,8 @@ permalink: /introduction/06
 Scope, and global scope
 
 <div class="prevnextlinks">
-    <a href="05">Previous: Functions</a>
-    <a href="07">Next: Numerical Operations</a>
+    <a id="previous" href="05">Previous: Functions</a>
+    <a id="next" href="07">Next: Numerical Operations</a>
 </div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
+

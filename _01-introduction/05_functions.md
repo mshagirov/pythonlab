@@ -175,13 +175,52 @@ why doesn't this lead to an error?
 #### Default Parameter Values
 
 For the *positional* arguments, the value is defined by its position
-in the function definition. E.g., all the functions above used positional parameters.
-
+in the function definition. E.g., all the functions above used positional
+parameters. Python also allows defining default values for function arguments as
+key-value pairs. Key in this case refers to the variable name that your function
+uses inside its body.
 
 ```python
-def func(..., value = 10.5, status = "active", on = True):
-    ...
+def func(arg1, arg2, value = 10.5, status = "active", on = True):
+    ... 
 ```
+
+> In Python documentation, positional arguments are commonly called `args` and
+keyword arguments are called as `kwargs`.
+
+In the above, `arg1` and `arg2` are positional arguments and the rest are
+*keyword arguments* with default values.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def decrease_val( curr, delta=5):
+    return curr - delta
+
+curr_T = 25
+delta_T = 10
+
+print(f"T : {curr_T}C")
+
+print(f"new T={decrease_val(curr_T)}C (default)")
+
+print(f"new T={decrease_val(curr_T, delta=delta_T)}C (kwarg)")
+
+print(f"new T={decrease_val(curr_T, delta_T)} (args)")
+</script></pre></div>
+
+- Note that in the last `print` statement, we did not provide the key for the
+argument. In this case, the argument is inferred from its position.
+- You can also specify the name of the positional argument, .e.g.,
+
+```python
+new_T= decrease_value(delta=delta_T, current=current_T)
+```
+
+In this case, the position of the argument is not important as values are provided
+together with their names.
+
+> When defining and calling functions using both positional and keyword
+arguments, positional arguments must be provided before keyword arguments.
 
 <div class="prevnextlinks">
     <a id="previous" href="04">Previous: Variables</a>
