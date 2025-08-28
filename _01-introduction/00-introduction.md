@@ -57,12 +57,7 @@ tasks. These tasks or domains include, but not limited to,
 - scientific computing.
 
 This workshop session will mainly focus on the Python language and its features.
-
-> I plan to cover some of the applications such as using the *science stack* in the
-coming sessions of this workshop series. Science stack is a loosely defined term
-for a collection of packages and libraries generally used for scientific computing.
-You will learn more about science stack after we learn basic Python and practice
-writing some code.
+We will cover some of the scientific applications in the coming workshops.
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/introduction/">Previous: Contents</a>

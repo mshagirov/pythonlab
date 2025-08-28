@@ -11,16 +11,14 @@ examples of built-in Python functions.
 > See [*modularity and abstraction*](https://www.geeksforgeeks.org/software-engineering/modular-approach-in-programming/){:target="_blank"}
 in programming.
 
-We have also used *methods*, `str()`, `int()`, `float()`, and `type()`. Method is
+We have also used *methods*, `str`, `int`, `float`, and `type`. Method is
 a concept from object-oriented programming that refers to a function that belongs
 to an object or a *class* (of objects).
 
-> For now, just think of methods as "special functions". In Python everything is
-an object, e.g., `str`, `int`, `float`, including the functions.
-Thus, we can't avoid using objects in Python. But you can use Python to
-write almost any program that can be written using object-oriented programming
-model without ever knowing exactly what terms like objects, classes, or methods
-mean.
+> Think of methods as "special functions". In Python everything is
+an object, e.g., objects with types `str`, `int`, `float`, including the functions.
+Thus, we can't avoid using objects in Python. That said, object-oriented
+programming is optional in Python.
 
 ### Defining Functions
 
@@ -219,8 +217,33 @@ new_T = decrease_value(delta=delta_T, current=current_T)
 In this case, the position of the argument is not important as values are provided
 together with their names.
 
-> When defining and calling functions using both positional and keyword
-arguments, positional arguments must be provided before keyword arguments.
+> Positional arguments must be provided before keyword arguments when defining
+and calling functions that use both positional and keyword arguments.
+
+### Function Objects
+
+As noted earlier on this page, Python treats functions as objects. This also means
+that functions have their own (data) type, `function`, just like other objects.
+You can check this using `type` method. Keeping this in mind, answer following
+question by running the code cell below.
+
+> `type(object)` returns the type of the input `object`. E.g., `type(1)` returns
+`int` type since `1` is an integer.
+
+- What is the difference between `hi` and `hi()` below? Print statements are
+there so that code will print out the results to the console. You don't need
+to use `print` if you run this commands in the terminal (Python shell).
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def hi():
+    print("Hi!")
+
+print(f"Type : { type(hi) }")
+print(hi)
+print(hi())
+</script></pre></div>
+
 
 <div class="prevnextlinks">
     <a id="previous" href="04">Previous: Variables</a>
