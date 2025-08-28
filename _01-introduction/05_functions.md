@@ -22,7 +22,7 @@ write almost any program that can be written using object-oriented programming
 model without ever knowing exactly what terms like objects, classes, or methods
 mean.
 
-#### Defining Functions
+### Defining Functions
 
 Python uses `def` keyword to *define* a function. You will need to provide a name,
 and optionally input *parameters* (a.k.a *arguments*). A function also must have
@@ -49,7 +49,7 @@ def FUNCTION_NAME():
     pass
 ```
 
-#### Fix a Greeter Function
+### Fix a Greeter Function
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -74,7 +74,7 @@ allow setting dafault identation. Be consistent with the
 size and type (spaces or tabs) of indentation you use throughout your code. This
 is mainly for readability but also to avoid bugs due to inconsistent indentation.
 
-#### Multiparameter Functions
+### Multiparameter Functions
 
 For many applications you would need more than just one or zero input parameters.
 E.g., even simple addition function `add(a, b)` would require two inputs `a` and
@@ -113,11 +113,11 @@ useful for this. I have already *imported* it for you as a part of built-in
 `math` module. You can call it as `math.sqrt(...)`.
 
 > [Modules](https://docs.python.org/3/tutorial/modules.html){:target="_blank"}
-are files with reusable code. E.g., you can write
-a Python file, text file ending with `.py`, with your functions and variables and
-then import and reuse it in other parts of your code.
+are files with reusable code. E.g., you can write your own module as text file
+ending with `.py` with your functions and variables (a.k.a. Python file) and then
+import and reuse it in other parts of your code.
 
-#### Returning Multiple Values
+### Returning Multiple Values
 
 Similarly, a function also can return multiple values by specifying multiple
 variables in the return statement.
@@ -172,7 +172,7 @@ why doesn't this lead to an error?
 *Tip: function executes (runs) only when you call it.*
 - What is the sequence of calls when you run the code above?
 
-#### Default Parameter Values
+### Default Parameter Values: args and kwargs
 
 For the *positional* arguments, the value is defined by its position
 in the function definition. E.g., all the functions above used positional
@@ -185,11 +185,11 @@ def func(arg1, arg2, value = 10.5, status = "active", on = True):
     ... 
 ```
 
-> In Python documentation, positional arguments are commonly called `args` and
-keyword arguments are called as `kwargs`.
-
 In the above, `arg1` and `arg2` are positional arguments and the rest are
 *keyword arguments* with default values.
+
+> In Python documentation, positional arguments are commonly called `args` and
+keyword arguments are called as `kwargs`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -213,7 +213,7 @@ argument. In this case, the argument is inferred from its position.
 - You can also specify the name of the positional argument, .e.g.,
 
 ```python
-new_T= decrease_value(delta=delta_T, current=current_T)
+new_T = decrease_value(delta=delta_T, current=current_T)
 ```
 
 In this case, the position of the argument is not important as values are provided

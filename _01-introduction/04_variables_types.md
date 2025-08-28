@@ -17,7 +17,7 @@ We have already used *integers* (`int`), *floats* (`float`), and *strings*
 numbers, and text objects. So far we have been using values directly without
 *assigning* them (variable) names.
 
-#### Difining, Updating and Using Variables
+### Difining, Updating and Using Variables
 
 It is very simple to define a varible in Python, all you need is:
 
@@ -79,7 +79,7 @@ side_length, area_of_square = 2, 4
 print(f"side_length: {side_length}\narea: {area_of_square}")
 </script></pre></div>
 
-#### Type Casting
+### Type Casting
 
 Type casting in programming means converting one type to another. For example,
 when you do mathematical operations on variables with mixed `float` and `int`
@@ -124,7 +124,7 @@ text = "My number is " + str(my_number)
 print(text)
 </script></pre></div>
 
-#### Boolean Type
+### Boolean Type
 
 Another frequently used type in programming is a `bool`. The `bool` or *Boolean*
 type has two possible values `True` and `False` that represent truth values.
@@ -145,7 +145,7 @@ print(f"Is {name} mutant?", is_mutant)
 print(f"Does {name} like pizza?", likes_pizza)
 </script></pre></div>
 
-#### Determining and Verifying Types
+### Determining and Verifying Types
 
 You can determine the type of a varible using `type()` method. `type` takes in
 an object, variable or value, and returns the type of the object, `int`, `str` etc.
@@ -160,7 +160,7 @@ print("What is the type of x:", type(x))
 print("Is x integer:", isinstance(x, int))
 </script></pre></div>
 
-#### None Type
+### None Type
 
 In Python, `NoneType` represents a null or absence of a value. `NoneType` only has
 a single value `None`. Compared to other programming langugages, `None` in Python
@@ -183,7 +183,7 @@ print(
 
 > I separated the parentheses of `print` command into separate lines for readability.
 
-#### Dynamic Typing
+### Dynamic Typing
 
 Python is a *dynamically typed* language which means that Python infers a
 variable's type when you run the code. This also means that you can update the
@@ -213,7 +213,7 @@ duration = 1
 duration_description = "one hour"
 ```
 
-#### Commenting Your Code
+### Commenting Your Code
 
 Use `#` to comment your code. Although it is common to see `'''...'''` or
 `""" ... """` as a multi-line comment, they are technically just strings.

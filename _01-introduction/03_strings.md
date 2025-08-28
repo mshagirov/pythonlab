@@ -36,7 +36,7 @@ print('first line\nsecond line\nthird line')
 > Learn more about special characters or *escape sequences* such as `\n` (new line) from
 [the official documention](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences){:target="_blank"}.
 
-#### Raw Strings
+### Raw Strings
 
 If you want Python to *not* interpret an escape sequence, you may prefix a string
 with `r` to create a *raw* string.
@@ -57,7 +57,7 @@ print(r"These two strings are the same \n")
 print("These two strings are the same \\n")
 </script></pre></div>
 
-#### String Concatenation and Length
+### String Concatenation and Length
 
 You can concatenate (join) multiple strings together using `+`.
 
@@ -73,7 +73,7 @@ To get the length of a string, the number of charachters in a string, use `len` 
 print(len("Hello"))
 </script></pre></div>
 
-#### F-Strings
+### F-Strings
 
 > [Formatted string literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals){:target="_blank"}
 
