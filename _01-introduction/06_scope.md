@@ -10,22 +10,22 @@ Let's run the following code and observe what happens.
 <pre class="highlight"><script type="py-editor" worker>
 def fun1():
     x = 5
-    print(f"x = {x}", "fun1")
+    print(f"x = {x} inside fun1")
 
 def fun2():
-    print(f"x = {x}", "fun2")
+    print(f"x = {x} inside fun2")
 
 x = 42
 
-print(f"x = {x}", "before")
+print(f"x = {x} before")
 fun1()
-print(f"x = {x}", "after")
+print(f"x = {x} after")
 
 print('-'*10) # prints dashes '-'
 
-print(f"x = {x}", "before")
+print(f"x = {x} before")
 fun2()
-print(f"x = {x}", "after")
+print(f"x = {x} after")
 </script></pre></div>
 
 You must be wondering, why is the value of `x` different in these two functions,
@@ -79,31 +79,70 @@ above so that it is able to update global `x`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-x = 42
-
 def fun1():
     global x
-
     x = 5
-    print(f"x = {x}", "fun1")
+    print(f"x = {x} inside fun1")
 
-print(f"x = {x}", "before")
+x = 42
+print(f"x = {x} before")
+
 fun1()
-print(f"x = {x}", "after")
+
+print(f"x = {x} after")
 </script></pre></div>
 
-Here `global x` declares `x` as a global variable and this allows `fun1` to update
-the global `x`.
+Here `global x` declares `x` as a global variable and `fun1` does not create a new
+local variable and instead uses the global variable `x`.
 
 This might be unsafe in most of the cases as you are updating what all of your code
 can access. You might end up *mutating* variables that you did not intend to update.
 
 For cases when you don't need to update a global variable but still need access
-to a higher level variable, Python uses `nonlocal` keyword.
+to a higher level variable, Python provides `nonlocal` keyword. You can update
+enclosing scope variables by declaring them as `nonlocal`, e.g., you can update
+an enclosing function's variable from inside a nested function.
+
+This is useful for cases when you need a function with a state or memory. For
+instance, you want to keep track of time and update it inside you simulation.
+To do this, you could use a nested function with `nonlocal` variable as shown
+in the code below.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def get_timer(start=0):
+    t = start # keep track of time
+    def step():
+        nonlocal t
+        t = t + 0.25 # update time
+        return t
+
+    return step 
+
+t_start = 0
+timer = get_timer(t_start)
+
+print("simulation starting; t=", t_start)
+
+t_sec = timer()
+print("simulation step 1: t=", t_sec)
+t_sec = timer()
+print("simulation step 2: t=", t_sec)
+t_sec = timer()
+print("simulation step 3: t=", t_sec)
+</script></pre></div>
+
+The state of the function `timer` can't be updated from outside except by calling
+it and this protects `t` from unintendent modifications.
+
+### Timer with Customisable Step Size
+
+- Modify the code above to allow for a customisable step size `delta` instead of
+fixed `0.25` in the update step. Set `0.25` as the default value.
+- Test your code by running it.
 
 <div class="prevnextlinks">
     <a id="previous" href="05">Previous: Functions</a>
     <a id="next" href="07">Next: Numerical Operations</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
-
