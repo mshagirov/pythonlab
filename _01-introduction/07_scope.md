@@ -1,7 +1,7 @@
 ---
 layout : page
-title: Variable Scope
-permalink: /introduction/06
+title: Scope
+permalink: /introduction/07
 ---
 
 Let's run the following code and observe what happens.
@@ -62,16 +62,41 @@ code, things will quickly get out of hand. A variable naming nightmare!
 
 ### Nested Functions
 
+Scope also applies to functions. If you define a *nested function*, a function defined
+inside another function, only the enclosing (function) scope has access to this nested
+function. Let's see it in an example.
 
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def set_temperature(value):
+    def fahrenheit():
+        return value * 9/5 + 32
 
-### Updating Higher Scope Variables
+    def format(t, symbol):
+        return f"{t}°{symbol}"
 
-If we think of scope as levels of access, highest level being the global and the
-lowest the current local scope. In some cases you might want to access and update
-a higher scope variable from a lower scope.
+    T_C = format(value, "C")
+    T_F = format(fahrenheit(), "F")
 
-Python supports this functionality via `global` keyword. Let's modify `fun1` from
-above so that it is able to update global `x`.
+    print(f"Temperature is set to {T_C} ({T_F})")
+
+set_temperature(25)
+set_temperature(0)
+set_temperature(-5)
+</script></pre></div>
+
+Notes on nested functions:
+
+- Nested function `fahrenheit` has access to the enclosing scope of `set_temperature`
+function. See how `value` is used from within the `fahrenheit`.
+- The nested functions can be accessed only within the enclosing scope of the
+function `set_temperature`.
+
+### Updating Variables Outside the Scope
+
+In some cases you might want to access and update a global variable from inside a
+function scope. Python supports this functionality via `global` keyword. Let's
+modify `fun1` from above so that it is able to update global `x`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -81,15 +106,14 @@ def fun1():
     print(f"x = {x} inside fun1")
 
 x = 42
+
 print(f"x = {x} before")
-
 fun1() # this call updates x
-
 print(f"x = {x} after")
 </script></pre></div>
 
 Here `global x` declares `x` as a global variable and `fun1` does not create a new
-local variable and instead uses the global variable `x`.
+local variable and instead uses `x` from the global scope.
 
 This might be unsafe in most of the cases as you are updating what all of your code
 can access. You might end up *mutating* variables that you did not intend to update.
@@ -108,12 +132,13 @@ in the code below.
 <pre class="highlight"><script type="py-editor" worker>
 def get_timer(start=0):
     t = start # keep track of time
+
     def step():
         nonlocal t
         t = t + 0.25 # update time
         return t
 
-    return step 
+    return step
 
 t_start = 0
 timer = get_timer(t_start)
@@ -141,7 +166,7 @@ the default value.
 - Test your code by running it with different `delta` values.
 
 <div class="prevnextlinks">
-    <a id="previous" href="05">Previous: Functions</a>
-    <a id="next" href="07">Next: Numerical Operations</a>
+    <a id="previous" href="06">Previous: Functions</a>
+    <a id="next" href="08">Next: Containers</a>
 </div>
-<script src="{{ '/assets/js/navigaD sion.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

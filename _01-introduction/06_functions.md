@@ -1,7 +1,7 @@
 ---
 layout : page
 title: Functions
-permalink: /introduction/05
+permalink: /introduction/06
 ---
 
 Functions in programming allow reusing and logically organising code blocks.
@@ -244,9 +244,8 @@ print(hi)
 print(hi())
 </script></pre></div>
 
-
 <div class="prevnextlinks">
-    <a id="previous" href="04">Previous: Variables</a>
-    <a id="next" href="06">Next: Scope</a>
+    <a id="previous" href="05">Previous: Numerical Operations</a>
+    <a id="next" href="07">Next: Scope</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

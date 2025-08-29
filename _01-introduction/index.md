@@ -11,9 +11,9 @@ permalink: /introduction/
 1. [Syntax and Arithmetics](02)
 1. [Strings](03)
 1. [Variables](04)
-1. [Functions](05)
-1. [Variable Scope](06)
-1. [Numerical and Logical Operations](07)
+1. [Numerical and Logical Operations](05)
+1. [Functions](06)
+1. [Scope](07)
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/">Previous: Workshops</a>

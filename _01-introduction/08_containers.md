@@ -1,6 +1,12 @@
-# Collections
+---
+layout : page
+title: Containers
+permalink: /introduction/08
+---
 
-Lists,
+### Ordered Sequences
+
+lists and tuples
 
 - indexing (starts from 0!)
 - access and mutate values stored in a list
@@ -12,9 +18,11 @@ Lists,
 - elem `in` or `not in` list
 - `del` (delete list or its contents)
 
-Tuples
+### Strings
 
-dictionaries,
+- string methods: split, join, replace.
+
+### Dictionaries
 
 - creating, appending, deleting
 - key must be hashable ...
@@ -25,6 +33,8 @@ sets,
 
 - `.add(item)` and `.remove(item)`
 
-Strings
-
-- string methods: split, join, replace.
+<div class="prevnextlinks">
+    <a id="previous" href="07">Previous: Scope</a>
+    <a id="next" href="09">Next: ?</a>
+</div>
+<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

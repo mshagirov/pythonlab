@@ -112,10 +112,10 @@ Sometimes you may want to *explicitly* convert one type to another. For instance
 `int` to a `str`, or `float` to `int` etc. Python provides type casting *methods*
 to convert types.
 
-> Note that when casting higher precision type (`float`) to a lower precision type
-(`int`) data loss may occur. Also, some values might not be compatible for type
-conversion, e.g., non-numeric string to a
-[numeric `int` or `float`](https://docs.python.org/3/library/functions.html#int){:target="_blank"}.
+> Note that when casting higher precision type `float` to a lower precision type
+`int` data loss may occur. Also, some values might not be compatible for type
+conversion, e.g.,
+[non-numeric string to a numeric `int` or `float`](https://docs.python.org/3/library/functions.html#int){:target="_blank"}.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -165,8 +165,8 @@ print("Is x integer:", isinstance(x, int))
 In Python, `NoneType` represents a null or absence of a value. `NoneType` only has
 a single value `None`. Compared to other programming langugages, `None` in Python
 is a distinct object and doesn't represent zero value, e.g., these are NOT null in
-Python, an empty string `""`, numerical `0`, etc. Also, note that `str` `"None"` is
-not the same as `None`.
+Python, an empty string `""`, numerical `0`, etc. Also, note that `str` `"None"`
+is not the same as `None`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -181,22 +181,20 @@ print(
 )
 </script></pre></div>
 
-> I separated the parentheses of `print` command into separate lines for readability.
+I separated the parentheses of `print` command into separate lines for readability.
 
-### Dynamic Typing
-
-Python is a *dynamically typed* language which means that Python infers a
-variable's type when you run the code. This also means that you can update the
-varible's type at anywhere in your code. This leads to less boilerplate code when
-defining variables and functions, simplifies writing more expressive code and
+> Python is a **dynamically typed** language where Python automatically infers a
+variable's type when you run the code. This means that you can update the
+varible's type anywhere in your code. This leads to less boilerplate code when
+defining variables and functions, simplifies writing the code and,
 leads to quicker prototyping.
-
-Like anything good in life, this comes at a cost. In case of dynamic typing, the
-cost is the performance (slower running code), bugs and runtime type errors if the
-types are not managed properly. Python interpreter checks the types of the variables
+<br><br>
+This comes at a cost. In case of dynamic typing, the cost is the performance
+(slower running code), bugs and runtime type errors if the types are not managed
+properly. Python interpreter checks the types of the variables
 during the runtime which takes up the CPU time. Also, in Python you can accidentally
-or intentially reassign a diffent type to a variable. But try to not do it, e.g.,
-this might lead to unforseen errors in your code:
+(or intentially) reassign a diffent type to a variable. But try to not do it, e.g.,
+this might lead to errors in your code:
 
 ```python
 duration = 1
@@ -204,8 +202,8 @@ duration = 1
 duration = "one hour"
 ```
 
-You can always create a new variable to assign your new value with a different type
-instead of overriding the old value.
+> Instead, you can create a new variable to assign a new value with a different
+type instead of overriding the old value and its type.
 
 ```python
 duration = 1
@@ -239,7 +237,7 @@ print(x)
 ### Calculate Sum and Average
 
 Complete the following code so that it computes and prints a sum and and average
-of given numbers. 
+of given numbers.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -255,6 +253,6 @@ print(f"sum = {s}; average = {avg}")
 
 <div class="prevnextlinks">
     <a id="previous" href="03">Previous: Strings</a>
-    <a id="next" href="05">Next: Functions</a>
+    <a id="next" href="05">Next: Numerical Operations</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}"></script>
