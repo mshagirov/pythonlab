@@ -48,17 +48,13 @@ own *local scope*. Only `fun1` is able to access this local variable. Once you
 define (or re-define) a variable inside a local scope that variable is declared
 as a local variable.
 
-> Try reversing order of `x = 5` and the `print` statement
-inside `fun1`. You will get an error, as `print` is trying to access yet undefined
-local `x`.
+- Try reversing order of `x = 5` and the `print` statement inside `fun1`. You
+will get an error, as `print` is trying to access yet undefined local `x`.
 
-### Why We Need Scope
-
-Every function has its own local scope, also known as a *function scope*. Scope
+> Every function has its own local scope, also known as a **function scope**. Scope
 is what makes functions and other objects in Python reusable blocks of code.
 Think about this for a moment. What happens if functions didn't have local scope?
-Every variable would have to have a unique name.
-
+Every variable would have to have a unique name.<br><br>
 If that was the case, you would have to make sure your function doesn't use the same
 variable name inside it. It might be possible for small amount of code, but if you
 are working with multiple modules and libraries with tens of thousands of lines of
@@ -66,7 +62,7 @@ code, things will quickly get out of hand. A variable naming nightmare!
 
 ### Nested Functions
 
-***What are they, why are they, and most importantly how are they?***
+
 
 ### Updating Higher Scope Variables
 
@@ -87,7 +83,7 @@ def fun1():
 x = 42
 print(f"x = {x} before")
 
-fun1()
+fun1() # this call updates x
 
 print(f"x = {x} after")
 </script></pre></div>
@@ -104,7 +100,7 @@ enclosing scope variables by declaring them as `nonlocal`, e.g., you can update
 an enclosing function's variable from inside a nested function.
 
 This is useful for cases when you need a function with a state or memory. For
-instance, you want to keep track of time and update it inside you simulation.
+instance, you want to keep track of time inside you simulation.
 To do this, you could use a nested function with `nonlocal` variable as shown
 in the code below.
 
@@ -132,17 +128,20 @@ t_sec = timer()
 print("simulation step 3: t=", t_sec)
 </script></pre></div>
 
+The `t` variable updates with every call of the `timer` function. E.g., you could
+feed the `timer` as an input to another function and keep updating `t`.
 The state of the function `timer` can't be updated from outside except by calling
 it and this protects `t` from unintendent modifications.
 
 ### Timer with Customisable Step Size
 
-- Modify the code above to allow for a customisable step size `delta` instead of
-fixed `0.25` in the update step. Set `0.25` as the default value.
-- Test your code by running it.
+- Modify the code above to allow for a customisable step size `delta` when creating
+`timer`. Replace the fixed `0.25` in the update step with `delta`. Use `1` as
+the default value.
+- Test your code by running it with different `delta` values.
 
 <div class="prevnextlinks">
     <a id="previous" href="05">Previous: Functions</a>
     <a id="next" href="07">Next: Numerical Operations</a>
 </div>
-<script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
+<script src="{{ '/assets/js/navigaD sion.js' | relative_url }}" defer></script>
