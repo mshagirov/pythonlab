@@ -3,8 +3,10 @@ layout: home
 ---
 
 <div class="terminal-link"><div class="glowtext">
-    <a href="terminal/">Launch terminal<span class="cursor"></span></a>
+    <a href="terminal/" target="_blank">Launch Python<span class="cursor"></span></a>
 </div></div>
+
+> Click "Launch Python" to start Python shell in your browser.
 
 **Workshops and Tutorials**
 

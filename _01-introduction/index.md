@@ -5,7 +5,7 @@ permalink: /introduction/
 ---
 
 <div class="terminal-link"><div class="glowtext">
-    <a href="terminal/">Launch terminal<span class="cursor"></span></a>
+    <a href="/pythonlab/terminal/" target="_blank">Launch Python<span class="cursor"></span></a>
 </div></div>
 
 ### Contents
@@ -27,7 +27,7 @@ permalink: /introduction/
 
 ### Miscellaneous
 
-- [Python: The Documentary, by CultRepo (YouTube)](https://www.youtube.com/watch?v=GfH4QL4VqJ0){:target="_blank"} 
+- [Python: The Documentary, by CultRepo (YouTube)](https://www.youtube.com/watch?v=GfH4QL4VqJ0){:target="_blank"}
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/">Previous: Workshops</a>
