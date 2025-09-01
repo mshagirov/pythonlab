@@ -14,10 +14,16 @@ permalink: /introduction/
 1. [Numerical and Logical Operations](05)
 1. [Functions](06)
 1. [Scope](07)
+1. [Containers](08)
+1. [Logical Flow](09)
+1. [Loops](10)
+1. [Useful Tools: lambda, map, ...](11)
+1. [Dealing with Errors](12)
+1. [Conclusion](13)
 
 ### Miscellaneous
 
-- [Python: The Documentary (YouTube)](https://www.youtube.com/watch?v=GfH4QL4VqJ0)
+- [Python: The Documentary, by CultRepo (YouTube)](https://www.youtube.com/watch?v=GfH4QL4VqJ0){:target="_blank"} 
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/">Previous: Workshops</a>
