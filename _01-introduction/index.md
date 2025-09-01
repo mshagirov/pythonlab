@@ -4,6 +4,10 @@ title: Introduction to Python
 permalink: /introduction/
 ---
 
+<div class="terminal-link"><div class="glowtext">
+    <a href="terminal/">Launch terminal<span class="cursor"></span></a>
+</div></div>
+
 ### Contents
 
 1. [Python](00) 👈 ***start here***
