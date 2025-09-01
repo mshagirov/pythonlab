@@ -6,24 +6,28 @@ permalink: /introduction/08
 
 ### Iterable Objects
 
-You can use `list` and `tuple` to represent *ordered* sequences in Python. Both
-`list` and `tuple` are container objects. They can store *any* Python object
+Lists (`list`) and tuples (`tuple`) represent *ordered* sequences. Both
+`list` and `tuple` are container object types that can store *any* Python object
 including other lists and tuples.
 
-String `str` is an example of ordered *immutable* sequence of characters in Python.
-So, you might find a lot of methods and functions that work with `list` and `tuple`
-also work with `str`.
+`str`, which we have already seen, is also an example of ordered *immutable* sequence
+of characters in Python. Hence, a lot of methods and functions that work with
+`list` and `tuple` also work with `str`.
 
-Another example of containers in Python are `dict` and `set`. Dictionary or `dict`
-objects also can store any type of Python object. Compared to `list` and `tuple`,
-dictionaries store objects as key-value pairs or (key-value) maps and do not
-guarantee the order of the collection. Sets , `set` objects, are an unordered
-collection or *unique* and immutable elements.
+> Immutable objects can't be modified after they are created. `str` and `tuple`
+are types of immutable sequences.
 
-All object types such as `list`, `tuple`, `str` and `dict` are called
-*iterable* objects because you can *iterate* or traverse over their contents.
+Another example of containers in Python are dictionaries (`dict`) and sets (`set`).
+`dict` also can store any type of Python object. In contrast to `list` and
+`tuple`, dictionaries store objects as key-value pairs or key-value maps and do not
+guarantee the order of the collection. Similarly `set` objects, are also not ordered.
+Sets are collections of  *unique* immutable elements.
 
-> Python also comes with other types of built-in collection types. See
+All object types such as `list`, `tuple`, `str`, `set`, and `dict` are called
+*iterable* objects since you *iterate* or traverse over their contents. Below
+we will go through these collection types and their commonly used features.
+
+> Python also comes with other types of built-in container and iterable types. See
 [the official documentation](https://docs.python.org/3/library/collections.html#module-collections){:target="_blank"}
 for more information.
 
@@ -53,9 +57,10 @@ print(fruits)
 print("Length:", len(fruits))
 </script></pre></div>
 
+- Using `+` to extend or join lists is also called list *concatenation*.
 - Access list's elements using their indices. An index of an element represents
-its position within a list. Indexes start at 0. You can update
-(mutate) lists elements using these indices.
+its position within a list. Indexes start at 0. You can update (mutate) lists
+elements using these indices.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
