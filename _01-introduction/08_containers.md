@@ -35,6 +35,6 @@ sets,
 
 <div class="prevnextlinks">
     <a id="previous" href="07">Previous: Scope</a>
-    <a id="next" href="09">Next: ?</a>
+    <a id="next" href="09">Next: Logical Flow</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
