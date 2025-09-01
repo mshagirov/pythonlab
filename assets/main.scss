@@ -56,17 +56,15 @@ pre > * {
   border-color: black;
   background-color: black;
   position: absolute;
-  top: 5%;//65px;
-  right: 3%;
+  top: 65px;
+  right: 10px;
   z-index: 2;
-  margin: 0.5%;
-  height: clamp(1rem, 4.5vh, 4.5rem);
-  // transform: rotate(30deg);
+  margin: 10px;
 }
 /* For intro lines */
 .glowtext > * {
   color: #0f0;
-  font-size: clamp(0.5rem, 1.5vw, 1rem);
+  font-size: 16px; //clamp(0.5rem, 3vw, 1rem);
   display: inline-block;
   position: relative;
   margin: 18px;
@@ -83,14 +81,14 @@ pre > * {
 /* Style and animate the cursor */
 .cursor {
   display: inline-block;
-  width: clamp(2px, 1.5vw, 8px);
-  height: clamp(4px, 2vh, 18px);
+  width: 8px;//clamp(2px, 1.5vw, 8px);
+  height: 18px;//clamp(4px, 3vh, 18px);
   background-color: #0f0;
   vertical-align: top;
   animation: blink 1s step-end infinite;
   position: relative;
-  //top: .5px;
-  //margin-left: 2px;
+  top: 2px;
+  margin-left: 2px;
   box-shadow: 
         0 0 5px #0f0,
         0 0 10px #0f0,
