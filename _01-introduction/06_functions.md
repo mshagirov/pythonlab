@@ -239,7 +239,6 @@ to use `print` if you run this commands in the terminal (Python shell).
 def hi():
     print("Hi!")
 
-print(f"Type : { type(hi) }")
 print(hi)
 print(hi())
 </script></pre></div>

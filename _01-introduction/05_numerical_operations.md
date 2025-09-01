@@ -167,7 +167,7 @@ print(team_contains)
 </script></pre></div>
 
 Equality operations, `==` and `!=` can be used with any data type. For instance,
-you can check if a variable's *value* is equal to a string `Python`.
+you can check if a variable's *value* is equal to a string "Python".
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
