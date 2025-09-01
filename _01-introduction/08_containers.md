@@ -31,8 +31,11 @@ for more information.
 
 To initialise a `list` you can use either an empty list `[]` or call `list()`.
 You can add and remove list elements, and modify elements after you create the
-list. E.g., you can use `append` to add new elements, and `extend` to add
+list.
+
+- Use list instance methods `append` to add new elements, and `extend` to add
 another lists' elements to a list.
+- Use `len` to get the number of list elements (list's length).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -50,18 +53,36 @@ print(fruits)
 print("Length:", len(fruits))
 </script></pre></div>
 
-- Elements of a `list` can accessed using their indices. An index of an element
-represents its position within a list
+- Access list's elements using their indices. An index of an element represents
+its position within a list. Indexes start at 0. You can update
+(mutate) lists elements using these indices.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-fruits = []
+fruits = ["apple", "cherry"] # new list
+print(fruits[1]) # get the 2nd element (index=1)
+
+fruits[0]  = "durian" # update the 1st element (index=0)
+print(fruits)
 </script></pre></div>
 
-- access and mutate values stored in a list
-- len()
-- append, extend, pop
-- looping over list elem-s, direct vs using indices
+- `pop` instance method *removes and returns* the last element of the list, if an
+optional index argument is given `pop` will pop an element at the given index.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+fruits = ["apple", "cherry", "banana", "durian"]
+print(fruits)
+
+last = fruits.pop()
+print(last)
+print("after pop:", fruits)
+
+second = fruits.pop(1) # pop index=1
+print(second)
+print("after pop:", fruits)
+</script></pre></div>
+
 - slicing, negative indices, and `[:]`.
 - list concat
 - elem `in` or `not in` list

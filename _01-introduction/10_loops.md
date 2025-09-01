@@ -7,6 +7,7 @@ permalink: /introduction/10
 ### for
 
 For loops. Remember about identation. Range.
+Looping over list elem-s, direct vs using indices
 
 ### continue
 
