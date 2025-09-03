@@ -6,8 +6,17 @@ permalink: /introduction/10
 
 ### for
 
-For loops. Remember about identation. Range.
-Looping over list elem-s, direct vs using indices
+For loops. Remember about identation.
+
+`range`
+
+Looping over `list` and `tuple` elem-s, direct vs using indices
+
+`dict`
+
+`zip`
+
+`enumerate`
 
 ### continue
 

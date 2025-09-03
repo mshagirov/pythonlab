@@ -290,9 +290,10 @@ print("Joined:\n", new_s)
 
 ### Dictionaries
 
-`dict` relies on unique keys to index, create, access, and update its values.
+Dictionaries `dict` store objects as key-value pairs. `dict` relies on unique keys
+to create, access, and update its values.
 
-- Create a new dictionary using curly braces `{}`, e.g.,
+- Create new dictionary using curly braces `{}`, e.g.,
 `{key1: item1, key2: item2, ...}`, or use `dict(...)` with kwargs `key1=value1, ...`.
 - *Keys must be hashable types*. This means keys' types should be immutable and
 should support hashing methods. `int`, `tuple`, `string`, and `set` are commonly
@@ -306,7 +307,7 @@ print(info)
 
 - If you have an iterator object with key-value pairs, e.g., a list of tuples
 `[('name', 'Hatta'), ('occupation', 'Hatter'), ...]`, you can use the iterator
-as an argument to `dict(...)` constructor to create a new dictionary.
+as an argument to `dict(...)` to create a new `dict`.
 - To add a new key-value pair to an existing `dict` just assign the value to the
 new key.
 
@@ -318,24 +319,17 @@ info['nationality'] = 'Wonderland'
 print(info)
 </script></pre></div>
 
-- To access the values use the key as an index to a `dict` object. If the key
-is not in the dictionary, you will get `KeyError` error. Alternatively, use
-`get(key)` instance method to get the value for a given key. `get` method also
-accepts an optional default value which is returned when the key is absent.
-- `values`
-- `keys`
+- `get`, `.add(item)`,  deleting keys.
 
 ### Sets
 
-`add(item)`, `clear()`, `pop`, `.remove(item)` and `discard(item)`, `update`.
+`add(item)`, `clear()`, `.remove(item)` and `discard(item)`, `update`.
 
 ### Membership Testing
 
 `in` and `not in` keywords
 
 ### Iterable Expansion
-
-Some text here
 
 <div class="prevnextlinks">
     <a id="previous" href="07">Previous: Scope</a>
