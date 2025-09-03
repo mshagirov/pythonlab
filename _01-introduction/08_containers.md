@@ -5,8 +5,9 @@ permalink: /introduction/08
 ---
 
 Containers provide a convenient way to store and work on a collection of objects.
-For instance, a list of files in a folder, lines of text in a text file, and an
-array of numbers (vector) are all examples of collections.
+For instance, a list of files in a folder, an array of numbers (vector),
+or properties of a dataset (number of samples, dates, etc.) are all examples
+of collections.
 
 Since you *iterate* to traverse over their contents, all such containers are
 called *iterable* objects. Below we will go through these iterables and learn
@@ -78,9 +79,9 @@ represents its position within a list.
 
 - *Indexes start at 0*. E.g., let's create and modify an array with these items:
 
-|Index |    0   |    1    |    2    |
-|:----:|:------:|:-------:|:-------:|
-| Item | `apple`|`banana` | `cherry`|
+| Index |    0    |     1     |     2     |
+|:-----:|:-------:|:---------:|:---------:|
+| Value |`'apple'`|`'banana'` | `'cherry'`|
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -95,9 +96,9 @@ print(fruits)
 the end of the list. `-1` refers to the last element, and the first element (index=0)
 can be accessed with index `-len(...)`:
 
-|Index |   -3   |   -2    |    -1   |
-|:----:|:------:|:-------:|:-------:|
-| Item | `apple`| `banana`| `cherry`|
+| Index |    -3   |    -2    |    -1    |
+|:-----:|:-------:|:--------:|:--------:|
+| Value |`'apple'`|`'banana'`|`'cherry'`|
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -303,6 +304,10 @@ print("Joined:\n", new_s)
 should support hashing methods. `int`, `tuple`, and `string` are commonly
 used types for dictionary keys as they are immutable and support hashing.
 
+|  Key  |`'name'`|`'occupation'`|
+|:-----:|:------:|:------------:|
+| Value | `'Bob'`| `'Builder'`  |
+
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 info = {'name': 'Bob', 'occupation': 'Builder'}
@@ -354,19 +359,36 @@ produces (indexed) `list` of keys.
 
 ### Sets
 
-Sets are convenient for removing for duplicates, joining (union), finding unique
-(difference) or shared (intersection) items using set operations. Sets are also
-highly efficient when checking membership, i.e., when checking if the item is in
-the set or removing duplicates, especially when working with large lists of items.
+Sets are convenient for removing for duplicates, joining and finding unique or
+shared items using set operations like union, intersection, and difference. Sets
+are also highly efficient when checking membership, i.e., when checking if the
+item is in the set or removing duplicates, especially when working with large
+lists of items.
 
-- Create a set with `{item1, item2, ...}`. Note that we use *only* values inside
-the curly barces. Alternatively, use `set(iterable)` to convert an iterable object
-to `set` object.
-- Use `.add(item)` to add an item to an existing set.
-- Use `first.union(another)` to concatenate (join) two sets `first` and `another`.
-This creates a new set with unique items from the both sets.
+> You may think of a set as a dictionary where we we only have keys and no values.
 
-`clear()`, `.remove(item)` and `discard(item)`, `update`.
+- Create a set with `{item1, item2, ...}` inside the curly barces. Alternatively,
+use `set(iterable)` to convert an iterable object with immutable items to a `set`
+object.
+- `.add(item)` adds and item to an existing set.
+- `.update(iterable)` add items from an iterable to an existing set.
+- `first.union(another)` concatenates (joins) two sets `first` and `another`.
+This creates a *new* set with unique items from the two sets.
+- `.remove(item)` deletes an item from a set.
+- `.pop(item)` pops the item from the set, removes the item from the set and
+returns it.
+- `.clear()` deletes all items from a set.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+fruits = set()
+fruits.add("apple")
+print(fruits)
+
+other_fruits = ["apple", "banana", "banana", "cherry"]
+fruits.update(other_fruits)
+print(fruits)
+</script></pre></div>
 
 ### Membership Testing
 

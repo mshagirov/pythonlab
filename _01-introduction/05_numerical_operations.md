@@ -130,17 +130,19 @@ to see more examples and details about string formatting.
 
 ### Comparison and Logical Operations
 
-*Comparison expressions* using the logical operators to test equality or compare
-values result in a `bool` values `True` or `False`. Hence, they are also called
-Boolean expressions. The following are logical operators in Python,
+*Comparison expressions* use logical operators to test equality or compare
+values and result in `bool` values `True` or `False`. These types of expressions
+are also known as *Boolean* expressions. Python defines the following
+comparison *operators* to be used in Boolean expressions,
 
 - `==` : equality,
 - `!=` : not equal,
-- `>`, `<` larger than and less than,
-- `>=`, `<=` larger than or equal and less than and equal.
+- `>`, `<`: larger than and less than,
+- `>=`: larger than or equal, and
+- `<=`: less than and equal.
 
 Additionally, built-in logical operators `and`, `or`, `not`, and `in` can be
-used to compute Boolean expressions.
+used to compute more complex Boolean expressions.
 
 - `A and B` : `True` if both A and B are `True`, `False` otherwise.
 - `A or B` : `True` if either A or B are `True`, `False` if both A and B `False`.
@@ -162,8 +164,8 @@ strings).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-team_contains = "I" in "Team"
-print(team_contains)
+is_member = "Tea" in "Team"
+print(is_member)
 </script></pre></div>
 
 Equality operations, `==` and `!=` can be used with any data type. For instance,

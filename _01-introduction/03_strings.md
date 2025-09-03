@@ -21,8 +21,8 @@ Strings can contain quotes and other special characters.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print("You can also use 'quotes'")
-print('and "double quotes"')
+print("Insure the return of organism for 'analysis'")
+print('"double quotes"')
 print('or include quotes \" and \' by escaping with \\ character')
 </script></pre></div>
 
@@ -30,7 +30,7 @@ Here is an example of *new line* character `\n`:
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print('first line\nsecond line\nthird line')
+print('Priority One\nInsure the return of organism\nfor analysis.')
 </script></pre></div>
 
 > Learn more about special characters or *escape sequences* such as `\n` (new line) from
@@ -63,14 +63,14 @@ You can concatenate (join) multiple strings together using `+`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print("First" + "Second" + "Third" + "...")
+print("Weyland" + "-" + "Yutani" + " " + "Corporation")
 </script></pre></div>
 
 To get the length of a string, the number of charachters in a string, use `len` function.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print(len("Hello"))
+print(len("cargo"))
 </script></pre></div>
 
 ### F-Strings
@@ -83,7 +83,7 @@ in curly braces `{expression}` when writing a string.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print(f"'Hello' is {len("Hello")} characters long.")
+print(f"'Word 'Alien' is {len("Alien")} characters long.")
 </script></pre></div>
 
 ### Debug a Syntax Error
