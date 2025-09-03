@@ -71,7 +71,7 @@ print("Length:", len(fruits))
 Access and update list's elements using their *indices*. An index of an element
 represents its position within a list.
 
-- *Indexes start at 0*. E.g., let's create and modify an array with these elements:
+- *Indexes start at 0*. E.g., let's create and modify an array with these items:
 
 |Index |    0   |    1    |    2    |
 |:----:|:------:|:-------:|:-------:|
@@ -206,6 +206,8 @@ tuples don't have methods for appending or extending tuple instances.
 - Use `( item1, item2, ...)` to create a new tuple with given items.
 - To add a new item, extend, or concatenate tuples you need to create a new
 `tuple` object.
+- You can also create a tuple with a single item by including a comma in
+`(item,)`, Python otherwise ignores the parentheses.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -217,15 +219,48 @@ print(new_fruits)
 </script></pre></div>
 
 When you print a tuple, `print` shows items surrounded by parentheses `(` and `)`.
-Also, note that to create a tuple with a single item you need to include comma in
-`(item,)`.
 
 > To create an empty tuple, use `tuple()`. `tuple(LIST)` converts an input list
 or other iterable `LIST` into a `tuple` object.
 
+- You can get slices of a tuple using `[start:stop:step]` similar to the lists.
+
+Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
+*excluding the last item* (i.e., we need `('apple', 'durian')`).
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+fruits = ('melon', 'apple', 'banana', 'durian', 'longan')
+last_two = fruits[?]
+print(last_two)
+</script></pre></div>
+
 ### Strings
 
-- string methods: split, join, replace.
+You can use indexing and slicing to access and obtain sub-strings of a string
+just like lists and tuples. `str` objects are immutable and you can't modify
+a string after creating it.
+
+For convenience, `str` objects have instance methods for spliting, joining,
+and modifying an existing string by creating new strings and lists of strings.
+
+- `replace`
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+
+</script></pre></div>
+
+- `split`
+- `join`
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+
+</script></pre></div>
+
+> For more information on string methods, see
+[official documentation](https://docs.python.org/3/library/stdtypes.html#string-methods).
 
 ### Dictionaries
 
