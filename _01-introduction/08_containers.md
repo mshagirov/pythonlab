@@ -31,8 +31,9 @@ You can also store any type of Python object in dictionaries and sets.
 
 - `dict`: dictionaries store objects as key-value pairs or key-value maps and
 do not guarantee the order of the collection unlike lists and tuples.
-- `set` : sets are also not ordered. They are collections of  *unique* immutable
-objects and implement the concept of mathematical sets.
+- `set` : sets are also not ordered. They are collections of *unique* objects
+and implement the concept of mathematical sets. Sets themselves are mutable
+but store immutable objects.
 
 Lists, tuples, dictionaries, sets, and strings are examples of most commonly used
 container types. Python also has other built-in iterable types.
@@ -46,11 +47,15 @@ To initialise a `list` you can use either an empty list `[]` or call `list()`.
 You can add and remove list elements, and modify elements after you create the
 list.
 
-- `append` method adds a new element,
-- `extend` extends the list by adding another lists' elements to a list,
+- `.append(item)` method adds a new element,
+- `.extend(iterator)` extends the list by adding another lists' or iterator's
+elements to a list,
 - *concatenate two or more lists* using `+` operator (add lists together), and
-- `len` with a list as an input argument returns the number of list elements
-(list's length).
+- `len(LIST)` with a list `LIST` as an input argument returns the number items
+in a list (list's length).
+
+> I added a dot `.` in front of instance method names to differentiate them
+from regular function names like `len`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -105,8 +110,8 @@ print(fruits[-len(fruits)])
 > Remember that (positive) indexing starts with zero and `fruits[len(fruits)]`
 will results in an error as the last index is `len(fruits)-1`.
 
-- `pop` method *removes and returns* the last element of the list, if an
-optional index argument is given `pop(index)` will pop an element at the given index.
+- `.pop()` method *removes and returns* the last element of the list, if an
+optional index argument is given `.pop(index)` will pop an element at the given index.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -251,7 +256,7 @@ a string after creating it.
 For convenience, `str` objects have instance methods for spliting, joining,
 and modifying an existing string by creating new strings and lists of strings.
 
-- `replace(old, new)`: replaces a substring `old` with a new string `new`.
+- `.replace(old, new)`: replaces a substring `old` with a new string `new`.
 
 First, run the code and notice that `s_new` censors the word "Password" as well
 as the word "word". Modify the replace substring to censor only the "word" part.
@@ -265,11 +270,11 @@ s_new = s.replace('word', '****')
 print(s_new)
 </script></pre></div>
 
-- `split(sep)`: splits a string into a list of substrings using the separator
+- `.split(sep)`: splits a string into a list of substrings using the separator
 `sep`. When used without an input `split()` or with `split(None)`, the method
 will split a string on any whitespace character, e.g., new line, tab, spaces,
 etc.
-- `join([string1, string2, ...])`: concatenate strings stored as a
+- `.join([string1, string2, ...])`: concatenate strings stored as a
 list or any other iterable using a delimeter string, e.g., `" ".join(...)`
 will join input list of strings with space as a delimeter (separator).
 
@@ -295,7 +300,7 @@ print("Joined:\n", new_s)
 - Create a new dictionary using curly braces `{}`, e.g.,
 `{key1: item1, key2: item2, ...}`, or use `dict(...)` with kwargs `key1=value1, ...`.
 - *Keys must be hashable types*. This means keys' types should be immutable and
-should support hashing methods. `int`, `tuple`, `string`, and `set` are commonly
+should support hashing methods. `int`, `tuple`, and `string` are commonly
 used types for dictionary keys as they are immutable and support hashing.
 
 <div class="language-python highlighter-rouge">
@@ -319,15 +324,49 @@ print(info)
 </script></pre></div>
 
 - To access the values use the key as an index to a `dict` object. If the key
-is not in the dictionary, you will get `KeyError` error. Alternatively, use
-`get(key)` instance method to get the value for a given key. `get` method also
-accepts an optional default value which is returned when the key is absent.
-- `values`
-- `keys`
+is not in the dictionary, you will get `KeyError` error.
+- Alternatively, use `.get(key)` instance method to get the value for a given key.
+If the key is not in a dictionary `.get(key)` returns `None`. Also, `.get` accepts
+an optional default value which is returned instead of `None` when the key is absent.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+file_info = {"name": "image.tif", "created_at": "03-09-2025 17:13:34"}
+print(file_info.get('owner', 'N/A'))
+</script></pre></div>
+
+`dict` also allows access to their keys and values via instance methods:
+
+- `keys()`: returns iterator containing dictionary's keys,
+- `values()`: returns iterator with the values, and
+- `items()`: returns items iterator as key-value pairs.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+d = {1: "item1", 2: "item2", 3: "item3"}
+print("Values:", d.values())
+print("Items:", d.items())
+</script></pre></div>
+
+> Keys, values, and items can be easily converted to other iterator types. E.g.,
+If you need to use indices or slices on the keys, values, or items, `list(keys)`
+produces (indexed) `list` of keys.
 
 ### Sets
 
-`add(item)`, `clear()`, `pop`, `.remove(item)` and `discard(item)`, `update`.
+Sets are convenient for removing for duplicates, joining (union), finding unique
+(difference) or shared (intersection) items using set operations. Sets are also
+highly efficient when checking membership, i.e., when checking if the item is in
+the set or removing duplicates, especially when working with large lists of items.
+
+- Create a set with `{item1, item2, ...}`. Note that we use *only* values inside
+the curly barces. Alternatively, use `set(iterable)` to convert an iterable object
+to `set` object.
+- Use `.add(item)` to add an item to an existing set.
+- Use `first.union(another)` to concatenate (join) two sets `first` and `another`.
+This creates a new set with unique items from the both sets.
+
+`clear()`, `.remove(item)` and `discard(item)`, `update`.
 
 ### Membership Testing
 
