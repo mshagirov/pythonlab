@@ -13,7 +13,7 @@ Comparison operators: `<,>, <=, >=, ==, !=`.
 ### elif Stamente
 
 <div class="prevnextlinks">
-    <a id="previous" href="08">Previous: Scope</a>
+    <a id="previous" href="08">Previous: Containers</a>
     <a id="next" href="10">Next: Loops</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
