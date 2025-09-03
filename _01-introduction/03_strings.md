@@ -83,7 +83,7 @@ in curly braces `{expression}` when writing a string.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print(f"'Word 'Alien' is {len("Alien")} characters long.")
+print(f"Word 'Alien' is {len("Alien")} characters long.")
 </script></pre></div>
 
 ### Debug a Syntax Error
