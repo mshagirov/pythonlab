@@ -4,6 +4,13 @@ title: Useful Tools
 permalink: /introduction/11
 ---
 
+### Iterable Expansion
+
+```python
+seq = 1, 2, "hello", "etc."
+first, *rest, last =  1, 2, "hello", "etc."
+```
+
 ### Lambda Functions
 
 Anonymous function

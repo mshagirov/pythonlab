@@ -382,21 +382,53 @@ returns it.
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 fruits = set()
-fruits.add("apple")
+fruits.update(["apple", "banana", "banana", "cherry", "grape"])
 print(fruits)
 
-other_fruits = ["apple", "banana", "banana", "cherry"]
-fruits.update(other_fruits)
-print(fruits)
+basket = {"banana", "grape", "potato"}
+print(basket, "\n")
+
+print('difference', fruits - basket)
+print('union', fruits | basket)
+print('intersection', fruits & basket)
+print('w/o intersection', basket ^ fruits)
 </script></pre></div>
 
 ### Membership Testing
 
-`in` and `not in` keywords
+You can test if a value or key is in (or not in) an iterable using `in`.
 
-### Iterable Expansion
+- For `str`, `list`, `tuple`, and `set`, the `in` keyword tests whether a value is
+present in a collection.
 
-Some text here
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+seq = (False, 1, 2, "three", 4.0)
+print( 2 in seq)
+
+d = {"name": "Alice", "location": "Wonderland"}
+print( "Alice" in d)
+</script></pre></div>
+
+- For `dict`, `in` tests the keys in a dictionary.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+d = {"name": "Alice", "location": "Wonderland"}
+print( "Alice" in d)
+</script></pre></div>
+
+- To test dictionary values, you can use `in` together with `dict.values` or
+`dict.items()` methods.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+d = {"name": "Alice", "location": "Wonderland"}
+
+print( "Alice" in d.values())
+
+print(("name", "Alice") in d.items())
+</script></pre></div>
 
 <div class="prevnextlinks">
     <a id="previous" href="07">Previous: Scope</a>
