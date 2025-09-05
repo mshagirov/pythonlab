@@ -5,13 +5,13 @@ permalink: /introduction/08
 ---
 
 Containers provide a convenient way to store and work on a collection of objects.
-For instance, a list of files in a folder, an array of numbers (vector),
-or properties of a dataset (number of samples, dates, etc.) are all examples
-of collections.
+For instance, a list of files in a folder, pixel values of an image, or properties
+of datasets like a description, sample size, creation dates, and author, are all
+examples of collections.
 
-Since you *iterate* to traverse over their contents, all such containers are
-called *iterable* objects. Below we will go through these iterables and learn
-about their features.
+Since you iterate to traverse over their contents, all such containers are
+called iterable objects, *iterables* for short. Below we will go through common
+iterables in Python and learn about their features.
 
 ### Iterables
 
@@ -27,8 +27,9 @@ with `str`.
 > Immutable objects can't be modified after they are created. `str` and `tuple`
 are examples of immutable sequence types.
 
-Examples of Python containers with *unordered* collections are dictionaries and sets.
-You can also store any type of Python object in dictionaries and sets.
+Dictionaries and sets are examples of Python containers with *unordered*
+collections. You can also store any type of Python object in dictionaries. Sets,
+on the other hand, are for storing only immutable objects.
 
 - `dict`: dictionaries store objects as key-value pairs or key-value maps and
 do not guarantee the order of the collection unlike lists and tuples.
@@ -40,20 +41,27 @@ Lists, tuples, dictionaries, sets, and strings are examples of most commonly use
 container types. Python also has other built-in iterable types.
 If you are interested, see
 [the official documentation](https://docs.python.org/3/library/collections.html#module-collections){:target="_blank"}
-for more information on other container types.
+for more information on the other container types.
 
 ### Lists
 
-To initialise a `list` you can use either an empty list `[]` or call `list()`.
-You can add and remove list elements, and modify elements after you create the
-list.
+To initialise an empty `list`, you can either use `[]` or call `list()`. You can
+also create a list by including your items (objects) in the square brackets,
+`[item1, item2, ...]`. You can add and remove items to and from a list, and modify
+items inside the list after the list's creation. The following are common functions
+and methods you would use with lists.
 
-- `.append(item)` method adds a new element,
-- `.extend(iterator)` extends the list by adding another lists' or iterator's
-elements to a list,
-- *concatenate two or more lists* using `+` operator (add lists together), and
-- `len(LIST)` with a list `LIST` as an input argument returns the number items
-in a list (list's length).
+- `list()` or `[]`: create an empty `list`.
+- `list(iterator)`: create a list from another iterator.
+- `[item1, item2, item3, ...]`: create a list filled with objects `item1`,
+`item2`, `item3`, etc.
+- `.append(item)`: this method adds a new object `item` to the list,
+- `.extend(iterator)`: this method extends the list by adding another lists'
+or iterator's items to a list,
+- `LIST1 + LIST2 + ...`: adding lists with `+` *concatenates the lists* into
+a new (longer) list,
+- `len(LIST)` : `len` takes in a list `LIST` as an input argument and returns
+the list's length, number of items in a list.
 
 > I added a dot `.` in front of instance method names to differentiate them
 from regular function names like `len`.
@@ -74,8 +82,8 @@ print(fruits)
 print("Length:", len(fruits))
 </script></pre></div>
 
-Access and update list's elements using their *indices*. An index of an element
-represents its position within a list.
+An *index* of an item in a list represents its position within the list. You can
+use the *indices* to access and update the list's items.
 
 - *Indexes start at 0*. E.g., let's create and modify an array with these items:
 
@@ -92,9 +100,8 @@ fruits[1]  = "longan"
 print(fruits)
 </script></pre></div>
 
-- You can also use negative indexes to access and update items by counting from
-the end of the list. `-1` refers to the last element, and the first element (index=0)
-can be accessed with index `-len(...)`:
+- You can also use negative indices to access and update items by counting from
+the end of the list. `-1` refers to the last item in the list:
 
 | Index |    -3   |    -2    |    -1    |
 |:-----:|:-------:|:--------:|:--------:|
@@ -128,20 +135,20 @@ print(second)
 print("after pop:", fruits)
 </script></pre></div>
 
-> `pop`, `append`, and `extend` are instance methods which means that you call
+> `pop`, `append`, and `extend` are instance methods. This means that you call
 them on each instance of a list object. E.g., `fruits` is an instance of a `list`
 and you call its methods with `fruits.append(...)`, `fruits.pop(...)`, and
 `fruits.extend([...])`.
 
-Access, update, or copy a portion of a list using list *slicing* with optinal
-start index, stop index (exclusive) and step size.
+Access, update, or copy a portion of a list by *slicing* the list with optional
+start (inclusive) and stop (exclusive) indices, and a step size.
 
-- `[:]` refers to all items of the list,
-- `[s:]` refers to all items starting from the `index=s` inclusive of `s`,
-- `[:e]` refers to all items before but not including `index=e`
+- `LIST[:]` refers to all items of the list `LIST`,
+- `LIST[s:]` refers to all items starting from the `index=s` inclusive of `s`,
+- `LIST[:e]` refers to all items before but not including `index=e`
 (excluding `e`),
-- `[::n]` refers to every item with `n` step size (default step size is 1),
-- `[s:e:n]` combines start, end, and step.
+- `LIST[::n]` refers to every item with `n` step size (default step size is 1),
+- `LIST[s:e:n]` combines start, end, and step.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -151,9 +158,11 @@ fruits[::2] = ["melon", "watermelon"]
 print(fruits)
 </script></pre></div>
 
-- When using slices without either start or stop, i.e., `[:]`, `[s:]`, and
-`[:e]`, length of left and right sides of the assignment do not need to be the
-same.
+- For slices with `[s:]`, `[:e]`, and `[:]`, lengths of two sides of the
+assignment do not need to be the same when you are using slices or iterables
+for assignment. The length of a list is automatically adjusted for the new
+values. E.g., below we can assign a 5-element list to a 2-element slice,
+the list is automatically expanded in this case.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -195,12 +204,12 @@ print('Identity:', fruits is fruits_copy)
 print('Equality:', fruits == fruits_copy)
 </script></pre></div>
 
-In Python, `is` checks the object identity. If two objects are the same objects,
-`is` statement returns `True` and returns `False` otherwise. Identity is different
+In Python, `is` checks the object identity. The identity statement returns `True`
+if two objects are the same objects, and `False` otherwise. Identity is different
 from `==` which checks for equality (of values).
 
 > In the code above, we assigned a second name to the `fruits` list, both `other`
-and `fruits` refer to the same list. This can be verified by running
+and `fruits` refer to the same list. This is verified by running
 `print(fruits is other)`.
 
 ### Tuples
@@ -215,17 +224,17 @@ given items.
 `tuple` object.
 - You can also create a tuple with a single item by including a comma in
 `(item,)`, Python otherwise ignores the parentheses.
-- You can also create tuples with `item1, item2,...` since parentheses
-are optional when creating non-empty tuples. But, I suggest keeping the
+- You can omit the parentheses when creating tuples with multiple items, and use
+`item1, item2,...`. But, I suggest keeping the
 surrounding parentheses for readability and to avoid bugs. E.g., try removing
-parentheses around the `'cherry'` below, you will get an error.
+parentheses around the `('cherry', 'durian')` below, you will get an error.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 fruits = ('melon', 'apple', 'banana')
 print(fruits)
 
-new_fruits = fruits[1:] + ('cherry',)
+new_fruits = fruits[1:] + ('cherry', 'durian')
 print(new_fruits)
 </script></pre></div>
 
@@ -272,7 +281,7 @@ print(s_new)
 </script></pre></div>
 
 - `.split(sep)`: splits a string into a list of substrings using the separator
-`sep`. When used without an input `split()` or with `split(None)`, the method
+`sep`. When used without an input, `split()`, or with `split(None)`, the method
 will split a string on any whitespace character, e.g., new line, tab, spaces,
 etc.
 - `.join([string1, string2, ...])`: concatenate strings stored as a
@@ -298,8 +307,9 @@ print("Joined:\n", new_s)
 
 `dict` relies on unique keys to index, create, access, and update its values.
 
-- Create a new dictionary using curly braces `{}`, e.g.,
-`{key1: item1, key2: item2, ...}`, or use `dict(...)` with kwargs `key1=value1, ...`.
+- Create a new dictionary using curly braces, e.g., `{}` (empty dictionary),
+`{key1: item1, key2: item2, ...}`, or use `dict(key1=value1, key2=value2, ...`).
+The latter requires all keys to be strings, see below for another method with `dict()`.
 - *Keys must be hashable types*. This means keys' types should be immutable and
 should support hashing methods. `int`, `tuple`, and `string` are commonly
 used types for dictionary keys as they are immutable and support hashing.
@@ -315,10 +325,10 @@ print(info)
 </script></pre></div>
 
 - If you have an iterator object with key-value pairs, e.g., a list of tuples
-`[('name', 'Hatta'), ('occupation', 'Hatter'), ...]`, you can use the iterator
-as an argument to `dict(...)` constructor to create a new dictionary.
-- To add a new key-value pair to an existing `dict` just assign the value to the
-new key.
+`[(key1, value1), (key2, value2), ...]`, you can use the iterator
+as an argument to the `dict()` constructor to create a new dictionary.
+- To add a new key-value pair to an existing `dict`, or modify a value of an
+already present key just assign the value to the key.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -328,7 +338,7 @@ info['nationality'] = 'Wonderland'
 print(info)
 </script></pre></div>
 
-- To access the values use the key as an index to a `dict` object. If the key
+- To access the values, use the key as an index to a `dict` object. If the key
 is not in the dictionary, you will get `KeyError` error.
 - Alternatively, use `.get(key)` instance method to get the value for a given key.
 If the key is not in a dictionary `.get(key)` returns `None`. Also, `.get` accepts
@@ -342,9 +352,9 @@ print(file_info.get('owner', 'N/A'))
 
 `dict` also allows access to their keys and values via instance methods:
 
-- `keys()`: returns iterator containing dictionary's keys,
-- `values()`: returns iterator with the values, and
-- `items()`: returns items iterator as key-value pairs.
+- `.keys()`: returns iterator containing dictionary's keys,
+- `.values()`: returns iterator with the values, and
+- `.items()`: returns items iterator as key-value pairs.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -359,23 +369,23 @@ produces (indexed) `list` of keys.
 
 ### Sets
 
-Sets are convenient for removing for duplicates, joining and finding unique or
-shared items using set operations like union, intersection, and difference. Sets
-are also highly efficient when checking membership, i.e., when checking if the
-item is in the set or removing duplicates, especially when working with large
-lists of items.
+Sets are convenient and highly efficient for removing duplicates, joining and
+finding unique or shared items using set operations like union, intersection,
+and difference. Sets are also efficient when checking membership, i.e., when
+checking if the item is in the set, especially when working with large lists of
+items.
 
-> You may think of a set as a dictionary where we we only have keys and no values.
+> You may think of a set as a dictionary with only keys and no values.
 
 - Create a set with `{item1, item2, ...}` inside the curly barces. Alternatively,
 use `set(iterable)` to convert an iterable object with immutable items to a `set`
 object.
-- `.add(item)` adds and item to an existing set.
+- `.add(item)` adds an item to an existing set.
 - `.update(iterable)` add items from an iterable to an existing set.
 - `first.union(another)` concatenates (joins) two sets `first` and `another`.
 This creates a *new* set with unique items from the two sets.
 - `.remove(item)` deletes an item from a set.
-- `.pop(item)` pops the item from the set, removes the item from the set and
+- `.pop(item)` pops the item from the set, i.e., removes the item from the set and
 returns it.
 - `.clear()` deletes all items from a set.
 
@@ -405,9 +415,6 @@ present in a collection.
 <pre class="highlight"><script type="py-editor" worker>
 seq = (False, 1, 2, "three", 4.0)
 print( 2 in seq)
-
-d = {"name": "Alice", "location": "Wonderland"}
-print( "Alice" in d)
 </script></pre></div>
 
 - For `dict`, `in` tests the keys in a dictionary.
