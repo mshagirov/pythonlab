@@ -33,8 +33,19 @@ Here is an example of *new line* character `\n`:
 print('Priority One\nInsure the return of organism\nfor analysis.')
 </script></pre></div>
 
-> Learn more about special characters or *escape sequences* such as `\n` (new line) from
+> Learn more about special characters or *escape sequences* such as `\n`
+(new line) from
 [the official documention](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences){:target="_blank"}.
+
+You also can define multi-line strings with `'''...'''` or `"""..."""`.
+Multi-line strings defined in this way retain their indentations and lines.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print("""Priority One
+Insure the return of organism
+for analysis.""")
+</script></pre></div>
 
 ### Raw Strings
 
@@ -77,9 +88,21 @@ print(len("cargo"))
 
 > [Formatted string literals](https://docs.python.org/3/tutorial/inputoutput.html#formatted-string-literals){:target="_blank"}
 
-F-strings allow you to include and format the value of Python expression into
-strings. To define a formatted string, use `f` or `F` prefix and insert the expression
-in curly braces `{expression}` when writing a string.
+Formatted strings, f-strings for short, allow you to include and format the value
+of Python expression into strings. To define f-string, use `f` or `F` prefix and
+insert Python expressions as placeholders in curly braces `{expression}`.
+The f-string evaluates the expression inside `{...}` first. Then, the result is
+converted to its string representation. For instance, the following evaluates an
+addition, formats, and prints the result as a string.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(f"The new route takes {8 + 10} months to reach Earth.")
+</script></pre></div>
+
+You are not limited to simple expressions like above, and you can use any valid
+Python expression inside the placeholders. E.g., in the code below, we call `len`
+function.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
