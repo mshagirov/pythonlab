@@ -4,7 +4,7 @@ title: Loops
 permalink: /introduction/10
 ---
 
-### for
+### For Loops
 
 For loops. Remember about identation.
 
@@ -18,11 +18,11 @@ Looping over `list` and `tuple` elem-s, direct vs using indices
 
 `enumerate`
 
-### continue
+### continue Keyword
 
-### break
+### break Keyword
 
-### while
+### While Loops
 
 Termination
 
