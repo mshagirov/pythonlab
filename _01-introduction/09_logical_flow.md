@@ -8,9 +8,13 @@ permalink: /introduction/09
 
 An *if statement* specifies the part of the code that runs *only* when a given condition
 is met. This allows a programmer to control the logical flow and execution of a
-computer programme. If statements consist of `if` keyword, a condition that needs
-to be fulfilled, and an indented block of code. The following is the definition of
-if statement in Python.
+computer programme. If statements consist of
+
+- `if` keyword,
+- a Boolean condition followed by a colon (`:`), and
+- an indented code block.
+
+The following is a definition of Python if statement.
 
 ```python
 if CONDITION:
@@ -38,7 +42,7 @@ if value < 42:
 > Run the code with different numbers (`int` or `float`) for the `value`.
 
 I used comparison operations as conditions for the statements above. You can use
-any Boolean operation that produces `True` or `False` as a condition of the
+any *Boolean expression* that produces `True` or `False` as a condition of the
 statement.
 
 The code above uses multiple checks of the same value which is
@@ -132,8 +136,9 @@ print("Value", value)
 print(result)
 </script></pre></div>
 
-> Ternary means that the operator consists of three parts, a value if a condition
-is met, a condition, and an alternative value if the condition is false.
+> Ternary means that the operator consists of three parts. The parts
+of the above operator are a value if a condition is met, a condition, and an alternative
+value if the condition is false.
 
 <div class="prevnextlinks">
     <a id="previous" href="08">Previous: Containers</a>

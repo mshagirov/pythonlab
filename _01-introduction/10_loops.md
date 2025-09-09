@@ -4,27 +4,123 @@ title: Loops
 permalink: /introduction/10
 ---
 
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+
+Loops in programming allow executing a block of code multiple times over and over
+until a certain condition is met. They are essential in automating repetitive tasks,
+like creating, reading, and processing lists and other iterable objects. Python
+has two primary types of loops, *for loops* and *while loops*. Furthermore,
+Python also provides mechanisms like `break` and `continue` keywords for controlling
+the loop behaviours.
+
+Let's see how to define and use loops with the `break` and `continue` keywords.
+
 ### For Loops
 
-For loops. Remember about identation.
+For loops in Python require the following:
 
-`range`
+- a variable or a counter,
+- `in` keyword, and
+- an *iterable* object, like a list or tuple.
 
-Looping over `list` and `tuple` elem-s, direct vs using indices
+```python
+for variable in iterable:
+    # code block to execute
+```
 
-`dict`
+The number of *iterations* of a for loop, how many times a for loop is executed,
+is determined by the length of the iterable. The `variable` is automatically assigned
+the next value from the `iterable` starting with the first value at the first iteration.
 
-`zip`
+Help me fix this code. Run the code below to see what it does. It should
+
+- iterate over the items in a shopping basket, and
+- print the name of the item and its index in the basket.
+
+In the end, we need to print the total number of items in a list and `--- end ---`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
+count = 0
+
+for k in basket:
+    print(count, ':', k)
+count += 1
+
+print(f'\n{count} items')
+print('--- end ---')
+</script></pre></div>
+
+> In the above, we are manually tracking the index number. As we are mostly interested
+about the values, you usually don't need to keep track of the index and count the
+length of the iterable when using loops. For loop keeps track of the items in an
+iterable for us.
+
+### Range
+
+Sometimes you may need to explicitly control a loop to run it for a certain
+number of iterations. Python's `range` allows us to do just that. `range` is a
+type of iterable that defines a range of numbers, as its name suggests. For example,
+`range(10)` defines a range of numbers 0--9 with length 10.
+
+- `range(stop)`: a range of `int` numbers from 0 to `stop-1`.
+- `range(start, stop)`: a range of integers from `start` to `stop-1`, where `stop`
+must be larger than or equal to `start`.
+- `range(start, stop, step)`: same as the above, but with a custom `step` size
+(default step is 1). For a negative `step` size, `stop` should be less than `start`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+for i in range(3, 13, 3):
+    print(i)
+</script></pre></div>
+
+> Ranges can be easily converted to lists and tuples by calling the `list()` and
+`tuple()` constructors. E.g., `list(range(5))` creates a list of numbers
+0 to 4.
+
+### Dictionaries and Nested Iterables
+
+Iterating over `list` and `tuple` objects gives us their items' values. As mentioned before,
+when you iterate over `dict` objects you iterate over their keys.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+info = {'name': 'Hatta', 'occupation': 'Hatter', 'nationality': 'Wonderland'}
+
+for key in info:
+    print(key)
+</script></pre></div>
+
+You can use the keys with `info[key]` to access the values. Alternatively, you can
+use `.values()` or `.items()` methods to access the values or keys and the values.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+info = {'name': 'Hatta', 'occupation': 'Hatter', 'nationality': 'Wonderland'}
+
+for key, val in info.items():
+    print(key, ':', val)
+</script></pre></div>
+
+> `for value1, value2, ... in iterable` allows iterating over nested iterables,
+like list of lists, tuple of tuples, etc. In the above, `dict` items is a nested
+iterable of key-value pairs, `[(key1, value1), (key2, value2), ...]`.
+
+### Enumerating and Combining Iterables
 
 `enumerate`
-
-### continue Keyword
-
-### break Keyword
+`zip`
 
 ### While Loops
 
 Termination
+
+### continue Keyword
+
+### break Keyword
 
 <div class="prevnextlinks">
     <a id="previous" href="09">Previous: Logical Flow</a>
