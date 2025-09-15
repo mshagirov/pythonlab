@@ -17,13 +17,13 @@ computer programme. If statements consist of
 The following is a definition of Python if statement.
 
 ```python
-if CONDITION:
-    # code in this block runs only when CONDITION is True
+if condition:
+    # code in this block runs only when "condition" is True
 
 # code outside the block always gets executed
 ```
 
-The indented code block under the `if CONDITION:` executes *only* when the `CONDITION`
+The indented code block under the `if condition:` executes *only* when the `condition`
 is equal to `True`. Let's see it in an example.
 
 <div class="language-python highlighter-rouge">
@@ -52,10 +52,10 @@ when you have an alternative code that runs when the condition is `False`, as
 shown below.
 
 ```python
-if CONDITION:
-    # runs when CONDITION is True
+if condition:
+    # runs when "condition" is True
 else:
-    # runs when CONDITION is False
+    # runs when "condition" is False
 ```
 
 `if-else` uses two different code blocks. Only one block is executed
@@ -82,14 +82,14 @@ logically connected without carefully reading the code first. Python allows us
 further combine these statements into a single `if-elif-else` block as shown below.
 
 ```python
-if CONDITION1:
-    # runs only when CONDITION1 is True
-elif CONDITION2:
+if condition1:
+    # runs only when "condition1" is True
+elif condition2:
     # runs only when
-    #   (CONDITION2 is True) and (CONDITION1 is False)
+    #   "condition2" is True but "condition1" is False
 else:
     # runs if
-    #   (CONDITION2 is False) and (CONDITION1 is False)
+    #   both "condition2" and "condition1" are False
 ```
 
 `elif` stands for "else if". Complete the following code using `if-elif-else`.
@@ -106,8 +106,8 @@ else:
 </script></pre></div>
 
 Only one, either `if` block, or `elif` block, or `else` block executes at a time.
-The condition of the `elif` block (`CONDITION2`) is only checked when the first
-condition (`CONDITION1`) is `False`, i.e., if the first condition *fails*. Also,
+The condition of the `elif` block (`condition2`) is only checked when the first
+condition (`condition1`) is `False`, i.e., if the first condition *fails*. Also,
 we can instantly recognise that the code blocks of the `if-elif-else` are
 logically connected.
 
@@ -122,10 +122,10 @@ allow value assignment using an in-line if statement. The syntax of a conditiona
 expression is as follows.
 
 ```python
-output = value if CONDITION else alternative_value
+output = value if condition else alternative_value
 ```
 
-- `output` is set to `value` if the `CONDITION` is `True`,
+- `output` is set to `value` if the `condition` is `True`,
 - `output` is set to `alternative_value` otherwise.
 
 <div class="language-python highlighter-rouge">
