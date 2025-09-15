@@ -18,9 +18,9 @@ Let's see how to define and use loops with the `break` and `continue` keywords.
 
 ### For Loops
 
-For loops in Python require the following:
+You need the following to define a *for loop* in Python:
 
-- a variable or a counter,
+- a variable (counter),
 - `in` keyword, and
 - an *iterable* object, like a list or tuple.
 
@@ -30,15 +30,16 @@ for variable in iterable:
 ```
 
 The number of *iterations* of a for loop, how many times a for loop is executed,
-is determined by the length of the iterable. The `variable` is automatically assigned
-the next value from the `iterable` starting with the first value at the first iteration.
+is determined by the length of the iterable. The loop assigns the counter `variable`
+automatically using the next value from the `iterable` starting with the first
+value at the first iteration.
 
 Help me fix this code. Run the code below to see what it does. It should
 
 - iterate over the items in a shopping basket, and
 - print the name of the item and its index in the basket.
 
-In the end, we need to print the total number of items in a list and `--- end ---`.
+In the end, we need to print the total number of items in a list.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -50,13 +51,12 @@ for k in basket:
 count += 1
 
 print(f'\n{count} items')
-print('--- end ---')
 </script></pre></div>
 
 > In the above, we are manually tracking the index number. As we are mostly interested
-about the values, you usually don't need to keep track of the index and count the
-length of the iterable when using loops. For loop keeps track of the items in an
-iterable for us.
+about the value itself and not the index, we usually don't need to keep track of
+the index or count the length of the iterable when using loops. The for loop keeps
+track of the items in an iterable for us.
 
 ### Range
 
@@ -81,10 +81,10 @@ for i in range(3, 13, 3):
 `tuple()` constructors. E.g., `list(range(5))` creates a list of numbers
 0 to 4.
 
-### Dictionaries and Nested Iterables
+### Dictionaries, Enumerate, and Zip
 
-Iterating over `list` and `tuple` objects gives us their items' values. As mentioned before,
-when you iterate over `dict` objects you iterate over their keys.
+Iterating over `list` and `tuple` objects gives us their items' values. As mentioned
+before, when you iterate over `dict` objects you iterate over their keys.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -109,18 +109,45 @@ for key, val in info.items():
 like list of lists, tuple of tuples, etc. In the above, `dict` items is a nested
 iterable of key-value pairs, `[(key1, value1), (key2, value2), ...]`.
 
-### Enumerating and Combining Iterables
+You can use the latter feature of the for loop together with Python functions
+`enumerate` to add a counter to the iterable, and use `zip` to iterate over
+multiple iterables.
 
-`enumerate`
-`zip`
+- `enumerate(iterable)` : enumerate the iterable by adding a counter for each
+item in an iterable.
+
+Let's enumerate the items in the shopping basket from the first example.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
+
+for id, val in enumerate(basket):
+    print(f"{id}: {val}")
+</script></pre></div>
+
+- `zip(iterable1, iterable2, ...)`: zip or combine multiple interables into a
+single iterable with items from multiple input iterables `iterable1`, `iterable2`,
+etc. The length of the *zipped* iterable object is determined by the input with
+the shorted length.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
+letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+
+for char, val in zip(letters, basket):
+    print(f"{char}) {val}")
+</script></pre></div>
+
+> You can also use `zip` together with `enumerate` to simultaneously count and
+zip items during iteration, `for id, (val1, val2, ...) in enumerate(zip(...)):`.
 
 ### While Loops
 
 Termination
 
-### continue Keyword
-
-### break Keyword
+### Controlling Loops with continue and break Keywords
 
 <div class="prevnextlinks">
     <a id="previous" href="09">Previous: Logical Flow</a>
