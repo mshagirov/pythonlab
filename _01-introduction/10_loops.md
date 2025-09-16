@@ -213,16 +213,16 @@ What happens when you comment out or remove one of the lines that increments the
 counter `counter += 1` inside the while loop above?
 
 - Comment out the first line with the counter increment. Run the code.
-- Keep the first counter and comment out the second line with the counter increment.
-Run the code again.
-- **Reload this webpage to stop the execution of the while loop**.
+- Uncomment the first line with the counter and comment out the second
+`counter += 1`. Run the code again.
+- **Reload this webpage to stop the execution of the code cell**.
 
 As you may have noticed, the while loop never terminates and continues on
 until you reload the page and stop the Python interpreter. This is an example of
 an *infinite while loop*. We get it when the while loop does not terminate.
 
 > Usually you want to terminate your loops, but in some cases infinite loops may
-be useful. This website is served using an infinite loop. The same is true
+be useful. E.g., this website is served using an infinite loop. The same is true
 for your browser. It is running continuously in an infinite loop while waiting
 for your input actions!
 
