@@ -70,7 +70,8 @@ is a list instance method that sorts the values of a list and hence used only wi
 the list objects. The latter is a more general sorting function that takes in an
 input iterable and outputs a sorted list of values.
 
-- `list.sort()`: sorts the items' values of the list in place. `sort` uses `<`
+- [`list.sort()`](https://docs.python.org/3/library/stdtypes.html#list.sort){:target="_blank"}:
+sorts the items' values of the list in place. `sort` uses `<`
 comparison, so the list items must support this operation. This is straightforward
 when it comes to the numerical types.
 
@@ -84,14 +85,8 @@ print(items)
 Strings also implement comparison based on order of the characters' alphabetical
 (and numerical values).
 
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-chars = list("AaBbCc123")
-chars.sort()
-print(chars)
-</script></pre></div>
-
-- `sorted(iterable)`: produces a list of sorted items taken from an iterable object.
+- [`sorted(iterable)`](https://docs.python.org/3/library/functions.html#sorted){:target="_blank"}:
+produces a list of sorted items taken from an iterable object.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -103,26 +98,136 @@ Both `.sort` and `sorted` accept two optional keyword arguments.
 
 - `key`: a function with one input argument. Key is applied to each item before
 comparing them. The default is `None`.
-
-Let's use lambda function as a key to sort words based on the last letter of each
-word.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-items = "Banana Apple Durian Cherry".split()
-print(sorted(items, key=lambda s: s[-1]))
-</script></pre></div>
-
 - `reverse`: a Boolean, reverses the sorting order if equal to `True`. The default
 value is `False`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
+def last_char(s):
+    return s[-1]
+
 items = "Banana Apple Durian Cherry".split()
-print(sorted(items, reverse=True))
+print(sorted(items, key=last_char, reverse=True))
 </script></pre></div>
 
+---
+**Q:** Complete the code below so that it prints a string with sorted characters
+`123ABCabc`. Use the list's `.sort()` method. You may find `list(...)` and
+string's `"".join(...)` useful for this task.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+chars = "AaBbCc123"
+# Don't edit above
+?
+
+# Don't edit below
+print(chars)
+</script></pre></div>
+
+---
+
+**Q:** Please write a key using a lambda function that returns the last letter
+of an input word. The `sorted` function below should return sorted list of
+words based on the last letter of each word.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def inspect(s):
+    print(s)
+    return s
+
+items = "Banana Apple Durian Cherry".split()
+print(sorted(items, key=lambda ?))
+</script></pre></div>
+
+> You may also find the included `inspect` function useful to check what
+`sorted` "sees" when applying the `key` to the elements of the
+list.
+
+---
+
 ### Map and Filter
+
+Python's built-in `map` and `filter` functions allow working with iterables without
+using loops or if statements.
+
+- [`map`](https://docs.python.org/3/library/functions.html#map){:target="_blank"}:
+accepts a function and at least one iterable. `map` applies the input function
+on each item of an iterable. The function's inputs must match the number of
+input iterables, e.g., in `map(func, iterable)`, `func` must accept a single
+argument, and for `map(func, iterable1, iterable2)`, `func` must accept two
+inputs.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+nums = list(range(10))
+nums_squared = map(lambda x: x**2, nums)
+
+print( list(nums_squared) )
+</script></pre></div>
+
+> `map` returns a `map` object instead of the original iterable type and
+uses a "lazy" evaluation. Use `list`, `tuple`, `dict`, etc. to convert the output
+to your desired type of iterable. You can use any function with any number of
+outputs.
+
+- [`filter`](https://docs.python.org/3/library/functions.html#filter){:target="_blank"}:
+accepts a function and an iterable. The `function`
+should return either `True` or `False` (and `None`) and it works as a filter
+over the items in the `iterable`. All the elements of the input iterable that
+produce `False` are removed.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+items = "Banana Apple Durian Cherry".split()
+six_letter_words = filter(lambda s: len(s) == 6, items)
+
+print( list(six_letter_words) )
+</script></pre></div>
+
+---
+**Q:** Use `sorted`, `map`, and `filter` to complete the code below. The final
+`print` should print a sequence of numbers similar to the
+original sequence. The final number sequence must be sorted and it should
+exclude all numbers with absolute values (`abs(x)`) between 3 and 7
+(also remove 3 and 7). For an example, an original sequence
+
+```sh
+original: 8, -9, 3, 5, 8, -10, -4, 7, 5, -2
+```
+
+should look like this after processing it:
+
+```sh
+filtered: -10, -9, -2, 8, 8
+```
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+import random
+random.seed(0) # for reproducibility
+
+def random_numbers(n):
+    '''returns a list of `n` random numbers between [-10, +10]'''
+    rand_nums = map(lambda x: random.randrange(-10, 11), range(n))
+    return list(rand_nums)
+
+nums = random_numbers(10)
+print('original:', ", ".join(map(str,nums)))
+# Don't edit above
+
+final = ?
+
+# Don't edit below
+print('filtered:', final)
+</script></pre></div>
+
+---
+
+### Help
+
+### Sum, Max, and Min
 
 <div class="prevnextlinks">
     <a id="previous" href="10">Previous: Loops</a>
