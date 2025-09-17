@@ -10,7 +10,7 @@ permalink: /introduction/
 
 ### Contents
 
-1. [Python](00) 👈 ***start here***
+1. [Python](00) 🐍 👈 ***start here***
 1. [The Standard Library](01)
 1. [Syntax and Arithmetics](02)
 1. [Strings](03)

@@ -27,11 +27,11 @@ the star (`*`) notation, where "*" groups the remaining values into a list.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-name, *location, mass =  "Alice", 10, 42, 60
+name, *location, population = 'Singapore', '1.35°N', '103.82°E', 6_037_000
 
 print(name)
 print(location)
-print(mass)
+print(f'{population:,}')
 </script></pre></div>
 
 You can also use `_` to ignore a value (or `*_` to ignore multiple values) during
@@ -39,8 +39,7 @@ assignment.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-name, *_ =  "Alice", 10, 42, 60
-
+name, *_ = "Singapore", "1.35°N", "103.82°E", 6_037_000
 print(name)
 </script></pre></div>
 
@@ -110,43 +109,6 @@ items = "Banana Apple Durian Cherry".split()
 print(sorted(items, key=last_char, reverse=True))
 </script></pre></div>
 
----
-**Q:** Complete the code below so that it prints a string with sorted characters
-`123ABCabc`. Use the list's `.sort()` method. You may find `list(...)` and
-string's `"".join(...)` useful for this task.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-chars = "AaBbCc123"
-# Don't edit above
-?
-
-# Don't edit below
-print(chars)
-</script></pre></div>
-
----
-
-**Q:** Please write a key using a lambda function that returns the last letter
-of an input word. The `sorted` function below should return sorted list of
-words based on the last letter of each word.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-def inspect(s):
-    print(s)
-    return s
-
-items = "Banana Apple Durian Cherry".split()
-print(sorted(items, key=lambda ?))
-</script></pre></div>
-
-> You may also find the included `inspect` function useful to check what
-`sorted` "sees" when applying the `key` to the elements of the
-list.
-
----
-
 ### Map and Filter
 
 Python's built-in `map` and `filter` functions allow working with iterables without
@@ -186,12 +148,76 @@ six_letter_words = filter(lambda s: len(s) == 6, items)
 print( list(six_letter_words) )
 </script></pre></div>
 
+### Getting Help
+
+You will most likely forget about the commands you have learned so far. It
+could be a name, or number or type of inputs, or usage of a command. This is
+completely fine and you should expect it.
+
+> I forget commands' inputs and usage details all the time.
+
+So what do you do if you forget a command or its usage? You will need a way to
+find commands that you need together with their usage details, a.k.a.
+*documentation*. Below is my "method", feel free to modify and adapt it to your
+own working style.
+
+- *Somewhat familiar with the command*: use `help` function to lookup its documentation.
+`help` is useful when you want to remind youself on the usage details.
+- *Know the name but not familiar*: use the command and observe its outputs and errors.
+Then, use `help` and search engine for the command's documentation and examples.
+- *Forgot the command or not familiar with it*: use your preferred search engine
+for command's name and documentation, usage examples, and tutorials. E.g.,
+"format float in python".
+- *You have defined a clear goal but don't know where to start*: use AI (chat) agent,
+AI search, etc., to draft your code. Then, use `help` or Python documentation to
+explore and edit your draft. Start small with a few lines of code and build on it.
+
+> AI is very useful when you get stuck while coding. Be careful not to
+generate very long code (e.g., `>>10-20` lines). Code with too many lines is
+difficult to read and debug. Try to build your code line by line.
+
+### Questions
+
 ---
-**Q:** Use `sorted`, `map`, and `filter` to complete the code below. The final
-`print` should print a sequence of numbers similar to the
-original sequence. The final number sequence must be sorted and it should
-exclude all numbers with absolute values (`abs(x)`) between 3 and 7
-(also remove 3 and 7). For an example, an original sequence
+**Q1:** Complete the code below so that it prints a string with sorted characters
+`123ABCabc`. Use the list's `.sort()` method. You may find `list(...)` and
+string's `"".join(...)` useful for this task.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+chars = "AaBbCc123"
+#> Don't edit above
+?
+
+#> Don't edit below
+print(chars)
+</script></pre></div>
+
+---
+
+**Q2:** Please write a key using a lambda function that returns the last letter
+of an input word. The `sorted` function below should return sorted list of
+words based on the last letter of each word.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def inspect(s):
+    print(s)
+    return s
+
+items = "Banana Apple Durian Cherry".split()
+print(sorted(items, key=lambda ?))
+</script></pre></div>
+
+> You may also find the included `inspect` function useful to check what
+`sorted` "sees" when applying the `key` to the elements of the
+list.
+
+---
+**Q3:** Use `sorted`, `abs`, `map`, and `filter` to complete the code below. The final
+`print` should print a *sorted* sequence of numbers that
+*excludes* all numbers with absolute values (`abs(x)`) between 3-7,
+including 3 and 7. For example, an original sequence
 
 ```sh
 original: 8, -9, 3, 5, 8, -10, -4, 7, 5, -2
@@ -215,19 +241,27 @@ def random_numbers(n):
 
 nums = random_numbers(10)
 print('original:', ", ".join(map(str,nums)))
-# Don't edit above
+#> Don't edit above
 
 final = ?
 
-# Don't edit below
+#> Don't edit below 
+
 print('filtered:', final)
 </script></pre></div>
 
+> Comment out the `random.seed(0)` to try out your code with random sequences.
+
 ---
+**Q4:** Use `help` to lookup help on `sum`, `max`, and `min`. Apply these commands
+on `range(10)`.
 
-### Help
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+help(sum)
+</script></pre></div>
 
-### Sum, Max, and Min
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="10">Previous: Loops</a>

@@ -77,7 +77,10 @@ You don't need to use `print` in the terminal to see the output of the command.
 Keep the terminal open when reading through the pages of this site to quickly
 try out different variations of the commands.
 
-### Indentation
+### Questions
+
+---
+**Q:** Indentation, Indentation, Indentation
 
 Note that, compared to other programming languages, *indentation* is important
 in Python. E.g., this will produce an error.
@@ -88,9 +91,12 @@ print(1 + 2)
   print(3 + 4)
 </script></pre></div>
 
-In your browser the above won't run or show any errors. We will see
-the importance of indentation when defining *functions*. For now, try fixing the
-error in the above code so that it is able to run.
+- Try fixing the error in the code so that it is able to run.
+
+> In your browser the above won't run or show any errors. We will see
+the importance of indentation when defining *functions*.
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="01">Previous: Standard Library</a>

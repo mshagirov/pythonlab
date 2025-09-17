@@ -61,25 +61,25 @@ else:
 `if-else` uses two different code blocks. Only one block is executed
 depending on whether a condition is met or failed.
 
-Complete the following code to reimplement the previous code with three `if`
-statements using `if-else`.
-
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 value = 10
 if value > 42:
     print(f'{value} is larger than 42.')
-
-if ? :
-    print(?)
 else:
-    print(?)
+    print(f'{value} is less than or equal to 42.')
+
+if value == 42:
+    print(f'{value} is equal to 42.')
 </script></pre></div>
 
 In the above, we are still checking the value twice using two separate if
-statements. It might not be immediately clear whether these `if` blocks are
-logically connected without carefully reading the code first. Python allows us
-further combine these statements into a single `if-elif-else` block as shown below.
+statements. These if statements potential print redundant information, e.g.,
+when `value = 42`. Also, it is not immediately clear whether these `if` blocks are
+logically connected without carefully reading the code first.
+
+Python allows us further combine these statements into a single `if-elif-else`
+block as shown below.
 
 ```python
 if condition1:
@@ -92,27 +92,27 @@ else:
     #   both "condition2" and "condition1" are False
 ```
 
-`elif` stands for "else if". Complete the following code using `if-elif-else`.
+`elif` stands for "else if". E.g., see the following code.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 value = 10
 if value > 42:
     print(f'{value} is larger than 42.')
-elif ? :
-    print( ? )
+elif value < 42 :
+    print(f'{value} is less than 42.')
 else:
-    print( ? )
+    print(f'{value} is equal to 42.')
 </script></pre></div>
 
-Only one, either `if` block, or `elif` block, or `else` block executes at a time.
+Only one block, either `if`, `elif`, or `else` executes at a time.
 The condition of the `elif` block (`condition2`) is only checked when the first
 condition (`condition1`) is `False`, i.e., if the first condition *fails*. Also,
 we can instantly recognise that the code blocks of the `if-elif-else` are
 logically connected.
 
-> The only required part of the `if` statement is the first `if` block, and the
-`elif` and `else` parts are optional.
+> The only required part of the `if` statement is the first `if` block. The
+`elif` and `else` blocks are optional.
 
 ### Conditional Expressions
 

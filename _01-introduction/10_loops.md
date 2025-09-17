@@ -33,30 +33,17 @@ the first item at the first iteration. The `variable` then can be used in the
 *indented* block of code. The indented code is repeatedly executed during
 each execution of the loop.
 
-### Help Me Fix This Code
-
-Run the code below to see what it does. It should
-
-- iterate over the items in a shopping basket, and
-- print the name of the item and its index in the basket.
-
-In the end, we need to print the total number of items in a list.
+E.g., the code below iterates over the items in a shopping basket and prints them.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
-count = 0
 
 for k in basket:
-    print(count, ':', k)
-count += 1
-
-print(f'\n{count} items')
+    print(k)
 </script></pre></div>
 
-> In the above, we are manually tracking the index number. This is not the usual
-practice as we are mostly interested about the value itself and not its index.
-We generally don't need to keep track of the index or count the length of the
+> Generally, we don't need to keep track of the index or count the length of the
 iterable when using loops since the for loop keeps track of the items in an iterable
 for us.
 
@@ -185,10 +172,11 @@ while a given `condition` is true.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
+basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
 counter = 0
 
-while counter < 5:
-    print(counter)
+while counter < len(basket):
+    print(basket[counter])
     counter += 1
 </script></pre></div>
 
@@ -207,15 +195,49 @@ while counter < 10:
     counter += 1
 </script></pre></div>
 
-### Terminating While Loops
+### Questions
 
-What happens when you comment out or remove one of the lines that increments the
-counter `counter += 1` inside the while loop above?
+---
+**Q1:** Help me fix the code below.
 
-- Comment out the first line with the counter increment. Run the code.
+- Run the code and see what it does.
+- Fix the code so that it prints the name of the item with its index in the basket.
+- The code should print the total number of items in a list in last line.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+basket = ['apple', 'bread', 'cheese', 'durian', 'eggs']
+count = 0
+
+for k in basket:
+    print(count, ':', k)
+count += 1
+
+print(f'\n{count} items')
+</script></pre></div>
+
+---
+**Q2:** What happens when you comment out or remove one of the lines that
+increments the counter `counter += 1` inside the while loop below?
+
+- Run the code.
+- **Reload this webpage to stop the execution of the code cell if gets stuck**.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+counter = 0
+
+while counter < 10:
+    if counter%2 != 0:
+        # counter += 1
+        print(counter)
+        continue
+    print(counter)
+    counter += 1
+</script></pre></div>
+
 - Uncomment the first line with the counter and comment out the second
 `counter += 1`. Run the code again.
-- **Reload this webpage to stop the execution of the code cell**.
 
 As you may have noticed, the while loop never terminates and continues on
 until you reload the page and stop the Python interpreter. This is an example of
@@ -225,6 +247,8 @@ an *infinite while loop*. We get it when the while loop does not terminate.
 be useful. E.g., this website is served using an infinite loop. The same is true
 for your browser. It is running continuously in an infinite loop while waiting
 for your input actions!
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="09">Previous: Logical Flow</a>

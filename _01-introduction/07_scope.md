@@ -140,10 +140,8 @@ def get_timer(start=0):
 
     return step
 
-t_start = 0
-timer = get_timer(t_start)
-
-print("simulation starting; t=", t_start)
+timer = get_timer()
+print("simulation starting; t=", 0)
 
 t_sec = timer()
 print("simulation step 1: t=", t_sec)
@@ -158,12 +156,42 @@ feed the `timer` as an input to another function and keep updating `t`.
 The state of the function `timer` can't be updated from outside except by calling
 it and this protects `t` from unintendent modifications.
 
-### Timer with Customisable Step Size
+### Questions
 
-- Modify the code above to allow for a customisable step size `delta` when creating
+---
+
+**Q:** Timer with Customisable Step Size
+
+- Modify the code below to allow for a customisable step size `delta` when creating
 `timer`. Replace the fixed `0.25` in the update step with `delta`. Use `1` as
 the default value.
 - Test your code by running it with different `delta` values.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def get_timer( ? ):
+    t = start # keep track of time
+
+    def step():
+        nonlocal t
+        t = ? # update time
+        return t
+
+    return step
+
+timer = get_timer(start=5, delta=0.1)
+print("simulation starting; t=", 0)
+
+#> Don't edit below
+t_sec = timer()
+print(f'simulation step 1: t= {t_sec:.2f}')
+t_sec = timer()
+print(f'simulation step 2: t= {t_sec:.2f}')
+t_sec = timer()
+print(f'simulation step 3: t= {t_sec:.2f}')
+</script></pre></div>
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="06">Previous: Functions</a>

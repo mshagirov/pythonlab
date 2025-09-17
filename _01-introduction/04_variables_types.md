@@ -234,10 +234,13 @@ comment
 print(x)
 </script></pre></div>
 
-### Calculate Sum and Average
+### Questions
 
-Complete the following code so that it computes and prints a sum and and average
-of given numbers.
+---
+**Q:** Calculate Sum and Average
+
+- Complete the following code so that it computes and prints a sum and average
+of the numbers `x1`, `x2`, `x3`, and `x4`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -250,6 +253,8 @@ avg = ?
 # DO NOT edit below this line
 print(f"sum = {s}; average = {avg}")
 </script></pre></div>
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="03">Previous: Strings</a>

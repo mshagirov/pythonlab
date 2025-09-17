@@ -245,18 +245,6 @@ to convert an input list or other iterable into a `tuple` object.
 
 - You can get slices of a tuple using `[start:stop:step]` similar to the lists.
 
-Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
-*excluding the last item* (i.e., we need `('apple', 'durian')`).
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-fruits = ('melon', 'apple', 'banana', 'durian', 'longan', 'cherry')
-basket = fruits[?]
-
-print(basket)
-print('Length:', len(basket))
-</script></pre></div>
-
 ### Strings
 
 You can use indexing and slicing to access and obtain substrings of a string
@@ -267,19 +255,6 @@ For convenience, `str` objects have instance methods for spliting, joining,
 and modifying an existing string by creating new strings and lists of strings.
 
 - `.replace(old, new)`: replaces a substring `old` with a new string `new`.
-
-First, run the code and notice that `s_new` censors the word "Password" as well
-as the word "word". Modify the replace substring to censor only the "word" part.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-s = 'Password: word'
-print(s)
-
-s_new = s.replace('word', '****')
-print(s_new)
-</script></pre></div>
-
 - `.split(sep)`: splits a string into a list of substrings using the separator
 `sep`. When used without an input, `split()`, or with `split(None)`, the method
 will split a string on any whitespace character, e.g., new line, tab, spaces,
@@ -290,14 +265,17 @@ will join input list of strings with space as a delimeter (separator).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-sentence = "A_sentence_is_a_set_of_words_that_is_complete_in_itself."
-print("Original:\n", sentence)
+sentence = 'A sentence is a set of words that is complete in itself.'
+print(sentence)
 
-words = sentence.split("_")
-print(f"{len(words)} words:\n", words)
+replaced = sentence.replace('sentence', 'phrase')
+print(replaced)
 
-new_s = " ".join(words)
-print("Joined:\n", new_s)
+words = replaced.split(' ')
+print(len(words), 'words')
+
+new_s = ' '.join(words[:7])
+print(new_s)
 </script></pre></div>
 
 > For more information on string methods, see
@@ -436,6 +414,41 @@ print( "Alice" in d.values())
 
 print(("name", "Alice") in d.items())
 </script></pre></div>
+
+### Questions
+
+---
+
+**Q1:** Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
+*excluding the last item* (i.e., we need `('apple', 'durian')`).
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+fruits = ('melon', 'apple', 'banana', 'durian', 'longan', 'cherry')
+basket = fruits[?]
+
+print(basket)
+print('Length:', len(basket))
+</script></pre></div>
+
+---
+
+**Q2:** Fix this code to hide the "word".
+
+- Run the code and notice that `s_new` censors the word "Password" as well
+as the word "word".
+- Modify the replace substring to censor only the "word" part.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+s = 'Password: word'
+print(s)
+
+s_new = s.replace('word', '****')
+print(s_new)
+</script></pre></div>
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="07">Previous: Scope</a>

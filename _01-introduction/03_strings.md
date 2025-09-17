@@ -109,14 +109,19 @@ function.
 print(f"Word 'Alien' is {len("Alien")} characters long.")
 </script></pre></div>
 
-### Debug a Syntax Error
+### Questions
 
-Oh no! I broke Python syntax. Fix the following code so that it prints two lines.
+---
+**Q:** Debug a Syntax Error
+
+- Oh no! I broke Python. Fix the following code so that it prints two lines.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 print("Neo: 'I know kung-fu'\nMorpheus: 'Show me'')
 </script></pre></div>
+---
+
 <div class="prevnextlinks">
     <a id="previous" href="02">Previous: Arithmetics</a>
     <a id="next" href="04">Next: Variables</a>

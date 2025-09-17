@@ -32,12 +32,6 @@ def FUNCTION_NAME(INPUT_ARGS):
     return RESULTS
 ```
 
-The optional `return` statement *stops* the execution, and returns the results of
-the function's computations. If we didn't provide any variables to `return`, the
-function stops at the return statement and returns `None`. If we completely omit
-the return statement, entire function body is executed and once completed the function
-returns `None` as well.
-
 To define an empty (template) function, that you plan to implement later, use
 `pass` keyword. You must *always* include `()` (and `:`) after the name of the function,
 even when you don't need to provide any input.
@@ -47,23 +41,21 @@ def FUNCTION_NAME():
     pass
 ```
 
-### Fix a Greeter Function
+The optional `return` statement *stops* the execution, and returns the results of
+the function's computations.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-def greeter(name):
-print(f"Hello, {name}!")
+def add_five(number):
+    return number + 5
 
-name = 'World'
-greeter(name)
+result = add_five(10)
+print(result)
 </script></pre></div>
 
-1. Run the code above. It should fail to run. Fix the code so that it prints
-`Hello, World!`.
-1. Set the `name` variable to your name as a `str` (using quotes
-or double quotes) then run the code again to print a geeting.
-1. Replace the last line with `print(greeter(name))` and run the code again.
-Can you explain what happens when you run this code?
+If we didn't provide any variables to `return`, the function stops at the return
+statement and returns `None`. If we completely omit the return statement, entire
+function body is executed, and once completed, the function returns `None`.
 
 > It is conventional to use **two** or **four** space characters for indentation.
 Many text editors and
@@ -84,36 +76,14 @@ def func(input1, input2, input3):
     pass
 ```
 
-Complete the following multiparameter function:
-
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-import math
+def add(a, b):
+    return a + b
 
-def vector_length(x, y, z):
-    # Don't edit above
-    l = math.sqrt( ? )
-
-    # Don't edit below
-    return l
-
-x1, x2, x3 = 1, 4, 8
-l = vector_length(x1, x2, x3)
-
-print(f"length of [{x1}, {x2}, {x3}] is {l}")
+result = add(5, 10)
+print(result)
 </script></pre></div>
-
-- Compute the
-[Euclidean length or L2-norm](https://mathworld.wolfram.com/L2-Norm.html){:target="_blank"}
-of a 3-dimensional vector by completing the above function. You may find
-[`sqrt` function](https://docs.python.org/3/library/math.html#math.sqrt){:target="_blank"}
-useful for this. I have already *imported* it for you as a part of built-in
-`math` module. You can call it as `math.sqrt(...)`.
-
-> [Modules](https://docs.python.org/3/tutorial/modules.html){:target="_blank"}
-are files with reusable code. E.g., you can write your own module as text file
-ending with `.py` with your functions and variables (a.k.a. Python file) and then
-import and reuse it in other parts of your code.
 
 ### Returning Multiple Values
 
@@ -126,49 +96,17 @@ def func():
     return result1, result2, ...
 ```
 
-- Complete function `compute_l1_l2` below.
-- It should return two values. First value must be the
-[Manhattan length](https://mathworld.wolfram.com/L1-Norm.html){:target="_blank"}
-`l1` and the second returned value must be the Euclidean length. Use predefined
-functions to compute L1 (Manhattan) and L2 (Euclidean) norms.
-
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-def compute_l1_l2(x, y, z):
-    l1 = ? # l1-norm
-    l2 = ? # l2-norm
+def numbers():
+    return 1, 2, 3
 
-    # Don't edit below
-    return l1, l2
+a, b, c = numbers()
 
-def l2_norm(x, y, z):
-    """Computes Euclidean length (norm)"""
-    import math
-    return math.sqrt(x*x + y*y + z*z)
-
-def l1_norm(x, y, z):
-    """Computes Manhattan length"""
-    return abs(x) + abs(y) + abs(z)
-
-def test(x, y, z):
-    l1, l2 = compute_l1_l2(x, y, z)
-    print(f"[{x:2},{y:2},{z:2}] -> L1: {l1 :4.2f}; L2: {l2 :4.2f}")
-
-def main():
-    test(1, -4, 8)
-    test(1, 4, 8)
-    test(-3, 5, 9)
-
-main()
+print(a)
+print(b)
+print(c)
 </script></pre></div>
-
-**Questions**
-
-- You are including function calls for `l1_norm` and `l2_norm` before
-Python is aware of them. Remembering that Python executes code sequentially,
-why doesn't this lead to an error?
-*Tip: function executes (runs) only when you call it.*
-- What is the sequence of calls when you run the code above?
 
 ### Default Parameter Values: args and kwargs
 
@@ -220,7 +158,106 @@ together with their names.
 > Positional arguments must be provided before keyword arguments when defining
 and calling functions that use both positional and keyword arguments.
 
-### Function Objects
+### Questions
+
+---
+**Q1:** Fix a Greeter Function.
+
+- Run the code. It should fail to run.
+- Fix the code so that it prints `Hello, World!`.
+- Set the `name` variable to your name as a `str` (using quotes
+or double quotes) then run the code again to print a geeting.
+- Replace the last line with `print(greeter(name))` and run the code again.
+- Can you explain what happens when you run this code?
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def greeter(name):
+print(f"Hello, {name}!")
+
+name = 'World'
+greeter(name)
+</script></pre></div>
+
+---
+**Q2:** Complete the `vector_length` multiparameter function.
+
+- Compute the
+[Euclidean length or L2-norm](https://mathworld.wolfram.com/L2-Norm.html){:target="_blank"}
+of a 3-dimensional vector by completing the function.
+- You may find
+[`sqrt` function](https://docs.python.org/3/library/math.html#math.sqrt){:target="_blank"}
+useful for this. I have already *imported* it for you as a part of built-in
+`math` module. You can call it as `math.sqrt(...)`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+import math
+
+def vector_length(x, y, z):
+    # Don't edit above
+    l = math.sqrt( ? )
+
+    #> Don't edit below
+    return l
+
+x1, x2, x3 = 1, 4, 8
+l = vector_length(x1, x2, x3)
+
+print(f"length of [{x1}, {x2}, {x3}] is {l}")
+</script></pre></div>
+
+> [Modules](https://docs.python.org/3/tutorial/modules.html){:target="_blank"}
+are files with reusable code. E.g., you can write your own module as text file
+ending with `.py` with your functions and variables (a.k.a. Python file) and then
+import and reuse it in other parts of your code.
+
+---
+**Q3:** Complete function `compute_l1_l2` below.
+
+- The function should return two values. First value must be the
+[Manhattan length](https://mathworld.wolfram.com/L1-Norm.html){:target="_blank"}
+`l1` and the second returned value must be the Euclidean length. Use predefined
+functions to compute L1 (Manhattan) and L2 (Euclidean) norms.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def compute_l1_l2(x, y, z):
+    l1 = ? # l1-norm
+    l2 = ? # l2-norm
+
+    #> Don't edit below
+    return l1, l2
+
+def l2_norm(x, y, z):
+    """Computes Euclidean length (norm)"""
+    import math
+    return math.sqrt(x*x + y*y + z*z)
+
+def l1_norm(x, y, z):
+    """Computes Manhattan length"""
+    return abs(x) + abs(y) + abs(z)
+
+def test(x, y, z):
+    l1, l2 = compute_l1_l2(x, y, z)
+    print(f"[{x:2},{y:2},{z:2}] -> L1: {l1 :4.2f}; L2: {l2 :4.2f}")
+
+def main():
+    test(1, -4, 8)
+    test(1, 4, 8)
+    test(-3, 5, 9)
+
+main()
+</script></pre></div>
+
+- You are including function calls for `l1_norm` and `l2_norm` before
+Python is aware of them. Remembering that Python executes code sequentially,
+why doesn't this lead to an error?
+*Tip: function executes (runs) only when you call it.*
+- What is the sequence of calls when you run the code above?
+
+---
+**Q4:** Function Objects
 
 As noted earlier on this page, Python treats functions as objects. This also means
 that functions have their own (data) type, `function`, just like other objects.
@@ -231,8 +268,9 @@ question by running the code cell below.
 `int` type since `1` is an integer.
 
 - What is the difference between `hi` and `hi()` below? Print statements are
-there so that code will print out the results to the console. You don't need
-to use `print` if you run this commands in the terminal (Python shell).
+there so that code will print out the results to the console.
+- You don't need to use `print` if you run this commands in the terminal
+(Python shell).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -242,6 +280,8 @@ def hi():
 print(hi)
 print(hi())
 </script></pre></div>
+
+---
 
 <div class="prevnextlinks">
     <a id="previous" href="05">Previous: Numerical Operations</a>
