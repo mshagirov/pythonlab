@@ -22,7 +22,7 @@ permalink: /introduction/
 1. [Logical Flow](09)
 1. [Loops](10)
 1. [Useful Tools: lambda, map, ...](11)
-1. [Dealing with Errors](12)
+1. [Errors](12)
 1. [Conclusion](13)
 
 ### Miscellaneous

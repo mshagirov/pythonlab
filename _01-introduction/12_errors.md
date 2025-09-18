@@ -1,6 +1,6 @@
 ---
 layout : page
-title: Dealing with Errors
+title: Errors
 permalink: /introduction/12
 ---
 
@@ -13,7 +13,7 @@ correct. These are other types of *exceptions*.
 
 |            Syntax Error             |      Exceptions          |
 |:-----------------------------------:|:-------------------------:|
-|Missing ":" in `while`               |  Division by zero `2 / 0` |
+| No ":" after `if` statement         |  Division by zero `2 / 0` |
 |Mismatched brackets `[ ... )`        | Type errors `2 + "Hello"` |
 | Incorrect indentation               |Using an undefined object  |
 | ... | ... |
@@ -43,7 +43,7 @@ help you resolve most of the issues you face when writing code. *You will
 naturally encounter and learn to recognise common errors as you gain more
 experience in Python.*
 
-### Handling and Raising Exceptions
+### Handling Exceptions
 
 Errors disrupt the normal flow of the running program. When they occur
 the interpreter *raises an exception*. Python provides exception handling with
@@ -71,7 +71,16 @@ files or a user input.
 to find out more about exceptions.
 
 - `as` keyword assigns the caught exception to the variable `e`.
-- You stack multiple `except` blocks to handle different exceptions.
+- You can also stack `except` blocks to handle multiple exceptions.
+
+```python
+try:
+    # code that might raise an exception
+except ExceptionType as e:
+    # catch ExceptionType errors
+except AnotherExceptionType as e:
+    # catch AnotherExceptionType
+```
 
 > It is not necessary to call the error as `e` and you can use any valid name or
 omit the `as e` part altogether. If you omit the name, you need to refer to the
@@ -79,22 +88,82 @@ exception using the class name of the exception (type, e.g., `ZeroDivisionError`
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-def inspect(a):
-    print(a)
-    return a
+try:
+    print(42 / 0)
+except ZeroDivisionError as error:
+    print(f'{type(error)}: {error}')
+</script></pre></div>
 
-x = [2, 1, 0]
+### Raising Exceptions
+
+Python also allows you to force a specified exception with the `raise` statement.
+
+```python
+raise ExceptionType
+```
+
+You can use `raise` with an exception with a custom message to force your own
+exceptions.
+
+> All exceptions accept an optional message string, `ExceptionType(msg)`. The
+message is displayed when the error is encountered.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def check(x):
+    if x < 42:
+        raise ValueError("The value is too low!")
 
 try:
-    list(map( lambda i: 42/inspect(i) , x))
-except Exception as error:
-    print(f'{type(error)}: {error}')</script></pre></div>
+    check(10)
+except ZeroDivisionError as e:
+    # this code is not triggered
+    print(f'{type(e)}: {e}')
+except Exception as e:
+    print(f'{type(e)}: {e}')
+</script></pre></div>
 
-Raising custom exceptions with `raise`
+Forcing exception might seem counterintuitive. You might be wondering why would
+anyone need a way to raise errors. You have to keep in mind that not all programs
+run in isolation, and programs might interact with files, users, or communicate
+with other machines. In this circumstances a program is expected to encounter
+errors.
 
-### Defensive Programming
+### Assertions
 
-`assert`
+Catching errors to gracefully handle, or intentionally raising them provides
+an additional way to control your program. This also can be used to explicitly
+incorporate programmer's assumptions into the code. E.g., you might want to force
+a function to accept only a certain image size or format.
+
+For convenience, Python also provides an `assert` statement in addition to the
+`raise`. Assertions are a convenient way to quickly include assumptions about a
+program in a single line of code.
+
+```python
+assert condition
+```
+
+`AssertionError` is raised if the `condition` is `False`. You can also include a
+message string after the condition to describe your error.
+
+```python
+assert condition, msg
+```
+
+E.g., in the below code cell `div(a, b)` runs only when `b` is non-zero.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def div(a, b):
+    assert b != 0, "Divisor can't be zero!"
+    print( a / b )
+
+try:
+    div(42, 0)
+except Exception as e:
+    print(f'{type(e)}: {e}')
+</script></pre></div>
 
 <div class="prevnextlinks">
     <a id="previous" href="11">Previous: Useful Tools</a>
