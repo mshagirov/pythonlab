@@ -195,10 +195,10 @@ while counter < 10:
     counter += 1
 </script></pre></div>
 
-### Questions
+### Exercises
 
 ---
-**Q1:** Help me fix the code below.
+**E1:** Help me fix the code below.
 
 - Run the code and see what it does.
 - Fix the code so that it prints the name of the item with its index in the basket.
@@ -217,7 +217,7 @@ print(f'\n{count} items')
 </script></pre></div>
 
 ---
-**Q2:** What happens when you comment out or remove one of the lines that
+**E2:** What happens when you comment out or remove one of the lines that
 increments the counter `counter += 1` inside the while loop below?
 
 - Run the code.

@@ -415,11 +415,11 @@ print( "Alice" in d.values())
 print(("name", "Alice") in d.items())
 </script></pre></div>
 
-### Questions
+### Exercises
 
 ---
 
-**Q1:** Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
+**E1:** Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
 *excluding the last item* (i.e., we need `('apple', 'durian')`).
 
 <div class="language-python highlighter-rouge">
@@ -433,7 +433,7 @@ print('Length:', len(basket))
 
 ---
 
-**Q2:** Fix this code to hide the "word".
+**E2:** Fix this code to hide the "word".
 
 - Run the code and notice that `s_new` censors the word "Password" as well
 as the word "word".

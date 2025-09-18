@@ -109,10 +109,10 @@ function.
 print(f"Word 'Alien' is {len("Alien")} characters long.")
 </script></pre></div>
 
-### Questions
+### Exercises
 
 ---
-**Q:** Debug a Syntax Error
+**E1:** Debug a Syntax Error
 
 - Oh no! I broke Python. Fix the following code so that it prints two lines.
 

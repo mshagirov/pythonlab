@@ -176,10 +176,10 @@ explore and edit your draft. Start small with a few lines of code and build on i
 generate very long code (e.g., `>>10-20` lines). Code with too many lines is
 difficult to read and debug. Try to build your code line by line.
 
-### Questions
+### Exercises
 
 ---
-**Q1:** Complete the code below so that it prints a string with sorted characters
+**E1:** Complete the code below so that it prints a string with sorted characters
 `123ABCabc`. Use the list's `.sort()` method. You may find `list(...)` and
 string's `"".join(...)` useful for this task.
 
@@ -195,7 +195,7 @@ print(chars)
 
 ---
 
-**Q2:** Please write a key using a lambda function that returns the last letter
+**E2:** Please write a key using a lambda function that returns the last letter
 of an input word. The `sorted` function below should return sorted list of
 words based on the last letter of each word.
 
@@ -214,7 +214,7 @@ print(sorted(items, key=lambda ?))
 list.
 
 ---
-**Q3:** Use `sorted`, `abs`, `map`, and `filter` to complete the code below. The final
+**E3:** Use `sorted`, `abs`, `map`, and `filter` to complete the code below. The final
 `print` should print a *sorted* sequence of numbers that
 *excludes* all numbers with absolute values (`abs(x)`) between 3-7,
 including 3 and 7. For example, an original sequence
@@ -253,7 +253,7 @@ print('filtered:', final)
 > Comment out the `random.seed(0)` to try out your code with random sequences.
 
 ---
-**Q4:** Use `help` to lookup help on `sum`, `max`, and `min`. Apply these commands
+**E4:** Use `help` to lookup help on `sum`, `max`, and `min`. Apply these commands
 on `range(10)`.
 
 <div class="language-python highlighter-rouge">

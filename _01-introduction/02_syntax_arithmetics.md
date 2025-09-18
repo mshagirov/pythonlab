@@ -77,10 +77,10 @@ You don't need to use `print` in the terminal to see the output of the command.
 Keep the terminal open when reading through the pages of this site to quickly
 try out different variations of the commands.
 
-### Questions
+### Exercises
 
 ---
-**Q:** Indentation, Indentation, Indentation
+**E1:** Indentation, Indentation, Indentation
 
 Note that, compared to other programming languages, *indentation* is important
 in Python. E.g., this will produce an error.

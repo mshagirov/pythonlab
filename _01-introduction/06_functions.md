@@ -158,10 +158,10 @@ together with their names.
 > Positional arguments must be provided before keyword arguments when defining
 and calling functions that use both positional and keyword arguments.
 
-### Questions
+### Exercises
 
 ---
-**Q1:** Fix a Greeter Function.
+**E1:** Fix a Greeter Function.
 
 - Run the code. It should fail to run.
 - Fix the code so that it prints `Hello, World!`.
@@ -180,7 +180,7 @@ greeter(name)
 </script></pre></div>
 
 ---
-**Q2:** Complete the `vector_length` multiparameter function.
+**E2:** Complete the `vector_length` multiparameter function.
 
 - Compute the
 [Euclidean length or L2-norm](https://mathworld.wolfram.com/L2-Norm.html){:target="_blank"}
@@ -213,7 +213,7 @@ ending with `.py` with your functions and variables (a.k.a. Python file) and the
 import and reuse it in other parts of your code.
 
 ---
-**Q3:** Complete function `compute_l1_l2` below.
+**E3:** Complete function `compute_l1_l2` below.
 
 - The function should return two values. First value must be the
 [Manhattan length](https://mathworld.wolfram.com/L1-Norm.html){:target="_blank"}
@@ -257,7 +257,7 @@ why doesn't this lead to an error?
 - What is the sequence of calls when you run the code above?
 
 ---
-**Q4:** Function Objects
+**E4:** Function Objects
 
 As noted earlier on this page, Python treats functions as objects. This also means
 that functions have their own (data) type, `function`, just like other objects.

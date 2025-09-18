@@ -156,11 +156,11 @@ feed the `timer` as an input to another function and keep updating `t`.
 The state of the function `timer` can't be updated from outside except by calling
 it and this protects `t` from unintendent modifications.
 
-### Questions
+### Exercises
 
 ---
 
-**Q:** Timer with Customisable Step Size
+**E1:** Timer with Customisable Step Size
 
 - Modify the code below to allow for a customisable step size `delta` when creating
 `timer`. Replace the fixed `0.25` in the update step with `delta`. Use `1` as

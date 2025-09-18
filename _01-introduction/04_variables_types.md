@@ -234,10 +234,10 @@ comment
 print(x)
 </script></pre></div>
 
-### Questions
+### Exercises
 
 ---
-**Q:** Calculate Sum and Average
+**E1:** Calculate Sum and Average
 
 - Complete the following code so that it computes and prints a sum and average
 of the numbers `x1`, `x2`, `x3`, and `x4`.
