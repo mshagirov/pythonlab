@@ -4,51 +4,44 @@ title: Python
 permalink: /introduction/00
 ---
 
-[Python](https://www.python.org/){:target="_blank"} is a general-purpose
-programming language
-used for a wide range of domains. In addition to its versatility,
-Python's intuitive syntax is relatively easy to read, and makes it perfect for
-beginners as well as efficient for experienced code maintainers. For instance,
-you should be able read and guess what the following Python code does when you
-run it.
+Python is a general-purpose programming language used for a wide range of tasks.
+Wide range of applications, community support, and simplicity of Python made it
+popular among the beginners and the experienced programmers alike.
+
+For instance, appeciate the intuitive Python syntax by running the following code
+to print `Hello there` to the console.
+
+> Console in programming refers to an interface for interacting with a computer
+program. Its usually a text interface, e.g., the
+[terminal](/pythonlab/terminal/){:target="_blank"} webapp, and
+the code cell below are consoles.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 print("Hello there")
-print("General Kenobi")
 </script></pre></div>
 
-*Hover over with your mouse and click the run button (green triangle)*. If you
-have guessed that this code just prints some lines, then you are correct.
-
-You should see the folliwing lines when you run the above print commands.
-
-```sh
-Hello there
-General Kenobi
-```
+> Hover over and click the run button.
 
 In the code, `print` is a Python command, or more correctly a function, that
-takes its input which is everything between following `(` and `)` and outputs it
-to the *console*.
+takes its input which is everything between the enclosing parentheses,
+`(` and `)`, and outputs or *prints it out to the console*.
 
-> Console in programming refers to any interface for interacting with a computer
-program. Console is usually a text based interface, e.g., this
-[terminal](/pythonlab/terminal/){:target="_blank"} webapp.
-All executable code and their output fields on this site are also examples of
-console applications.
+I will use this type of code cells
+throughout the workshop. Feel free to modify the code. If you make a mistake,
+just reload the page to reset all code cells on the page.
 
-Now, try to modify the following code to print a greeting by replacing the
+Now, edit the following code to print a greeting by replacing the
 question mark `?` with your name:
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print("Hello ?")
+print("Hello, ?")
 </script></pre></div>
 
-Due to Python's wide adoption, Python boasts a vast ecosystem of
-libraries, frameworks, and packages that extend its capabilities for diverse
-tasks. These tasks or domains include, but not limited to,
+Python boasts a vast ecosystem of libraries, frameworks, and packages that extend
+its capabilities for diverse tasks. These tasks (domains) include, but not
+limited to,
 
 - web development,
 - automation (scripting),
@@ -57,7 +50,10 @@ tasks. These tasks or domains include, but not limited to,
 - scientific computing.
 
 This workshop session will mainly focus on the Python language and its features.
-We will cover some of the scientific applications in the coming workshops.
+We will cover some of the scientific packages and applications in the coming workshops.
+
+> You can find more resources on Python from
+[www.python.org](https://www.python.org/){:target="_blank"}.
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/introduction/">Previous: Contents</a>
