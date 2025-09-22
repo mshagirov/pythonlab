@@ -4,29 +4,28 @@ title: Strings
 permalink: /introduction/03
 ---
 
-We now know that Python executes your code sequentially line-by-line, and how
-you can do basic arithmetics in it. Next, let's see how Python represents text.
-
-In Python, *strings* represent text and you define them with `' '` or `" "`. E.g.,
-`'this is a string'` and `"this is also a string"`. We actually used strings when
-we were printing greeting text.
+In Python, *strings* represent text objects. Python uses single and double quotes,
+`'...'` or `"..."`, to define a string. We have already used strings when
+printing greeting text in the introduction page.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print('this is a string')
-print("this is also a string")
+print('special order')
+print("special order")
 </script></pre></div>
 
 Strings can contain quotes and other special characters.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print("Insure the return of organism for 'analysis'")
-print('"double quotes"')
+print("single quotes '...'")
+print('double quotes "..."')
 print('or include quotes \" and \' by escaping with \\ character')
 </script></pre></div>
 
-Here is an example of *new line* character `\n`:
+For example, use `\n` to include the *new line* character. As its name suggests,
+`\n` creates new lines in text files and when printing them. These types of
+characters that start with the backwards slash `\` are called *escape sequences*.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -37,7 +36,9 @@ print('Priority One\nInsure the return of organism\nfor analysis.')
 (new line) from
 [the official documention](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences){:target="_blank"}.
 
-You also can define multi-line strings with `'''...'''` or `"""..."""`.
+### Multiline Strings
+
+You can define multi-line strings with `'''...'''` or `"""..."""`.
 Multi-line strings defined in this way retain their indentations and lines.
 
 <div class="language-python highlighter-rouge">
@@ -49,8 +50,9 @@ for analysis.""")
 
 ### Raw Strings
 
-If you want Python to *not* interpret an escape sequence, you may prefix a string
-with `r` to create a *raw* string.
+Sometimes you want Python to *not* interpret an escape sequence. E.g., you
+may want to keep `\n` as regular characters `\` and `n`. For this, create
+a *raw* string by prefixing `r` to the string.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -64,8 +66,8 @@ without a need to use the backwards slash `\` (escape) when defining a string.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print(r"These two strings are the same \n")
-print("These two strings are the same \\n")
+print(r"These are the same two strings\n")
+print("These are the same two strings\\n")
 </script></pre></div>
 
 ### String Concatenation and Length
@@ -91,6 +93,7 @@ print(len("cargo"))
 Formatted strings, f-strings for short, allow you to include and format the value
 of Python expression into strings. To define f-string, use `f` or `F` prefix and
 insert Python expressions as placeholders in curly braces `{expression}`.
+
 The f-string evaluates the expression inside `{...}` first. Then, the result is
 converted to its string representation. For instance, the following evaluates an
 addition, formats, and prints the result as a string.
@@ -120,6 +123,19 @@ print(f"Word 'Alien' is {len("Alien")} characters long.")
 <pre class="highlight"><script type="py-editor" worker>
 print("Neo: 'I know kung-fu'\nMorpheus: 'Show me'')
 </script></pre></div>
+
+---
+**E2:** Run in The Python Shell
+
+- Run the multiline string below in the
+[Python shell](/pythonlab/terminal/){:target="_blank"}.
+
+```python
+"""Priority One
+Insure the return of organism
+for analysis."""
+```
+
 ---
 
 <div class="prevnextlinks">
