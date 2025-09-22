@@ -4,20 +4,12 @@ title: Variables and Types
 permalink: /introduction/04
 ---
 
+### Variable
+
 *Variable* in programming represents a named location in
 [memory](https://en.wikipedia.org/wiki/Computer_memory){:target="_blank"}
 that stores a value. The value of a variable represents a specific type of
 data such as a number or a text.
-
-The *type* (data type) of a variable determines what its value actually represents.
-Python standard library comes with a wide range of
-[built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}.
-We have already used *integers* (`int`), *floats* (`float`), and *strings*
-(`str`) which respectfully represent, whole numbers, (approximate) real
-numbers, and text objects. So far we have been using values directly without
-*assigning* them (variable) names.
-
-### Difining, Updating and Using Variables
 
 It is very simple to define a varible in Python, all you need is:
 
@@ -26,28 +18,63 @@ variable_name = value
 ```
 
 where `variable_name` is any alphanumeric sequence of characters that starts with
-a letter or an underscore `_`. `value` could be any value with a built-in or
-valid user defined type.
-
-> You can look up built-in types from Python documentation. We will not cover
-user defined data types in this workshop session. I plan to demonstrate custom types
-in the coming workshops that cover more advanced topics.
+a letter or an underscore `_`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-user_name = "Alice"
-__file__ = "data.tif"
-print(f"User: {user_name}")
-print(f"File: {__file__}")
+name = "Kenobi"
+print(f"General {name}!")
 </script></pre></div>
+
+You can also define multiple variables on a single line. But don't overuse it.
+It might be hard to read code with `>2-3` variables defined on a single
+line, especially when you have long variable names.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+x, y = 2, 3.14
+
+print(f"x: {x}")
+print(f"y: {y}")
+</script></pre></div>
+
+`value` could be any value with a built-in or valid user defined *type*, where
+type refers to the classification or type of the data stored in the memory.
+
+### Types
+
+The *type* or data type determines what the value actually represents.
+Python standard library comes with a wide range of
+[built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}.
+We have already used the following types:
+
+- `int`: integers,
+- `float`: floats, and
+- `str`: strings
+
+which respectfully represent, whole numbers, approximate real
+numbers, and text objects.
+
+So far we have been using values directly without *assigning* them names. Let's
+name them by assigning them to variables.
+
+### Naming Variables
 
 By convention, Python programmers use *snake case* when naming their variables.
 In snake case, characters are written in lower case and for multi-word names, the
-words are separated by underscore `_`. E.g., `user_id`, `circle_diameter`, etc.
-This is a not enforced by the Python interpreter but it is preferred convention
-for code readability. You may stray away from this convention in some cases. For
-instance, to include units of measurement, e.g., `force_N` this doesn't use snake
-case as snake case must use lower case characters.
+words are separated by underscore `_`.
+E.g., `user_id`, `circle_diameter`, etc. This is a not enforced by the Python
+interpreter but it is a preferred convention for code readability.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+user_id = "Ripley"
+print(f"{user_id} is logged-in.")
+</script></pre></div>
+
+You may stray away from this convention in some cases. For
+instance, to include units of measurement, e.g., `force_N` doesn't use snake
+case as it contains upper case character.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -57,6 +84,18 @@ area_m2 = 0.05
 stress_Pa = force_N / area_m2
 print(f"Stress (Pa): {stress_Pa}")
 </script></pre></div>
+
+Be careful to NOT name your variables `int`, `float`, `string` or any other
+Python *key words*. This will override the default objects' names and will lead to
+bugs in your code.
+
+> Unfortunately, Python interpreter does not enforce this as a
+rule and you just have to remember to not use these as variable names.
+For instance, `int="integer"`, `str=2`, or `float=3.14` are valid syntax for
+defining variables. Try it for yourself, by defining some "forbidden variables"
+in the above cell and print them out, Python will happily run the code for you.
+
+### Updating Variable's Value
 
 To update or change the value of a variable, you simply assign it a new value.
 
@@ -69,44 +108,32 @@ length = 1
 print("new value:", length)
 </script></pre></div>
 
-You can also define multiple variables on a single line. But don't overuse it.
-As it might be hard to read such code if you define `>2-3` variables one a single
-line, or when your variable names are very long.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-side_length, area_of_square = 2, 4
-print(f"side_length: {side_length}\narea: {area_of_square}")
-</script></pre></div>
-
 ### Type Casting
 
 Type casting in programming means converting one type to another. For example,
-when you do mathematical operations on variables with mixed `float` and `int`
-types interpreter *implicitly* type casts `int` to `float` (the result will have
-decimal `.`). Also, note that using division `/` or `float` always produces `float`.
+when you do mathematical operations on variables with `float` and `int` types,
+the interpreter implicitly *type casts* `int` to `float` (the result will have
+decimal `.`).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-var_int, var_float = 2, 3.14
-
-print('Multiplication', var_int * var_float)
-print('Addition', var_int + var_float)
-print('Division', var_int / var_int )
-print('Floor division', var_int // var_int)
+x = 2
+print(x + 2)
+print(x + 2.)
 </script></pre></div>
 
-> Use decimal `.` to define a `float`. E.g., in `x = 2.` the `x` is a `float`.
+The decimal point `.` is used to define a `float`. E.g., `2.` is a `float` equal
+to `2.0`. Using division `/` always produces `float`, and floor division `\\`
+produces `int` unless one of the numbers is a `float`.
 
-You should NOT use `int`, `float`, `string` or any other Python *key words* as variable
-names as this will override the default Python object and this will lead to bugs
-in your code. Unfortunately, Python interpreter does not enforce it as a rule and
-you just have to remember that.
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+x, y = 6, 3
 
-> E.g., `int="integer"`, `str=2`, or `float=3.14` are valid syntax for defining
-variables. Try it for yourself, erase the contents of the above code cell and
-define some **forbidden variables** and print them out, Python will happily run it
-for you.
+print(x / y)
+print(x // y)
+print(x // 3.)
+</script></pre></div>
 
 Sometimes you may want to *explicitly* convert one type to another. For instance,
 `int` to a `str`, or `float` to `int` etc. Python provides type casting *methods*
@@ -124,10 +151,30 @@ text = "My number is " + str(my_number)
 print(text)
 </script></pre></div>
 
+Below is another example that uses type casting with `int()` and `float()` methods.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+x = int(3.14)
+print(x)
+
+y = int(" 2 ")
+print(y)
+
+z = float(x + y)
+print(f"z = {z}")
+</script></pre></div>
+
+The last two lines convert an `int` object with value `x + y` to a `float` and
+print it.
+
 ### Boolean Type
 
-Another frequently used type in programming is a `bool`. The `bool` or *Boolean*
-type has two possible values `True` and `False` that represent truth values.
+Another frequently used type in programming is a `bool`.
+
+- `bool` : *Boolean* type has two possible values `True` and `False` that represent
+truth values.
+
 We will use `bool` when doing logical operations and writing conditional statements
 (*if else* statements). When used with mathematical operations, Python implicitly
 casts `bool` to `int` or `float` and treats it as a number (`True` is 1, and
@@ -137,12 +184,11 @@ To get a *logical complement* of a `bool` variable you can use `not` operator.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-name = "Michelangelo"
 is_mutant = True
-likes_pizza = True
+likes_pizza = not False
 
-print(f"Is {name} mutant?", is_mutant)
-print(f"Does {name} like pizza?", likes_pizza)
+print("Mutant turtle:", is_mutant)
+print("Likes pizza:", likes_pizza)
 </script></pre></div>
 
 ### Determining and Verifying Types
