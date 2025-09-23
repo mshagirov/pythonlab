@@ -419,8 +419,8 @@ print(("name", "Alice") in d.items())
 
 ---
 
-**E1:** Use slicing to obtain a new tuple with *with every 2nd item* of an original tuple
-*excluding the last item* (i.e., we need `('apple', 'durian')`).
+**E1:** Use slicing to obtain a new tuple with *with every 2nd item* of an original
+tuple *excluding the last item*. I.e., get a slice with `('apple', 'durian')`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -435,9 +435,9 @@ print('Length:', len(basket))
 
 **E2:** Fix this code to hide the "word".
 
-- Run the code and notice that `s_new` censors the word "Password" as well
-as the word "word".
-- Modify the replace substring to censor only the "word" part.
+- In the below, `s_new` censors the word "Password" as well
+as the word "word". Verify that by running the code.
+- Modify the `replace` command to censor only the "word" part.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>

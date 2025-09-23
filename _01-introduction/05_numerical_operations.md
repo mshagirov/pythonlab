@@ -20,8 +20,8 @@ values that represent positive and negative infinity.
 print(float("inf"))
 </script></pre></div>
 
-`inf` is usually used to initialise values or to handle special cases for
-various algorithms. E.g., to find a maximum value you may start with `-inf`
+> `inf` is usually used to initialise values or to handle special cases for
+various algorithms. E.g., to find a maximum value, you may start with `-inf`
 and compare you numbers to it. Using `-inf` in the initial step will ensure
 that your program will update the current maximum value since any number
 is larger than `-inf`.
@@ -38,14 +38,14 @@ print(2**4)
 
 ### In-place Updates (Augmented Assignments)
 
-Python also provides shorthand notation for frequently used commands. E.g. where
-you need to add a number to a variable and then reuse the same variable name.
-These type of operations are called *in-place updates* since they update the
-variable in-place, or *augmented assignment* because you are assigning a value
-at the end of the operation with `=`.
+Python also provides shorthand notation for updating values of numerical variables.
+These type of operations are called *in-place updates* or *augmented assignments*.
 
 - *Increment*: `a += b` is equivalent to `a = a + b`, add then assign.
 - *Decrement*: `a -= b` is equivalent to `a = a - b`, substract then assign.
+
+These operations, first evaluate an expression on the right side of `=` using the
+old value of a variable `a`, then assign the result to update `a` in-place.
 
 Additionally, Python also supports the following:
 
@@ -63,8 +63,8 @@ print(x)
 x += (x + 1)**3
 '''
 Equivalent to
-   temp_val = (x + 1)**3
-   x = x + temp_val
+   temp_val = x + (x + 1)**3
+   x = temp_val
 '''
 print(x)
 
@@ -75,8 +75,8 @@ print(x)
 ### Formatting Numbers
 
 For easier entry and readability, Python also allows entering numbers with
-`_` separator. For instance, to enter 1,000,000 you could use either
-`1000000` or `1_000_000`, the latter is easier to read. You can put `_` between
+`_` separator. For instance, to enter 1,000,000 you could either use
+`1000000` or `1_000_000`, and the latter is easier to read. You can put `_` between
 any two numeric characters including `float` numbers.
 
 It is also common to use *scientific notation* for entering very large or
@@ -108,8 +108,12 @@ print(f"small = {small :18.12f}")
 print( "small = " + format(small, "018.12f"))
 </script></pre></div>
 
-In the above, `f` and `e` are types. `f` and `F` refer to `float`, and `e` and `E` to
-scientific notation. Another common type to use is the general type `g` which
+In the above, `f` and `e`, in `1.2e` or in `018.12f`, are types.
+
+- `f` and `F` refer to `float`, and
+- `e` and `E` to scientific notation.
+
+Another common type to use is the general type `g` which
 uses both scientific and floating point (`float`) representations depending on
 the value of the number.
 
@@ -131,15 +135,15 @@ to see more examples and details about string formatting.
 ### Comparison and Logical Operations
 
 *Comparison expressions* use logical operators to test equality or compare
-values and result in `bool` values `True` or `False`. These types of expressions
-are also known as *Boolean* expressions. Python defines the following
+values and result in `bool` values, `True` or `False`. These types of expressions
+are also known as *Boolean expressions*. Python defines the following
 comparison *operators* to be used in Boolean expressions,
 
-- `==` : equality,
-- `!=` : not equal,
-- `>`, `<`: larger than and less than,
+- `==` : equality test.
+- `!=` : not equal, returns `True` if values are not equal.
+- `>`, `<`: larger than, and less than.
 - `>=`: larger than or equal, and
-- `<=`: less than and equal.
+- `<=`: less than or equal.
 
 Additionally, built-in logical operators `and`, `or`, `not`, and `in` can be
 used to compute more complex Boolean expressions.

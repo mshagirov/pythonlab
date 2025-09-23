@@ -107,3 +107,8 @@ pre > * {
   font-weight: 400;
   font-size: 13px;
 }
+/* hide scrollbar */
+/* chrome */
+body::-webkit-scrollbar {
+  display: none;
+}
