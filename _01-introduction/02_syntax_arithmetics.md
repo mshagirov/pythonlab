@@ -102,19 +102,24 @@ print(-(13 // 7) )
 
 Apply `//` to negative numbers. How does floor division behave in this case?
 
-> You can compare the results of floor division with the ones you get from the
+> Tip: compare the results of floor division with the ones you get from the
 regular division operations `/`.
 
 ---
 **E3:** Python Shell
 
 Run some of the commands above in the [Python shell](/pythonlab/terminal/){:target="_blank"}.
-You don't need to use `print` in the terminal to see the output of the command.
+
+- The shell displays a default *representation* of the commands' outputs if you
+don't use `print`. The representation of an object (e.g., text), is more
+informative. That's what you get when you enter commands into the shell.
+- The output of `print` is meant to be human-readable and formatted. This may
+hide some of the information about the object.
+
+---
 
 > Keep the terminal open when reading through the pages of this site to quickly
 try out different variations of the commands.
-
----
 
 <div class="prevnextlinks">
     <a id="previous" href="01">Previous: Standard Library</a>

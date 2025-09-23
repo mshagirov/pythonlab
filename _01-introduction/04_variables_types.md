@@ -11,14 +11,20 @@ permalink: /introduction/04
 that stores a value. The value of a variable represents a specific type of
 data such as a number or a text.
 
-It is very simple to define a varible in Python, all you need is:
+It is very simple to define a varible in Python, all you need is to *assign* a
+value to the variable with `=`.
 
 ```python
 variable_name = value
 ```
 
-where `variable_name` is any alphanumeric sequence of characters that starts with
-a letter or an underscore `_`.
+- `variable_name`: *Variable name* can be any alphanumeric sequence of characters
+that starts with a letter or an underscore `_`, e.g., `abc`, `ABC123`, `_abc123`.
+- `value`: *Value* can be any value with a built-in or valid user defined *type*,
+where the type refers to the type of the data stored in the memory, e.g., a text.
+
+For example, the following defines a variable `name`, uses it in a f-string, and
+prints the result.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -26,9 +32,9 @@ name = "Kenobi"
 print(f"General {name}!")
 </script></pre></div>
 
-You can also define multiple variables on a single line. But don't overuse it.
-It might be hard to read code with `>2-3` variables defined on a single
-line, especially when you have long variable names.
+Here, the variable `name` refers to a string `Kenobi`.
+
+You can also define multiple variables on a single line.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -38,25 +44,25 @@ print(f"x: {x}")
 print(f"y: {y}")
 </script></pre></div>
 
-`value` could be any value with a built-in or valid user defined *type*, where
-type refers to the classification or type of the data stored in the memory.
+> Don't overuse this feature. It might be hard to read code with `>2-3` variables
+defined on a single line, especially when you have long variable names. The
+future you will thank you if you write a code that is easier to read.
 
 ### Types
 
-The *type* or data type determines what the value actually represents.
-Python standard library comes with a wide range of
-[built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}.
-We have already used the following types:
+Computer stores data as zeros and ones, a binary data, in its memory. The *type*
+of the data determines what these zeros and ones actually represent.
+The Python standard library comes with a wide range of
+[built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}
+that you can use to represent your data. We have already used the following types:
 
 - `int`: integers,
 - `float`: floats, and
 - `str`: strings
 
 which respectfully represent, whole numbers, approximate real
-numbers, and text objects.
-
-So far we have been using values directly without *assigning* them names. Let's
-name them by assigning them to variables.
+numbers, and text objects. So far we have been using values with these types
+directly without *assigning* them names.
 
 ### Naming Variables
 
@@ -74,7 +80,7 @@ print(f"{user_id} is logged-in.")
 
 You may stray away from this convention in some cases. For
 instance, to include units of measurement, e.g., `force_N` doesn't use snake
-case as it contains upper case character.
+case as it contains an upper case character.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -136,8 +142,12 @@ print(x // 3.)
 </script></pre></div>
 
 Sometimes you may want to *explicitly* convert one type to another. For instance,
-`int` to a `str`, or `float` to `int` etc. Python provides type casting *methods*
-to convert types.
+`int` to a `str`, or `float` to `int` etc. For this you may use Python's type
+casting *methods* to convert between types.
+
+- `int(object)` : convert any compatible object to `int`.
+- `float(object)`: convert a compatible object to `float`.
+- `str(object)`: convert any object to its string representation.
 
 > Note that when casting higher precision type `float` to a lower precision type
 `int` data loss may occur. Also, some values might not be compatible for type
@@ -174,13 +184,12 @@ Another frequently used type in programming is a `bool`.
 
 - `bool` : *Boolean* type has two possible values `True` and `False` that represent
 truth values.
+- To get a *logical complement* of a `bool` variable you use `not` operator.
 
 We will use `bool` when doing logical operations and writing conditional statements
-(*if else* statements). When used with mathematical operations, Python implicitly
-casts `bool` to `int` or `float` and treats it as a number (`True` is 1, and
-`False` is 0).
-
-To get a *logical complement* of a `bool` variable you can use `not` operator.
+(*if-else* statements). When used with mathematical operations, Python implicitly
+casts `bool` to `int` or `float` and treats it as a number, `True` is 1, and
+`False` is 0.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -193,11 +202,16 @@ print("Likes pizza:", likes_pizza)
 
 ### Determining and Verifying Types
 
-You can determine the type of a varible using `type()` method. `type` takes in
-an object, variable or value, and returns the type of the object, `int`, `str` etc.
+You can determine the type of a varible using `type()` method.
+
+- `type(object)` takes in an object, variable or value, and returns the type of
+the object, `int`, `str` etc.
+
 To verify a varible's type, e.g., when you need to check if variable is `int`, use
-`isinstance()`. The latter, takes in the object and a type, and returns a `bool`
-value, `True` or `False`.
+`isinstance()`.
+
+- `isinstance(object, type)` takes in the object and a type, and returns a `bool`
+value. `True` if the types match and `False` otherwise.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -227,57 +241,64 @@ print(
 )
 </script></pre></div>
 
-I separated the parentheses of `print` command into separate lines for readability.
+I separated the parentheses and inputs of the `print` command into separate
+lines for readability.
 
-> Python is a **dynamically typed** language where Python automatically infers a
-variable's type when you run the code. This means that you can update the
-varible's type anywhere in your code. This leads to less boilerplate code when
-defining variables and functions, simplifies writing the code and,
-leads to quicker prototyping.
-<br><br>
-This comes at a cost. In case of dynamic typing, the cost is the performance
-(slower running code), bugs and runtime type errors if the types are not managed
-properly. Python interpreter checks the types of the variables
-during the runtime which takes up the CPU time. Also, in Python you can accidentally
-(or intentially) reassign a diffent type to a variable. But try to not do it, e.g.,
-this might lead to errors in your code:
+### Comments on Dynamic Typing
+
+Python is a **dynamically typed** language where Python automatically infers a
+variable's type when you run the code. This leads to less boilerplate code when
+defining variables and functions, and allows quicker prototyping. The dynamic
+typing comes at a cost as a lower performance (slower running code),
+and potentially runtime type errors.
+
+The performance hit is due to type checking of the variables by the interpreter
+during the runtime which takes up the CPU time. We have to accept it as a cost for
+convenience.
+
+On the other hand, the effect of the type errors can be minimised. For instance,
+if your code expects a certain type of data and you accidentally change the type
+of a variable, the interpreter will not be aware of the error until you run the
+code. E.g., the following might lead to runtime type errors:
 
 ```python
-duration = 1
+delta_t = 1
 ...
-duration = "one hour"
+delta_t = "one hour"
 ```
 
-> Instead, you can create a new variable to assign a new value with a different
-type instead of overriding the old value and its type.
+You can avoid this by creating a new type of variable instead of overriding the
+old value and its type.
 
 ```python
-duration = 1
+delta_t = 1
 ...
-duration_description = "one hour"
+delta_t_info = "one hour"
 ```
 
 ### Commenting Your Code
 
-Use `#` to comment your code. Although it is common to see `'''...'''` or
-`""" ... """` as a multi-line comment, they are technically just strings.
-The (true) comments that start with `#` are ignored by the Python interpreter,
-whereas multiline strings are read and ran by the interpreter but since no variable
-is assigned to these comment strings they are stored in a temporary variable
-that is overwritten by the next command (even if the command returns nothing, i.e.
-`None`).
+Python uses `#` for single-line, and `'''...'''` or `""" ... """` for multi-line
+comments. The latter are technically just strings that are read and not used in
+your code. The (true) comments that start with `#` are ignored by the Python
+interpreter altogether.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 # This is single a comment
-x = 1 # this also a comment
+x = 1 # everything after the first # is a comment
 
 '''
-This is
-multi-line
-comment
+This is multi-line comment
+everything between
+the triple ' or triple " quotes
+are ignored
+
+y = 123
+print(y)
 '''
-print(x)
+
+print(x) # this prints the value of x
 </script></pre></div>
 
 ### Exercises

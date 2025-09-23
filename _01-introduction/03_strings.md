@@ -125,16 +125,27 @@ print("Neo: 'I know kung-fu'\nMorpheus: 'Show me'')
 </script></pre></div>
 
 ---
-**E2:** Run in The Python Shell
+**E2:** Inspect a String Object's Representation
 
-- Run the multiline string below in the
+- Run the following multiline string in the
 [Python shell](/pythonlab/terminal/){:target="_blank"}.
+- How does the *representation* of this string differ from what you've entered?
 
 ```python
 """Priority One
 Insure the return of organism
 for analysis."""
 ```
+
+> You can also use built-in `repr` command with `print` to print the objects
+representation in Python. E.g., `print(repr(...))`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print(repr("""Priority One
+Insure the return of organism
+for analysis."""))
+</script></pre></div>
 
 ---
 
