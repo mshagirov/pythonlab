@@ -75,18 +75,18 @@ print( 1 + 2 * 3)
 ### Exercises
 
 ---
-**E1:** Indentation
+**E1:** Fix a Syntax Error
 
 Note that, compared to other programming languages, *indentation* is important
-in Python. E.g., this will produce an error.
+in Python.
+
+- Fix the error in the code so that it is able to run by correcting the indentation.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 print(1 + 2)
   print(3 + 4)
 </script></pre></div>
-
-- Try fixing the error in the code so that it is able to run.
 
 > In your browser the above won't run and might not display any errors. In Python,
 indentation defines a code block. We will revisit indentation in the coming sections.
