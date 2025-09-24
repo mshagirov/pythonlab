@@ -4,19 +4,27 @@ title: Python
 permalink: /introduction/00
 ---
 
-Python is a general-purpose programming language used for a wide range of tasks.
-Wide range of applications, community support, and simplicity of Python made it
-popular among the beginners and the experienced programmers alike.
+Python is a general-purpose programming language designed for readability and
+efficient workflows. Its wide range of applications, robust community
+support, and simplicity make it popular among both beginners and experienced
+programmers.
 
-Python boasts a vast ecosystem of libraries, frameworks, and packages that extend
-its capabilities for diverse tasks. These tasks (domains) include, but not
-limited to,
+Python boasts a vast ecosystem of libraries, frameworks, and packages that expand
+its capabilities for diverse tasks. These domains include, but are not
+limited to:
 
-- web development,
-- automation (scripting),
-- deep learning and artificial intelligence,
-- data analysis,
-- scientific computing.
+- **Web development**: With tools like Flask and Django, Python powers websites and
+web applications.
+- **Automation and scripting**: Python automates repetitive tasks, such as renaming
+files, sending emails, data entry, and more.
+- **Deep learning and artificial intelligence**: Deep learning frameworks like PyTorch
+and TensorFlow are used to create and train models that learn to identify objects
+in images, to predict trends, or for building intelligent chatbots.
+- **Data analysis**: Using libraries like Pandas, Python helps analyse data to
+uncover insights.
+- **Scientific computing**: Python was created to support scientific and mathematical
+computations. With tools like NumPy, you can simulate physical systems, or analyse
+experimental data.
 
 ### A Code Example
 
