@@ -8,6 +8,8 @@ In Python, *strings* represent text objects. Python uses single and double quote
 `'...'` or `"..."`, to define a string. We have already used strings when
 printing greeting text in the introduction page.
 
+- `"..."` or `'...'`: a string object (text)
+
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 print('special order')
@@ -24,7 +26,7 @@ print('or include quotes \" and \' by escaping with \\ character')
 </script></pre></div>
 
 For example, use `\n` to include the *new line* character. As its name suggests,
-`\n` creates new lines in text files and when printing them. These types of
+`\n` creates new lines in text files and in the printed output. These types of
 characters that start with the backwards slash `\` are called *escape sequences*.
 
 <div class="language-python highlighter-rouge">
@@ -32,14 +34,14 @@ characters that start with the backwards slash `\` are called *escape sequences*
 print('Priority One\nInsure the return of organism\nfor analysis.')
 </script></pre></div>
 
-> Learn more about special characters or *escape sequences* such as `\n`
+> Learn more about special characters and *escape sequences* such as `\n`
 (new line) from
 [the official documention](https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences){:target="_blank"}.
 
 ### Multiline Strings
 
 You can define multi-line strings with `'''...'''` or `"""..."""`.
-Multi-line strings defined in this way retain their indentations and lines.
+Multi-line strings defined in this way will retain their indentations and lines.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -60,9 +62,10 @@ print(r"This characters \n are on the same line")
 print(r'\t is a tab and \n is a new line sequences')
 </script></pre></div>
 
-Run the above print commands with and without `r` prefix to see the differences
-between raw and regular Python strings. Raw strings produce regular strings but
-without a need to use the backwards slash `\` (escape) when defining a string.
+- Raw strings produce regular strings but without a need to use the backwards slash
+`\` (escape) when defining a string
+- Run the print commands with and without
+`r` prefix to see the differences between raw and regular Python strings.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -74,12 +77,17 @@ print("These are the same two strings\\n")
 
 You can concatenate (join) multiple strings together using `+`.
 
+- `string1 + string2 + ...` : produces a new string that is composed of
+the strings, `string1`, `string2`, etc. joined together
+
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-print("Weyland" + "-" + "Yutani" + " " + "Corporation")
+print("Weyland-" + "Yutani " + "Corporation")
 </script></pre></div>
 
-To get the length of a string, the number of charachters in a string, use `len` function.
+Use `len` function to get a string length, the number of characters in a string.
+
+- `len(string)`: returns the length of the input string
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -94,9 +102,11 @@ Formatted strings, f-strings for short, allow you to include and format the valu
 of Python expression into strings. To define f-string, use `f` or `F` prefix and
 insert Python expressions as placeholders in curly braces `{expression}`.
 
-The f-string evaluates the expression inside `{...}` first. Then, the result is
-converted to its string representation. For instance, the following evaluates an
-addition, formats, and prints the result as a string.
+- `f'... {expression}'`: f-string evaluates the expression inside `{...}` first.
+Then, the result is converted to its string representation.
+
+For instance, the following evaluates an addition, formats, and prints the result
+as a string.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
