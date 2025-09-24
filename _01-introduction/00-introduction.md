@@ -50,6 +50,8 @@ leave it to the future workshops.
 > You can find more resources on Python from
 [www.python.org](https://www.python.org/){:target="_blank"}.
 
+### Exercises
+
 ---
 
 **E1:** Edit the following code to print a greeting by replacing the
