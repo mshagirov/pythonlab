@@ -50,8 +50,8 @@ future you will thank you if you write a code that is easier to read.
 
 ### Types
 
-Computer stores data as zeros and ones, a binary data, in its memory. The *type*
-of the data determines what these zeros and ones actually represent.
+Computer stores everything in its memory as a binary data composed of zeros and
+ones. The *type* of the data determines what these zeros and ones actually represent.
 The Python standard library comes with a wide range of
 [built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}
 that you can use to represent your data. We have already used the following types:
@@ -184,12 +184,10 @@ Another frequently used type in programming is a `bool`.
 
 - `bool` : *Boolean* type has two possible values `True` and `False` that represent
 truth values.
-- To get a *logical complement* of a `bool` variable you use `not` operator.
+- To get a *logical complement* of a `bool` variable use the `not` operator.
 
 We will use `bool` when doing logical operations and writing conditional statements
-(*if-else* statements). When used with mathematical operations, Python implicitly
-casts `bool` to `int` or `float` and treats it as a number, `True` is 1, and
-`False` is 0.
+(*if-else* statements).
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -199,6 +197,10 @@ likes_pizza = not False
 print("Mutant turtle:", is_mutant)
 print("Likes pizza:", likes_pizza)
 </script></pre></div>
+
+When used with mathematical operations, Python implicitly
+casts `bool` to `int` or `float` and treats it as a number, `True` is 1, and
+`False` is 0.
 
 ### Determining and Verifying Types
 
