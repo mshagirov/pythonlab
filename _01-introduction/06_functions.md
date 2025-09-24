@@ -4,21 +4,19 @@ title: Functions
 permalink: /introduction/06
 ---
 
-Functions in programming allow reusing and logically organising code blocks.
-We have already used `print`, `len`, `hasattr`, and `isinstance`, which are all
-examples of built-in Python functions.
-
-> See [*modularity and abstraction*](https://www.geeksforgeeks.org/software-engineering/modular-approach-in-programming/){:target="_blank"}
-in programming.
+Functions in programming allow reusing and logically organising programs into
+blocks of code or *modules*. We have already used `print`, `len`, `hasattr`, and
+`isinstance`, which are all examples of built-in Python functions.
 
 We have also used *methods*, `str`, `int`, `float`, and `type`. Method is
-a concept from object-oriented programming that refers to a function that belongs
-to an object or a *class* (of objects).
+a concept from object-oriented programming that refers to "special" functions
+that belong to specific objects or *classes* (of objects).
 
-> Think of methods as "special functions". In Python everything is
-an object, e.g., objects with types `str`, `int`, `float`, including the functions.
-Thus, we can't avoid using objects in Python. That said, object-oriented
-programming is optional in Python.
+In Python everything is an object (e.g., `str`, `int`, and `float` objects),
+including the functions. The functions have their own type, `function`.
+
+> We can't avoid using objects in Python. That said, object-oriented programming
+is optional in Python.
 
 ### Defining Functions
 
@@ -33,7 +31,7 @@ def FUNCTION_NAME(INPUT_ARGS):
 ```
 
 To define an empty (template) function, that you plan to implement later, use
-`pass` keyword. You must *always* include `()` (and `:`) after the name of the function,
+`pass` keyword. You must *always* include `()` and `:` after the name of the function,
 even when you don't need to provide any input.
 
 ```python
@@ -41,8 +39,17 @@ def FUNCTION_NAME():
     pass
 ```
 
-The optional `return` statement *stops* the execution, and returns the results of
-the function's computations.
+It is conventional to use *four spaces* or *one tab* for each
+level of indentation. Many text editors and
+[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment){:target="_blank"}
+allow setting dafault identation. Be consistent with the
+size and type (spaces or tabs) of indentation you use throughout your code. This
+is mainly for readability but also to avoid bugs due to inconsistent indentation.
+
+### Return Statement
+
+The optional `return` statement *stops* the execution and returns the results of
+the function's computations up to that point.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -53,23 +60,36 @@ result = add_five(10)
 print(result)
 </script></pre></div>
 
-If we didn't provide any variables to `return`, the function stops at the return
-statement and returns `None`. If we completely omit the return statement, entire
-function body is executed, and once completed, the function returns `None`.
+- If we completely omit the return statement, entire function body is executed,
+and once completed, the function returns `None`.
+- If we don't provide any variables to `return`, the function stops at the return
+statement and returns `None`.
 
-> It is conventional to use **two** or **four** space characters for indentation.
-Many text editors and
-[IDEs](https://en.wikipedia.org/wiki/Integrated_development_environment){:target="_blank"}
-allow setting dafault identation. Be consistent with the
-size and type (spaces or tabs) of indentation you use throughout your code. This
-is mainly for readability but also to avoid bugs due to inconsistent indentation.
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def func1():
+    x = 1
+    return
+    print(f'fun1 : x= {x}') # never executed
+
+print(func1())
+</script></pre></div>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+def func2():
+    x = 1
+    print(f'fun2 : x= {x}')
+
+print(func2())
+</script></pre></div>
 
 ### Multiparameter Functions
 
-For many applications you would need more than just one or zero input parameters.
-E.g., even simple addition function `add(a, b)` would require two inputs `a` and
+For many applications you would need more than one input parameter.
+E.g., a function `add(a, b)` with two inputs `a` and
 `b`. To define a function that accepts multiple input parameters, simply list the
-inputs in the function definition.
+inputs in the function definition as a comma separated sequence.
 
 ```python
 def func(input1, input2, input3):
@@ -79,7 +99,8 @@ def func(input1, input2, input3):
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 def add(a, b):
-    return a + b
+    res = a + b
+    return res
 
 result = add(5, 10)
 print(result)
@@ -108,7 +129,7 @@ print(b)
 print(c)
 </script></pre></div>
 
-### Default Parameter Values: args and kwargs
+### args and kwargs
 
 For the *positional* arguments, the value is defined by its position
 in the function definition. E.g., all the functions above used positional
@@ -121,8 +142,8 @@ def func(arg1, arg2, value = 10.5, status = "active", on = True):
     ... 
 ```
 
-In the above, `arg1` and `arg2` are positional arguments and the rest are
-*keyword arguments* with default values.
+In the above, `arg1` and `arg2` are positional arguments (*args*) and the rest
+are keyword arguments (*kwargs*) with default values.
 
 > In Python documentation, positional arguments are commonly called `args` and
 keyword arguments are called as `kwargs`.
@@ -140,20 +161,21 @@ print(f"T : {curr_T}C")
 print(f"new T={decrease_val(curr_T)}C (default)")
 
 print(f"new T={decrease_val(curr_T, delta=delta_T)}C (kwarg)")
-
-print(f"new T={decrease_val(curr_T, delta_T)} (args)")
 </script></pre></div>
 
-- Note that in the last `print` statement, we did not provide the key for the
-argument. In this case, the argument is inferred from its position.
-- You can also specify the name of the positional argument, .e.g.,
+- The argument's value is inferred from its position if we don't provide the key
+for the argument.
 
 ```python
-new_T = decrease_value(delta=delta_T, current=current_T)
+new_T = decrease_val(25, 10)
 ```
 
-In this case, the position of the argument is not important as values are provided
-together with their names.
+- You can also specify the name of the positional argument to provide values with
+their names inside the function.
+
+```python
+new_T = decrease_value(delta=10, current=25)
+```
 
 > Positional arguments must be provided before keyword arguments when defining
 and calling functions that use both positional and keyword arguments.
@@ -167,8 +189,6 @@ and calling functions that use both positional and keyword arguments.
 - Fix the code so that it prints `Hello, World!`.
 - Set the `name` variable to your name as a `str` (using quotes
 or double quotes) then run the code again to print a geeting.
-- Replace the last line with `print(greeter(name))` and run the code again.
-- Can you explain what happens when you run this code?
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -180,7 +200,7 @@ greeter(name)
 </script></pre></div>
 
 ---
-**E2:** Complete the `vector_length` multiparameter function.
+**E2:** Complete the `vector_length` function.
 
 - Compute the
 [Euclidean length or L2-norm](https://mathworld.wolfram.com/L2-Norm.html){:target="_blank"}
@@ -188,7 +208,7 @@ of a 3-dimensional vector by completing the function.
 - You may find
 [`sqrt` function](https://docs.python.org/3/library/math.html#math.sqrt){:target="_blank"}
 useful for this. I have already *imported* it for you as a part of built-in
-`math` module. You can call it as `math.sqrt(...)`.
+`math` module. You can call it with `math.sqrt(...)` as shown below.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -196,12 +216,13 @@ import math
 
 def vector_length(x, y, z):
     # Don't edit above
-    l = math.sqrt( ? )
+
+    # math.sqrt( ? )
 
     #> Don't edit below
     return l
 
-x1, x2, x3 = 1, 4, 8
+x1, x2, x3 = 4, 1, 8
 l = vector_length(x1, x2, x3)
 
 print(f"length of [{x1}, {x2}, {x3}] is {l}")
@@ -259,19 +280,13 @@ why doesn't this lead to an error?
 ---
 **E4:** Function Objects
 
-As noted earlier on this page, Python treats functions as objects. This also means
-that functions have their own (data) type, `function`, just like other objects.
-You can check this using `type` method. Keeping this in mind, answer following
-question by running the code cell below.
-
-> `type(object)` returns the type of the input `object`. E.g., `type(1)` returns
-`int` type since `1` is an integer.
+As noted earlier on this page, Python treats functions as objects. You can check
+this using `type` method. Keeping this in mind, answer following question by
+running the code cell below.
 
 - What is the difference between `hi` and `hi()` below? Print statements are
-there so that code will print out the results to the console.
-- You don't need to use `print` if you run this commands in the terminal
-(Python shell).
-
+there to examine these objects by printing them to the console.
+ 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 def hi():
@@ -280,6 +295,9 @@ def hi():
 print(hi)
 print(hi())
 </script></pre></div>
+
+> You don't need to use `print` to examine these commands in the
+[Python shell](/pythonlab/terminal/){:target="_blank"}.
 
 ---
 

@@ -20,11 +20,10 @@ values that represent positive and negative infinity.
 print(float("inf"))
 </script></pre></div>
 
-> `inf` is usually used to initialise values or to handle special cases for
+> `inf` is used to initialise values or to handle special cases for
 various algorithms. E.g., to find a maximum value, you may start with `-inf`
 and compare you numbers to it. Using `-inf` in the initial step will ensure
-that your program will update the current maximum value since any number
-is larger than `-inf`.
+that your program will update the current maximum value.
 
 ### Exponentials
 
@@ -36,9 +35,9 @@ Python also has a built-in operation `**` for computing exponentials. E.g.,
 print(2**4)
 </script></pre></div>
 
-### In-place Updates (Augmented Assignments)
+### Augmented Assignments
 
-Python also provides shorthand notation for updating values of numerical variables.
+Python also provides a shorthand notation for updating values of numerical variables.
 These type of operations are called *in-place updates* or *augmented assignments*.
 
 - *Increment*: `a += b` is equivalent to `a = a + b`, add then assign.
