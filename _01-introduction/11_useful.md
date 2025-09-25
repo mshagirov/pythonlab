@@ -45,13 +45,12 @@ print(name)
 
 ### Lambda Functions
 
-*Lambda function* is a term for anonymous functions in Python. Anonymous functions
-do not have names like the usual function defined using `def`. They are generally
-short convenience functions defined and used on the fly and then thrown away.
+*Lambda function* is a term used for anonymous functions in Python. Anonymous functions
+do not have names like a usual function that you define with `def`. They are generally
+short convenience functions, defined and used on the fly and then thrown away.
 
-- `lambda var1, ...: code`: defines a lambda function that takes in variables
-`var1`, ..., and executes a given code. The code is usually a single line of
-short code.
+- `lambda var1, ...: code`: defines a lambda function. The function takes in
+variables `var1`, ..., and executes a given single line of short code.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -59,8 +58,46 @@ add = lambda a, b: a + b
 print(add(5, 10))
 </script></pre></div>
 
-> You may find lambda functions useful as inputs to other functions and to apply
-simple operations on its inputs. See below for more examples.
+> You may find lambda functions useful as inputs to other functions.
+See below for more examples.
+
+### Comprehensions
+
+Python comprehensions are a concise and efficient method for creating new
+sequences. For example, instead of writing a for loop to create a list:
+
+```python
+l = []
+for i in items:
+    l.append(i)
+```
+
+You could use a *list comprehension*:
+
+- **List comprehension** : `[i for i in items]`
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+l = [c for c in "Hello there!"]
+print(l)
+</script></pre></div>
+
+Similarly, Python also offers methods for building `dict` and `set` iterables.
+
+- **Dictionary comprehension**: `{k: v for k, v in iterable}`
+- **Set comprehension**: `{k for k in items}`
+
+Comprehensions can be used with `if`clause to build filtered sequences.
+
+- **Conditional filter**: `[i for i in items if condition]`
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+l = [c for c in "Hello there!" if c!="e"]
+print(l)
+</script></pre></div>
+
+> You can create tuples by converting lists that you build using the list comprehension.
 
 ### Sorting
 
@@ -214,8 +251,8 @@ print(sorted(items, key=lambda ?))
 list.
 
 ---
-**E3:** Use `sorted`, `abs`, `map`, and `filter` to complete the code below. The final
-`print` should print a *sorted* sequence of numbers that
+**E3:** Use `sorted`, `abs`, `map`, and `filter` to complete the code below.
+The final `print` should print a *sorted* sequence of numbers that
 *excludes* all numbers with absolute values (`abs(x)`) between 3-7,
 including 3 and 7. For example, an original sequence
 

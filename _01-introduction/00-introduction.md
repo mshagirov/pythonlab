@@ -20,7 +20,7 @@ files, sending emails, data entry, and more.
 - **Deep learning and artificial intelligence**: Deep learning frameworks like PyTorch
 and TensorFlow are used to create and train models that learn to identify objects
 in images, to predict trends, or for building intelligent chatbots.
-- **Data analysis**: Using libraries like Pandas, Python helps analyse data to
+- **Data analysis**: Using libraries like pandas, Python helps analyse data to
 uncover insights.
 - **Scientific computing**: Python was created to support scientific and mathematical
 computations. With tools like NumPy, you can simulate physical systems, or analyse
