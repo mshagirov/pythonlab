@@ -4,8 +4,8 @@ title: Python
 permalink: /introduction/00
 ---
 
-Python is a general-purpose programming language designed for readability and
-efficient workflows. Its wide range of applications, robust community
+Python is a general-purpose programming language designed for readability,
+flexibility, and fast development. Its wide range of applications, robust community
 support, and simplicity make it popular among both beginners and experienced
 programmers.
 
