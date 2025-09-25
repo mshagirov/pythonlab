@@ -10,10 +10,10 @@ Let's run the following code and observe what happens.
 <pre class="highlight"><script type="py-editor" worker>
 def fun1():
     x = 5
-    print(f"x = {x} inside fun1")
+    print(f"x = {x} fun1")
 
 def fun2():
-    print(f"x = {x} inside fun2")
+    print(f"x = {x} fun2")
 
 x = 42
 

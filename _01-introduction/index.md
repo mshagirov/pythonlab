@@ -30,7 +30,7 @@ permalink: /introduction/
 - [Python: The Documentary, by CultRepo (YouTube)](https://www.youtube.com/watch?v=GfH4QL4VqJ0){:target="_blank"}
 
 <div class="prevnextlinks">
-    <a id="previous" href="/pythonlab/">Previous: Workshops</a>
+    <a id="previous" href="/pythonlab/">Up: Workshops</a>
     <a id="next" href="00">Next: Python</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

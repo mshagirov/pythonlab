@@ -21,14 +21,14 @@ which allow you to store and manipulate data efficiently.
 functions, and understanding function objects, while also diving into variable
 scope to manage data within your programs.
 
-**Control Flow**: We covered logical operations, `if-else` and `elif` statements,
+- **Control Flow**: We covered logical operations, `if-else` and `elif` statements,
 `for` and `while` loops, and used `break` and `continue` to control program flow,
 alongside utilities like `range`, `zip`, and `enumerate`.
 
-**Advanced Features**: We also learned powerful tools such as lambda functions,
+- **Advanced Features**: We also learned powerful tools such as lambda functions,
 `map`, `filter`, and comprehensions to write concise and efficient code.
 
-**Error Handling**: You learned to handle errors gracefully with `try-except`,
+- **Error Handling**: You learned to handle errors gracefully with `try-except`,
 raise custom errors with `raise`, and use assertions for defensive programming.
 
 These skills form the backbone of Python programming and provide a strong foundation

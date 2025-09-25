@@ -23,16 +23,20 @@ that starts with a letter or an underscore `_`, e.g., `abc`, `ABC123`, `_abc123`
 - `value`: *Value* can be any value with a built-in or valid user defined *type*,
 where the type refers to the type of the data stored in the memory, e.g., a text.
 
-For example, the following defines a variable `name`, uses it in a f-string, and
-prints the result.
+For example, the following defines a variable `username`, uses it in a f-string,
+and prints the result.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-name = "Kenobi"
-print(f"General {name}!")
+username = "Kenobi"
+print(f"General {username}!")
 </script></pre></div>
 
-Here, the variable `name` refers to a string `Kenobi`.
+Here, the variable `username` refers to a string `Kenobi`.
+
+|   Name   | Value  |
+|:--------:|:------:|
+|`username`|`Kenobi`|
 
 You can also define multiple variables on a single line.
 
@@ -60,9 +64,14 @@ that you can use to represent your data. We have already used the following type
 - `float`: floats, and
 - `str`: strings
 
-which respectfully represent, whole numbers, approximate real
-numbers, and text objects. So far we have been using values with these types
-directly without *assigning* them names.
+which respectfully represent, whole numbers, approximate real numbers, and text
+objects.
+
+|   Name   | Value  |  Type |
+|:--------:|:------:|:-----:|
+|`username`|`Kenobi`| `str` |
+|    `x`   |  `2`   | `int` |
+|    `y`   | `3.14` |`float`|
 
 ### Naming Variables
 
@@ -246,7 +255,7 @@ print(
 I separated the parentheses and inputs of the `print` command into separate
 lines for readability.
 
-### Comments on Dynamic Typing
+### Dynamic Typing
 
 Python is a **dynamically typed** language where Python automatically infers a
 variable's type when you run the code. This leads to less boilerplate code when

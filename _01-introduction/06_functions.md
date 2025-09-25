@@ -60,8 +60,6 @@ result = add_five(10)
 print(result)
 </script></pre></div>
 
-- If we completely omit the return statement, entire function body is executed,
-and once completed, the function returns `None`.
 - If we don't provide any variables to `return`, the function stops at the return
 statement and returns `None`.
 
@@ -74,6 +72,9 @@ def func1():
 
 print(func1())
 </script></pre></div>
+
+- If we completely omit the return statement, entire function body is executed,
+and once completed, the function returns `None`.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
