@@ -36,7 +36,7 @@ Here, the variable `username` refers to a string `Kenobi`.
 
 |   Name   | Value  |
 |:--------:|:------:|
-|`username`|`Kenobi`|
+|`username`|`"Kenobi"`|
 
 You can also define multiple variables on a single line.
 
@@ -51,27 +51,6 @@ print(f"y: {y}")
 > Don't overuse this feature. It might be hard to read code with `>2-3` variables
 defined on a single line, especially when you have long variable names. The
 future you will thank you if you write a code that is easier to read.
-
-### Types
-
-Computer stores everything in its memory as a binary data composed of zeros and
-ones. The *type* of the data determines what these zeros and ones actually represent.
-The Python standard library comes with a wide range of
-[built-in types](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}
-that you can use to represent your data. We have already used the following types:
-
-- `int`: integers,
-- `float`: floats, and
-- `str`: strings
-
-which respectfully represent, whole numbers, approximate real numbers, and text
-objects.
-
-|   Name   | Value  |  Type |
-|:--------:|:------:|:-----:|
-|`username`|`Kenobi`| `str` |
-|    `x`   |  `2`   | `int` |
-|    `y`   | `3.14` |`float`|
 
 ### Naming Variables
 
@@ -121,6 +100,126 @@ print("old value:", length)
 
 length = 1
 print("new value:", length)
+</script></pre></div>
+
+### Types
+
+Computer stores everything in its memory as a binary data composed of zeros and
+ones. The *type* of the data determines what these zeros and ones actually represent.
+The Python standard library comes with a wide range of built-in types that you
+can use to represent your data.
+
+We have already seen the following:
+
+- `int`: Signed integers, e.g., `-423`, `0`, `12897`. Python automatically adjusts
+the size of an `int` in the memory (number of bytes) depending on the value of
+the integer.
+- `float`: Floats or
+[floating-point numbers](https://en.wikipedia.org/wiki/Floating-point_arithmetic){:target="_blank"}
+are a subset of real numbers that can be approximated with binary fractions. They
+are stored as 64-bit or *double precision* numbers in most Python implementations.
+- `str`: Strings in Python represent textual data. E.g., `"Kenobi"`, `"Hello there!"`.
+
+|   Name   | Value  |  Type |
+|:--------:|:------:|:-----:|
+|`username`|`"Kenobi"`| `str` |
+|    `x`   |  `2`   | `int` |
+|    `y`   | `3.14` |`float`|
+
+Additionally, Python also implements types for working with bytes, dates and
+times, and sequences. We will learn about more complex types such as sequences
+in the following sections. For a complete list of data types in Python refer
+to
+[the official documentation](https://docs.python.org/3/library/stdtypes.html#built-in-types){:target="_blank"}.
+
+### Boolean Type
+
+Another frequently used type in Python is a `bool`.
+
+- `bool` : *Boolean* type has two possible values `True` and `False` that represent
+truth values.
+- To get a *logical complement* of a `bool` variable use the `not` operator.
+
+We will use `bool` when doing logical operations and writing conditional statements
+(*if-else* statements).
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+is_mutant = True
+likes_pizza = not False
+
+print("Mutant turtle:", is_mutant)
+print("Likes pizza:", likes_pizza)
+</script></pre></div>
+
+When used with mathematical operations, Python implicitly
+casts `bool` to `int` or `float` and treats it as a number, `True` is 1, and
+`False` is 0.
+
+### None Type
+
+In Python, `NoneType` represents a null or absence of a value. `NoneType` only has
+a single value `None`. Compared to other programming langugages, `None` in Python
+is a distinct object and doesn't represent zero value, e.g., these are NOT null in
+Python, an empty string `""`, numerical `0`, etc. Also, note that `str` `"None"`
+is not the same as `None`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+n, s = None, "None"
+print(n, "(NoneType)")
+print(s, "(str)")
+</script></pre></div>
+
+When you print the `None` and a string `"None"` they appear to be the same. To
+determine if the variable is `NoneType` or just a string you can use the following:
+
+- `repr` function
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+n, s = None, "None"
+print(repr(n), "(NoneType)")
+print(repr(s), "(str)")
+</script></pre></div>
+
+- Use `is` or `==` to compare the value with actual `None`:
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+n, s = None, "None"
+print(n is None, "(NoneType)")
+print(s is None, "(str)")
+</script></pre></div>
+
+- Or use one of the type checking methods in the next section, e.g., `type` or
+`isinstance`.
+
+### Determining and Verifying Types
+
+You can determine the type of a varible using `type()` method.
+
+- `type(object)` takes in an object, variable or value, and returns the type of
+the object, `int`, `str` etc. You can further compare the value of the type
+obtained from this function with an actual target type using `is` and `==`.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+x = 42
+print(f"Is {x} int? {type(x) is int}")
+print(f"Is {x} float? {type(x) is float}")
+</script></pre></div>
+
+Alternatively, you can also use `isinstance` to verify type of a given variable
+instead of a comparison.
+
+- `isinstance(object, type)` takes in the object and a type, and returns a `bool`
+value. `True` if the types match and `False` otherwise.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+x = 42
+print(f"Is {x} int?", isinstance(x, int))
 </script></pre></div>
 
 ### Type Casting
@@ -175,85 +274,17 @@ Below is another example that uses type casting with `int()` and `float()` metho
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 x = int(3.14)
-print(x)
+print(x, type(x))
 
 y = int(" 2 ")
-print(y)
+print(y, type(y))
 
 z = float(x + y)
-print(f"z = {z}")
+print(z, type(z))
 </script></pre></div>
 
 The last two lines convert an `int` object with value `x + y` to a `float` and
 print it.
-
-### Boolean Type
-
-Another frequently used type in programming is a `bool`.
-
-- `bool` : *Boolean* type has two possible values `True` and `False` that represent
-truth values.
-- To get a *logical complement* of a `bool` variable use the `not` operator.
-
-We will use `bool` when doing logical operations and writing conditional statements
-(*if-else* statements).
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-is_mutant = True
-likes_pizza = not False
-
-print("Mutant turtle:", is_mutant)
-print("Likes pizza:", likes_pizza)
-</script></pre></div>
-
-When used with mathematical operations, Python implicitly
-casts `bool` to `int` or `float` and treats it as a number, `True` is 1, and
-`False` is 0.
-
-### Determining and Verifying Types
-
-You can determine the type of a varible using `type()` method.
-
-- `type(object)` takes in an object, variable or value, and returns the type of
-the object, `int`, `str` etc.
-
-To verify a varible's type, e.g., when you need to check if variable is `int`, use
-`isinstance()`.
-
-- `isinstance(object, type)` takes in the object and a type, and returns a `bool`
-value. `True` if the types match and `False` otherwise.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-x = 42
-print("What is the type of x:", type(x))
-print("Is x integer:", isinstance(x, int))
-</script></pre></div>
-
-### None Type
-
-In Python, `NoneType` represents a null or absence of a value. `NoneType` only has
-a single value `None`. Compared to other programming langugages, `None` in Python
-is a distinct object and doesn't represent zero value, e.g., these are NOT null in
-Python, an empty string `""`, numerical `0`, etc. Also, note that `str` `"None"`
-is not the same as `None`.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-x = None
-print(f"What is the type of x: { type(x) }")
-print(f"Is x int (numeric)? { isinstance(x, int) }")
-
-x_as_str = str(x)
-print(f'\nCasted to str: {x_as_str}')
-print(
-  "Is str(x) same type as None:", isinstance(x_as_str, type(x))
-)
-</script></pre></div>
-
-I separated the parentheses and inputs of the `print` command into separate
-lines for readability.
 
 ### Dynamic Typing
 
@@ -286,31 +317,6 @@ delta_t = 1
 ...
 delta_t_info = "one hour"
 ```
-
-### Commenting Your Code
-
-Python uses `#` for single-line, and `'''...'''` or `""" ... """` for multi-line
-comments. The latter are technically just strings that are read and not used in
-your code. The (true) comments that start with `#` are ignored by the Python
-interpreter altogether.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-# This is single a comment
-x = 1 # everything after the first # is a comment
-
-'''
-This is multi-line comment
-everything between
-the triple ' or triple " quotes
-are ignored
-
-y = 123
-print(y)
-'''
-
-print(x) # this prints the value of x
-</script></pre></div>
 
 ### Exercises
 

@@ -12,6 +12,29 @@ It may be easier to learn Python and its syntax by trying and breaking
 it instead of purely reading the documentation. Let's try running (and breaking)
 some code.
 
+### Commenting Your Code
+
+Python uses `#` for single-line, and `'''...'''` or `""" ... """` for multi-line
+comments. The latter are technically just unused text objects. Part of a
+line that start with `#` is ignored by the Python interpreter.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+# This is single a comment
+# everything after the first # is a comment
+
+'''
+This is multi-line comment
+everything between
+the triple ' or triple " quotes
+are ignored. E.g., this doesn't print
+
+print(123)
+'''
+
+print(42) # this prints the value "42" <-- command comment
+</script></pre></div>
+
 ### Arithmetic Operators
 
 For example, let's start with the basic arithmetics. Python uses the following
@@ -75,7 +98,21 @@ print( 1 + 2 * 3)
 ### Exercises
 
 ---
-**E1:** Fix a Syntax Error
+**E1:** Python Shell
+
+Run some of the commands above in the [Python shell](/pythonlab/terminal/){:target="_blank"}.
+
+- The shell displays a default *representation* of the commands' outputs if you
+don't use `print`. The representation of an object (e.g., text), is more
+informative. That's what you get when you enter commands into the shell.
+- The output of `print` is meant to be human-readable and formatted. This may
+hide some of the information about the object.
+
+> Keep the terminal open when reading through the pages of this site to quickly
+try out different variations of the commands in the shell.
+
+---
+**E2:** Fix a Syntax Error
 
 Note that, compared to other programming languages, *indentation* is important
 in Python.
@@ -92,7 +129,7 @@ print(1 + 2)
 indentation defines a code block. We will revisit indentation in the coming sections.
 
 ---
-**E2:** Floor Division with Negative Numbers
+**E3:** Floor Division with Negative Numbers
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
@@ -106,20 +143,6 @@ Apply `//` to negative numbers. How does floor division behave in this case?
 regular division operations `/`.
 
 ---
-**E3:** Python Shell
-
-Run some of the commands above in the [Python shell](/pythonlab/terminal/){:target="_blank"}.
-
-- The shell displays a default *representation* of the commands' outputs if you
-don't use `print`. The representation of an object (e.g., text), is more
-informative. That's what you get when you enter commands into the shell.
-- The output of `print` is meant to be human-readable and formatted. This may
-hide some of the information about the object.
-
----
-
-> Keep the terminal open when reading through the pages of this site to quickly
-try out different variations of the commands.
 
 <div class="prevnextlinks">
     <a id="previous" href="01">Previous: Standard Library</a>
