@@ -15,13 +15,12 @@ some code.
 ### Commenting Your Code
 
 Python uses `#` for single-line, and `'''...'''` or `""" ... """` for multi-line
-comments. The latter are technically just unused text objects. Part of a
-line that start with `#` is ignored by the Python interpreter.
+comments. The latter are technically just unused text objects, As for `#`, any part
+of a line after `#` is completely ignored by the Python interpreter.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
 # This is single a comment
-# everything after the first # is a comment
 
 '''
 This is multi-line comment
