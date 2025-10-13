@@ -39,19 +39,19 @@ of scientific applications.
 
 ### Next Steps
 
-- Review this workshops materials using the provided
-[Python shell](/pythonlab/terminal/){:target="_blank"}.
-- Stay tuned for the announcement of the next workshop session.
-- Try out Python on your machine by installing Python or using online tools
-like [colab.google](https://colab.google/).
-- Practice by building small projects, such as a file management script or
-a program that produces simple plots for your experimental data.
-- Explore additional Python libraries like pandas for data analysis.
-- Engage with your local and online Python communities (forums, open-source
-projects, or X) to deepen your knowledge.
+- Review the workshop's materials using the provided
+[Python shell](/pythonlab/terminal/){:target="_blank"} and code cells.
+- In the next workshop, we will install Python on our
+laptops and practice by building small projects and explore libraries like numpy
+and pandas for data analysis.
+- You can also try out other ways to use Python, e.g., using online tools
+like [Google colab notebooks](https://colab.google/).
+- Engage with your local and online Python communities, e.g., your colleagues, forums,
+open-source projects, or X to deepen your knowledge.
 
 Thank you for your enthusiasm and dedication! Keep coding, experimenting, hacking,
-and exploring the endless possibilities with Python.
+and exploring the endless possibilities with Python. Stay tuned for the announcement
+of the next workshop session!
 
 <div class="prevnextlinks">
     <a id="previous" href="12">Previous: Errors</a>
