@@ -29,29 +29,6 @@ experimental data.
 > You can find out more about Python from
 [www.python.org](https://www.python.org/){:target="_blank"}.
 
-### A Code Example
-
-As an example, let's use Python's `print` function. It takes an input which is
-everything inside its enclosing parentheses `(...)`, and prints this out
-to the *console*.
-
-- `print(input)` : prints the text representation of the input to the console.
-
-> Console in programming refers to an interface for interacting with a computer
-program. E.g., the code cell below.
-
-Generally, it is used to display output of a program. We will use `print`
-throughout this workshop to examine and debug our code.
-
-- Run the following code to print a text with `Hello there!` to the console.
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker>
-print("Hello there!")
-</script></pre></div>
-
-> Hover over the code and click the run button.
-
 ### About This Workshop
 
 This workshop session will mainly focus on the Python language and its built-in
@@ -76,6 +53,29 @@ Google Chrome, Edge, Firefox etc.) to experiment with and explore Python.
 Another important goal of this workshop is to foster a beginner-friendly community
 and an environment that encourages curiosity and experimentation, empowering
 participants to continue exploring Python independently.
+
+### A Code Example
+
+As an example, let's use Python's `print` function. It takes an input which is
+everything inside its enclosing parentheses `(...)`, and prints this out
+to the *console*.
+
+- `print(input)` : prints the text representation of the input to the console.
+
+> Console in programming refers to an interface for interacting with a computer
+program. E.g., the code cell below.
+
+Generally, it is used to display output of a program. We will use `print`
+throughout this workshop to examine and debug our code.
+
+- Run the following code to print a text with `Hello there!` to the console.
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker>
+print("Hello there!")
+</script></pre></div>
+
+> Hover over the code and click the run button.
 
 ### Exercises
 
