@@ -8,6 +8,8 @@ permalink: /introduction/
     <a href="/pythonlab/terminal/" target="_blank">Launch Python<span class="cursor"></span></a>
 </div></div>
 
+> Click "Launch Python" to start Python shell in your browser.
+
 ### Contents
 
 1. [Python](00) 🐍 👈 ***start here***

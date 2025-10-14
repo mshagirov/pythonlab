@@ -26,6 +26,9 @@ uncover insights.
 computations. With tools like NumPy, you can simulate physical systems, or analyse
 experimental data.
 
+> You can find out more about Python from
+[www.python.org](https://www.python.org/){:target="_blank"}.
+
 ### A Code Example
 
 As an example, let's use Python's `print` function. It takes an input which is
@@ -55,8 +58,24 @@ This workshop session will mainly focus on the Python language and its built-in
 features. We will not cover any external modules such as scientific packages and
 leave it to the future workshops.
 
-> You can find more resources on Python from
-[www.python.org](https://www.python.org/){:target="_blank"}.
+The workshop aims to provide participants with a solid foundation in Python
+programming and achieve the following:
+
+- **Have Fun Coding**: Roll up our sleeves and have fun writing Python code.
+- **Understand Core Python Concepts**: Learn fundamental programming
+concepts, such as, variables, data types, etc., and operations on these types which
+will enable us to write simple Python programs.
+- **Explore Functions**: Learn to define and use functions to organise
+our code effectively and learn reusable and *modular* programs.
+- **Master Control Structures**: Learn the use of loops and conditionals which
+will allow us to control the logical flow of our programs.
+- **Build Confidence in Programming**: Focus on writing and reading the code. We
+will not install any tools on our laptops and instead use our browsers (e.g.,
+Google Chrome, Edge, Firefox etc.) to experiment with and explore Python.
+
+Another important goal of this workshop is to foster a beginner-friendly community
+and an environment that encourages curiosity and experimentation, empowering
+participants to continue exploring Python independently.
 
 ### Exercises
 
