@@ -14,3 +14,5 @@ plugins:
 collections:
   01-introduction:
     output: true
+  02-lab-env-setup:
+    output: true
