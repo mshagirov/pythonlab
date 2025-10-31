@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Numerical and Logical Operations | Python Lab</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Numerical and Logical Operations" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Infinity For applications that require using infinity, Python allows creating float values that represent positive and negative infinity. Positive infinity: float(&quot;inf&quot;), negative infinity: float(&quot;-inf&quot;). inf is used to initialise values or to handle special cases for various algorithms. E.g., to find a maximum value, you may start with -inf and compare you numbers to it. Using -inf in the initial step will ensure that your program will update the current maximum value. Exponentials Python also has a built-in operation ** for computing exponentials. E.g., 2**4 computes \(2^4\). Augmented Assignments Python also provides a shorthand notation for updating values of numerical variables. These type of operations are called in-place updates or augmented assignments. Increment: a += b is equivalent to a = a + b, add then assign. Decrement: a -= b is equivalent to a = a - b, substract then assign. These operations, first evaluate an expression on the right side of = using the old value of a variable a, then assign the result to update a in-place. Additionally, Python also supports the following: a *= b is equivalent to a = a * b, a /= b is equivalent to a = a / b. These assignments are not limited to simple operations and can be used with more complex function calls. Formatting Numbers For easier entry and readability, Python also allows entering numbers with _ separator. For instance, to enter 1,000,000 you could either use 1000000 or 1_000_000, and the latter is easier to read. You can put _ between any two numeric characters including float numbers. It is also common to use scientific notation for entering very large or very small numbers. When printing or reading numbers on the screen we “see” the representation of the number, such as using scientific notation for very small or large numbers. You can also set your preferred representation using the format specification when formatting strings with f-strings and format method. In the above, f and e, in 1.2e or in 018.12f, are types. f and F refer to float, and e and E to scientific notation. Another common type to use is the general type g which uses both scientific and floating point (float) representations depending on the value of the number. Formatting can also be used with other types, e.g., to specify the width of the resulting string representation of the value. Here we are formatting value of a string &#39; Hi! &#39;, ^ is center alignment, and - is the filler and can be any character, 15 specifies the width. See the official format specification documentation to see more examples and details about string formatting. Comparison and Logical Operations Comparison expressions use logical operators to test equality or compare values and result in bool values, True or False. These types of expressions are also known as Boolean expressions. Python defines the following comparison operators to be used in Boolean expressions, == : equality test. != : not equal, returns True if values are not equal. &gt;, &lt;: larger than, and less than. &gt;=: larger than or equal, and &lt;=: less than or equal. Additionally, built-in logical operators and, or, not, and in can be used to compute more complex Boolean expressions. A and B : True if both A and B are True, False otherwise. A or B : True if either A or B are True, False if both A and B False. not EXPRESSION: negates a Boolean expression, e.g., not True is False. x &lt; y is equvalent to (x &lt;= y) and (x != y) with the latter using three operations instead of just one &lt;. A in B : True if A is in B (used in collections like sequences and strings). Equality operations, == and != can be used with any data type. For instance, you can check if a variable’s value is equal to a string “Python”. Previous: Variables Next: Functions" />
+<meta property="og:description" content="Infinity For applications that require using infinity, Python allows creating float values that represent positive and negative infinity. Positive infinity: float(&quot;inf&quot;), negative infinity: float(&quot;-inf&quot;). inf is used to initialise values or to handle special cases for various algorithms. E.g., to find a maximum value, you may start with -inf and compare you numbers to it. Using -inf in the initial step will ensure that your program will update the current maximum value. Exponentials Python also has a built-in operation ** for computing exponentials. E.g., 2**4 computes \(2^4\). Augmented Assignments Python also provides a shorthand notation for updating values of numerical variables. These type of operations are called in-place updates or augmented assignments. Increment: a += b is equivalent to a = a + b, add then assign. Decrement: a -= b is equivalent to a = a - b, substract then assign. These operations, first evaluate an expression on the right side of = using the old value of a variable a, then assign the result to update a in-place. Additionally, Python also supports the following: a *= b is equivalent to a = a * b, a /= b is equivalent to a = a / b. These assignments are not limited to simple operations and can be used with more complex function calls. Formatting Numbers For easier entry and readability, Python also allows entering numbers with _ separator. For instance, to enter 1,000,000 you could either use 1000000 or 1_000_000, and the latter is easier to read. You can put _ between any two numeric characters including float numbers. It is also common to use scientific notation for entering very large or very small numbers. When printing or reading numbers on the screen we “see” the representation of the number, such as using scientific notation for very small or large numbers. You can also set your preferred representation using the format specification when formatting strings with f-strings and format method. In the above, f and e, in 1.2e or in 018.12f, are types. f and F refer to float, and e and E to scientific notation. Another common type to use is the general type g which uses both scientific and floating point (float) representations depending on the value of the number. Formatting can also be used with other types, e.g., to specify the width of the resulting string representation of the value. Here we are formatting value of a string &#39; Hi! &#39;, ^ is center alignment, and - is the filler and can be any character, 15 specifies the width. See the official format specification documentation to see more examples and details about string formatting. Comparison and Logical Operations Comparison expressions use logical operators to test equality or compare values and result in bool values, True or False. These types of expressions are also known as Boolean expressions. Python defines the following comparison operators to be used in Boolean expressions, == : equality test. != : not equal, returns True if values are not equal. &gt;, &lt;: larger than, and less than. &gt;=: larger than or equal, and &lt;=: less than or equal. Additionally, built-in logical operators and, or, not, and in can be used to compute more complex Boolean expressions. A and B : True if both A and B are True, False otherwise. A or B : True if either A or B are True, False if both A and B False. not EXPRESSION: negates a Boolean expression, e.g., not True is False. x &lt; y is equvalent to (x &lt;= y) and (x != y) with the latter using three operations instead of just one &lt;. A in B : True if A is in B (used in collections like sequences and strings). Equality operations, == and != can be used with any data type. For instance, you can check if a variable’s value is equal to a string “Python”. Previous: Variables Next: Functions" />
+<link rel="canonical" href="http://localhost:4000/pythonlab/introduction/05" />
+<meta property="og:url" content="http://localhost:4000/pythonlab/introduction/05" />
+<meta property="og:site_name" content="Python Lab" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-31T15:39:55+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Numerical and Logical Operations" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-31T15:39:55+08:00","datePublished":"2025-10-31T15:39:55+08:00","description":"Infinity For applications that require using infinity, Python allows creating float values that represent positive and negative infinity. Positive infinity: float(&quot;inf&quot;), negative infinity: float(&quot;-inf&quot;). inf is used to initialise values or to handle special cases for various algorithms. E.g., to find a maximum value, you may start with -inf and compare you numbers to it. Using -inf in the initial step will ensure that your program will update the current maximum value. Exponentials Python also has a built-in operation ** for computing exponentials. E.g., 2**4 computes \\(2^4\\). Augmented Assignments Python also provides a shorthand notation for updating values of numerical variables. These type of operations are called in-place updates or augmented assignments. Increment: a += b is equivalent to a = a + b, add then assign. Decrement: a -= b is equivalent to a = a - b, substract then assign. These operations, first evaluate an expression on the right side of = using the old value of a variable a, then assign the result to update a in-place. Additionally, Python also supports the following: a *= b is equivalent to a = a * b, a /= b is equivalent to a = a / b. These assignments are not limited to simple operations and can be used with more complex function calls. Formatting Numbers For easier entry and readability, Python also allows entering numbers with _ separator. For instance, to enter 1,000,000 you could either use 1000000 or 1_000_000, and the latter is easier to read. You can put _ between any two numeric characters including float numbers. It is also common to use scientific notation for entering very large or very small numbers. When printing or reading numbers on the screen we “see” the representation of the number, such as using scientific notation for very small or large numbers. You can also set your preferred representation using the format specification when formatting strings with f-strings and format method. In the above, f and e, in 1.2e or in 018.12f, are types. f and F refer to float, and e and E to scientific notation. Another common type to use is the general type g which uses both scientific and floating point (float) representations depending on the value of the number. Formatting can also be used with other types, e.g., to specify the width of the resulting string representation of the value. Here we are formatting value of a string &#39; Hi! &#39;, ^ is center alignment, and - is the filler and can be any character, 15 specifies the width. See the official format specification documentation to see more examples and details about string formatting. Comparison and Logical Operations Comparison expressions use logical operators to test equality or compare values and result in bool values, True or False. These types of expressions are also known as Boolean expressions. Python defines the following comparison operators to be used in Boolean expressions, == : equality test. != : not equal, returns True if values are not equal. &gt;, &lt;: larger than, and less than. &gt;=: larger than or equal, and &lt;=: less than or equal. Additionally, built-in logical operators and, or, not, and in can be used to compute more complex Boolean expressions. A and B : True if both A and B are True, False otherwise. A or B : True if either A or B are True, False if both A and B False. not EXPRESSION: negates a Boolean expression, e.g., not True is False. x &lt; y is equvalent to (x &lt;= y) and (x != y) with the latter using three operations instead of just one &lt;. A in B : True if A is in B (used in collections like sequences and strings). Equality operations, == and != can be used with any data type. For instance, you can check if a variable’s value is equal to a string “Python”. Previous: Variables Next: Functions","headline":"Numerical and Logical Operations","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pythonlab/introduction/05"},"url":"http://localhost:4000/pythonlab/introduction/05"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/pythonlab/assets/main.css">
+  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+  <!-- PyScript CSS -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
+  <!-- This script tag bootstraps PyScript -->
+  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/pythonlab/feed.xml" title="Python Lab" /><!---->
+
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Numerical and Logical Operations</h1>
+  </header>
+
+  <div class="post-content">
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript">
+</script>
+
+<h3 id="infinity">Infinity</h3>
+
+<p>For applications that require using <em>infinity</em>, Python allows creating <code class="language-plaintext highlighter-rouge">float</code>
+values that represent positive and negative infinity.</p>
+
+<ul>
+  <li>Positive infinity: <code class="language-plaintext highlighter-rouge">float("inf")</code>,</li>
+  <li>negative infinity: <code class="language-plaintext highlighter-rouge">float("-inf")</code>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+print(float("inf"))
+</script></pre></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">inf</code> is used to initialise values or to handle special cases for
+various algorithms. E.g., to find a maximum value, you may start with <code class="language-plaintext highlighter-rouge">-inf</code>
+and compare you numbers to it. Using <code class="language-plaintext highlighter-rouge">-inf</code> in the initial step will ensure
+that your program will update the current maximum value.</p>
+</blockquote>
+
+<h3 id="exponentials">Exponentials</h3>
+
+<p>Python also has a built-in operation <code class="language-plaintext highlighter-rouge">**</code> for computing exponentials. E.g.,
+<code class="language-plaintext highlighter-rouge">2**4</code> computes \(2^4\).</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+print(2**4)
+</script></pre></div>
+
+<h3 id="augmented-assignments">Augmented Assignments</h3>
+
+<p>Python also provides a shorthand notation for updating values of numerical variables.
+These type of operations are called <em>in-place updates</em> or <em>augmented assignments</em>.</p>
+
+<ul>
+  <li><em>Increment</em>: <code class="language-plaintext highlighter-rouge">a += b</code> is equivalent to <code class="language-plaintext highlighter-rouge">a = a + b</code>, add then assign.</li>
+  <li><em>Decrement</em>: <code class="language-plaintext highlighter-rouge">a -= b</code> is equivalent to <code class="language-plaintext highlighter-rouge">a = a - b</code>, substract then assign.</li>
+</ul>
+
+<p>These operations, first evaluate an expression on the right side of <code class="language-plaintext highlighter-rouge">=</code> using the
+old value of a variable <code class="language-plaintext highlighter-rouge">a</code>, then assign the result to update <code class="language-plaintext highlighter-rouge">a</code> in-place.</p>
+
+<p>Additionally, Python also supports the following:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">a *= b</code> is equivalent to <code class="language-plaintext highlighter-rouge">a = a * b</code>,</li>
+  <li><code class="language-plaintext highlighter-rouge">a /= b</code> is equivalent to <code class="language-plaintext highlighter-rouge">a = a / b</code>.</li>
+</ul>
+
+<p>These assignments are not limited to simple operations and can be used with more
+complex function calls.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+x = 1
+print(x)
+
+x += (x + 1)**3
+'''
+Equivalent to
+   temp_val = x + (x + 1)**3
+   x = temp_val
+'''
+print(x)
+
+x /= 2
+print(x)
+</script></pre></div>
+
+<h3 id="formatting-numbers">Formatting Numbers</h3>
+
+<p>For easier entry and readability, Python also allows entering numbers with
+<code class="language-plaintext highlighter-rouge">_</code> separator. For instance, to enter 1,000,000 you could either use
+<code class="language-plaintext highlighter-rouge">1000000</code> or <code class="language-plaintext highlighter-rouge">1_000_000</code>, and the latter is easier to read. You can put <code class="language-plaintext highlighter-rouge">_</code> between
+any two numeric characters including <code class="language-plaintext highlighter-rouge">float</code> numbers.</p>
+
+<p>It is also common to use <em>scientific notation</em> for entering very large or
+very small numbers.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+large = 1_000_000_000
+print(f"large = {large}")
+
+small = 1 / large
+print(f"small = {small}") # automatically uses sci notation
+</script></pre></div>
+
+<p>When printing or reading numbers on the screen we “see” the representation of
+the number, such as using scientific notation for very small or large numbers.
+You can also set your preferred representation using the <em>format specification</em>
+when formatting strings with f-strings and <code class="language-plaintext highlighter-rouge">format</code> method.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+large = 1_000_000_000
+print(f"large = {large :1.2e}")
+
+small = 1 / large
+print(f"small = {small :.9f}")
+
+print(f"small = {small :18.12f}")
+print( "small = " + format(small, "018.12f"))
+</script></pre></div>
+
+<p>In the above, <code class="language-plaintext highlighter-rouge">f</code> and <code class="language-plaintext highlighter-rouge">e</code>, in <code class="language-plaintext highlighter-rouge">1.2e</code> or in <code class="language-plaintext highlighter-rouge">018.12f</code>, are types.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">f</code> and <code class="language-plaintext highlighter-rouge">F</code> refer to <code class="language-plaintext highlighter-rouge">float</code>, and</li>
+  <li><code class="language-plaintext highlighter-rouge">e</code> and <code class="language-plaintext highlighter-rouge">E</code> to scientific notation.</li>
+</ul>
+
+<p>Another common type to use is the general type <code class="language-plaintext highlighter-rouge">g</code> which
+uses both scientific and floating point (<code class="language-plaintext highlighter-rouge">float</code>) representations depending on
+the value of the number.</p>
+
+<p>Formatting can also be used with other types, e.g., to specify the width of
+the resulting string representation of the value.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+print(f"{' Hi! ':-^15}")
+</script></pre></div>
+
+<p>Here we are formatting value of a string <code class="language-plaintext highlighter-rouge">' Hi! '</code>, <code class="language-plaintext highlighter-rouge">^</code> is center alignment, and
+<code class="language-plaintext highlighter-rouge">-</code> is the filler and can be any character, <code class="language-plaintext highlighter-rouge">15</code> specifies the width.</p>
+
+<blockquote>
+  <p>See the
+<a href="https://docs.python.org/3/library/string.html#format-specification-mini-language" target="_blank">official format specification documentation</a>
+to see more examples and details about string formatting.</p>
+</blockquote>
+
+<h3 id="comparison-and-logical-operations">Comparison and Logical Operations</h3>
+
+<p><em>Comparison expressions</em> use logical operators to test equality or compare
+values and result in <code class="language-plaintext highlighter-rouge">bool</code> values, <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code>. These types of expressions
+are also known as <em>Boolean expressions</em>. Python defines the following
+comparison <em>operators</em> to be used in Boolean expressions,</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">==</code> : equality test.</li>
+  <li><code class="language-plaintext highlighter-rouge">!=</code> : not equal, returns <code class="language-plaintext highlighter-rouge">True</code> if values are not equal.</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt;</code>, <code class="language-plaintext highlighter-rouge">&lt;</code>: larger than, and less than.</li>
+  <li><code class="language-plaintext highlighter-rouge">&gt;=</code>: larger than or equal, and</li>
+  <li><code class="language-plaintext highlighter-rouge">&lt;=</code>: less than or equal.</li>
+</ul>
+
+<p>Additionally, built-in logical operators <code class="language-plaintext highlighter-rouge">and</code>, <code class="language-plaintext highlighter-rouge">or</code>, <code class="language-plaintext highlighter-rouge">not</code>, and <code class="language-plaintext highlighter-rouge">in</code> can be
+used to compute more complex Boolean expressions.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">A and B</code> : <code class="language-plaintext highlighter-rouge">True</code> if both A and B are <code class="language-plaintext highlighter-rouge">True</code>, <code class="language-plaintext highlighter-rouge">False</code> otherwise.</li>
+  <li><code class="language-plaintext highlighter-rouge">A or B</code> : <code class="language-plaintext highlighter-rouge">True</code> if either A or B are <code class="language-plaintext highlighter-rouge">True</code>, <code class="language-plaintext highlighter-rouge">False</code> if both A and B <code class="language-plaintext highlighter-rouge">False</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">not EXPRESSION</code>: negates a Boolean expression, e.g., <code class="language-plaintext highlighter-rouge">not True</code> is <code class="language-plaintext highlighter-rouge">False</code>.</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+x, y = 21, 42
+print(x == y)
+print(x < y)
+print((x <= y) and (x != y))
+</script></pre></div>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">x &lt; y</code> is equvalent to  <code class="language-plaintext highlighter-rouge">(x &lt;= y) and (x != y)</code> with the latter using three
+operations instead of just one <code class="language-plaintext highlighter-rouge">&lt;</code>.</p>
+</blockquote>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">A in B</code> : <code class="language-plaintext highlighter-rouge">True</code> if A is in B (used in collections like sequences and
+strings).</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+is_member = "Tea" in "Team"
+print(is_member)
+</script></pre></div>
+
+<p>Equality operations, <code class="language-plaintext highlighter-rouge">==</code> and <code class="language-plaintext highlighter-rouge">!=</code> can be used with any data type. For instance,
+you can check if a variable’s <em>value</em> is equal to a string “Python”.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+x = "Python"
+y = "P" + "y" + "t" + "h" + "o" + "n"
+print(x == y)
+print(x == 42)
+print(x == "abcdef")
+</script></pre></div>
+
+<div class="prevnextlinks">
+    <a id="previous" href="04">Previous: Variables</a>
+    <a id="next" href="06">Next: Functions</a>
+</div>
+<script src="/pythonlab/assets/js/navigation.js" defer=""></script>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/pythonlab/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Python Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Python workshops and tutorials</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

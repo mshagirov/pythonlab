@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Errors | Python Lab</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Errors" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Exceptions Errors in Python are called exceptions. For example, syntax error is a special type of exception where the code’s syntax is wrong, such as, forgetting : after if statement. You might even get errors when your code is syntactically correct. These are other types of exceptions. Syntax Error Exceptions No “:” after if statement Division by zero 2 / 0 Mismatched brackets [ ... ) Type errors 2 + &quot;Hello&quot; Incorrect indentation Using an undefined object … … You have likely already seen some of these errors in the Python shell or in the code cells if your browser supports error messages. E.g., entering print(2/0) in the Python shell will produce &gt;&gt;&gt; print(2 / 0) Traceback (most recent call last): File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt; ZeroDivisionError: division by zero All error messages follow a similar format. Error message lists the location and a code snipped where the error happened together with the type of the error (e.g., ZeroDivisionError). Do You Need to Memorise Errors? You don’t have to memorise the exceptions and syntax errors. However, conceptual understanding of syntax rules, and common errors, and their messages will help you resolve most of the issues you face when writing code. You will naturally encounter and learn to recognise common errors as you gain more experience in Python. Handling Exceptions Errors disrupt the normal flow of the running program. When they occur the interpreter raises an exception. Python provides exception handling with try-except block. This allows managing the errors to prevent the program from crashing. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors # `e` represents the error try block encloses the code that might raise exceptions, e.g., a code that reads files or a user input. except block catches the exception that matches a given ExceptionType exception (error) type, e.g., ValueError, ZeroDivisionError, KeyError, etc. You can use Exception type to cover all built-in exceptions except SystemExit. SystemExit exception signals the Python interpreter to terminate. See the exceptions documentation to find out more about exceptions. as keyword assigns the caught exception to the variable e. You can also stack except blocks to handle multiple exceptions. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors except AnotherExceptionType as e: # catch AnotherExceptionType It is not necessary to call the error as e and you can use any valid name or omit the as e part altogether. If you omit the name, you need to refer to the exception using the class name of the exception (type, e.g., ZeroDivisionError). Raising Exceptions Python also allows you to force a specified exception with the raise statement. raise ExceptionType You can use raise with an exception with a custom message to force your own exceptions. All exceptions accept an optional message string, ExceptionType(msg). The message is displayed when the error is encountered. Forcing exception might seem counterintuitive. You might be wondering why would anyone need a way to raise errors. You have to keep in mind that not all programs run in isolation, and programs might interact with files, users, or communicate with other machines. In this circumstances a program is expected to encounter errors. Assertions Catching errors to gracefully handle, or intentionally raising them provides an additional way to control your program. This also can be used to explicitly incorporate programmer’s assumptions into the code. E.g., you might want to force a function to accept only a certain image size or format. For convenience, Python also provides an assert statement in addition to the raise. Assertions are a convenient way to quickly include assumptions about a program in a single line of code. assert condition AssertionError is raised if the condition is False. You can also include a message string after the condition to describe your error. assert condition, msg E.g., in the below code cell div(a, b) runs only when b is non-zero. Previous: Useful Tools Next: Conclusion" />
+<meta property="og:description" content="Exceptions Errors in Python are called exceptions. For example, syntax error is a special type of exception where the code’s syntax is wrong, such as, forgetting : after if statement. You might even get errors when your code is syntactically correct. These are other types of exceptions. Syntax Error Exceptions No “:” after if statement Division by zero 2 / 0 Mismatched brackets [ ... ) Type errors 2 + &quot;Hello&quot; Incorrect indentation Using an undefined object … … You have likely already seen some of these errors in the Python shell or in the code cells if your browser supports error messages. E.g., entering print(2/0) in the Python shell will produce &gt;&gt;&gt; print(2 / 0) Traceback (most recent call last): File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt; ZeroDivisionError: division by zero All error messages follow a similar format. Error message lists the location and a code snipped where the error happened together with the type of the error (e.g., ZeroDivisionError). Do You Need to Memorise Errors? You don’t have to memorise the exceptions and syntax errors. However, conceptual understanding of syntax rules, and common errors, and their messages will help you resolve most of the issues you face when writing code. You will naturally encounter and learn to recognise common errors as you gain more experience in Python. Handling Exceptions Errors disrupt the normal flow of the running program. When they occur the interpreter raises an exception. Python provides exception handling with try-except block. This allows managing the errors to prevent the program from crashing. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors # `e` represents the error try block encloses the code that might raise exceptions, e.g., a code that reads files or a user input. except block catches the exception that matches a given ExceptionType exception (error) type, e.g., ValueError, ZeroDivisionError, KeyError, etc. You can use Exception type to cover all built-in exceptions except SystemExit. SystemExit exception signals the Python interpreter to terminate. See the exceptions documentation to find out more about exceptions. as keyword assigns the caught exception to the variable e. You can also stack except blocks to handle multiple exceptions. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors except AnotherExceptionType as e: # catch AnotherExceptionType It is not necessary to call the error as e and you can use any valid name or omit the as e part altogether. If you omit the name, you need to refer to the exception using the class name of the exception (type, e.g., ZeroDivisionError). Raising Exceptions Python also allows you to force a specified exception with the raise statement. raise ExceptionType You can use raise with an exception with a custom message to force your own exceptions. All exceptions accept an optional message string, ExceptionType(msg). The message is displayed when the error is encountered. Forcing exception might seem counterintuitive. You might be wondering why would anyone need a way to raise errors. You have to keep in mind that not all programs run in isolation, and programs might interact with files, users, or communicate with other machines. In this circumstances a program is expected to encounter errors. Assertions Catching errors to gracefully handle, or intentionally raising them provides an additional way to control your program. This also can be used to explicitly incorporate programmer’s assumptions into the code. E.g., you might want to force a function to accept only a certain image size or format. For convenience, Python also provides an assert statement in addition to the raise. Assertions are a convenient way to quickly include assumptions about a program in a single line of code. assert condition AssertionError is raised if the condition is False. You can also include a message string after the condition to describe your error. assert condition, msg E.g., in the below code cell div(a, b) runs only when b is non-zero. Previous: Useful Tools Next: Conclusion" />
+<link rel="canonical" href="http://localhost:4000/pythonlab/introduction/12" />
+<meta property="og:url" content="http://localhost:4000/pythonlab/introduction/12" />
+<meta property="og:site_name" content="Python Lab" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-10-31T15:39:55+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Errors" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-10-31T15:39:55+08:00","datePublished":"2025-10-31T15:39:55+08:00","description":"Exceptions Errors in Python are called exceptions. For example, syntax error is a special type of exception where the code’s syntax is wrong, such as, forgetting : after if statement. You might even get errors when your code is syntactically correct. These are other types of exceptions. Syntax Error Exceptions No “:” after if statement Division by zero 2 / 0 Mismatched brackets [ ... ) Type errors 2 + &quot;Hello&quot; Incorrect indentation Using an undefined object … … You have likely already seen some of these errors in the Python shell or in the code cells if your browser supports error messages. E.g., entering print(2/0) in the Python shell will produce &gt;&gt;&gt; print(2 / 0) Traceback (most recent call last): File &quot;&lt;console&gt;&quot;, line 1, in &lt;module&gt; ZeroDivisionError: division by zero All error messages follow a similar format. Error message lists the location and a code snipped where the error happened together with the type of the error (e.g., ZeroDivisionError). Do You Need to Memorise Errors? You don’t have to memorise the exceptions and syntax errors. However, conceptual understanding of syntax rules, and common errors, and their messages will help you resolve most of the issues you face when writing code. You will naturally encounter and learn to recognise common errors as you gain more experience in Python. Handling Exceptions Errors disrupt the normal flow of the running program. When they occur the interpreter raises an exception. Python provides exception handling with try-except block. This allows managing the errors to prevent the program from crashing. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors # `e` represents the error try block encloses the code that might raise exceptions, e.g., a code that reads files or a user input. except block catches the exception that matches a given ExceptionType exception (error) type, e.g., ValueError, ZeroDivisionError, KeyError, etc. You can use Exception type to cover all built-in exceptions except SystemExit. SystemExit exception signals the Python interpreter to terminate. See the exceptions documentation to find out more about exceptions. as keyword assigns the caught exception to the variable e. You can also stack except blocks to handle multiple exceptions. try: # code that might raise an exception except ExceptionType as e: # catch ExceptionType errors except AnotherExceptionType as e: # catch AnotherExceptionType It is not necessary to call the error as e and you can use any valid name or omit the as e part altogether. If you omit the name, you need to refer to the exception using the class name of the exception (type, e.g., ZeroDivisionError). Raising Exceptions Python also allows you to force a specified exception with the raise statement. raise ExceptionType You can use raise with an exception with a custom message to force your own exceptions. All exceptions accept an optional message string, ExceptionType(msg). The message is displayed when the error is encountered. Forcing exception might seem counterintuitive. You might be wondering why would anyone need a way to raise errors. You have to keep in mind that not all programs run in isolation, and programs might interact with files, users, or communicate with other machines. In this circumstances a program is expected to encounter errors. Assertions Catching errors to gracefully handle, or intentionally raising them provides an additional way to control your program. This also can be used to explicitly incorporate programmer’s assumptions into the code. E.g., you might want to force a function to accept only a certain image size or format. For convenience, Python also provides an assert statement in addition to the raise. Assertions are a convenient way to quickly include assumptions about a program in a single line of code. assert condition AssertionError is raised if the condition is False. You can also include a message string after the condition to describe your error. assert condition, msg E.g., in the below code cell div(a, b) runs only when b is non-zero. Previous: Useful Tools Next: Conclusion","headline":"Errors","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/pythonlab/introduction/12"},"url":"http://localhost:4000/pythonlab/introduction/12"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/pythonlab/assets/main.css">
+  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+  <!-- PyScript CSS -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
+  <!-- This script tag bootstraps PyScript -->
+  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/pythonlab/feed.xml" title="Python Lab" /><!---->
+
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Errors</h1>
+  </header>
+
+  <div class="post-content">
+    <h3 id="exceptions">Exceptions</h3>
+
+<p>Errors in Python are called <em>exceptions</em>. For example, syntax error is a special
+type of exception where the code’s syntax is wrong, such as, forgetting
+<code class="language-plaintext highlighter-rouge">:</code> after <code class="language-plaintext highlighter-rouge">if</code> statement. You might even get errors when your code is syntactically
+correct. These are other types of <em>exceptions</em>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Syntax Error</th>
+      <th style="text-align: center">Exceptions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center">No “:” after <code class="language-plaintext highlighter-rouge">if</code> statement</td>
+      <td style="text-align: center">Division by zero <code class="language-plaintext highlighter-rouge">2 / 0</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Mismatched brackets <code class="language-plaintext highlighter-rouge">[ ... )</code></td>
+      <td style="text-align: center">Type errors <code class="language-plaintext highlighter-rouge">2 + "Hello"</code></td>
+    </tr>
+    <tr>
+      <td style="text-align: center">Incorrect indentation</td>
+      <td style="text-align: center">Using an undefined object</td>
+    </tr>
+    <tr>
+      <td style="text-align: center">…</td>
+      <td style="text-align: center">…</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>You have likely already seen some of these errors in the Python shell
+or in the code cells if your browser supports error messages.</p>
+
+<p>E.g., entering <code class="language-plaintext highlighter-rouge">print(2/0)</code> in the <a href="/pythonlab/terminal/" target="_blank">Python shell</a>
+will produce</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&gt;&gt;&gt;</span> <span class="nf">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">0</span><span class="p">)</span>
+<span class="nc">Traceback </span><span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="sh">"</span><span class="s">&lt;console&gt;</span><span class="sh">"</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nb">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</code></pre></div></div>
+
+<p>All error messages follow a similar format. Error message lists the location
+and a code snipped where the error happened together with the type of
+the error (e.g., <code class="language-plaintext highlighter-rouge">ZeroDivisionError</code>).</p>
+
+<h3 id="do-you-need-to-memorise-errors">Do You Need to Memorise Errors?</h3>
+
+<p>You don’t have to memorise the exceptions and syntax errors. However,
+conceptual understanding of syntax rules, and common errors, and their messages will
+help you resolve most of the issues you face when writing code. <em>You will
+naturally encounter and learn to recognise common errors as you gain more
+experience in Python.</em></p>
+
+<h3 id="handling-exceptions">Handling Exceptions</h3>
+
+<p>Errors disrupt the normal flow of the running program. When they occur
+the interpreter <em>raises an exception</em>. Python provides exception handling with
+<code class="language-plaintext highlighter-rouge">try-except</code> block. This allows managing the errors to prevent the program from crashing.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># code that might raise an exception
+</span><span class="k">except</span> <span class="n">ExceptionType</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># catch ExceptionType errors
+</span>    <span class="c1"># `e` represents the error
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">try</code> block encloses the code that might raise exceptions, e.g., a code that reads
+files or a user input.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">except</code> block catches the exception that matches a given
+<code class="language-plaintext highlighter-rouge">ExceptionType</code> exception (error) type, e.g., <code class="language-plaintext highlighter-rouge">ValueError</code>, <code class="language-plaintext highlighter-rouge">ZeroDivisionError</code>,
+<code class="language-plaintext highlighter-rouge">KeyError</code>, etc.</p>
+  </li>
+  <li>
+    <p>You can use <code class="language-plaintext highlighter-rouge">Exception</code> type to cover <em>all</em> built-in exceptions except <code class="language-plaintext highlighter-rouge">SystemExit</code>.</p>
+  </li>
+</ul>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">SystemExit</code> exception signals the Python interpreter to terminate. See the
+<a href="https://docs.python.org/3/library/exceptions.html" target="_blank">exceptions documentation</a>
+to find out more about exceptions.</p>
+</blockquote>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">as</code> keyword assigns the caught exception to the variable <code class="language-plaintext highlighter-rouge">e</code>.</li>
+  <li>You can also stack <code class="language-plaintext highlighter-rouge">except</code> blocks to handle multiple exceptions.</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">try</span><span class="p">:</span>
+    <span class="c1"># code that might raise an exception
+</span><span class="k">except</span> <span class="n">ExceptionType</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># catch ExceptionType errors
+</span><span class="k">except</span> <span class="n">AnotherExceptionType</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="c1"># catch AnotherExceptionType
+</span></code></pre></div></div>
+
+<blockquote>
+  <p>It is not necessary to call the error as <code class="language-plaintext highlighter-rouge">e</code> and you can use any valid name or
+omit the <code class="language-plaintext highlighter-rouge">as e</code> part altogether. If you omit the name, you need to refer to the
+exception using the class name of the exception (type, e.g., <code class="language-plaintext highlighter-rouge">ZeroDivisionError</code>).</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+try:
+    print(42 / 0)
+except ZeroDivisionError as error:
+    print(f'{type(error)}: {error}')
+</script></pre></div>
+
+<h3 id="raising-exceptions">Raising Exceptions</h3>
+
+<p>Python also allows you to force a specified exception with the <code class="language-plaintext highlighter-rouge">raise</code> statement.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">raise</span> <span class="n">ExceptionType</span>
+</code></pre></div></div>
+
+<p>You can use <code class="language-plaintext highlighter-rouge">raise</code> with an exception with a custom message to force your own
+exceptions.</p>
+
+<blockquote>
+  <p>All exceptions accept an optional message string, <code class="language-plaintext highlighter-rouge">ExceptionType(msg)</code>. The
+message is displayed when the error is encountered.</p>
+</blockquote>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+def check(x):
+    if x < 42:
+        raise ValueError("The value is too low!")
+
+try:
+    check(10)
+except ZeroDivisionError as e:
+    # this code is not triggered
+    print(f'{type(e)}: {e}')
+except Exception as e:
+    print(f'{type(e)}: {e}')
+</script></pre></div>
+
+<p>Forcing exception might seem counterintuitive. You might be wondering why would
+anyone need a way to raise errors. You have to keep in mind that not all programs
+run in isolation, and programs might interact with files, users, or communicate
+with other machines. In this circumstances a program is expected to encounter
+errors.</p>
+
+<h3 id="assertions">Assertions</h3>
+
+<p>Catching errors to gracefully handle, or intentionally raising them provides
+an additional way to control your program. This also can be used to explicitly
+incorporate programmer’s assumptions into the code. E.g., you might want to force
+a function to accept only a certain image size or format.</p>
+
+<p>For convenience, Python also provides an <code class="language-plaintext highlighter-rouge">assert</code> statement in addition to the
+<code class="language-plaintext highlighter-rouge">raise</code>. Assertions are a convenient way to quickly include assumptions about a
+program in a single line of code.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="n">condition</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">AssertionError</code> is raised if the <code class="language-plaintext highlighter-rouge">condition</code> is <code class="language-plaintext highlighter-rouge">False</code>. You can also include a
+message string after the condition to describe your error.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">assert</span> <span class="n">condition</span><span class="p">,</span> <span class="n">msg</span>
+</code></pre></div></div>
+
+<p>E.g., in the below code cell <code class="language-plaintext highlighter-rouge">div(a, b)</code> runs only when <code class="language-plaintext highlighter-rouge">b</code> is non-zero.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+def div(a, b):
+    assert b != 0, "Divisor can't be zero!"
+    print( a / b )
+
+try:
+    div(42, 0)
+except Exception as e:
+    print(f'{type(e)}: {e}')
+</script></pre></div>
+
+<div class="prevnextlinks">
+    <a id="previous" href="11">Previous: Useful Tools</a>
+    <a id="next" href="13">Next: Conclusion</a>
+</div>
+<script src="/pythonlab/assets/js/navigation.js" defer=""></script>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/pythonlab/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Python Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Python workshops and tutorials</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

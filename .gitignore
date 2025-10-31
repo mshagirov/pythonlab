@@ -1,5 +1,4 @@
 __pycache__/
-_site/
 .venv/
 .env/
 .DS_Store
