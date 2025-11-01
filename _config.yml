@@ -19,5 +19,7 @@ collections:
     output: true
 
 exclude:
+  - docs/
   - build.sh
   - dev.sh
+  - README.md

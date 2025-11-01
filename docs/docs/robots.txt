@@ -1,1 +1,0 @@
-Sitemap: https://mshagirov.github.io/pythonlab/pythonlab/sitemap.xml
