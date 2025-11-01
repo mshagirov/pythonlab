@@ -20,6 +20,7 @@ collections:
 
 exclude:
   - docs/
+  - 99-exercise/
   - build.sh
   - dev.sh
   - README.md
