@@ -4,11 +4,26 @@ title: Prerequisites
 permalink: /lab-01/01
 ---
 
-You will need couple of things before we can start writing Python code. An editor
-with support for Python programming, and Python interpreter.
+We will need a couple of things before we can start writing Python programs. A code
+editor with support for Python programming to write and read our code, and the Python
+interpreter to run it.
 
-e.g., tab completions, syntax highlighting,
-error checking, etc.
+A good code editor should have tab completions, syntax highlighting, error checking,
+and have ways to customise it. There are many excellent and free editors and
+integrated development environment (IDE) tools that you can find online. A few popular
+choices would be
+
+- VS Code
+- PyCharm by JetBrains
+- Vim and Neovim
+- Emacs
+- other specilised tools for different systems, e.g., Android studio, Xcode, etc.
+
+Here we will use [VS Code](https://code.visualstudio.com/). But if you have another
+IDE or editor that you are familiar with and you know what you are doing, go ahead
+and use your preferred tool ignore the parts where we install VS Code.
+
+System notes (Nix and WSL)
 
 ### System Setup
 
