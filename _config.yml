@@ -17,3 +17,7 @@ collections:
     output: true
   02-lab-env-setup:
     output: true
+
+exclude:
+  - build.sh
+  - dev.sh

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Logical Flow | Python Lab</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Logical Flow" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="If Statements" />
+<meta property="og:description" content="If Statements" />
+<link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/introduction/09" />
+<meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/introduction/09" />
+<meta property="og:site_name" content="Python Lab" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-11-01T12:55:02+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Logical Flow" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-01T12:55:02+08:00","datePublished":"2025-11-01T12:55:02+08:00","description":"If Statements","headline":"Logical Flow","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/09"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/09"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/pythonlab/assets/main.css">
+  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
+  <!-- PyScript CSS -->
+  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
+  <!-- This script tag bootstraps PyScript -->
+  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="https://mshagirov.github.io/pythonlab/pythonlab/feed.xml" title="Python Lab" /><!---->
+
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post">
+
+  <header class="post-header">
+    <h1 class="post-title">Logical Flow</h1>
+  </header>
+
+  <div class="post-content">
+    <h3 id="if-statements">If Statements</h3>
+
+<p>An <em>if statement</em> specifies the part of the code that runs <em>only</em> when a given condition
+is met. This allows a programmer to control the logical flow and execution of a
+computer programme. If statements consist of</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">if</code> keyword,</li>
+  <li>a Boolean condition followed by a colon (<code class="language-plaintext highlighter-rouge">:</code>), and</li>
+  <li>an indented code block.</li>
+</ul>
+
+<p>The following is a definition of Python if statement.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># code in this block runs only when "condition" is True
+</span>
+<span class="c1"># code outside the block always gets executed
+</span></code></pre></div></div>
+
+<p>The indented code block under the <code class="language-plaintext highlighter-rouge">if condition:</code> executes <em>only</em> when the <code class="language-plaintext highlighter-rouge">condition</code>
+is equal to <code class="language-plaintext highlighter-rouge">True</code>. Let’s see it in an example.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+value = 10
+if value > 42:
+    print(f'{value} is larger than 42.')
+
+if value == 42:
+    print(f'{value} is equal to 42.')
+
+if value < 42:
+    print(f'{value} is less than 42.')
+</script></pre></div>
+
+<blockquote>
+  <p>Run the code with different numbers (<code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">float</code>) for the <code class="language-plaintext highlighter-rouge">value</code>.</p>
+</blockquote>
+
+<p>I used comparison operations as conditions for the statements above. You can use
+any <em>Boolean expression</em> that produces <code class="language-plaintext highlighter-rouge">True</code> or <code class="language-plaintext highlighter-rouge">False</code> as a condition of the
+statement.</p>
+
+<p>The code above uses multiple checks of the same value which is
+redundant. Once we check that a value is <em>not</em> larger than 42, we also know that
+the value must be either less than or equal to 42. You can use <code class="language-plaintext highlighter-rouge">else</code> statement
+when you have an alternative code that runs when the condition is <code class="language-plaintext highlighter-rouge">False</code>, as
+shown below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition</span><span class="p">:</span>
+    <span class="c1"># runs when "condition" is True
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="c1"># runs when "condition" is False
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">if-else</code> uses two different code blocks. Only one block is executed
+depending on whether a condition is met or failed.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+value = 10
+if value > 42:
+    print(f'{value} is larger than 42.')
+else:
+    print(f'{value} is less than or equal to 42.')
+
+if value == 42:
+    print(f'{value} is equal to 42.')
+</script></pre></div>
+
+<p>In the above, we are still checking the value twice using two separate if
+statements. These if statements potential print redundant information, e.g.,
+when <code class="language-plaintext highlighter-rouge">value = 42</code>. Also, it is not immediately clear whether these <code class="language-plaintext highlighter-rouge">if</code> blocks are
+logically connected without carefully reading the code first.</p>
+
+<p>Python allows us further combine these statements into a single <code class="language-plaintext highlighter-rouge">if-elif-else</code>
+block as shown below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span> <span class="n">condition1</span><span class="p">:</span>
+    <span class="c1"># runs only when "condition1" is True
+</span><span class="k">elif</span> <span class="n">condition2</span><span class="p">:</span>
+    <span class="c1"># runs only when
+</span>    <span class="c1">#   "condition2" is True but "condition1" is False
+</span><span class="k">else</span><span class="p">:</span>
+    <span class="c1"># runs if
+</span>    <span class="c1">#   both "condition2" and "condition1" are False
+</span></code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">elif</code> stands for “else if”. E.g., see the following code.</p>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+value = 10
+if value > 42:
+    print(f'{value} is larger than 42.')
+elif value < 42 :
+    print(f'{value} is less than 42.')
+else:
+    print(f'{value} is equal to 42.')
+</script></pre></div>
+
+<p>Only one block, either <code class="language-plaintext highlighter-rouge">if</code>, <code class="language-plaintext highlighter-rouge">elif</code>, or <code class="language-plaintext highlighter-rouge">else</code> executes at a time.
+The condition of the <code class="language-plaintext highlighter-rouge">elif</code> block (<code class="language-plaintext highlighter-rouge">condition2</code>) is only checked when the first
+condition (<code class="language-plaintext highlighter-rouge">condition1</code>) is <code class="language-plaintext highlighter-rouge">False</code>, i.e., if the first condition <em>fails</em>. Also,
+we can instantly recognise that the code blocks of the <code class="language-plaintext highlighter-rouge">if-elif-else</code> are
+logically connected.</p>
+
+<blockquote>
+  <p>The only required part of the <code class="language-plaintext highlighter-rouge">if</code> statement is the first <code class="language-plaintext highlighter-rouge">if</code> block. The
+<code class="language-plaintext highlighter-rouge">elif</code> and <code class="language-plaintext highlighter-rouge">else</code> blocks are optional.</p>
+</blockquote>
+
+<h3 id="conditional-expressions">Conditional Expressions</h3>
+
+<p>Python provides another type of if statement in addition to the ones shown above.
+These are called <em>conditional expressions</em> or <em>ternary operators</em>. These expressions
+allow value assignment using an in-line if statement. The syntax of a conditional
+expression is as follows.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">output</span> <span class="o">=</span> <span class="n">value</span> <span class="k">if</span> <span class="n">condition</span> <span class="k">else</span> <span class="n">alternative_value</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">output</code> is set to <code class="language-plaintext highlighter-rouge">value</code> if the <code class="language-plaintext highlighter-rouge">condition</code> is <code class="language-plaintext highlighter-rouge">True</code>,</li>
+  <li><code class="language-plaintext highlighter-rouge">output</code> is set to <code class="language-plaintext highlighter-rouge">alternative_value</code> otherwise.</li>
+</ul>
+
+<div class="language-python highlighter-rouge">
+<pre class="highlight"><script type="py-editor" worker="">
+value = 10
+result = "larger than 42" if value > 42 else "less than or equal to 42"
+print("Value", value)
+print(result)
+</script></pre></div>
+
+<blockquote>
+  <p>Ternary means that the operator consists of three parts. The parts
+of the above operator are a value if a condition is met, a condition, and an alternative
+value if the condition is false.</p>
+</blockquote>
+
+<div class="prevnextlinks">
+    <a id="previous" href="08">Previous: Containers</a>
+    <a id="next" href="10">Next: Loops</a>
+</div>
+<script src="/pythonlab/assets/js/navigation.js" defer=""></script>
+
+
+  </div>
+
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/pythonlab/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Python Lab</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Python workshops and tutorials</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
