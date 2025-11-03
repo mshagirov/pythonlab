@@ -7,17 +7,17 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Prerequisites" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="We will need a couple of things before we can start writing Python programs. A code editor with support for Python programming to write and read our code, and the Python interpreter to run it." />
-<meta property="og:description" content="We will need a couple of things before we can start writing Python programs. A code editor with support for Python programming to write and read our code, and the Python interpreter to run it." />
+<meta name="description" content="We will need a couple of things before we can start writing Python programs: A code editor with support for Python programming to write and read our code, and Python interpreter to run the code." />
+<meta property="og:description" content="We will need a couple of things before we can start writing Python programs: A code editor with support for Python programming to write and read our code, and Python interpreter to run the code." />
 <link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01" />
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-02T02:13:23+08:00" />
+<meta property="article:published_time" content="2025-11-03T17:02:30+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Prerequisites" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-02T02:13:23+08:00","datePublished":"2025-11-02T02:13:23+08:00","description":"We will need a couple of things before we can start writing Python programs. A code editor with support for Python programming to write and read our code, and the Python interpreter to run it.","headline":"Prerequisites","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-03T17:02:30+08:00","datePublished":"2025-11-03T17:02:30+08:00","description":"We will need a couple of things before we can start writing Python programs: A code editor with support for Python programming to write and read our code, and Python interpreter to run the code.","headline":"Prerequisites","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -52,34 +52,54 @@
   </header>
 
   <div class="post-content">
-    <p>We will need a couple of things before we can start writing Python programs. A code
-editor with support for Python programming to write and read our code, and the Python
-interpreter to run it.</p>
+    <p>We will need a couple of things before we can start writing Python programs:
+A code editor with support for Python programming to write and read our code,
+and Python interpreter to run the code.</p>
 
 <p>A good code editor should have tab completions, syntax highlighting, error checking,
 and have ways to customise it. There are many excellent and free editors and
 integrated development environment (IDE) tools that you can find online. A few popular
-choices would be</p>
+choices are:</p>
 
 <ul>
   <li>VS Code</li>
-  <li>PyCharm by JetBrains</li>
-  <li>Vim and Neovim</li>
+  <li>PyCharm (by JetBrains)</li>
+  <li>Neovim or Vim</li>
   <li>Emacs</li>
   <li>other specilised tools for different systems, e.g., Android studio, Xcode, etc.</li>
 </ul>
 
-<p>Here we will use <a href="https://code.visualstudio.com/">VS Code</a>. But if you have another
-IDE or editor that you are familiar with and you know what you are doing, go ahead
-and use your preferred tool ignore the parts where we install VS Code.</p>
+<p>In this lab, we will use <a href="https://code.visualstudio.com/">VS Code</a>. Main benefits
+of VS Code are that it is easy to install and to get started, and it comes with
+built-in syntax highlighting, code completion, and Python extensions for running
+and debugging Python programs.</p>
 
-<p>System notes (Nix and WSL)</p>
+<p>If you have another IDE or editor that you are familiar with and you know
+what you are doing, go ahead and use your preferred tool, and you may ignore the
+parts where we install VS Code.</p>
+
+<p>Below we will install the <em>newest stable</em> version of Python for your operating system.
+<em>The exact version depends on the operating system and not important</em>. Here again,
+if you already have Python with version 3.8 or later and you know what you are doing,
+you can read through the Python installation sections below and optionally skip the
+installation.</p>
+
+<p>Throughout this lab we will use Python inside a Unix-like systems: WSL (Windows),
+Mac OS, and Linux. This choice is intentional and gives us several advantages:</p>
+
+<ul>
+  <li>Consistent set of commands (Unix commands) for working with the command line
+interface (CLI) without the OS-specific quirks.</li>
+  <li>Windows users will be able to seamlessly transfer their skills to Linux and MacOS
+machines.</li>
+  <li>Many Python tools such as package managers work more smoothly on Linux-like systems.</li>
+</ul>
 
 <h3 id="system-setup">System Setup</h3>
 
 <p>Prepare your machine by following instructions for your operating system below:</p>
 
-<ul id="os-type" class="tab" data-tab="c74ad2df-4efe-4473-bf8c-b377b707e64d" data-name="os-type">
+<ul id="os-type" class="tab" data-tab="2762017e-1900-453a-b058-7d8ce1f64f63" data-name="os-type">
   
       <li class="active" id="os-type-windows">
           <a href="#">Windows </a>
@@ -94,28 +114,114 @@ and use your preferred tool ignore the parts where we install VS Code.</p>
       </li>
   
 </ul>
-<ul class="tab-content" id="c74ad2df-4efe-4473-bf8c-b377b707e64d" data-name="os-type">
+<ul class="tab-content" id="2762017e-1900-453a-b058-7d8ce1f64f63" data-name="os-type">
   
       <li class="active">
-<p>File storage: <a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment">WSL development environment</a></p>
+<h4 id="install-wsl-and-vs-code">Install WSL and VS Code</h4>
 
-<p><a href="https://code.visualstudio.com/docs/remote/wsl">Instructions for VS Code for WSL</a></p>
+<p>For Windows, we will follow
+<a href="https://code.visualstudio.com/docs/remote/wsl">VS Code instructions for developing in WSL</a>:</p>
 
-<p>install WSL</p>
+<ol>
+  <li><em>Optional</em>: Update your Windows and install <a href="https://aka.ms/terminal">Windows Terminal</a>.</li>
+  <li>
+    <p>Open PowerShell in <strong>administrator</strong> mode and run the following command.
+Set your Linux (Ubuntu) password and username. You may use the same credentials
+as your Windows OS.</p>
 
-<p>install VS Code</p>
+    <div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code> wsl <span class="nt">--install</span>
+</code></pre></div>    </div>
+  </li>
+  <li>Restart your machine.</li>
+  <li>Download and install VS Code for Windows from <a href="https://code.visualstudio.com/">code.visualstudio.com</a>.
+Keep the default installation options.</li>
+  <li>Install the <a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl">WSL extension for VS Code</a>.
+You may either do it buy clicking install on the site or do it from the VS Code
+extensions menu.</li>
+</ol>
 
-<p>install WSL extension</p>
+<p>You may find the
+<a href="https://code.visualstudio.com/docs/getstarted/getting-started#getstarted-articles">VS Code tutorial</a>
+and instructions on setting up and using
+<a href="https://code.visualstudio.com/docs/remote/wsl#_from-vs-code">WSL with VS Code</a>
+helpfull when getting started with VS Code and WSL.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="nb">.</span>
+<h4 id="install-python">Install Python</h4>
+
+<p>Your WSL Linux should come with Python installed. To check your Python installation
+start your WSL Ubuntu in PowerShell or Windows Terminal.</p>
+
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubuntu
 </code></pre></div></div>
+
+<p>Then, run the following:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">--version</span>
+</code></pre></div></div>
+
+<p>If you get <code class="language-plaintext highlighter-rouge">command not found</code> errors, install Python by following the steps below:</p>
+
+<ol>
+  <li>
+    <p>Update your Ubuntu packages. Use your Linux/Ubuntu password when prompted.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt update
+ <span class="nb">sudo </span>apt udgrade
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install Python.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">sudo </span>apt <span class="nb">install </span>python3
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<p>You can exit or stop Ubuntu by entering <code class="language-plaintext highlighter-rouge">exit</code> in the Ubuntu shell (CLI) and/or
+stopping WSL with <code class="language-plaintext highlighter-rouge">wsl.exe --shutdown</code> command in PowerShell or Ubuntu CLI.</p>
+
+<h4 id="managing-files-in-wsl">Managing Files in WSL</h4>
+
+<p>Please read the notes on the
+<a href="https://learn.microsoft.com/en-us/windows/wsl/setup/environment#file-storage">file storage in WSL and Windows</a>.</p>
 
 </li>
   
       <li>
-<p>install homebrew</p>
+<h4 id="install-homebrew-and-python">Install Homebrew and Python</h4>
 
-<p>install vscode</p>
+<p>We will use <a href="https://brew.sh">Homebrew</a> to manage the system Python on MacOS.
+Follow the steps below to install Homebrew on your Mac:</p>
+
+<ol>
+  <li>Open terminal app. (You may use spotlight to find Terminal and run it.)</li>
+  <li>
+    <p>Copy and run the following command to install Homebrew (<code class="language-plaintext highlighter-rouge">brew</code> command)</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> /bin/bash <span class="nt">-c</span> <span class="s2">"</span><span class="si">$(</span>curl <span class="nt">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="si">)</span><span class="s2">"</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Test the installation.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> brew
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Install Python.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> brew <span class="nb">install </span>python
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Test Python installation.</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> python <span class="nt">--version</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+
+<h4 id="install-vs-code">Install VS Code</h4>
 
 </li>
   
@@ -134,7 +240,7 @@ and use your preferred tool ignore the parts where we install VS Code.</p>
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/lab-01/">Previous: Contents</a>
-    <a id="next" href="02">Next: Install Python</a>
+    <a id="next" href="02">Next: Your First Python Program</a>
 </div>
 <script src="/pythonlab/assets/js/navigation.js" defer=""></script>
 
