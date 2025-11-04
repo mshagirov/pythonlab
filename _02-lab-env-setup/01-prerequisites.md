@@ -51,12 +51,8 @@ Prepare your machine by following instructions for your operating system below:
 
 {% tab os-type Windows %}
 
----
-
-*For Windows machines, we will use WSL in
-conjunction with VS Code throughout the remainder of this lab.*
-
----
+*For Windows machines, we will use WSL in conjunction with VS Code throughout the
+remainder of this lab.*
 
 #### Install WSL and VS Code
 
@@ -92,10 +88,13 @@ Your WSL Linux should come with Python installed. To check your Python installat
 start your WSL Ubuntu in PowerShell or Windows Terminal.
 
 ```sh
-ubuntu
+wsl
 ```
 
-Then, run the following:
+Alternatively, you can start the WSL system with `ubuntu` command which is the
+name of the default Linux distribution that gets installed with `wsl`.
+
+Inside, WSL Ubuntu run the following to check the version of installed Python:
 
 ```bash
 python3 --version
@@ -116,8 +115,9 @@ If you get `command not found` errors, install Python by following the steps bel
     sudo apt install python3
     ```
 
-You can exit or stop Ubuntu by entering `exit` in the Ubuntu shell (CLI) and/or
-stopping WSL with `wsl.exe --shutdown` command in PowerShell or Ubuntu CLI.
+You can exit or stop Ubuntu by entering `exit` in the Ubuntu shell (CLI). This
+exits the current shell (CLI). To restart and/or stop WSL you can use
+`wsl.exe --shutdown` command in PowerShell or Ubuntu CLI.
 
 #### Managing Files in WSL
 
@@ -128,13 +128,9 @@ Please read the notes on the
 
 {% tab os-type MacOS %}
 
----
-
-*Note that MacOS does come with its own Python interpreter. Homebrew allows us
-to install and manage newer Python versions without interfering with the MacOS'
-system.*
-
----
+*MacOS comes with pre-installed Python interpreter. It is recommended
+to not "mess" with the system Python in MacOS. Homebrew allows us to install and
+manage newer Python versions without interfering with the pre-installed Python.*
 
 #### Install Homebrew and Python
 
@@ -180,6 +176,9 @@ helpful when getting started with VS Code.
 
 {% tab os-type Linux %}
 
+*For Linux, we will initially use system Python and use uv or conda to install
+newer versions of Python in later parts of this lab.*
+
 #### Check and Install Python
 
 Most of the Linux distributions come with Python installed. To check this, open
@@ -211,6 +210,6 @@ Follow the Linux installation steps to install VS Code from the
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/lab-01/">Previous: Contents</a>
-    <a id="next" href="02">Next: Your First Python Program</a>
+    <a id="next" href="02">Next: Python Project</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

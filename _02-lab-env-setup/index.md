@@ -7,10 +7,12 @@ permalink: /lab-01/
 ### Contents
 
 1. [Prerequisites](01) 🛠️
-2. [Installing Python](02) 🐍
-3. [Mini-project](03) 🚀
-4. [Managing Python Environments](04) 📦
-5. Jupyter Notebook, Data Analysis venv 🔬
+1. Python Project 🚀
+    1. [Part 1](02)
+    1. [Part 2](03)
+    1. [Part 3](03)
+1. Managing Python Environments 📦
+1. Jupyter Notebook, Data Analysis venv 🔬
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/">Back to Workshops</a>
