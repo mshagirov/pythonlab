@@ -51,6 +51,13 @@ Prepare your machine by following instructions for your operating system below:
 
 {% tab os-type Windows %}
 
+---
+
+*For Windows machines, we will use WSL in
+conjunction with VS Code throughout the remainder of this lab.*
+
+---
+
 #### Install WSL and VS Code
 
 For Windows, we will follow
@@ -71,6 +78,7 @@ Keep the default installation options.
 1. Install the [WSL extension for VS Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-wsl).
 You may either do it buy clicking install on the site or do it from the VS Code
 extensions menu.
+1. Install [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
 You may find the
 [VS Code tutorial](https://code.visualstudio.com/docs/getstarted/getting-started#getstarted-articles)
@@ -120,13 +128,22 @@ Please read the notes on the
 
 {% tab os-type MacOS %}
 
+---
+
+*Note that MacOS does come with its own Python interpreter. Homebrew allows us
+to install and manage newer Python versions without interfering with the MacOS'
+system.*
+
+---
+
 #### Install Homebrew and Python
 
 We will use [Homebrew](https://brew.sh) to manage the system Python on MacOS.
 Follow the steps below to install Homebrew on your Mac:
 
-1. Open terminal app. (You may use spotlight to find Terminal and run it.)
-1. Copy and run the following command to install Homebrew (`brew` command)
+1. Open terminal app. (You can also use spotlight to find Terminal)
+1. Copy and run the following command to install Homebrew (`brew` command).
+Enter your MacOS password if prompted.
 
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -152,15 +169,40 @@ Follow the steps below to install Homebrew on your Mac:
 
 #### Install VS Code
 
+- Install VS Code from [code.visualstudio.com](https://code.visualstudio.com/).
+- Install [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
+for VS Code. Alternatively, you can find and install the Python extension from
+VS Code extensions panel.
+- You may find the [VS Code tutorial](https://code.visualstudio.com/docs/getstarted/getting-started#getstarted-articles)
+helpfull when getting started with VS Code.
+
 {% endtab %}
 
 {% tab os-type Linux %}
 
-update your repo indices
+#### Check and Install Python
 
-upgrade libraries
+Most of the Linux distributions come with Python installed. To check this, open
+your terminal and run the Python version check.
 
-install VS Code
+```bash
+python3 --version
+```
+
+or
+
+```bash
+python --version
+```
+
+If Python can not be found, update your repository indices using the system's
+package manager. Upgrade your libraries. Then, use the package manager to install
+or update Python packages.
+
+#### Install VS Code (Recommended)
+
+Follow the Linux installation steps to install VS Code from the
+[VS Code documentation](https://code.visualstudio.com/docs/setup/linux).
 
 {% endtab %}
 
