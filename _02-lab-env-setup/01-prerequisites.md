@@ -84,7 +84,7 @@ You may find the
 [VS Code tutorial](https://code.visualstudio.com/docs/getstarted/getting-started#getstarted-articles)
 and instructions on setting up and using
 [WSL with VS Code](https://code.visualstudio.com/docs/remote/wsl#_from-vs-code)
-helpfull when getting started with VS Code and WSL.
+helpful when getting started with VS Code and WSL.
 
 #### Install Python
 
@@ -174,7 +174,7 @@ Enter your MacOS password if prompted.
 for VS Code. Alternatively, you can find and install the Python extension from
 VS Code extensions panel.
 - You may find the [VS Code tutorial](https://code.visualstudio.com/docs/getstarted/getting-started#getstarted-articles)
-helpfull when getting started with VS Code.
+helpful when getting started with VS Code.
 
 {% endtab %}
 
