@@ -13,11 +13,11 @@
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-04T14:14:10+08:00" />
+<meta property="article:published_time" content="2025-11-05T00:30:00+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Prerequisites" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-04T14:14:10+08:00","datePublished":"2025-11-04T14:14:10+08:00","description":"We will need a couple of things before we can start writing Python programs: A code editor with support for Python programming to write and read our code, and Python interpreter to run the code.","headline":"Prerequisites","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-05T00:30:00+08:00","datePublished":"2025-11-05T00:30:00+08:00","description":"We will need a couple of things before we can start writing Python programs: A code editor with support for Python programming to write and read our code, and Python interpreter to run the code.","headline":"Prerequisites","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/01"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -99,7 +99,7 @@ machines.</li>
 
 <p>Prepare your machine by following instructions for your operating system below:</p>
 
-<ul id="os-type" class="tab" data-tab="9a17101a-4a94-41d3-af3c-9465c6504164" data-name="os-type">
+<ul id="os-type" class="tab" data-tab="de969b9e-fc15-4837-adbf-c8a0f8958e5c" data-name="os-type">
   
       <li class="active" id="os-type-windows">
           <a href="#">Windows </a>
@@ -114,15 +114,11 @@ machines.</li>
       </li>
   
 </ul>
-<ul class="tab-content" id="9a17101a-4a94-41d3-af3c-9465c6504164" data-name="os-type">
+<ul class="tab-content" id="de969b9e-fc15-4837-adbf-c8a0f8958e5c" data-name="os-type">
   
       <li class="active">
-<hr />
-
-<p><em>For Windows machines, we will use WSL in
-conjunction with VS Code throughout the remainder of this lab.</em></p>
-
-<hr />
+<p><em>For Windows machines, we will use WSL in conjunction with VS Code throughout the
+remainder of this lab.</em></p>
 
 <h4 id="install-wsl-and-vs-code">Install WSL and VS Code</h4>
 
@@ -159,10 +155,13 @@ helpful when getting started with VS Code and WSL.</p>
 <p>Your WSL Linux should come with Python installed. To check your Python installation
 start your WSL Ubuntu in PowerShell or Windows Terminal.</p>
 
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ubuntu
+<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wsl
 </code></pre></div></div>
 
-<p>Then, run the following:</p>
+<p>Alternatively, you can start the WSL system with <code class="language-plaintext highlighter-rouge">ubuntu</code> command which is the
+name of the default Linux distribution that gets installed with <code class="language-plaintext highlighter-rouge">wsl</code>.</p>
+
+<p>Inside, WSL Ubuntu run the following to check the version of installed Python:</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 <span class="nt">--version</span>
 </code></pre></div></div>
@@ -185,8 +184,9 @@ start your WSL Ubuntu in PowerShell or Windows Terminal.</p>
   </li>
 </ol>
 
-<p>You can exit or stop Ubuntu by entering <code class="language-plaintext highlighter-rouge">exit</code> in the Ubuntu shell (CLI) and/or
-stopping WSL with <code class="language-plaintext highlighter-rouge">wsl.exe --shutdown</code> command in PowerShell or Ubuntu CLI.</p>
+<p>You can exit or stop Ubuntu by entering <code class="language-plaintext highlighter-rouge">exit</code> in the Ubuntu shell (CLI). This
+exits the current shell (CLI). To restart and/or stop WSL you can use
+<code class="language-plaintext highlighter-rouge">wsl.exe --shutdown</code> command in PowerShell or Ubuntu CLI.</p>
 
 <h4 id="managing-files-in-wsl">Managing Files in WSL</h4>
 
@@ -196,13 +196,9 @@ stopping WSL with <code class="language-plaintext highlighter-rouge">wsl.exe --s
 </li>
   
       <li>
-<hr />
-
-<p><em>Note that MacOS does come with its own Python interpreter. Homebrew allows us
-to install and manage newer Python versions without interfering with the MacOS’
-system.</em></p>
-
-<hr />
+<p><em>MacOS comes with pre-installed Python interpreter. It is recommended
+to not “mess” with the system Python in MacOS. Homebrew allows us to install and
+manage newer Python versions without interfering with the pre-installed Python.</em></p>
 
 <h4 id="install-homebrew-and-python">Install Homebrew and Python</h4>
 
@@ -252,6 +248,9 @@ helpful when getting started with VS Code.</li>
 </li>
   
       <li>
+<p><em>For Linux, we will initially use system Python and use uv or conda to install
+newer versions of Python in later parts of this lab.</em></p>
+
 <h4 id="check-and-install-python">Check and Install Python</h4>
 
 <p>Most of the Linux distributions come with Python installed. To check this, open
@@ -282,7 +281,7 @@ or update Python packages.</p>
 
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/lab-01/">Previous: Contents</a>
-    <a id="next" href="02">Next: Your First Python Program</a>
+    <a id="next" href="02">Next: Python Project</a>
 </div>
 <script src="/pythonlab/assets/js/navigation.js" defer=""></script>
 
