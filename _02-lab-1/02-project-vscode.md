@@ -4,7 +4,7 @@ title: "Project: Part 1"
 permalink: /lab-01/02
 ---
 
-### Verify Your System
+### 1. Verify Your System
 
 1. Open **VS Code**.
 1. Open VS Code terminal:
@@ -31,7 +31,8 @@ $ uname
 Darwin
 ```
 
-### Folder Structure for the Project
+### 2. Folder Structure for the Project
+
 
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
