@@ -39,7 +39,7 @@ Mac OS, and Linux. This choice is intentional and gives us several advantages:
 
 - Consistent set of commands (Unix commands) for working with the command line
 interface (CLI) without the OS-specific quirks.
-- Windows users will be able to seamlessly transfer their skills to Linux and MacOS
+- Windows users will be able to seamlessly transfer their skills to Linux and macOS
 machines.
 - Many Python tools such as package managers work more smoothly on Linux-like systems.
 
@@ -126,20 +126,20 @@ Please read the notes on the
 
 {% endtab %}
 
-{% tab os-type MacOS %}
+{% tab os-type macOS %}
 
-*MacOS comes with pre-installed Python interpreter. It is recommended
-to not "mess" with the system Python in MacOS. Homebrew allows us to install and
+*macOS comes with pre-installed Python interpreter. It is recommended
+to not "mess" with the system Python in macOS. Homebrew allows us to install and
 manage newer Python versions without interfering with the pre-installed Python.*
 
 #### Install Homebrew and Python
 
-We will use [Homebrew](https://brew.sh) to manage the system Python on MacOS.
+We will use [Homebrew](https://brew.sh) to manage the system Python on macOS.
 Follow the steps below to install Homebrew on your Mac:
 
 1. Open terminal app. (You can also use spotlight to find Terminal)
 1. Copy and run the following command to install Homebrew (`brew` command).
-Enter your MacOS password if prompted.
+Enter your macOS password if prompted.
 
     ```bash
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

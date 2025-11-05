@@ -15,7 +15,7 @@ plugins:
 collections:
   01-introduction:
     output: true
-  02-lab-env-setup:
+  02-lab-1:
     output: true
 
 exclude:
