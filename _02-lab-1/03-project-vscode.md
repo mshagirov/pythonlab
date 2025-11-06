@@ -4,9 +4,13 @@ title: "Part 2:"
 permalink: /lab-01/03
 ---
 
-### 1. 
+### 1. Project Folder
 
-Use VS Code to write and test a Python program.
+- In the `~/workspace/` directory from the previous part, create a new directory
+(folder) named "dna-analyser".
+
+- [mccA](https://www.uniprot.org/uniprotkb/Q47505/entry#ptm_processing)
+- [example 1](https://www.101computing.net/dna-sequence-analysis-python-challenge)
 
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
