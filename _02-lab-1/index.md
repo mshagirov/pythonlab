@@ -8,9 +8,9 @@ permalink: /lab-01/
 
 1. [Prerequisites](01) 🛠️
 1. Python Project 🚀
-    1. [Part 1](02)
-    1. [Part 2](03)
-    1. [Part 3](03)
+    - [Part 1: Linux Commands](02)
+    - [Part 2:](03)
+    - [Part 3:](03)
 1. Managing Python Environments 📦
 1. Jupyter Notebook, Data Analysis venv 🔬
 

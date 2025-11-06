@@ -1,8 +1,10 @@
 ---
 layout: page
-title: "Project: Part 2"
+title: "Part 2:"
 permalink: /lab-01/03
 ---
+
+### 1. 
 
 Use VS Code to write and test a Python program.
 
