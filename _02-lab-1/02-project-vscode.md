@@ -8,12 +8,13 @@ permalink: /lab-01/02
 
 1. Open **VS Code**.
 1. Open VS Code terminal:
-  - In VS Code, use keyboard shortcut `` ^` `` ( hold down Control and `` ` ``
+    - In VS Code, use keyboard shortcut `` ^` `` ( hold down Control and `` ` ``
     keys) or from the menu toolbar open `View > Terminal`.
 1. Inside the terminal, enter the following:
-  ```bash
-  uname
-  ```
+
+    ```bash
+    uname
+    ```
 
 You should see the above print either `Linux` (WSL, Linux) or `Darwin` (macOS).
 E.g., your terminal should look like this (the exact prompt, `$` and everything
@@ -47,18 +48,20 @@ heavily influenced by Unix and reimplemented these commands.
 
 > Conceptually, directory in Linux is the same as folder on macOS and Windows.
 
-- Enter the following in the VS Code terminal. Let's go to our *home* folder. We can
-just enter `cd` without any arguments and options or `cd ~` to go to our home
-directory in the terminal. The `~` is the short name for home folder.
-```
-cd ~
-```
+- Enter the following in the VS Code terminal. Let's go to our *home* folder.
+We can just enter `cd` without any arguments and options or `cd ~` to go to our
+home directory in the terminal. The `~` is the short name for home folder.
+
+    ```bash
+    cd ~
+    ```
 
 - Next, let's print our current path (location in the file system). This should
 print your home folder's location. E.g., `/Users/murat/` or `/home/murat`:
-```bash
-pwd
-```
+
+    ```bash
+    pwd
+    ```
 
 - Use VS Code shortcut `^-Shift-P` (use Command instead of Control on macOS) to
 use the search field and enter "Open Folder" and press enter. Alternatively, go to
@@ -68,63 +71,88 @@ in the (file) Explorer tab of VS Code.
 In the terminal:
 
 - List the contents of your home folder.
-```bash
-ls
-```
+
+    ```bash
+    ls
+    ```
 
 - `ls` accepts *options*, e.g.,
 - `ls -l`: lists contents line-by-line,
 - `ls -a`: lists *all* content including *hidden* files and folders.
 - `ls -la` or `ls -al`: combines `-l` and `-a` options.
-```bash
-ls -al
-```
+
+    ```bash
+    ls -al
+    ```
 
 - Create a new directory named `workspace`.
-```bash
-mkdir workspace
-```
+
+    ```bash
+    mkdir workspace
+    ```
 
 - Does the output from `ls -a` match what you see in the Explorer tab?
-
 - `cd` to `workspace`. You may verify this with `pwd`
-```bash
-cd workspace
-# check if you are in "workspace" directory
-pwd
-```
 
-- Open "workspace" folder in the VS Code Explorer tab, e.g., press `Ctrl-Shift-P`,
+    ```bash
+    cd workspace
+    # check if you are in "workspace" directory
+    pwd
+    ```
+
+- Create new files:
+
+    ```bash
+    touch file1 file2 file3
+    ```
+
+- Verify that the files exists by listing them with `ls -l`. Can you see these
+files in the "Explorer"?
+- Linux uses two types of paths to locate files and folders, *absolute path* and
+*relative path*. The `~` which is a shortcut to the home folder used above, is
+an example of relative path. E.g., the absolute path for my home looks something
+like `/home/murat` (Linux and WSL) and `/Users/murat` (macOS). Other examples of
+relative path locations are:
+
+| Relative path | Meaning | Usage |
+|:-------------:|:-------:|:-----:|
+| `.` | The current directory | `ls -l ./file1`, here `./file1` is same as just `file1`|
+| `..`| The parent directory (of the current one) | `ls ..`|
+
+- From the `workspace`, go to its parent directory (your home directory):
+
+    ```bash
+    cd ..
+    ```
+
+- Open `workspace` folder in the VS Code (file) *Explorer* tab, e.g., press `Ctrl-Shift-P`,
 type "Open Folder", and press Enter. Note that VS Code's terminal automatically changes
 its current location to the folder that you have just opened.
 
 In the terminal:
 
-- Create new files:
-```
-touch file1 file2 file3
-```
+- Remove (delete) the files with `rm`. E.g., let's delete `file1` in the `workspace`:
 
-- Verify that the files exists by listing them with `ls -l`. Can you see these files in the "Explorer"?
-- Remove (delete) the files with `rm`.
-```bash
-rm file1
-```
+    ```bash
+    rm file1
+    ```
 
-Many Unix/Linux commands accept wildcard `*` to march patterns, e.g., `file*`
+Many Linux commands accept wildcard `*` to match patterns, e.g., `file*`
 matches all file and folder names that start with `file`. Be careful to not
 delete your other files that match this pattern.
 
 - Delete all files with names that start with `file`. But before, let's do a
 sanity check by listing these files (and folders):
-```bash
-ls -l file*
-```
+
+    ```bash
+    ls -l file*
+    ```
 
 - If you are happy with what you see, go ahead and delete these files:
-```bash
-rm file*
-```
+
+    ```bash
+    rm file*
+    ```
 
 ### 3. Should You Use the Terminal?
 
@@ -134,8 +162,8 @@ such as Finder or File Explorer to browse and manage your files. I leave this up
 to your preferences.
 
 Nevertheless, it is generally much faster to navigate the filesystem and manage
-your files via the terminal. Hence, I strongly suggest you to try to learn and at
-least occasionally start using the terminal.
+your files via the terminal. Hence, I strongly suggest you to try to learn and
+use the terminal (CLI) commands.
 
 ---
 
