@@ -1,2 +1,0 @@
-- [example DNA seq example for venv](https://www.kaggle.com/code/shrushtijoshi/analysis-of-dna-sequences-with-python)
-- [biopython](https://biopython.org/docs/latest/Tutorial/index.html)
