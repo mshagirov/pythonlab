@@ -138,6 +138,13 @@ We will use [Homebrew](https://brew.sh) to manage the system Python on macOS.
 Follow the steps below to install Homebrew on your Mac:
 
 1. Open terminal app. (You can also use spotlight to find Terminal)
+1. Install Xcode command line tools by running the following command in the
+terminal.
+
+    ```bash
+    xcode-select --install
+    ```
+
 1. Copy and run the following command to install Homebrew (`brew` command).
 Enter your macOS password if prompted.
 

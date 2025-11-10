@@ -21,7 +21,7 @@ mkdir -p ~/workplace/pythonlab/lab1/dna-analyser
 and future labs. Inside it, we will create directories for each lab, and each
 lab folder will contain all the projects for that given lab. I copied this
 structure from [Lane (boot.dev)](https://blog.boot.dev/misc/how-i-organize-my-local-development-environment/).
-You are welcome to continue using `workspace` for your own future projects.
+You are welcome to continue using `workspace` for your future projects.
 
 - Create and open a new python (text) file in the `dna-analyser`. Name the
 file `main.py`.
