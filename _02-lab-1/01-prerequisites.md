@@ -94,7 +94,7 @@ wsl
 Alternatively, you can start the WSL system with `ubuntu` command which is the
 name of the default Linux distribution that gets installed with `wsl`.
 
-Inside, WSL Ubuntu run the following to check the version of installed Python:
+Inside WSL Ubuntu, run the following to check the version of installed Python:
 
 ```bash
 python3 --version
