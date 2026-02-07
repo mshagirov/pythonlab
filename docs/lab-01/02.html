@@ -7,17 +7,17 @@
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Part 1: Linux Commands" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="1. Verify Your System" />
-<meta property="og:description" content="1. Verify Your System" />
+<meta name="description" content="Verify Your System" />
+<meta property="og:description" content="Verify Your System" />
 <link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02" />
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-08T02:27:06+08:00" />
+<meta property="article:published_time" content="2026-02-08T04:30:22+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Part 1: Linux Commands" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-08T02:27:06+08:00","datePublished":"2026-02-08T02:27:06+08:00","description":"1. Verify Your System","headline":"Part 1: Linux Commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-08T04:30:22+08:00","datePublished":"2026-02-08T04:30:22+08:00","description":"Verify Your System","headline":"Part 1: Linux Commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -52,7 +52,7 @@
   </header>
 
   <div class="post-content">
-    <h3 id="1-verify-your-system">1. Verify Your System</h3>
+    <h3 id="verify-your-system">Verify Your System</h3>
 
 <blockquote>
   <p>If you would rather use a different IDE or editor to VS Code, please feel free
@@ -64,7 +64,7 @@ to run these commands in your preferred ternimal and IDE.</p>
   <li>Open VS Code terminal:
     <ul>
       <li>In VS Code, use keyboard shortcut <code class="language-plaintext highlighter-rouge">^`</code> ( hold down Control and <code class="language-plaintext highlighter-rouge">`</code>
- keys) or from the menu toolbar open <code class="language-plaintext highlighter-rouge">View &gt; Terminal</code>.</li>
+ keys) or from the menu toolbar go to <code class="language-plaintext highlighter-rouge">View &gt; Terminal</code>.</li>
     </ul>
   </li>
   <li>
@@ -89,12 +89,14 @@ in front of it may differ from the example below):</p>
 </span>Darwin
 </code></pre></div></div>
 
-<h3 id="2-before-python-some-linux-commands">2. Before Python… Some Linux Commands</h3>
+<h3 id="some-linux-commands">Some Linux Commands</h3>
 
 <blockquote>
   <p>These are originally Unix (operating system) commands. Linux and macOS are
 heavily influenced by Unix and have reimplemented these commands.</p>
 </blockquote>
+
+<p>We will use the following command line interface (CLI) commands in the terminal:</p>
 
 <table>
   <thead>
@@ -145,24 +147,13 @@ is not limited to creating empty files and you can use it to set file access and
 modification times.</p>
 </blockquote>
 
-<ul>
-  <li>
-    <p>Enter the following in the VS Code terminal. Let’s go to our <em>home</em> folder.
-We can just enter <code class="language-plaintext highlighter-rouge">cd</code> without any arguments and options, or enter <code class="language-plaintext highlighter-rouge">cd ~</code> to go
-to our home directory in the terminal.</p>
+<h3 id="relative-and-absolute-path">Relative and Absolute Path</h3>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd</span> ~
-</code></pre></div>    </div>
-  </li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">~</code> is the shortcut name for home folder. Linux uses two types of <em>paths</em> to
-locate files and folders, <em>absolute path</em> and <em>relative path</em>. A path in Linux and
-similar systems represents a location of a file or a directory, e.g. your home
-directory. <code class="language-plaintext highlighter-rouge">~</code> is an example of relative path. E.g., the absolute path for my
-home looks something like <code class="language-plaintext highlighter-rouge">/home/murat</code> (Linux and WSL) and <code class="language-plaintext highlighter-rouge">/Users/murat</code>
-(macOS). Commonly used relative path locations (shortcuts) are:</p>
-  </li>
-</ul>
+<p>Linux uses two types of paths to locate files and folders, <em>absolute path</em> and
+<em>relative path</em>. E.g., <code class="language-plaintext highlighter-rouge">~</code> is a relative path (shortcut) that refers to the
+home folder in Unix-based system like Linux and MacOS. An absolute path for home
+folder could look something like <code class="language-plaintext highlighter-rouge">/home/murat</code> (Linux and WSL) or <code class="language-plaintext highlighter-rouge">/Users/murat</code>
+(macOS). Below are most commonly used relative path locations:</p>
 
 <table>
   <thead>
@@ -191,111 +182,148 @@ home looks something like <code class="language-plaintext highlighter-rouge">/ho
   </tbody>
 </table>
 
-<ul>
+<h3 id="workspace-folder">Workspace Folder</h3>
+
+<p>Let’s use terminal to navigate to the home folder to setup our workspace.
+Enter the CLI commands below to your terminal. Refer to the tables above
+for explanations and names of the commands.</p>
+
+<ol>
+  <li>
+    <p>Go to your home folder using <code class="language-plaintext highlighter-rouge">cd</code> command. You may either enter <code class="language-plaintext highlighter-rouge">cd</code> (without
+any arguments) or <code class="language-plaintext highlighter-rouge">cd ~</code> (use <code class="language-plaintext highlighter-rouge">~</code> to specify the relative path to the home folder).</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> ~
+</code></pre></div>    </div>
+
+    <p>That is <code class="language-plaintext highlighter-rouge">cd</code> space and <code class="language-plaintext highlighter-rouge">~</code>. The <em>command signature</em> is the same for all other
+ commands <code class="language-plaintext highlighter-rouge">COMMAND [OPTIONS] [ARGUMENTS]</code>, where square brackets represent
+ optional inputs.</p>
+  </li>
   <li>
     <p>Next, let’s print our current path (location in the file system). This should
 print your home folder’s location. E.g., <code class="language-plaintext highlighter-rouge">/Users/murat/</code> or <code class="language-plaintext highlighter-rouge">/home/murat</code>:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">pwd</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">pwd</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Use VS Code shortcut <code class="language-plaintext highlighter-rouge">^-Shift-P</code> (<code class="language-plaintext highlighter-rouge">Cmd-Shift-P</code> on macOS) to
-use the search field and enter “Open Folder” and press enter. Alternatively, go to
-<code class="language-plaintext highlighter-rouge">File &gt; Open Folder...</code> on the menu bar. Open your home folder to see its contents
-in the (file) Explorer tab of VS Code.</p>
-  </li>
-</ul>
+    <p>List the contents of your home folder with <code class="language-plaintext highlighter-rouge">ls</code>.</p>
 
-<p>In the terminal:</p>
-
-<ul>
-  <li>
-    <p>List the contents of your home folder.</p>
-
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">ls</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">ls</span>
 </code></pre></div>    </div>
-  </li>
-  <li><code class="language-plaintext highlighter-rouge">ls</code> accepts <em>options</em>, e.g.,</li>
-  <li><code class="language-plaintext highlighter-rouge">ls -l</code>: lists contents line-by-line,</li>
-  <li><code class="language-plaintext highlighter-rouge">ls -a</code>: lists <em>all</em> content including <em>hidden</em> files and folders.</li>
-  <li>
-    <p><code class="language-plaintext highlighter-rouge">ls -la</code> or <code class="language-plaintext highlighter-rouge">ls -al</code>: combines <code class="language-plaintext highlighter-rouge">-l</code> and <code class="language-plaintext highlighter-rouge">-a</code> options.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">ls</span> <span class="nt">-al</span>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">ls</code> accepts <em>options</em>, e.g.,</li>
+      <li><code class="language-plaintext highlighter-rouge">ls -l</code>: lists contents line-by-line,</li>
+      <li><code class="language-plaintext highlighter-rouge">ls -a</code>: lists <em>all</em> content including <em>hidden</em> files and folders.</li>
+      <li><code class="language-plaintext highlighter-rouge">ls -la</code> or <code class="language-plaintext highlighter-rouge">ls -al</code>: combines <code class="language-plaintext highlighter-rouge">-l</code> and <code class="language-plaintext highlighter-rouge">-a</code> options.</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">ls</span> <span class="nt">-al</span>
 </code></pre></div>    </div>
   </li>
   <li>
     <p>Create a new directory named <code class="language-plaintext highlighter-rouge">workspace</code>.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">mkdir </span>workspace
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir </span>workspace
 </code></pre></div>    </div>
+
+    <ul>
+      <li>Verify that <code class="language-plaintext highlighter-rouge">workspace</code> was properly created with <code class="language-plaintext highlighter-rouge">ls -alF</code>. The <code class="language-plaintext highlighter-rouge">-F</code>
+ option shows
+<code class="language-plaintext highlighter-rouge">/</code> after directory names.</li>
+      <li>Use VS Code shortcut <code class="language-plaintext highlighter-rouge">^-Shift-P</code> (<code class="language-plaintext highlighter-rouge">Cmd-Shift-P</code> on macOS) to
+use the search field and enter “Open Folder” and press enter. Alternatively, go to
+<code class="language-plaintext highlighter-rouge">File &gt; Open Folder...</code> on the menu bar. Open your home folder to see its contents
+in the (file) Explorer tab of VS Code.</li>
+      <li>Does the output from <code class="language-plaintext highlighter-rouge">ls -a</code> match what you see in the Explorer tab?</li>
+    </ul>
   </li>
-  <li>Does the output from <code class="language-plaintext highlighter-rouge">ls -a</code> match what you see in the Explorer tab?</li>
   <li>
     <p><code class="language-plaintext highlighter-rouge">cd</code> to <code class="language-plaintext highlighter-rouge">workspace</code>. You may verify this with <code class="language-plaintext highlighter-rouge">pwd</code></p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd </span>workspace
-  <span class="c"># check if you are in "workspace" directory</span>
-  <span class="nb">pwd</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd </span>workspace
+ <span class="c"># check if you are in "workspace" directory</span>
+ <span class="nb">pwd</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Create new files:</p>
+    <p>Create some test files:</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">touch </span>file1 file2 file3
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">touch </span>file1 file2 file3
 </code></pre></div>    </div>
+
+    <ul>
+      <li>Verify that the files exists by listing them with <code class="language-plaintext highlighter-rouge">ls -l</code>. Can you see
+ these files in the “Explorer”?</li>
+    </ul>
   </li>
-  <li>Verify that the files exists by listing them with <code class="language-plaintext highlighter-rouge">ls -l</code>. Can you see these
-files in the “Explorer”?</li>
   <li>
     <p>From the <code class="language-plaintext highlighter-rouge">workspace</code>, go to its parent directory (your home directory):</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd</span> ..
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">cd</span> ..
 </code></pre></div>    </div>
+
+    <ul>
+      <li>Open <code class="language-plaintext highlighter-rouge">workspace</code> folder in the VS Code (file) <em>Explorer</em> panel. Note that
+VS Code’s terminal automatically changes its current location to the folder
+that you have just opened. If you don’t see the Explorer panel,
+press <code class="language-plaintext highlighter-rouge">Ctrl-Shift-P</code> (<code class="language-plaintext highlighter-rouge">Cmd-Shift-P</code> on MacOS), then type “Open Folder”, and
+ press Enter.</li>
+    </ul>
   </li>
-  <li>Open <code class="language-plaintext highlighter-rouge">workspace</code> folder in the VS Code (file) <em>Explorer</em> tab, e.g., press <code class="language-plaintext highlighter-rouge">Ctrl-Shift-P</code>,
-type “Open Folder”, and press Enter. Note that VS Code’s terminal automatically changes
-its current location to the folder that you have just opened.</li>
-</ul>
-
-<p>In the terminal:</p>
-
-<ul>
   <li>
-    <p>Remove (delete) the files with <code class="language-plaintext highlighter-rouge">rm</code>. E.g., let’s delete <code class="language-plaintext highlighter-rouge">file1</code> in the <code class="language-plaintext highlighter-rouge">workspace</code>:</p>
+    <p>Go to <code class="language-plaintext highlighter-rouge">workspace</code> with <code class="language-plaintext highlighter-rouge">cd</code> if you are not in it. Then, remove (delete)
+<code class="language-plaintext highlighter-rouge">file1</code> with <code class="language-plaintext highlighter-rouge">rm</code> (use <code class="language-plaintext highlighter-rouge">pwd</code> and <code class="language-plaintext highlighter-rouge">ls</code> to verify location and contents of
+your current working directory).</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">rm </span>file1
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">rm </span>file1
 </code></pre></div>    </div>
   </li>
-</ul>
-
-<p>Many Linux commands accept wildcard <code class="language-plaintext highlighter-rouge">*</code> to match patterns, e.g., <code class="language-plaintext highlighter-rouge">file*</code>
+  <li>
+    <p>Many Linux commands accept wildcard <code class="language-plaintext highlighter-rouge">*</code> to match patterns, e.g., <code class="language-plaintext highlighter-rouge">file*</code>
 matches all file and folder names that start with <code class="language-plaintext highlighter-rouge">file</code>. Be careful to not
 delete your other files that match this pattern.</p>
 
-<ul>
-  <li>
-    <p>Delete all files with names that start with <code class="language-plaintext highlighter-rouge">file</code>. But before, let’s do a
-sanity check by listing these files (and folders):</p>
+    <ul>
+      <li>Delete all files with names that start with <code class="language-plaintext highlighter-rouge">file</code> inside <code class="language-plaintext highlighter-rouge">workspace/</code>.
+ But before, let’s do a sanity check by listing these files (and folders):</li>
+    </ul>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">ls</span> <span class="nt">-l</span> file<span class="k">*</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">ls</span> <span class="nt">-al</span> file<span class="k">*</span>
+</code></pre></div>    </div>
+
+    <ul>
+      <li>If you are happy with what you see, go ahead and delete these files:</li>
+    </ul>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">rm </span>file<span class="k">*</span>
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>If you are happy with what you see, go ahead and delete these files:</p>
+    <p>Create a new directory with path <code class="language-plaintext highlighter-rouge">~/workplace/pythonlab/lab1/dna-analyser</code>.
+For this, you need to create multiple directories. In the terminal, this can be
+done with <code class="language-plaintext highlighter-rouge">mkdir -p NEW_DIR</code>, <code class="language-plaintext highlighter-rouge">-p</code> option allows you to automatically create
+parent directories for your path.</p>
 
-    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">rm </span>file<span class="k">*</span>
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code> <span class="nb">mkdir</span> <span class="nt">-p</span> ~/workplace/pythonlab/lab1/dna-analyser
 </code></pre></div>    </div>
   </li>
-</ul>
+  <li>
+    <p>Use either Explorer panel or terminal (<code class="language-plaintext highlighter-rouge">cd</code>) to navigate to <code class="language-plaintext highlighter-rouge">dna-analyser</code>
+directory. Then, verify the current directory path with <code class="language-plaintext highlighter-rouge">pwd</code>.</p>
+  </li>
+</ol>
 
-<h3 id="3-should-you-use-the-terminal-or-graphical-user-interface">3. Should You Use the Terminal or Graphical User Interface?</h3>
+<h3 id="should-you-use-the-terminal-or-graphical-user-interface">Should You Use the Terminal or Graphical User Interface?</h3>
 
-<p>Going forward you way use either the terminal and/or the Explorer
-to manage your files and folders. You can also use your operating system’s tools
-such as Finder or File Explorer to browse and manage your files. I leave this up
-to your preferences.</p>
+<p>Above we saw just a glimpse of what is possible with CLI or the terminal.
+You may continue practicing these and other CLI commands if you want to get
+better at it. Going forward you way use either the terminal and/or the Explorer
+to manage your files and folders. You can also use your operating system’s
+tools such as Finder or File Explorer to browse and manage your files. I leave
+this up to your preferences.</p>
 
 <p>Nevertheless, it is generally much faster to navigate the filesystem and manage
 your files via the terminal. Hence, I strongly suggest you to try to learn and
@@ -304,7 +332,7 @@ use the terminal (CLI) commands.</p>
 <hr />
 
 <blockquote>
-  <p>Keep the <code class="language-plaintext highlighter-rouge">workspace</code> folder open in VS Code. We will use it in the next part.</p>
+  <p>Keep the <code class="language-plaintext highlighter-rouge">dna-analyser</code> folder open in VS Code. We will use it in the next part.</p>
 </blockquote>
 
 <hr />
