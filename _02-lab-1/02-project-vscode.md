@@ -6,6 +6,9 @@ permalink: /lab-01/02
 
 ### 1. Verify Your System
 
+> If you would rather use a different IDE or editor to VS Code, please feel free
+to run these commands in your preferred ternimal and IDE.
+
 1. Open **VS Code**.
 1. Open VS Code terminal:
     - In VS Code, use keyboard shortcut `` ^` `` ( hold down Control and `` ` ``
@@ -16,7 +19,7 @@ permalink: /lab-01/02
     uname
     ```
 
-You should see the above print either `Linux` (WSL, Linux) or `Darwin` (macOS).
+You should see the above print either `Linux` (WSL and Linux) or `Darwin` (macOS).
 E.g., your terminal should look like this (the exact prompt, `$` and everything
 in front of it may differ from the example below):
 
@@ -35,7 +38,7 @@ Darwin
 ### 2. Before Python... Some Linux Commands
 
 > These are originally Unix (operating system) commands. Linux and macOS are
-heavily influenced by Unix and reimplemented these commands.
+heavily influenced by Unix and have reimplemented these commands.
 
 | Command | Meaning | Usage |
 |:-------:|:-------:|:-----:|
@@ -47,14 +50,30 @@ heavily influenced by Unix and reimplemented these commands.
 | `touch` | Create empty file | `touch FILE` |
 
 > Conceptually, directory in Linux is the same as folder on macOS and Windows.
+Also, usage of [`touch` command](https://man7.org/linux/man-pages/man1/touch.1.html)
+is not limited to creating empty files and you can use it to set file access and
+modification times.
 
 - Enter the following in the VS Code terminal. Let's go to our *home* folder.
-We can just enter `cd` without any arguments and options or `cd ~` to go to our
-home directory in the terminal. The `~` is the short name for home folder.
+We can just enter `cd` without any arguments and options, or enter `cd ~` to go
+to our home directory in the terminal.
 
     ```bash
     cd ~
     ```
+
+- `~` is the shortcut name for home folder. Linux uses two types of *paths* to
+locate files and folders, *absolute path* and *relative path*. A path in Linux and
+similar systems represents a location of a file or a directory, e.g. your home
+directory. `~` is an example of relative path. E.g., the absolute path for my
+home looks something like `/home/murat` (Linux and WSL) and `/Users/murat`
+(macOS). Commonly used relative path locations (shortcuts) are:
+
+| Relative path | Meaning | Usage |
+|:-------------:|:-------:|:-----:|
+| `~` | User's home directory | `~/Documents/`  refers to `Documents/` in my home directory |
+| `.` | The current directory | `./file1` is same as just `file1` but the first one is more specific |
+| `..`| The parent directory (of the current one) | `../..` refers to a "grandparent" directory of the curent `.` |
 
 - Next, let's print our current path (location in the file system). This should
 print your home folder's location. E.g., `/Users/murat/` or `/home/murat`:
@@ -63,7 +82,7 @@ print your home folder's location. E.g., `/Users/murat/` or `/home/murat`:
     pwd
     ```
 
-- Use VS Code shortcut `^-Shift-P` (use Command instead of Control on macOS) to
+- Use VS Code shortcut `^-Shift-P` (`Cmd-Shift-P` on macOS) to
 use the search field and enter "Open Folder" and press enter. Alternatively, go to
 `File > Open Folder...` on the menu bar. Open your home folder to see its contents
 in the (file) Explorer tab of VS Code.
@@ -108,17 +127,6 @@ In the terminal:
 
 - Verify that the files exists by listing them with `ls -l`. Can you see these
 files in the "Explorer"?
-- Linux uses two types of paths to locate files and folders, *absolute path* and
-*relative path*. The `~` which is a shortcut to the home folder used above, is
-an example of relative path. E.g., the absolute path for my home looks something
-like `/home/murat` (Linux and WSL) and `/Users/murat` (macOS). Other examples of
-relative path locations are:
-
-| Relative path | Meaning | Usage |
-|:-------------:|:-------:|:-----:|
-| `.` | The current directory | `ls -l ./file1`, here `./file1` is same as just `file1`|
-| `..`| The parent directory (of the current one) | `ls ..`|
-
 - From the `workspace`, go to its parent directory (your home directory):
 
     ```bash
@@ -154,7 +162,7 @@ sanity check by listing these files (and folders):
     rm file*
     ```
 
-### 3. Should You Use the Terminal?
+### 3. Should You Use the Terminal or Graphical User Interface?
 
 Going forward you way use either the terminal and/or the Explorer
 to manage your files and folders. You can also use your operating system's tools

@@ -4,6 +4,11 @@ title: "Lab 1: Setting Up Python Environment"
 permalink: /lab-01/
 ---
 
+🧪 Welcome to our first Python lab!
+
+To get started, please go to *Prerequisites* and
+follow the steps to setup your Python programming environment.
+
 ### Contents
 
 1. [Prerequisites](01) 🛠️

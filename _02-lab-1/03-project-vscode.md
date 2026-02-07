@@ -26,11 +26,6 @@ You are welcome to continue using `workspace` for your future projects.
 - Create and open a new python (text) file in the `dna-analyser`. Name the
 file `main.py`.
 
-### References
-
-- [mccA](https://www.uniprot.org/uniprotkb/Q47505/entry#ptm_processing)
-- [example 1](https://www.101computing.net/dna-sequence-analysis-python-challenge)
-
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
     <a id="previous" href="02">Previous: Part 1</a>

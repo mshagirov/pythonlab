@@ -32,7 +32,7 @@ Below we will install the *newest stable* version of Python for your operating s
 *The exact version depends on the operating system and not important*. Here again,
 if you already have Python with version 3.8 or later and you know what you are doing,
 you can read through the Python installation sections below and optionally skip the
-installation.
+installation and setup.
 
 Throughout this lab we will use Python inside a Unix-like systems: WSL (Windows),
 Mac OS, and Linux. This choice is intentional and gives us several advantages:
@@ -43,9 +43,9 @@ interface (CLI) without the OS-specific quirks.
 machines.
 - Many Python tools such as package managers work more smoothly on Linux-like systems.
 
-### System Setup
+## Setup Your System
 
-Prepare your machine by following instructions for your operating system below:
+Prepare your machine by following instructions for *<u>your</u>* operating system below:
 
 {% tabs os-type %}
 
@@ -54,7 +54,7 @@ Prepare your machine by following instructions for your operating system below:
 *For Windows machines, we will use WSL in conjunction with VS Code throughout the
 remainder of this lab.*
 
-#### Install WSL and VS Code
+### Install WSL and VS Code
 
 For Windows, we will follow
 [VS Code instructions for developing in WSL](https://code.visualstudio.com/docs/remote/wsl):
@@ -82,7 +82,7 @@ and instructions on setting up and using
 [WSL with VS Code](https://code.visualstudio.com/docs/remote/wsl#_from-vs-code)
 helpful when getting started with VS Code and WSL.
 
-#### Install Python
+### Install Python
 
 Your WSL Linux should come with Python installed. To check your Python installation
 start your WSL Ubuntu in PowerShell or Windows Terminal.
@@ -119,7 +119,7 @@ You can exit or stop Ubuntu by entering `exit` in the Ubuntu shell (CLI). This
 exits the current shell (CLI). To restart and/or stop WSL you can use
 `wsl.exe --shutdown` command in PowerShell or Ubuntu CLI.
 
-#### Managing Files in WSL
+### Managing Files in WSL
 
 Please read the notes on the
 [file storage in WSL and Windows](https://learn.microsoft.com/en-us/windows/wsl/setup/environment#file-storage).
@@ -132,7 +132,7 @@ Please read the notes on the
 to not "mess" with the system Python in macOS. Homebrew allows us to install and
 manage newer Python versions without interfering with the pre-installed Python.*
 
-#### Install Homebrew and Python
+### Install Homebrew and Python
 
 We will use [Homebrew](https://brew.sh) to manage the system Python on macOS.
 Follow the steps below to install Homebrew on your Mac:
@@ -170,7 +170,7 @@ Enter your macOS password if prompted.
     python --version
     ```
 
-#### Install VS Code
+### Install VS Code
 
 - Install VS Code from [code.visualstudio.com](https://code.visualstudio.com/).
 - Install [Microsoft Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
@@ -186,7 +186,7 @@ helpful when getting started with VS Code.
 *For Linux, we will initially use system Python and use uv or conda to install
 newer versions of Python in later parts of this lab.*
 
-#### Check and Install Python
+### Check and Install Python
 
 Most of the Linux distributions come with Python installed. To check this, open
 your terminal and run the Python version check.
@@ -205,7 +205,7 @@ If Python can not be found, update your repository indices using the system's
 package manager. Upgrade your libraries. Then, use the package manager to install
 or update Python packages.
 
-#### Install VS Code (Recommended)
+### Install VS Code (Recommended)
 
 Follow the Linux installation steps to install VS Code from the
 [VS Code documentation](https://code.visualstudio.com/docs/setup/linux).
