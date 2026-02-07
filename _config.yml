@@ -24,3 +24,4 @@ exclude:
   - build.sh
   - dev.sh
   - README.md
+  - AGENTS.md

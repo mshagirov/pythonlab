@@ -13,11 +13,11 @@
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2025-11-10T08:32:55+08:00" />
+<meta property="article:published_time" content="2026-02-08T02:27:06+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Part 1: Linux Commands" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-10T08:32:55+08:00","datePublished":"2025-11-10T08:32:55+08:00","description":"1. Verify Your System","headline":"Part 1: Linux Commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-08T02:27:06+08:00","datePublished":"2026-02-08T02:27:06+08:00","description":"1. Verify Your System","headline":"Part 1: Linux Commands","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/02"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -54,6 +54,11 @@
   <div class="post-content">
     <h3 id="1-verify-your-system">1. Verify Your System</h3>
 
+<blockquote>
+  <p>If you would rather use a different IDE or editor to VS Code, please feel free
+to run these commands in your preferred ternimal and IDE.</p>
+</blockquote>
+
 <ol>
   <li>Open <strong>VS Code</strong>.</li>
   <li>Open VS Code terminal:
@@ -70,7 +75,7 @@
   </li>
 </ol>
 
-<p>You should see the above print either <code class="language-plaintext highlighter-rouge">Linux</code> (WSL, Linux) or <code class="language-plaintext highlighter-rouge">Darwin</code> (macOS).
+<p>You should see the above print either <code class="language-plaintext highlighter-rouge">Linux</code> (WSL and Linux) or <code class="language-plaintext highlighter-rouge">Darwin</code> (macOS).
 E.g., your terminal should look like this (the exact prompt, <code class="language-plaintext highlighter-rouge">$</code> and everything
 in front of it may differ from the example below):</p>
 
@@ -88,7 +93,7 @@ in front of it may differ from the example below):</p>
 
 <blockquote>
   <p>These are originally Unix (operating system) commands. Linux and macOS are
-heavily influenced by Unix and reimplemented these commands.</p>
+heavily influenced by Unix and have reimplemented these commands.</p>
 </blockquote>
 
 <table>
@@ -134,18 +139,59 @@ heavily influenced by Unix and reimplemented these commands.</p>
 </table>
 
 <blockquote>
-  <p>Conceptually, directory in Linux is the same as folder on macOS and Windows.</p>
+  <p>Conceptually, directory in Linux is the same as folder on macOS and Windows.
+Also, usage of <a href="https://man7.org/linux/man-pages/man1/touch.1.html"><code class="language-plaintext highlighter-rouge">touch</code> command</a>
+is not limited to creating empty files and you can use it to set file access and
+modification times.</p>
 </blockquote>
 
 <ul>
   <li>
     <p>Enter the following in the VS Code terminal. Let’s go to our <em>home</em> folder.
-We can just enter <code class="language-plaintext highlighter-rouge">cd</code> without any arguments and options or <code class="language-plaintext highlighter-rouge">cd ~</code> to go to our
-home directory in the terminal. The <code class="language-plaintext highlighter-rouge">~</code> is the short name for home folder.</p>
+We can just enter <code class="language-plaintext highlighter-rouge">cd</code> without any arguments and options, or enter <code class="language-plaintext highlighter-rouge">cd ~</code> to go
+to our home directory in the terminal.</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd</span> ~
 </code></pre></div>    </div>
   </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">~</code> is the shortcut name for home folder. Linux uses two types of <em>paths</em> to
+locate files and folders, <em>absolute path</em> and <em>relative path</em>. A path in Linux and
+similar systems represents a location of a file or a directory, e.g. your home
+directory. <code class="language-plaintext highlighter-rouge">~</code> is an example of relative path. E.g., the absolute path for my
+home looks something like <code class="language-plaintext highlighter-rouge">/home/murat</code> (Linux and WSL) and <code class="language-plaintext highlighter-rouge">/Users/murat</code>
+(macOS). Commonly used relative path locations (shortcuts) are:</p>
+  </li>
+</ul>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center">Relative path</th>
+      <th style="text-align: center">Meaning</th>
+      <th style="text-align: center">Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">~</code></td>
+      <td style="text-align: center">User’s home directory</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">~/Documents/</code>  refers to <code class="language-plaintext highlighter-rouge">Documents/</code> in my home directory</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">.</code></td>
+      <td style="text-align: center">The current directory</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">./file1</code> is same as just <code class="language-plaintext highlighter-rouge">file1</code> but the first one is more specific</td>
+    </tr>
+    <tr>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">..</code></td>
+      <td style="text-align: center">The parent directory (of the current one)</td>
+      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">../..</code> refers to a “grandparent” directory of the curent <code class="language-plaintext highlighter-rouge">.</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<ul>
   <li>
     <p>Next, let’s print our current path (location in the file system). This should
 print your home folder’s location. E.g., <code class="language-plaintext highlighter-rouge">/Users/murat/</code> or <code class="language-plaintext highlighter-rouge">/home/murat</code>:</p>
@@ -154,7 +200,7 @@ print your home folder’s location. E.g., <code class="language-plaintext highl
 </code></pre></div>    </div>
   </li>
   <li>
-    <p>Use VS Code shortcut <code class="language-plaintext highlighter-rouge">^-Shift-P</code> (use Command instead of Control on macOS) to
+    <p>Use VS Code shortcut <code class="language-plaintext highlighter-rouge">^-Shift-P</code> (<code class="language-plaintext highlighter-rouge">Cmd-Shift-P</code> on macOS) to
 use the search field and enter “Open Folder” and press enter. Alternatively, go to
 <code class="language-plaintext highlighter-rouge">File &gt; Open Folder...</code> on the menu bar. Open your home folder to see its contents
 in the (file) Explorer tab of VS Code.</p>
@@ -202,47 +248,15 @@ in the (file) Explorer tab of VS Code.</p>
   </li>
   <li>Verify that the files exists by listing them with <code class="language-plaintext highlighter-rouge">ls -l</code>. Can you see these
 files in the “Explorer”?</li>
-  <li>Linux uses two types of paths to locate files and folders, <em>absolute path</em> and
-<em>relative path</em>. The <code class="language-plaintext highlighter-rouge">~</code> which is a shortcut to the home folder used above, is
-an example of relative path. E.g., the absolute path for my home looks something
-like <code class="language-plaintext highlighter-rouge">/home/murat</code> (Linux and WSL) and <code class="language-plaintext highlighter-rouge">/Users/murat</code> (macOS). Other examples of
-relative path locations are:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Relative path</th>
-      <th style="text-align: center">Meaning</th>
-      <th style="text-align: center">Usage</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">.</code></td>
-      <td style="text-align: center">The current directory</td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">ls -l ./file1</code>, here <code class="language-plaintext highlighter-rouge">./file1</code> is same as just <code class="language-plaintext highlighter-rouge">file1</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">..</code></td>
-      <td style="text-align: center">The parent directory (of the current one)</td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">ls ..</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<ul>
   <li>
     <p>From the <code class="language-plaintext highlighter-rouge">workspace</code>, go to its parent directory (your home directory):</p>
 
     <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">cd</span> ..
 </code></pre></div>    </div>
   </li>
-  <li>
-    <p>Open <code class="language-plaintext highlighter-rouge">workspace</code> folder in the VS Code (file) <em>Explorer</em> tab, e.g., press <code class="language-plaintext highlighter-rouge">Ctrl-Shift-P</code>,
+  <li>Open <code class="language-plaintext highlighter-rouge">workspace</code> folder in the VS Code (file) <em>Explorer</em> tab, e.g., press <code class="language-plaintext highlighter-rouge">Ctrl-Shift-P</code>,
 type “Open Folder”, and press Enter. Note that VS Code’s terminal automatically changes
-its current location to the folder that you have just opened.</p>
-  </li>
+its current location to the folder that you have just opened.</li>
 </ul>
 
 <p>In the terminal:</p>
@@ -276,7 +290,7 @@ sanity check by listing these files (and folders):</p>
   </li>
 </ul>
 
-<h3 id="3-should-you-use-the-terminal">3. Should You Use the Terminal?</h3>
+<h3 id="3-should-you-use-the-terminal-or-graphical-user-interface">3. Should You Use the Terminal or Graphical User Interface?</h3>
 
 <p>Going forward you way use either the terminal and/or the Explorer
 to manage your files and folders. You can also use your operating system’s tools
