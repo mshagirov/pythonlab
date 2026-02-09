@@ -3,21 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Part 2: | Python Lab</title>
+<title>Part 2: DNA Analysis Tool | Python Lab</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Part 2:" />
+<meta property="og:title" content="Part 2: DNA Analysis Tool" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Project Folder Organisation" />
-<meta property="og:description" content="Project Folder Organisation" />
+<meta name="description" content="The Project" />
+<meta property="og:description" content="The Project" />
 <link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03" />
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-08T04:30:22+08:00" />
+<meta property="article:published_time" content="2026-02-10T00:31:25+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Part 2:" />
+<meta property="twitter:title" content="Part 2: DNA Analysis Tool" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-08T04:30:22+08:00","datePublished":"2026-02-08T04:30:22+08:00","description":"Project Folder Organisation","headline":"Part 2:","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-10T00:31:25+08:00","datePublished":"2026-02-10T00:31:25+08:00","description":"The Project","headline":"Part 2: DNA Analysis Tool","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -48,11 +48,59 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Part 2:</h1>
+    <h1 class="post-title">Part 2: DNA Analysis Tool</h1>
   </header>
 
   <div class="post-content">
-    <h3 id="project-folder-organisation">Project Folder Organisation</h3>
+    <h3 id="the-project">The Project</h3>
+
+<p>In this lab we will build a tool to analyse DNA sequences. We require this program
+to do the following:</p>
+
+<ul>
+  <li>It is a command line tool (we will use it from the terminal)</li>
+  <li>Accept one or more paths to potential DNA sequence files (file locations)</li>
+  <li>Read those files and ignore any comments</li>
+  <li>Check if the sequence is a valid DNA data and ignore it if it is not</li>
+  <li>Count the bases <code class="language-plaintext highlighter-rouge">A</code>, <code class="language-plaintext highlighter-rouge">T</code>, <code class="language-plaintext highlighter-rouge">G</code>, and <code class="language-plaintext highlighter-rouge">C</code></li>
+  <li>Compute the GC content (%)</li>
+  <li>Estimate sequence’s melting temperature (Tm assuming it is a plasmid)</li>
+  <li>Print out all the analysis results to the terminal</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                                      <span class="err">▄</span>                         
+<span class="err">█▀▀▄</span>  <span class="err">█▀▀▄</span>  <span class="err">▄▀▀▄</span>     <span class="err">▄▀▀▄</span> <span class="err">▄▄▄</span>    <span class="err">▄▄▄</span>  <span class="err">█</span>  <span class="err">▄</span>  <span class="err">▄</span>   <span class="err">▄▄▄</span>   <span class="err">▄▄</span>   <span class="err">▄</span> <span class="err">▄▄</span> 
+<span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█▄▄█</span>     <span class="err">█▄▄█</span> <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">▀▄▄</span>   <span class="err">█▄▄█</span>  <span class="err">█▀</span>   
+<span class="err">█▄▄▀</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>  <span class="err">█</span>     <span class="err">█</span>  <span class="err">█</span> <span class="err">█</span>  <span class="err">█</span>  <span class="err">▀▄▀█</span>  <span class="err">█</span>  <span class="err">▀▄▄█</span>  <span class="err">▄▄▄▀</span>  <span class="err">▀▄▄▄</span>  <span class="err">█</span>    
+                                          <span class="err">▄▄▀</span>                   
+<span class="n">Analysing</span> <span class="n">sequences</span><span class="p">:</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>   <span class="n">Sequence</span> <span class="n">File</span>    <span class="err">┊</span> <span class="c1">#bases ┊ssMW kDa┊  GC%   ┊ AT/GC  ┊ Tm C°  ┊
+</span><span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>     <span class="n">BGH</span><span class="o">-</span><span class="n">R</span><span class="p">.</span><span class="n">pri</span>      <span class="err">┊</span>   <span class="mi">18</span>   <span class="err">┊</span>  <span class="mf">5.66</span>  <span class="err">┊</span> <span class="mf">55.56</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">0.80</span>  <span class="err">┊</span>   <span class="mi">56</span>   <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>    <span class="n">example1</span><span class="p">.</span><span class="n">txt</span>    <span class="err">┊</span>  <span class="mi">6458</span>  <span class="err">┊</span><span class="mf">1998.87</span> <span class="err">┊</span> <span class="mf">34.42</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">1.91</span>  <span class="err">┊</span> <span class="mi">17362</span>  <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>    <span class="n">example3</span><span class="p">.</span><span class="n">dna</span>    <span class="err">┊</span>   <span class="mi">47</span>   <span class="err">┊</span> <span class="mf">14.61</span>  <span class="err">┊</span> <span class="mf">14.89</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">5.71</span>  <span class="err">┊</span>  <span class="mi">108</span>   <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>   <span class="n">MSCV</span><span class="o">-</span><span class="n">fwrd</span><span class="p">.</span><span class="n">pri</span>    <span class="err">┊</span>   <span class="mi">23</span>   <span class="err">┊</span>  <span class="mf">6.93</span>  <span class="err">┊</span> <span class="mf">60.87</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">0.64</span>  <span class="err">┊</span>   <span class="mi">74</span>   <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>   <span class="n">pBAD</span><span class="o">-</span><span class="n">fwrd</span><span class="p">.</span><span class="n">pri</span>    <span class="err">┊</span>   <span class="mi">20</span>   <span class="err">┊</span>  <span class="mf">6.10</span>  <span class="err">┊</span> <span class="mf">35.00</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">1.86</span>  <span class="err">┊</span>   <span class="mi">54</span>   <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+<span class="err">┊</span>       <span class="n">T3</span><span class="p">.</span><span class="n">pri</span>       <span class="err">┊</span>   <span class="mi">21</span>   <span class="err">┊</span>  <span class="mf">6.45</span>  <span class="err">┊</span> <span class="mf">42.86</span><span class="o">%</span> <span class="err">┊</span>  <span class="mf">1.33</span>  <span class="err">┊</span>   <span class="mi">60</span>   <span class="err">┊</span>
+<span class="o">+--------------------+--------+--------+--------+--------+--------+</span>
+
+<span class="n">Skipped</span><span class="p">:</span>
+<span class="err">❌</span>     <span class="n">example2</span><span class="p">.</span><span class="n">txt</span>      <span class="n">Not</span> <span class="n">a</span> <span class="n">DNA</span> <span class="n">sequence</span>
+<span class="err">❌</span>     <span class="n">example4</span><span class="p">.</span><span class="n">rna</span>      <span class="n">Not</span> <span class="n">a</span> <span class="n">DNA</span> <span class="n">sequence</span>
+</code></pre></div></div>
+
+<h3 id="project-folder-organisation">Project Folder Organisation</h3>
+
+<blockquote>
+  <p>Please create <code class="language-plaintext highlighter-rouge">~/workplace/pythonlab/lab1/dna-analyser</code> if you haven’t already
+done so.</p>
+</blockquote>
 
 <p><code class="language-plaintext highlighter-rouge">workspace/pythonlab/</code> will house all the projects that you will write in this
 and future labs. Inside it, we will create directories for each lab, and each
@@ -66,11 +114,79 @@ and have adopted it in my own workflow.</p>
 
 <h3 id="entry-point-for-your-program--mainpy">Entry Point for Your Program : <code class="language-plaintext highlighter-rouge">main.py</code></h3>
 
-<ul>
+<ol>
   <li>Open <code class="language-plaintext highlighter-rouge">~/workplace/pythonlab/lab1/dna-analyser</code> as a folder in VS Code.</li>
-  <li>Create and open a new python (text) file in the <code class="language-plaintext highlighter-rouge">dna-analyser</code>. Name the
-file <code class="language-plaintext highlighter-rouge">main.py</code>.</li>
+  <li>Create and open a new python file in the <code class="language-plaintext highlighter-rouge">dna-analyser</code>. Name the
+file <code class="language-plaintext highlighter-rouge">main.py</code>. A Python file is just a text file with a name ending with <code class="language-plaintext highlighter-rouge">.py</code>.</li>
+  <li>Open <code class="language-plaintext highlighter-rouge">main.py</code> in VS Code.</li>
+</ol>
+
+<blockquote>
+  <p><code class="language-plaintext highlighter-rouge">main.py</code> will be an <em>entry point</em> for our program. The name <code class="language-plaintext highlighter-rouge">main.py</code> is a
+conventional name given to the “main” file in your program that you run to use your
+program. Naming your main file <code class="language-plaintext highlighter-rouge">main.py</code> is not a requirement. Nevertheless, it
+is more convenient for organising our code by giving us a clear place to start
+reading our code in the future.</p>
+</blockquote>
+
+<p>Copy the following into <code class="language-plaintext highlighter-rouge">main.py</code>:</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello from DNA Analyser!</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Then run the following from the VS Code terminal (make sure your current working
+directory is the same as the location of the <code class="language-plaintext highlighter-rouge">main.py</code>,
+i.e.<code class="language-plaintext highlighter-rouge">~/workspace/pythonlab/lab1/dna-analyser</code>.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 main.py
+</code></pre></div></div>
+
+<blockquote>
+  <p>In the above we are “telling” Python interpreter to run our <code class="language-plaintext highlighter-rouge">main.py</code> code.</p>
+</blockquote>
+
+<p>Congratulations, you have written your first Python program on your machine!🐍</p>
+
+<h3 id="shebang-line">Shebang Line</h3>
+
+<p>Another convenient way to run Python programs in Unix-like systems (Linux, MacOS)
+is by adding a <em>shebang</em> (<code class="language-plaintext highlighter-rouge">#!</code>) line on top of the file as shown below.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="nf">print</span><span class="p">(</span><span class="sh">"</span><span class="s">Hello from DNA Analyser!</span><span class="sh">"</span><span class="p">)</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Add the Python shebang as the very first line to <code class="language-plaintext highlighter-rouge">main.py</code>.</li>
+  <li>
+    <p>Change <code class="language-plaintext highlighter-rouge">main.py</code> to be executable using <code class="language-plaintext highlighter-rouge">chmod +x</code> (this modifies file
+permissions to executable or “runnable” file):</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nb">chmod</span> +x main.py
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Then run the following in the terminal:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  ./main.py
+</code></pre></div>    </div>
+  </li>
 </ul>
+
+<p>You should see your program run as usual but without us explicitly telling us
+to use the Python interpreter as that is taken care of by the <code class="language-plaintext highlighter-rouge">#!</code> line. Note
+the <code class="language-plaintext highlighter-rouge">./</code> in front of the file name. Here, we need to specify that the <em>command</em>
+<code class="language-plaintext highlighter-rouge">main.py</code> is in the current directory as our system is not aware of its
+location.</p>
+
+<blockquote>
+  <p>To run commands without specifying their path, you need to its directory
+location to the <a href="https://en.wikipedia.org/wiki/PATH_(variable)"><code class="language-plaintext highlighter-rouge">PATH</code> environment variable</a>.</p>
+</blockquote>
+
+<p>Going forward you may run <code class="language-plaintext highlighter-rouge">main.py</code> either by directly <em>calling</em> it or using
+<code class="language-plaintext highlighter-rouge">python3 main.py</code>.</p>
 
 <script src="/pythonlab/assets/js/tabs.js"></script>
 

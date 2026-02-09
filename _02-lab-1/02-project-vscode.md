@@ -35,7 +35,7 @@ $ uname
 Darwin
 ```
 
-### Some Linux Commands
+### Some Linux Commands (Optional)
 
 > These are originally Unix (operating system) commands. Linux and macOS are
 heavily influenced by Unix and have reimplemented these commands.
