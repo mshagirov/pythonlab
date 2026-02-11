@@ -115,14 +115,16 @@ permissions to executable or "runnable" file):
     ./main.py
     ```
 
-You should see your program run as usual but without us explicitly telling us
-to use the Python interpreter as that is taken care of by the `#!` line. Note
-the `./` in front of the file name. Here, we need to specify that the *command*
-`main.py` is in the current directory as our system is not aware of its
-location.
+You should see your program run as usual. This time we did it without
+explicitly calling the Python interpreter. The line with `#!` takes care
+of calling the interpreter when we run the program.
 
-> To run commands without specifying their path, you need to its directory
-location to the [`PATH` environment variable](https://en.wikipedia.org/wiki/PATH_(variable)).
+Note the `./` in front of the file name. Here, we need to specify that
+the *command* `main.py` is in the current directory as our system is not aware
+of its location.
+
+> To run commands without specifying their path, you need to add its directory
+(location) to the [`PATH` environment variable](https://en.wikipedia.org/wiki/PATH_(variable)).
 
 Going forward you may run `main.py` either by directly *calling* it or using
 `python3 main.py`.
