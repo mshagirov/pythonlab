@@ -20,7 +20,7 @@ of a line after `#` is completely ignored by the Python interpreter.
 
 <div class="language-python highlighter-rouge">
 <pre class="highlight"><script type="py-editor" worker>
-# This is single a comment
+# This is a single line comment
 
 '''
 This is multi-line comment
@@ -31,7 +31,7 @@ are ignored. E.g., this doesn't print
 print(123)
 '''
 
-print(42) # this prints the value "42" <-- command comment
+print(42) # this prints the value "42", everything after '#' is a comment
 </script></pre></div>
 
 ### Arithmetic Operators

@@ -13,11 +13,11 @@
 <meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03" />
 <meta property="og:site_name" content="Python Lab" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-10T00:31:25+08:00" />
+<meta property="article:published_time" content="2026-02-13T01:49:52+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Part 2: DNA Analysis Tool" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-10T00:31:25+08:00","datePublished":"2026-02-10T00:31:25+08:00","description":"The Project","headline":"Part 2: DNA Analysis Tool","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-13T01:49:52+08:00","datePublished":"2026-02-13T01:49:52+08:00","description":"The Project","headline":"Part 2: DNA Analysis Tool","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/lab-01/03"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/pythonlab/assets/main.css">
   <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
@@ -174,15 +174,17 @@ permissions to executable or “runnable” file):</p>
   </li>
 </ul>
 
-<p>You should see your program run as usual but without us explicitly telling us
-to use the Python interpreter as that is taken care of by the <code class="language-plaintext highlighter-rouge">#!</code> line. Note
-the <code class="language-plaintext highlighter-rouge">./</code> in front of the file name. Here, we need to specify that the <em>command</em>
-<code class="language-plaintext highlighter-rouge">main.py</code> is in the current directory as our system is not aware of its
-location.</p>
+<p>You should see your program run as usual. This time we did it without
+explicitly calling the Python interpreter. The line with <code class="language-plaintext highlighter-rouge">#!</code> takes care
+of calling the interpreter when we run the program.</p>
+
+<p>Note the <code class="language-plaintext highlighter-rouge">./</code> in front of the file name. Here, we need to specify that
+the <em>command</em> <code class="language-plaintext highlighter-rouge">main.py</code> is in the current directory as our system is not aware
+of its location.</p>
 
 <blockquote>
-  <p>To run commands without specifying their path, you need to its directory
-location to the <a href="https://en.wikipedia.org/wiki/PATH_(variable)"><code class="language-plaintext highlighter-rouge">PATH</code> environment variable</a>.</p>
+  <p>To run commands without specifying their path, you need to add its directory
+(location) to the <a href="https://en.wikipedia.org/wiki/PATH_(variable)"><code class="language-plaintext highlighter-rouge">PATH</code> environment variable</a>.</p>
 </blockquote>
 
 <p>Going forward you may run <code class="language-plaintext highlighter-rouge">main.py</code> either by directly <em>calling</em> it or using
