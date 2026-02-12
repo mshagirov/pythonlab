@@ -31,7 +31,7 @@ are ignored. E.g., this doesn't print
 print(123)
 '''
 
-print(42) # this prints the value "42", everything after '#' is a comment
+print(42) # prints 42, everything after '#' is a comment
 </script></pre></div>
 
 ### Arithmetic Operators
