@@ -6,11 +6,12 @@ permalink: /introduction/02
 
 ### Python Syntax
 
-*Syntax* in programming, including Python, refers to the programming language rules.
+*Syntax* in programming refers to the (programming) language rules.
 The syntax determines the structure and interpretation of the code when it runs.
-It may be easier to learn Python and its syntax by trying and breaking
-it instead of purely reading the documentation. Let's try running (and breaking)
-some code.
+It may be easier to learn Python and its syntax by trying to run and breaking Python
+code instead of purely reading the documentation.
+
+Let's run (and break) some code...
 
 ### Commenting Your Code
 
