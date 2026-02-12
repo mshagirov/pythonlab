@@ -36,7 +36,7 @@ print(42) # prints 42, everything after '#' is a comment
 
 ### Arithmetic Operators
 
-For example, let's start with the basic arithmetics. Python uses the following
+For some code examples, let's start with the basic arithmetics. Python uses the following
 operators to do basic arithmetics,
 
 - `+` : addition,
