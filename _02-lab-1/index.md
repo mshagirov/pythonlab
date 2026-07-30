@@ -13,9 +13,10 @@ follow the steps to setup your Python programming environment.
 
 1. [Prerequisites](01) 🛠️
 1. Python Project 🚀
-    - [Part 1: Linux Commands](02)
-    - [Part 2:](03)
-    - [Part 3:](03)
+    - [Introduction](02)
+    - [Terminal](03)
+    - [Relative Path](04)
+    - [Linux Commands](05)
 1. Managing Python Environments 📦
 1. Jupyter Notebook, Data Analysis venv 🔬
 

@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Project: Part 3"
-permalink: /lab-01/04
+permalink: /lab-01/07
 ---
 
 Use VS Code to write and test a Python program.

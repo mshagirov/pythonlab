@@ -1,39 +1,8 @@
 ---
 layout: page
-title: "Part 1: Linux Commands"
-permalink: /lab-01/02
+title: "Linux Commands (Optional)"
+permalink: /lab-01/05
 ---
-
-### Verify Your System
-
-> If you would rather use a different IDE or editor to VS Code, please feel free
-to run these commands in your preferred ternimal and IDE.
-
-1. Open **VS Code**.
-1. Open VS Code terminal:
-    - In VS Code, use keyboard shortcut `` ^` `` ( hold down Control and `` ` ``
-    keys) or from the menu toolbar go to `View > Terminal`.
-1. Inside the terminal, enter the following:
-
-    ```bash
-    uname
-    ```
-
-You should see the above print either `Linux` (WSL and Linux) or `Darwin` (macOS).
-E.g., your terminal should look like this (the exact prompt, `$` and everything
-in front of it may differ from the example below):
-
-```bash
-$ uname
-Linux
-```
-
-For macOS:
-
-```bash
-$ uname
-Darwin
-```
 
 ### Some Linux Commands (Optional)
 
@@ -56,20 +25,24 @@ Also, usage of [`touch` command](https://man7.org/linux/man-pages/man1/touch.1.h
 is not limited to creating empty files and you can use it to set file access and
 modification times.
 
-### Relative and Absolute Path
+### Should You Use the Terminal or Graphical User Interface?
 
-Linux uses two types of paths to locate files and folders, *absolute path* and
-*relative path*. E.g., `~` is a relative path (shortcut) that refers to the
-home folder in Unix-based system like Linux and MacOS. An absolute path for home
-folder could look something like `/home/murat` (Linux and WSL) or `/Users/murat`
-(macOS). Below are most commonly used relative path locations:
+Above we saw just a glimpse of what is possible with CLI or the terminal.
+You may continue practicing these and other CLI commands if you want to get
+better at it. Going forward you way use either the terminal and/or the Explorer
+to manage your files and folders. You can also use your operating system's
+tools such as Finder or File Explorer to browse and manage your files. I leave
+this up to your preferences.
 
-| Relative path | Meaning | Usage |
-|:-------------:|:-------:|:-----:|
-| `~` | User's home directory | `~/Documents/`  refers to `Documents/` in my home directory |
-| `.` | The current directory | `./file1` is same as just `file1` but the first one is more specific |
-| `..`| The parent directory (of the current one) | `../..` refers to a "grandparent" directory of the curent `.` |
+Nevertheless, it is generally much faster to navigate the filesystem and manage
+your files via the terminal. Hence, I strongly suggest you to try to learn and
+use the terminal (CLI) commands.
 
+---
+
+> Keep the `dna-analyser` folder open in VS Code. We will use it in the next part.
+
+---
 ### Workspace Folder
 
 Let's use terminal to navigate to the home folder to setup our workspace.
@@ -119,9 +92,9 @@ print your home folder's location. E.g., `/Users/murat/` or `/home/murat`:
     option shows
 `/` after directory names.
     - Use VS Code shortcut `^-Shift-P` (`Cmd-Shift-P` on macOS) to
-use the search field and enter "Open Folder" and press enter. Alternatively, go to
-`File > Open Folder...` on the menu bar. Open your home folder to see its contents
-in the (file) Explorer tab of VS Code.
+use the search field and enter "Open Folder" and press enter. Alternatively, go
+to `File > Open Folder...` on the menu bar. Open your home folder to see its
+contents in the (file) Explorer tab of VS Code.
     - Does the output from `ls -a` match what you see in the Explorer tab?
 
 1. `cd` to `workspace`. You may verify this with `pwd`
@@ -189,28 +162,10 @@ parent directories for your path.
 1. Use either Explorer panel or terminal (`cd`) to navigate to `dna-analyser`
 directory. Then, verify the current directory path with `pwd`.
 
-### Should You Use the Terminal or Graphical User Interface?
-
-Above we saw just a glimpse of what is possible with CLI or the terminal.
-You may continue practicing these and other CLI commands if you want to get
-better at it. Going forward you way use either the terminal and/or the Explorer
-to manage your files and folders. You can also use your operating system's
-tools such as Finder or File Explorer to browse and manage your files. I leave
-this up to your preferences.
-
-Nevertheless, it is generally much faster to navigate the filesystem and manage
-your files via the terminal. Hence, I strongly suggest you to try to learn and
-use the terminal (CLI) commands.
-
----
-
-> Keep the `dna-analyser` folder open in VS Code. We will use it in the next part.
-
----
 
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
-    <a id="previous" href="01">Previous: Prerequisites</a>
-    <a id="next" href="03">Next: Part 2</a>
+    <a id="previous" href="04">Previous: Paths</a>
+    <a id="next" href="06">Next: ?</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>

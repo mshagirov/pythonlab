@@ -205,7 +205,7 @@ If Python can not be found, update your repository indices using the system's
 package manager. Upgrade your libraries. Then, use the package manager to install
 or update Python packages.
 
-### Install VS Code (Recommended)
+### Install VS Code (Optional)
 
 Follow the Linux installation steps to install VS Code from the
 [VS Code documentation](https://code.visualstudio.com/docs/setup/linux).
@@ -217,6 +217,6 @@ Follow the Linux installation steps to install VS Code from the
 <script src="{{ '/assets/js/tabs.js' | relative_url }}"></script>
 <div class="prevnextlinks">
     <a id="previous" href="/pythonlab/lab-01/">Previous: Contents</a>
-    <a id="next" href="02">Next: Python Project</a>
+    <a id="next" href="02">Next: Project</a>
 </div>
 <script src="{{ '/assets/js/navigation.js' | relative_url }}" defer></script>
