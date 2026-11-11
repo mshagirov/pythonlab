@@ -1,132 +1,73 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Containers | Python Lab</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Containers" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Containers provide a convenient way to store and work on a collection of objects. For instance, a list of files in a folder, pixel values of an image, or properties of datasets like a description, sample size, creation dates, and author, are all examples of collections." />
-<meta property="og:description" content="Containers provide a convenient way to store and work on a collection of objects. For instance, a list of files in a folder, pixel values of an image, or properties of datasets like a description, sample size, creation dates, and author, are all examples of collections." />
-<link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/introduction/08" />
-<meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/introduction/08" />
-<meta property="og:site_name" content="Python Lab" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-13T03:41:09+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Containers" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-13T03:41:09+08:00","datePublished":"2026-02-13T03:41:09+08:00","description":"Containers provide a convenient way to store and work on a collection of objects. For instance, a list of files in a folder, pixel values of an image, or properties of datasets like a description, sample size, creation dates, and author, are all examples of collections.","headline":"Containers","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/08"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/08"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/pythonlab/assets/main.css">
-  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
-  <!-- PyScript CSS -->
-  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
-  <!-- This script tag bootstraps PyScript -->
-  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="https://mshagirov.github.io/pythonlab/pythonlab/feed.xml" title="Python Lab" /><!---->
-
-</head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">Containers</h1>
-  </header>
-
-  <div class="post-content">
-    <p>Containers provide a convenient way to store and work on a collection of objects.
-For instance, a list of files in a folder, pixel values of an image, or properties
-of datasets like a description, sample size, creation dates, and author, are all
-examples of collections.</p>
-
-<p>Since you iterate to traverse over their contents, all such containers are
-called iterable objects, <em>iterables</em> for short. Below we will go through common
-iterables in Python and learn about their features.</p>
-
-<h3 id="iterables">Iterables</h3>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">list</code> and <code class="language-plaintext highlighter-rouge">tuple</code> : lists and tuples represent <em>ordered</em> sequences. Both
-<code class="language-plaintext highlighter-rouge">list</code> and <code class="language-plaintext highlighter-rouge">tuple</code> are container object types that can store <em>any</em> Python object
-including other lists and tuples. The difference between the lists and tuples is
-that lists’ values can be updated and modified after they are created, whereas
-tuples are immutable and can’t be updated once created.</li>
-  <li><code class="language-plaintext highlighter-rouge">str</code> : string is also an example of ordered <em>immutable</em> sequence of characters.
-Hence, a lot of methods and functions that work with <code class="language-plaintext highlighter-rouge">list</code> and <code class="language-plaintext highlighter-rouge">tuple</code> also work
-with <code class="language-plaintext highlighter-rouge">str</code>.</li>
-</ul>
-
-<blockquote>
-  <p>Immutable objects can’t be modified after they are created. <code class="language-plaintext highlighter-rouge">str</code> and <code class="language-plaintext highlighter-rouge">tuple</code>
-are examples of immutable sequence types.</p>
-</blockquote>
-
-<p>Dictionaries and sets are examples of Python containers with <em>unordered</em>
-collections. You can also store any type of Python object in dictionaries. Sets,
-on the other hand, are for storing only immutable objects.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">dict</code>: dictionaries store objects as key-value pairs or key-value maps and
-do not guarantee the order of the collection unlike lists and tuples.</li>
-  <li><code class="language-plaintext highlighter-rouge">set</code> : sets are also not ordered. They are collections of <em>unique</em> objects
-and implement the concept of mathematical sets. Sets themselves are mutable
-but store immutable objects.</li>
-</ul>
-
-<p>Lists, tuples, dictionaries, sets, and strings are examples of most commonly used
-container types. Python also has other built-in iterable types.
-If you are interested, see
-<a href="https://docs.python.org/3/library/collections.html#module-collections" target="_blank">the official documentation</a>
-for more information on the other container types.</p>
-
-<h3 id="lists">Lists</h3>
-
-<p>To initialise an empty <code class="language-plaintext highlighter-rouge">list</code>, you can either use <code class="language-plaintext highlighter-rouge">[]</code> or call <code class="language-plaintext highlighter-rouge">list()</code>. You can
-also create a list by including your items (objects) in the square brackets,
-<code class="language-plaintext highlighter-rouge">[item1, item2, ...]</code>. You can add and remove items to and from a list, and modify
-items inside the list after the list’s creation. The following are common functions
-and methods you would use with lists.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">list()</code> or <code class="language-plaintext highlighter-rouge">[]</code>: create an empty <code class="language-plaintext highlighter-rouge">list</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">list(iterator)</code>: create a list from another iterator.</li>
-  <li><code class="language-plaintext highlighter-rouge">[item1, item2, item3, ...]</code>: create a list filled with objects <code class="language-plaintext highlighter-rouge">item1</code>,
-<code class="language-plaintext highlighter-rouge">item2</code>, <code class="language-plaintext highlighter-rouge">item3</code>, etc.</li>
-  <li><code class="language-plaintext highlighter-rouge">.append(item)</code>: this method adds a new object <code class="language-plaintext highlighter-rouge">item</code> to the list,</li>
-  <li><code class="language-plaintext highlighter-rouge">.extend(iterator)</code>: this method extends the list by adding another lists’
-or iterator’s items to a list,</li>
-  <li><code class="language-plaintext highlighter-rouge">LIST1 + LIST2 + ...</code>: adding lists with <code class="language-plaintext highlighter-rouge">+</code> <em>concatenates the lists</em> into
-a new (longer) list,</li>
-  <li><code class="language-plaintext highlighter-rouge">len(LIST)</code> : <code class="language-plaintext highlighter-rouge">len</code> takes in a list <code class="language-plaintext highlighter-rouge">LIST</code> as an input argument and returns
-the list’s length, number of items in a list.</li>
-</ul>
-
-<blockquote>
-  <p>I added a dot <code class="language-plaintext highlighter-rouge">.</code> in front of instance method names to differentiate them
-from regular function names like <code class="language-plaintext highlighter-rouge">len</code>.</p>
-</blockquote>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = []
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/pythonlab/favicon.svg" />
+		<script>
+			try {
+				const t = localStorage.getItem('theme');
+				if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+			} catch {}
+		</script>
+		<link href="/pythonlab/_app/immutable/entry/start.CpU3sPut.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Qy3lbiMF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DclECHGd.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DBrBSLK6.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/BJyiuK88.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DzUl7sO8.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CQPq-i72.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B97rGnZc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/0.CCzg5ABr.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/2._uC6cJXM.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CvZV8c7A.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B3nTlWl4.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/-ONV97Vs.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/pgpAOKmc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/13.Bn4vGjQk.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Ci6wYkGF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/UsLUVTBu.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B6Mavmg2.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Bbtk1QNP.js" rel="modulepreload">
+		<!--1br2sqw--><!----><title>Containers | Python Lab</title>
+		<link href="/pythonlab/_app/immutable/assets/0.mPArHM8_.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/ThemeToggle.IFdHOAqk.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/2.1az9wYOo.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/PyCell.CemWU0_8.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[0--><!--[--><header><a href="/pythonlab/">🐍 Python Lab</a> <button type="button" aria-label="Theme: system" title="Theme: system" class="svelte-1cmi4dh"><!--[-1--><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.854 1.064A7.5 7.5 0 1 0 10.854 14.936A7 7 0 0 1 10.854 1.064Z" fill="currentColor"></path></svg><!----> <span class="divider svelte-1cmi4dh"></span> <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"></circle><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="8" y1="1" x2="8" y2="3"></line><line x1="8" y1="13" x2="8" y2="15"></line><line x1="1" y1="8" x2="3" y2="8"></line><line x1="13" y1="8" x2="15" y2="8"></line><line x1="3.05" y1="3.05" x2="4.46" y2="4.46"></line><line x1="12.95" y1="3.05" x2="11.54" y2="4.46"></line><line x1="3.05" y1="12.95" x2="4.46" y2="11.54"></line><line x1="12.95" y1="12.95" x2="11.54" y2="11.54"></line></g></svg><!----><!--]--></button><!----></header> <main><!--[0--><h1>Containers</h1><!--]--> <!--[--><!--[-1--><!--[--><p>Containers provide a convenient way to store and work on a collection of objects. For instance, a
+	list of files in a folder, pixel values of an image, or properties of datasets like a description,
+	sample size, creation dates, and author, are all examples of collections.</p> <p>Since you iterate to traverse over their contents, all such containers are called iterable
+	objects, <em>iterables</em> for short. Below we will go through common iterables in Python and learn
+	about their features.</p> <h3>Iterables</h3> <ul><li><code>list</code> and <code>tuple</code> : lists and tuples represent <em>ordered</em> sequences. Both <code>list</code> and <code>tuple</code> are container object types that can store <em>any</em> Python
+		object including other lists and tuples. The difference between the lists and tuples is that lists'
+		values can be updated and modified after they are created, whereas tuples are immutable and can't
+		be updated once created.</li> <li><code>str</code> : string is also an example of ordered <em>immutable</em> sequence of
+		characters. Hence, a lot of methods and functions that work with <code>list</code> and <code>tuple</code> also work with <code>str</code>.</li></ul> <blockquote><p>Immutable objects can't be modified after they are created. <code>str</code> and <code>tuple</code> are examples of immutable sequence types.</p></blockquote> <p>Dictionaries and sets are examples of Python containers with <em>unordered</em> collections. You can also store any type of Python object in dictionaries. Sets, on the other hand,
+	are for storing only immutable objects.</p> <ul><li><code>dict</code>: dictionaries store objects as key-value pairs or key-value maps and do not
+		guarantee the order of the collection unlike lists and tuples.</li> <li><code>set</code> : sets are also not ordered. They are collections of <em>unique</em> objects and
+		implement the concept of mathematical sets. Sets themselves are mutable but store immutable objects.</li></ul> <p>Lists, tuples, dictionaries, sets, and strings are examples of most commonly used container types.
+	Python also has other built-in iterable types. If you are interested, see <a href="https://docs.python.org/3/library/collections.html#module-collections" target="_blank" rel="noopener">the official documentation</a> for more information on the other container types.</p> <h3>Lists</h3> <p>To initialise an empty <code>list</code>, you can either use <code>[]</code> or call <code>list()</code>. You can also create a list by including your items (objects) in the square
+	brackets, <code>[item1, item2, ...]</code>. You can add and remove items to and from a list, and modify
+	items inside the list after the list's creation. The following are common functions and
+	methods you would use with lists.</p> <ul><li><code>list()</code> or <code>[]</code>: create an empty <code>list</code>.</li> <li><code>list(iterator)</code>: create a list from another iterator.</li> <li><code>[item1, item2, item3, ...]</code>: create a list filled with objects <code>item1</code>, <code>item2</code>, <code>item3</code>, etc.</li> <li><code>.append(item)</code>: this method adds a new object <code>item</code> to the list,</li> <li><code>.extend(iterator)</code>: this method extends the list by adding another lists' or
+		iterator's items to a list,</li> <li><code>LIST1 + LIST2 + ...</code>: adding lists with <code>+</code> <em>concatenates the lists</em> into a new (longer) list,</li> <li><code>len(LIST)</code> : <code>len</code> takes in a list <code>LIST</code> as an input argument and
+		returns the list's length, number of items in a list.</li></ul> <blockquote><p>I added a dot <code>.</code> in front of instance method names to differentiate them from
+		regular function names like <code>len</code>.</p></blockquote> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> []</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits.append(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'apple'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits.extend([</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'banana'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'cherry'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'durian'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'longan'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Length:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">len</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits))</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = []
 print(fruits)
 
 fruits.append('apple')
@@ -137,89 +78,32 @@ print(fruits)
 
 fruits = fruits + ['durian', 'longan']
 print(fruits)
-print("Length:", len(fruits))
-</script></pre></div>
-
-<p>An <em>index</em> of an item in a list represents its position within the list. You can
-use the <em>indices</em> to access and update the list’s items.</p>
-
-<ul>
-  <li><em>Indexes start at 0</em>. E.g., let’s create and modify an array with these items:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Index</th>
-      <th style="text-align: center">0</th>
-      <th style="text-align: center">1</th>
-      <th style="text-align: center">2</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Value</td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'apple'</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'banana'</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'cherry'</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "banana", "cherry"]
+print("Length:", len(fruits))</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>An <em>index</em> of an item in a list represents its position within the list. You can use the <em>indices</em> to access and update the list's items.</p> <ul><li><em>Indexes start at 0</em>. E.g., let's create and modify an array with these items:</li></ul> <table><thead><tr><th align="center">Index</th><th align="center">0</th><th align="center">1</th><th align="center">2</th></tr></thead><tbody><tr><td align="center">Value</td><td align="center"><code>'apple'</code></td><td align="center"><code>'banana'</code></td><td align="center"><code>'cherry'</code></td></tr></tbody></table> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]  </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "longan"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "banana", "cherry"]
 print(fruits)
 
 fruits[1]  = "longan"
-print(fruits)
-</script></pre></div>
-
-<ul>
-  <li>You can also use negative indices to access and update items by counting from
-the end of the list. <code class="language-plaintext highlighter-rouge">-1</code> refers to the last item in the list:</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Index</th>
-      <th style="text-align: center">-3</th>
-      <th style="text-align: center">-2</th>
-      <th style="text-align: center">-1</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Value</td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'apple'</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'banana'</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'cherry'</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "banana", "cherry"]
+print(fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>You can also use negative indices to access and update items by counting from the end of the
+		list. <code>-1</code> refers to the last item in the list:</li></ul> <table><thead><tr><th align="center">Index</th><th align="center">-3</th><th align="center">-2</th><th align="center">-1</th></tr></thead><tbody><tr><td align="center">Value</td><td align="center"><code>'apple'</code></td><td align="center"><code>'banana'</code></td><td align="center"><code>'cherry'</code></td></tr></tbody></table> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits[</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits[</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">len</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)])</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "banana", "cherry"]
 
 print(fruits[-1])
-print(fruits[-len(fruits)])
-</script></pre></div>
-
-<blockquote>
-  <p>Remember that (positive) indexing starts with zero and <code class="language-plaintext highlighter-rouge">fruits[len(fruits)]</code>
-will results in an error as the last index is <code class="language-plaintext highlighter-rouge">len(fruits)-1</code>.</p>
-</blockquote>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">.pop()</code> method <em>removes and returns</em> the last element of the list, if an
-optional index argument is given <code class="language-plaintext highlighter-rouge">.pop(index)</code> will pop an element at the given index.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "cherry", "banana", "durian"]
+print(fruits[-len(fruits)])</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>Remember that (positive) indexing starts with zero and <code>fruits[len(fruits)]</code> will results in an error as the last index is <code>len(fruits)-1</code>.</p></blockquote> <ul><li><code>.pop()</code> method <em>removes and returns</em> the last element of the list, if an
+		optional index argument is given <code>.pop(index)</code> will pop an element at the given index.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"durian"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">last </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits.pop()</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(last)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"after pop:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">second </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits.pop(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(second)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"after pop:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "cherry", "banana", "durian"]
 print(fruits)
 
 last = fruits.pop()
@@ -228,164 +112,72 @@ print("after pop:", fruits)
 
 second = fruits.pop(1)
 print(second)
-print("after pop:", fruits)
-</script></pre></div>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">pop</code>, <code class="language-plaintext highlighter-rouge">append</code>, and <code class="language-plaintext highlighter-rouge">extend</code> are instance methods. This means that you call
-them on each instance of a list object. E.g., <code class="language-plaintext highlighter-rouge">fruits</code> is an instance of a <code class="language-plaintext highlighter-rouge">list</code>
-and you call its methods with <code class="language-plaintext highlighter-rouge">fruits.append(...)</code>, <code class="language-plaintext highlighter-rouge">fruits.pop(...)</code>, and
-<code class="language-plaintext highlighter-rouge">fruits.extend([...])</code>.</p>
-</blockquote>
-
-<p>Access, update, or copy a portion of a list by <em>slicing</em> the list with optional
-start (inclusive) and stop (exclusive) indices, and a step size.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">LIST[:]</code> refers to all items of the list <code class="language-plaintext highlighter-rouge">LIST</code>,</li>
-  <li><code class="language-plaintext highlighter-rouge">LIST[s:]</code> refers to all items starting from the <code class="language-plaintext highlighter-rouge">index=s</code> inclusive of <code class="language-plaintext highlighter-rouge">s</code>,</li>
-  <li><code class="language-plaintext highlighter-rouge">LIST[:e]</code> refers to all items before but not including <code class="language-plaintext highlighter-rouge">index=e</code>
-(excluding <code class="language-plaintext highlighter-rouge">e</code>),</li>
-  <li><code class="language-plaintext highlighter-rouge">LIST[::n]</code> refers to every item with <code class="language-plaintext highlighter-rouge">n</code> step size (default step size is 1),</li>
-  <li><code class="language-plaintext highlighter-rouge">LIST[s:e:n]</code> combines start, end, and step.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "cherry", "banana", "durian"]
+print("after pop:", fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p><code>pop</code>, <code>append</code>, and <code>extend</code> are instance methods. This means
+		that you call them on each instance of a list object. E.g., <code>fruits</code> is an instance
+		of a <code>list</code> and you call its methods with <code>fruits.append(...)</code>, <code>fruits.pop(...)</code>, and <code>fruits.extend([...])</code>.</p></blockquote> <p>Access, update, or copy a portion of a list by <em>slicing</em> the list with optional start (inclusive)
+	and stop (exclusive) indices, and a step size.</p> <ul><li><code>LIST[:]</code> refers to all items of the list <code>LIST</code>,</li> <li><code>LIST[s:]</code> refers to all items starting from the <code>index=s</code> inclusive of <code>s</code>,</li> <li><code>LIST[:e]</code> refers to all items before but not including <code>index=e</code> (excluding <code>e</code>),</li> <li><code>LIST[::n]</code> refers to every item with <code>n</code> step size (default step size is 1),</li> <li><code>LIST[s:e:n]</code> combines start, end, and step.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"durian"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits[::</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"melon"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"watermelon"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "cherry", "banana", "durian"]
 fruits[::2] = ["melon", "watermelon"]
 
-print(fruits)
-</script></pre></div>
-
-<ul>
-  <li>For slices with <code class="language-plaintext highlighter-rouge">[s:]</code>, <code class="language-plaintext highlighter-rouge">[:e]</code>, and <code class="language-plaintext highlighter-rouge">[:]</code>, lengths of two sides of the
-assignment do not need to be the same when you are using slices or iterables
-for assignment. The length of a list is automatically adjusted for the new
-values. E.g., below we can assign a 5-element list to a 2-element slice,
-the list is automatically expanded in this case.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "cherry", "banana", "durian"]
+print(fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>For slices with <code>[s:]</code>, <code>[:e]</code>, and <code>[:]</code>, lengths of two sides
+		of the assignment do not need to be the same when you are using slices or iterables for
+		assignment. The length of a list is automatically adjusted for the new values. E.g., below we
+		can assign a 5-element list to a 2-element slice, the list is automatically expanded in this
+		case.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"durian"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"melon"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "cherry", "banana", "durian"]
 fruits[2:] = 5*["melon"]
 
-print(fruits)
-</script></pre></div>
-
-<blockquote>
-  <p><code class="language-plaintext highlighter-rouge">N*[...]</code> is equivalent to adding or concatenating a list to itself <code class="language-plaintext highlighter-rouge">N</code> times.
-E.g., <code class="language-plaintext highlighter-rouge">['melon']*5</code> results in <code class="language-plaintext highlighter-rouge">['melon', 'melon', 'melon', 'melon', 'melon']</code>.</p>
-</blockquote>
-
-<ul>
-  <li>You can use <code class="language-plaintext highlighter-rouge">del</code> function with slices to delete contents of a list.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "cherry", "banana", "durian"]
+print(fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p><code>N*[...]</code> is equivalent to adding or concatenating a list to itself <code>N</code> times. E.g., <code>['melon']*5</code> results in <code>['melon', 'melon', 'melon', 'melon', 'melon']</code>.</p></blockquote> <ul><li>You can use <code>del</code> function with slices to delete contents of a list.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"durian"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">del</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits[</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "cherry", "banana", "durian"]
 del fruits[-2:]
 
-print(fruits)
-</script></pre></div>
-
-<blockquote>
-  <p>To clear all elements of the list you can either use <code class="language-plaintext highlighter-rouge">del fruits[:]</code> or
-<code class="language-plaintext highlighter-rouge">fruits.clear()</code>. You can learn more about list methods from
-<a href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types" target="_blank">the documentation</a>.</p>
-</blockquote>
-
-<ul>
-  <li>For lists, slices return a copy of a portion of a list when slices are used as
-values for assignment.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ["apple", "cherry", "banana", "durian"]
+print(fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>To clear all elements of the list you can either use <code>del fruits[:]</code> or <code>fruits.clear()</code>. You can learn more about list methods from <a href="https://docs.python.org/3/library/stdtypes.html#mutable-sequence-types" target="_blank" rel="noopener">the documentation</a>.</p></blockquote> <ul><li>For lists, slices return a copy of a portion of a list when slices are used as values for
+		assignment.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> [</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"durian"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">other </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> other)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits_copy </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits[:]</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Identity:'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits_copy)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Equality:'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">==</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits_copy)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ["apple", "cherry", "banana", "durian"]
 
 other = fruits
 print(fruits is other)
 
 fruits_copy = fruits[:]
 print('Identity:', fruits is fruits_copy)
-print('Equality:', fruits == fruits_copy)
-</script></pre></div>
-
-<p>In Python, <code class="language-plaintext highlighter-rouge">is</code> checks the object identity. The identity statement returns <code class="language-plaintext highlighter-rouge">True</code>
-if two objects are the same objects, and <code class="language-plaintext highlighter-rouge">False</code> otherwise. Identity is different
-from <code class="language-plaintext highlighter-rouge">==</code> which checks for equality (of values).</p>
-
-<blockquote>
-  <p>In the code above, we assigned a second name to the <code class="language-plaintext highlighter-rouge">fruits</code> list, both <code class="language-plaintext highlighter-rouge">other</code>
-and <code class="language-plaintext highlighter-rouge">fruits</code> refer to the same list. This is verified by running
-<code class="language-plaintext highlighter-rouge">print(fruits is other)</code>.</p>
-</blockquote>
-
-<h3 id="tuples">Tuples</h3>
-
-<p>As mentioned above, tuples are also ordered sequences of objects similar to
-lists. Compared to lists, you can not modify a tuple after its creation. Hence,
-tuples don’t have methods for appending or extending tuple instances.</p>
-
-<ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">( item1, item2, ...)</code> to create a new tuple with
-given items.</li>
-  <li>To add a new item, extend, or concatenate tuples you need to create a new
-<code class="language-plaintext highlighter-rouge">tuple</code> object.</li>
-  <li>You can also create a tuple with a single item by including a comma in
-<code class="language-plaintext highlighter-rouge">(item,)</code>, Python otherwise ignores the parentheses.</li>
-  <li>You can omit the parentheses when creating tuples with multiple items, and use
-<code class="language-plaintext highlighter-rouge">item1, item2,...</code>. But, I suggest keeping the
-surrounding parentheses for readability and to avoid bugs. E.g., try removing
-parentheses around the <code class="language-plaintext highlighter-rouge">('cherry', 'durian')</code> below, you will get an error.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ('melon', 'apple', 'banana')
+print('Equality:', fruits == fruits_copy)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>In Python, <code>is</code> checks the object identity. The identity statement returns <code>True</code> if two objects are the same objects, and <code>False</code> otherwise. Identity is different from <code>==</code> which checks for equality (of values).</p> <blockquote><p>In the code above, we assigned a second name to the <code>fruits</code> list, both <code>other</code> and <code>fruits</code> refer to the same list. This is verified by running <code>print(fruits is other)</code>.</p></blockquote> <h3>Tuples</h3> <p>As mentioned above, tuples are also ordered sequences of objects similar to lists. Compared to
+	lists, you can not modify a tuple after its creation. Hence, tuples don't have methods for
+	appending or extending tuple instances.</p> <ul><li>Use <code>( item1, item2, ...)</code> to create a new tuple with given items.</li> <li>To add a new item, extend, or concatenate tuples you need to create a new <code>tuple</code> object.</li> <li>You can also create a tuple with a single item by including a comma in <code>(item,)</code>, Python otherwise ignores the parentheses.</li> <li>You can omit the parentheses when creating tuples with multiple items, and use <code>item1, item2,...</code>. But, I suggest keeping the surrounding parentheses for
+		readability and to avoid bugs. E.g., try removing parentheses around the <code>('cherry', 'durian')</code> below, you will get an error.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'melon'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'apple'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'banana'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">new_fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits[</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">:] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'cherry'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'durian'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(new_fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ('melon', 'apple', 'banana')
 print(fruits)
 
 new_fruits = fruits[1:] + ('cherry', 'durian')
-print(new_fruits)
-</script></pre></div>
-
-<p>When you print a tuple, <code class="language-plaintext highlighter-rouge">print</code> shows items surrounded by parentheses <code class="language-plaintext highlighter-rouge">(</code> and <code class="language-plaintext highlighter-rouge">)</code>.</p>
-
-<blockquote>
-  <p>To create an empty tuple, use <code class="language-plaintext highlighter-rouge">()</code> or <code class="language-plaintext highlighter-rouge">tuple()</code>. Also, you can use <code class="language-plaintext highlighter-rouge">tuple(ITERABLE)</code>
-to convert an input list or other iterable into a <code class="language-plaintext highlighter-rouge">tuple</code> object.</p>
-</blockquote>
-
-<ul>
-  <li>You can get slices of a tuple using <code class="language-plaintext highlighter-rouge">[start:stop:step]</code> similar to the lists.</li>
-</ul>
-
-<h3 id="strings">Strings</h3>
-
-<p>You can use indexing and slicing to access and obtain substrings of a string
-just like lists and tuples. <code class="language-plaintext highlighter-rouge">str</code> objects are immutable and you can’t modify
-a string after creating it.</p>
-
-<p>For convenience, <code class="language-plaintext highlighter-rouge">str</code> objects have instance methods for spliting, joining,
-and modifying an existing string by creating new strings and lists of strings.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">.replace(old, new)</code>: replaces a substring <code class="language-plaintext highlighter-rouge">old</code> with a new string <code class="language-plaintext highlighter-rouge">new</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">.split(sep)</code>: splits a string into a list of substrings using the separator
-<code class="language-plaintext highlighter-rouge">sep</code>. When used without an input, <code class="language-plaintext highlighter-rouge">split()</code>, or with <code class="language-plaintext highlighter-rouge">split(None)</code>, the method
-will split a string on any whitespace character, e.g., new line, tab, spaces,
-etc.</li>
-  <li><code class="language-plaintext highlighter-rouge">.join([string1, string2, ...])</code>: concatenate strings stored as a
-list or any other iterable using a delimeter string, e.g., <code class="language-plaintext highlighter-rouge">" ".join(...)</code>
-will join input list of strings with space as a delimeter (separator).</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-sentence = 'A sentence is a set of words that is complete in itself.'
+print(new_fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>When you print a tuple, <code>print</code> shows items surrounded by parentheses <code>(</code> and <code>)</code>.</p> <blockquote><p>To create an empty tuple, use <code>()</code> or <code>tuple()</code>. Also, you can use <code>tuple(ITERABLE)</code> to convert an input list or other iterable into a <code>tuple</code> object.</p></blockquote> <ul><li>You can get slices of a tuple using <code>[start:stop:step]</code> similar to the lists.</li></ul> <h3>Strings</h3> <p>You can use indexing and slicing to access and obtain substrings of a string just like lists and
+	tuples. <code>str</code> objects are immutable and you can't modify a string after creating it.</p> <p>For convenience, <code>str</code> objects have instance methods for spliting, joining, and modifying
+	an existing string by creating new strings and lists of strings.</p> <ul><li><code>.replace(old, new)</code>: replaces a substring <code>old</code> with a new string <code>new</code>.</li> <li><code>.split(sep)</code>: splits a string into a list of substrings using the separator <code>sep</code>. When used without an input, <code>split()</code>, or with <code>split(None)</code>, the method will split a string on any whitespace character, e.g., new
+		line, tab, spaces, etc.</li> <li><code>.join([string1, string2, ...])</code>: concatenate strings stored as a list or any other
+		iterable using a delimeter string, e.g., <code>" ".join(...)</code> will join input list of strings with space as a delimeter (separator).</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">sentence </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'A sentence is a set of words that is complete in itself.'</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(sentence)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">replaced </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> sentence.replace(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'sentence'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'phrase'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(replaced)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">words </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> replaced.split(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">' '</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">len</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(words), </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'words'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">new_s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> ' '</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.join(words[:</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(new_s)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">sentence = 'A sentence is a set of words that is complete in itself.'
 print(sentence)
 
 replaced = sentence.replace('sentence', 'phrase')
@@ -395,130 +187,45 @@ words = replaced.split(' ')
 print(len(words), 'words')
 
 new_s = ' '.join(words[:7])
-print(new_s)
-</script></pre></div>
-
-<blockquote>
-  <p>For more information on string methods, see
-<a href="https://docs.python.org/3/library/stdtypes.html#string-methods">official documentation</a>.</p>
-</blockquote>
-
-<h3 id="dictionaries">Dictionaries</h3>
-
-<p><code class="language-plaintext highlighter-rouge">dict</code> relies on unique keys to index, create, access, and update its values.</p>
-
-<ul>
-  <li>Create a new dictionary using curly braces, e.g., <code class="language-plaintext highlighter-rouge">{}</code> (empty dictionary),
-<code class="language-plaintext highlighter-rouge">{key1: item1, key2: item2, ...}</code>, or use <code class="language-plaintext highlighter-rouge">dict(key1=value1, key2=value2, ...</code>).
-The latter requires all keys to be strings, see below for another method with <code class="language-plaintext highlighter-rouge">dict()</code>.</li>
-  <li><em>Keys must be hashable types</em>. This means keys’ types should be immutable and
-should support hashing methods. <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">tuple</code>, and <code class="language-plaintext highlighter-rouge">string</code> are commonly
-used types for dictionary keys as they are immutable and support hashing.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Key</th>
-      <th style="text-align: center"><code class="language-plaintext highlighter-rouge">'name'</code></th>
-      <th style="text-align: center"><code class="language-plaintext highlighter-rouge">'occupation'</code></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center">Value</td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'Bob'</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">'Builder'</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-info = {'name': 'Bob', 'occupation': 'Builder'}
-print(info)
-</script></pre></div>
-
-<ul>
-  <li>If you have an iterator object with key-value pairs, e.g., a list of tuples
-<code class="language-plaintext highlighter-rouge">[(key1, value1), (key2, value2), ...]</code>, you can use the iterator
-as an argument to the <code class="language-plaintext highlighter-rouge">dict()</code> constructor to create a new dictionary.</li>
-  <li>To add a new key-value pair to an existing <code class="language-plaintext highlighter-rouge">dict</code>, or modify a value of an
-already present key just assign the value to the key.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-info = dict([('name', 'Hatta'), ('occupation', 'Hatter')])
+print(new_s)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>For more information on string methods, see <a href="https://docs.python.org/3/library/stdtypes.html#string-methods" target="_blank" rel="noopener">official documentation</a>.</p></blockquote> <h3>Dictionaries</h3> <p><code>dict</code> relies on unique keys to index, create, access, and update its values.</p> <ul><li>Create a new dictionary using curly braces, e.g., <code>{}</code> (empty dictionary), <code>{key1: item1, key2: item2, ...}</code>, or use <code>dict(key1=value1, key2=value2, ...</code>). The latter requires all keys to be strings,
+		see below for another method with <code>dict()</code>.</li> <li><em>Keys must be hashable types</em>. This means keys' types should be immutable and should
+		support hashing methods. <code>int</code>, <code>tuple</code>, and <code>string</code> are commonly
+		used types for dictionary keys as they are immutable and support hashing.</li></ul> <table><thead><tr><th align="center">Key</th><th align="center"><code>'name'</code></th><th align="center"><code>'occupation'</code></th></tr></thead><tbody><tr><td align="center">Value</td><td align="center"><code>'Bob'</code></td><td align="center"><code>'Builder'</code></td></tr></tbody></table> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">info </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'name'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Bob'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'occupation'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Builder'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(info)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">info = {'name': 'Bob', 'occupation': 'Builder'}
+print(info)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>If you have an iterator object with key-value pairs, e.g., a list of tuples <code>[(key1, value1), (key2, value2), ...]</code>, you can use the iterator as an argument to
+		the <code>dict()</code> constructor to create a new dictionary.</li> <li>To add a new key-value pair to an existing <code>dict</code>, or modify a value of an already
+		present key just assign the value to the key.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">info </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> dict</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">([(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'name'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Hatta'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">), (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'occupation'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Hatter'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)])</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">info[</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'nationality'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">] </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'Wonderland'</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(info)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">info = dict([('name', 'Hatta'), ('occupation', 'Hatter')])
 info['nationality'] = 'Wonderland'
 
-print(info)
-</script></pre></div>
-
-<ul>
-  <li>To access the values, use the key as an index to a <code class="language-plaintext highlighter-rouge">dict</code> object. If the key
-is not in the dictionary, you will get <code class="language-plaintext highlighter-rouge">KeyError</code> error.</li>
-  <li>Alternatively, use <code class="language-plaintext highlighter-rouge">.get(key)</code> instance method to get the value for a given key.
-If the key is not in a dictionary <code class="language-plaintext highlighter-rouge">.get(key)</code> returns <code class="language-plaintext highlighter-rouge">None</code>. Also, <code class="language-plaintext highlighter-rouge">.get</code> accepts
-an optional default value which is returned instead of <code class="language-plaintext highlighter-rouge">None</code> when the key is absent.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-file_info = {"name": "image.tif", "created_at": "03-09-2025 17:13:34"}
-print(file_info.get('owner', 'N/A'))
-</script></pre></div>
-
-<p><code class="language-plaintext highlighter-rouge">dict</code> also allows access to their keys and values via instance methods:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">.keys()</code>: returns iterator containing dictionary’s keys,</li>
-  <li><code class="language-plaintext highlighter-rouge">.values()</code>: returns iterator with the values, and</li>
-  <li><code class="language-plaintext highlighter-rouge">.items()</code>: returns items iterator as key-value pairs.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-d = {1: "item1", 2: "item2", 3: "item3"}
+print(info)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>To access the values, use the key as an index to a <code>dict</code> object. If the key is not
+		in the dictionary, you will get <code>KeyError</code> error.</li> <li>Alternatively, use <code>.get(key)</code> instance method to get the value for a given key. If
+		the key is not in a dictionary <code>.get(key)</code> returns <code>None</code>. Also, <code>.get</code> accepts an optional default value which is returned instead of <code>None</code> when the key is absent.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">file_info </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"image.tif"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"created_at"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"03-09-2025 17:13:34"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(file_info.get(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'owner'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'N/A'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">file_info = {"name": "image.tif", "created_at": "03-09-2025 17:13:34"}
+print(file_info.get('owner', 'N/A'))</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p><code>dict</code> also allows access to their keys and values via instance methods:</p> <ul><li><code>.keys()</code>: returns iterator containing dictionary's keys,</li> <li><code>.values()</code>: returns iterator with the values, and</li> <li><code>.items()</code>: returns items iterator as key-value pairs.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"item1"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"item2"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"item3"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Values:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, d.values())</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Items:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, d.items())</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">d = {1: "item1", 2: "item2", 3: "item3"}
 print("Values:", d.values())
-print("Items:", d.items())
-</script></pre></div>
-
-<blockquote>
-  <p>Keys, values, and items can be easily converted to other iterator types. E.g.,
-If you need to use indices or slices on the keys, values, or items, <code class="language-plaintext highlighter-rouge">list(keys)</code>
-produces (indexed) <code class="language-plaintext highlighter-rouge">list</code> of keys.</p>
-</blockquote>
-
-<h3 id="sets">Sets</h3>
-
-<p>Sets are convenient and highly efficient for removing duplicates, joining and
-finding unique or shared items using set operations like union, intersection,
-and difference. Sets are also efficient when checking membership, i.e., when
-checking if the item is in the set, especially when working with large lists of
-items.</p>
-
-<blockquote>
-  <p>You may think of a set as a dictionary with only keys and no values.</p>
-</blockquote>
-
-<ul>
-  <li>Create a set with <code class="language-plaintext highlighter-rouge">{item1, item2, ...}</code> inside the curly barces. Alternatively,
-use <code class="language-plaintext highlighter-rouge">set(iterable)</code> to convert an iterable object with immutable items to a <code class="language-plaintext highlighter-rouge">set</code>
-object.</li>
-  <li><code class="language-plaintext highlighter-rouge">.add(item)</code> adds an item to an existing set.</li>
-  <li><code class="language-plaintext highlighter-rouge">.update(iterable)</code> add items from an iterable to an existing set.</li>
-  <li><code class="language-plaintext highlighter-rouge">first.union(another)</code> concatenates (joins) two sets <code class="language-plaintext highlighter-rouge">first</code> and <code class="language-plaintext highlighter-rouge">another</code>.
-This creates a <em>new</em> set with unique items from the two sets.</li>
-  <li><code class="language-plaintext highlighter-rouge">.remove(item)</code> deletes an item from a set.</li>
-  <li><code class="language-plaintext highlighter-rouge">.pop(item)</code> pops the item from the set, i.e., removes the item from the set and
-returns it.</li>
-  <li><code class="language-plaintext highlighter-rouge">.clear()</code> deletes all items from a set.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = set()
+print("Items:", d.items())</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>Keys, values, and items can be easily converted to other iterator types. E.g., If you need to
+		use indices or slices on the keys, values, or items, <code>list(keys)</code> produces (indexed) <code>list</code> of keys.</p></blockquote> <h3>Sets</h3> <p>Sets are convenient and highly efficient for removing duplicates, joining and finding unique or
+	shared items using set operations like union, intersection, and difference. Sets are also
+	efficient when checking membership, i.e., when checking if the item is in the set, especially when
+	working with large lists of items.</p> <blockquote><p>You may think of a set as a dictionary with only keys and no values.</p></blockquote> <ul><li>Create a set with <code>{item1, item2, ...}</code> inside the curly barces.
+		Alternatively, use <code>set(iterable)</code> to convert an iterable object with immutable items
+		to a <code>set</code> object.</li> <li><code>.add(item)</code> adds an item to an existing set.</li> <li><code>.update(iterable)</code> add items from an iterable to an existing set.</li> <li><code>first.union(another)</code> concatenates (joins) two sets <code>first</code> and <code>another</code>. This creates a <em>new</em> set with unique items from the two sets.</li> <li><code>.remove(item)</code> deletes an item from a set.</li> <li><code>.pop(item)</code> pops the item from the set, i.e., removes the item from the set and returns
+		it.</li> <li><code>.clear()</code> deletes all items from a set.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> set</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">()</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits.update([</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"apple"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"cherry"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"grape"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">])</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(fruits)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">basket </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"banana"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"grape"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"potato"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(basket, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">\n</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'difference'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> basket)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'union'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">|</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> basket)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'intersection'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">&#x26;</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> basket)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'w/o intersection'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, basket </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">^</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = set()
 fruits.update(["apple", "banana", "banana", "cherry", "grape"])
 print(fruits)
 
@@ -527,122 +234,61 @@ print(basket, "\n")
 
 print('difference', fruits - basket)
 print('union', fruits | basket)
-print('intersection', fruits & basket)
-print('w/o intersection', basket ^ fruits)
-</script></pre></div>
-
-<h3 id="membership-testing">Membership Testing</h3>
-
-<p>You can test if a value or key is in (or not in) an iterable using <code class="language-plaintext highlighter-rouge">in</code>.</p>
-
-<ul>
-  <li>For <code class="language-plaintext highlighter-rouge">str</code>, <code class="language-plaintext highlighter-rouge">list</code>, <code class="language-plaintext highlighter-rouge">tuple</code>, and <code class="language-plaintext highlighter-rouge">set</code>, the <code class="language-plaintext highlighter-rouge">in</code> keyword tests whether a value is
-present in a collection.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-seq = (False, 1, 2, "three", 4.0)
-print( 2 in seq)
-</script></pre></div>
-
-<ul>
-  <li>For <code class="language-plaintext highlighter-rouge">dict</code>, <code class="language-plaintext highlighter-rouge">in</code> tests the keys in a dictionary.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-d = {"name": "Alice", "location": "Wonderland"}
-print( "Alice" in d)
-</script></pre></div>
-
-<ul>
-  <li>To test dictionary values, you can use <code class="language-plaintext highlighter-rouge">in</code> together with <code class="language-plaintext highlighter-rouge">dict.values</code> or
-<code class="language-plaintext highlighter-rouge">dict.items()</code> methods.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-d = {"name": "Alice", "location": "Wonderland"}
+print('intersection', fruits &amp; basket)
+print('w/o intersection', basket ^ fruits)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Membership Testing</h3> <p>You can test if a value or key is in (or not in) an iterable using <code>in</code>.</p> <ul><li>For <code>str</code>, <code>list</code>, <code>tuple</code>, and <code>set</code>, the <code>in</code> keyword tests whether a value is present in a collection.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">seq </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">False</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"three"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">4.0</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">( </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">2</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> seq)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">seq = (False, 1, 2, "three", 4.0)
+print( 2 in seq)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>For <code>dict</code>, <code>in</code> tests the keys in a dictionary.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Alice"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"location"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Wonderland"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">( </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Alice"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">d = {"name": "Alice", "location": "Wonderland"}
+print( "Alice" in d)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>To test dictionary values, you can use <code>in</code> together with <code>dict.values</code> or <code>dict.items()</code> methods.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">d </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> {</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Alice"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"location"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">: </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Wonderland"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">( </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Alice"</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d.values())</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"name"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Alice"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">in</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> d.items())</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">d = {"name": "Alice", "location": "Wonderland"}
 
 print( "Alice" in d.values())
 
-print(("name", "Alice") in d.items())
-</script></pre></div>
-
-<h3 id="exercises">Exercises</h3>
-
-<hr />
-
-<p><strong>E1:</strong> Use slicing to obtain a new tuple with <em>with every 2nd item</em> of an original
-tuple <em>excluding the last item</em>. I.e., get a slice with <code class="language-plaintext highlighter-rouge">('apple', 'durian')</code>.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-fruits = ('melon', 'apple', 'banana', 'durian', 'longan', 'cherry')
+print(("name", "Alice") in d.items())</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Exercises</h3> <hr/> <p><strong>E1:</strong> Use slicing to obtain a new tuple with <em>with every 2nd item</em> of an
+	original tuple <em>excluding the last item</em>. I.e., get a slice with <code>('apple', 'durian')</code>.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">fruits </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> (</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'melon'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'apple'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'banana'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'durian'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'longan'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'cherry'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">basket </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> fruits[</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic">?</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(basket)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'Length:'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">len</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(basket))</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">fruits = ('melon', 'apple', 'banana', 'durian', 'longan', 'cherry')
 basket = fruits[?]
 
 print(basket)
-print('Length:', len(basket))
-</script></pre></div>
-
-<hr />
-
-<p><strong>E2:</strong> Fix this code to hide the “word”.</p>
-
-<ul>
-  <li>In the below, <code class="language-plaintext highlighter-rouge">s_new</code> censors the word “Password” as well
-as the word “word”. Verify that by running the code.</li>
-  <li>Modify the <code class="language-plaintext highlighter-rouge">replace</code> command to censor only the “word” part.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-s = 'Password: word'
+print('Length:', len(basket))</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <hr/> <p><strong>E2:</strong> Fix this code to hide the "word".</p> <ul><li>In the below, <code>s_new</code> censors the word "Password" as well as the word "word".
+		Verify that by running the code.</li> <li>Modify the <code>replace</code> command to censor only the "word" part.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> 'Password: word'</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s_new </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> s.replace(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'word'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'****'</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s_new)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">s = 'Password: word'
 print(s)
 
 s_new = s.replace('word', '****')
-print(s_new)
-</script></pre></div>
+print(s_new)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----><!--]--><!--]--><!--]--><!----> <!--[0--><!--[0--><nav class="prevnext svelte-1cvcwf8"><!--[0--><a id="previous" href="/pythonlab/introduction/07">Previous: Scope</a><!--]--> <!--[0--><a id="next" href="/pythonlab/introduction/09" class="svelte-1cvcwf8">Next: Logical Flow</a><!--]--></nav><!--]--><!--]--></main> <footer>Python Lab — Python workshops and tutorials</footer><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1xn1djt = {
+						base: "/pythonlab",
+						version: "1794389132849",
+						assets: "/pythonlab"
+					};
 
-<hr />
+					const element = document.currentScript.parentElement;
 
-<div class="prevnextlinks">
-    <a id="previous" href="07">Previous: Scope</a>
-    <a id="next" href="09">Next: Logical Flow</a>
-</div>
-<script src="/pythonlab/assets/js/navigation.js" defer=""></script>
-
-
-  </div>
-
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/pythonlab/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Python Lab</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>Python workshops and tutorials</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
+					import("/pythonlab/_app/immutable/entry/start.CpU3sPut.js").then(async (kit) => {
+						kit.init(__sveltekit_1xn1djt);
+						const app = await import("/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js");
+						kit.start(app, element, {
+							node_ids: [0, 2, 13],
+							data: [null,null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>

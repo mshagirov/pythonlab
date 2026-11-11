@@ -1,0 +1,1 @@
+import{x as e,y as t}from"../chunks/BJyiuK88.js";import"../chunks/Ci6wYkGF.js";var n=e(`<p>Use VS Code to write and test a Python program.</p>`);function r(e){var r=n();t(e,r)}export{r as component};

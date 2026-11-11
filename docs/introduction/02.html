@@ -1,75 +1,57 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Syntax and Arithmetics | Python Lab</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Syntax and Arithmetics" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Python Syntax" />
-<meta property="og:description" content="Python Syntax" />
-<link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/introduction/02" />
-<meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/introduction/02" />
-<meta property="og:site_name" content="Python Lab" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-13T03:41:09+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Syntax and Arithmetics" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-13T03:41:09+08:00","datePublished":"2026-02-13T03:41:09+08:00","description":"Python Syntax","headline":"Syntax and Arithmetics","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/02"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/02"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/pythonlab/assets/main.css">
-  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
-  <!-- PyScript CSS -->
-  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
-  <!-- This script tag bootstraps PyScript -->
-  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="https://mshagirov.github.io/pythonlab/pythonlab/feed.xml" title="Python Lab" /><!---->
-
-</head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">Syntax and Arithmetics</h1>
-  </header>
-
-  <div class="post-content">
-    <h3 id="python-syntax">Python Syntax</h3>
-
-<p><em>Syntax</em> in programming refers to the (programming) language rules.
-The syntax determines the structure and interpretation of the code when it runs.
-It may be easier to learn Python and its syntax by trying to run and breaking Python
-code instead of purely reading the documentation.</p>
-
-<p>Let’s run (and break) some code…</p>
-
-<h3 id="commenting-your-code">Commenting Your Code</h3>
-
-<p>Python uses <code class="language-plaintext highlighter-rouge">#</code> for single-line, and <code class="language-plaintext highlighter-rouge">'''...'''</code> or <code class="language-plaintext highlighter-rouge">""" ... """</code> for multi-line
-comments. The latter are technically just unused text objects, As for <code class="language-plaintext highlighter-rouge">#</code>, any part
-of a line after <code class="language-plaintext highlighter-rouge">#</code> is completely ignored by the Python interpreter.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-# This is a single line comment
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/pythonlab/favicon.svg" />
+		<script>
+			try {
+				const t = localStorage.getItem('theme');
+				if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+			} catch {}
+		</script>
+		<link href="/pythonlab/_app/immutable/entry/start.CpU3sPut.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Qy3lbiMF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DclECHGd.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DBrBSLK6.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/BJyiuK88.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DzUl7sO8.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CQPq-i72.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B97rGnZc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/0.CCzg5ABr.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/2._uC6cJXM.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CvZV8c7A.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B3nTlWl4.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/-ONV97Vs.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/pgpAOKmc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/7.CwBC_Cpa.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Ci6wYkGF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/UsLUVTBu.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B6Mavmg2.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Bbtk1QNP.js" rel="modulepreload">
+		<!--1br2sqw--><!----><title>Syntax and Arithmetics | Python Lab</title>
+		<link href="/pythonlab/_app/immutable/assets/0.mPArHM8_.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/ThemeToggle.IFdHOAqk.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/2.1az9wYOo.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/PyCell.CemWU0_8.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[0--><!--[--><header><a href="/pythonlab/">🐍 Python Lab</a> <button type="button" aria-label="Theme: system" title="Theme: system" class="svelte-1cmi4dh"><!--[-1--><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.854 1.064A7.5 7.5 0 1 0 10.854 14.936A7 7 0 0 1 10.854 1.064Z" fill="currentColor"></path></svg><!----> <span class="divider svelte-1cmi4dh"></span> <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"></circle><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="8" y1="1" x2="8" y2="3"></line><line x1="8" y1="13" x2="8" y2="15"></line><line x1="1" y1="8" x2="3" y2="8"></line><line x1="13" y1="8" x2="15" y2="8"></line><line x1="3.05" y1="3.05" x2="4.46" y2="4.46"></line><line x1="12.95" y1="3.05" x2="11.54" y2="4.46"></line><line x1="3.05" y1="12.95" x2="4.46" y2="11.54"></line><line x1="12.95" y1="12.95" x2="11.54" y2="11.54"></line></g></svg><!----><!--]--></button><!----></header> <main><!--[0--><h1>Syntax and Arithmetics</h1><!--]--> <!--[--><!--[-1--><!--[--><h3>Python Syntax</h3> <p><em>Syntax</em> in programming refers to the (programming) language rules. The syntax determines the
+	structure and interpretation of the code when it runs. It may be easier to learn Python and its syntax
+	by trying to run and breaking Python code instead of purely reading the documentation.</p> <p>Let's run (and break) some code...</p> <h3>Commenting Your Code</h3> <p>Python uses <code>#</code> for single-line, and <code>'''...'''</code> or <code>""" ... """</code> for multi-line comments. The latter are technically just unused text objects, As for <code>#</code>, any part of a line after <code>#</code> is completely ignored by the Python interpreter.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># This is a single line comment</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'''</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">This is multi-line comment</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">everything between</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">the triple ' or triple " quotes</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">are ignored. E.g., this doesn't print</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">print(123)</span></span>
+<span class="line"><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">'''</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">42</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) </span><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># prints 42, everything after '#' is a comment</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1"># This is a single line comment
 
 '''
 This is multi-line comment
@@ -80,176 +62,50 @@ are ignored. E.g., this doesn't print
 print(123)
 '''
 
-print(42) # prints 42, everything after '#' is a comment
-</script></pre></div>
-
-<h3 id="arithmetic-operators">Arithmetic Operators</h3>
-
-<p>For some code examples, let’s start with the basic arithmetics. Python uses the following
-operators to do basic arithmetics,</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">+</code> : addition,</li>
-  <li><code class="language-plaintext highlighter-rouge">-</code> : subtraction,</li>
-  <li><code class="language-plaintext highlighter-rouge">*</code> : multiplication,</li>
-  <li><code class="language-plaintext highlighter-rouge">/</code> : division.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print(10 + 5)
+print(42) # prints 42, everything after '#' is a comment</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Arithmetic Operators</h3> <p>For some code examples, let's start with the basic arithmetics. Python uses the following
+	operators to do basic arithmetics,</p> <ul><li><code>+</code> : addition,</li> <li><code>-</code> : subtraction,</li> <li><code>*</code> : multiplication,</li> <li><code>/</code> : division.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">10</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 5</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">21</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">22</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> /</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print(10 + 5)
 print(21 * 2)
-print(22 / 7)
-</script></pre></div>
+print(22 / 7)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>Feel free to edit the code cells. If you need to reset code to the default state, just reload
+		the page.</p></blockquote> <p>When you run your code, Python interprets the code <em>sequentially line-by-line</em>. Try
+	switching the sequence, deleting, and adding print statements to the above to see the effect.</p> <h3>Floor Division and Modulo Operators</h3> <p>In addition to these, Python also has <em>integer division</em> and modulo operators.</p> <ul><li><code>//</code> : floor or integer division. <code>a // b</code> divides <code>a</code> by <code>b</code> then returns <em>an integer part of the quotient</em>. This operation rounds down the result to
+		the nearest whole number.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">22</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> //</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print(22 // 7)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>Note the absence of decimal point <code>.</code> that you get when using <code>/</code>, e.g., <code>3.14..</code>.</p></blockquote> <ul><li><code>%</code> : modulo, <code>a % b</code> returns the remainder of the division.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">22</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> %</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print(22 % 7)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Operator Precedence</h3> <p>The order of the arithmetic operations follows the usual <em>operator precedence</em>:</p> <ol><li>parantheses <code>(...)</code></li> <li>multiplication and division (<code>/</code> or <code>//</code>)</li> <li>addition and subtraction.</li></ol> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">((</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">*</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">( </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> *</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print((1 + 2)* 3)
+print( 1 + 2 * 3)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Exercises</h3> <hr/> <p><strong>E1:</strong> Python Shell</p> <p>Run some of the commands above in the <a href="/pythonlab/terminal/" target="_blank">Python shell</a>.</p> <ul><li>The shell displays a default <em>representation</em> of the commands' outputs if you
+		don't use <code>print</code>. The representation of an object (e.g., text), is more
+		informative. That's what you get when you enter commands into the shell.</li> <li>The output of <code>print</code> is meant to be human-readable and formatted. This may hide some of
+		the information about the object.</li></ul> <blockquote><p>Keep the terminal open when reading through the pages of this site to quickly try out different
+		variations of the commands in the shell.</p></blockquote> <hr/> <p><strong>E2:</strong> Fix a Syntax Error</p> <p>Note that, compared to other programming languages, <em>indentation</em> is important in Python.</p> <ul><li>Fix the error in the code so that it is able to run by correcting the indentation.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">1</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">  print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 4</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print(1 + 2)
+  print(3 + 4)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>In your browser the above won't run and might not display any errors. In Python, indentation
+		defines a code block. We will revisit indentation in the coming sections.</p></blockquote> <hr/> <p><strong>E3:</strong> Floor Division with Negative Numbers</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">( </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">13</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> //</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">  )</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">-</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">13</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> //</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 7</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">) )</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">print( -13 // 7  )
+print(-(13 // 7) )</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Apply <code>//</code> to negative numbers. How does floor division behave in this case?</p> <blockquote><p>Tip: compare the results of floor division with the ones you get from the regular division
+		operations <code>/</code>.</p></blockquote><!--]--><!--]--><!--]--><!----> <!--[0--><!--[0--><nav class="prevnext svelte-1cvcwf8"><!--[0--><a id="previous" href="/pythonlab/introduction/01">Previous: The Python Standard Library</a><!--]--> <!--[0--><a id="next" href="/pythonlab/introduction/03" class="svelte-1cvcwf8">Next: Strings</a><!--]--></nav><!--]--><!--]--></main> <footer>Python Lab — Python workshops and tutorials</footer><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1xn1djt = {
+						base: "/pythonlab",
+						version: "1794389132849",
+						assets: "/pythonlab"
+					};
 
-<blockquote>
-  <p>Feel free to edit the code cells. If you need to reset code to the default
-state, just reload the page.</p>
-</blockquote>
+					const element = document.currentScript.parentElement;
 
-<p>When you run your code, Python interprets the code <em>sequentially line-by-line</em>.
-Try switching the sequence, deleting, and adding print statements to the
-above to see the effect.</p>
-
-<h3 id="floor-division-and-modulo-operators">Floor Division and Modulo Operators</h3>
-
-<p>In addition to these, Python also has <em>integer division</em> and modulo operators.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">//</code> : floor or integer division. <code class="language-plaintext highlighter-rouge">a // b</code> divides <code class="language-plaintext highlighter-rouge">a</code> by <code class="language-plaintext highlighter-rouge">b</code> then returns <em>an
-integer part of the quotient</em>. This operation rounds down the result to the nearest
-whole number.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print(22 // 7)
-</script></pre></div>
-
-<blockquote>
-  <p>Note the absence of decimal point <code class="language-plaintext highlighter-rouge">.</code> that you get when using <code class="language-plaintext highlighter-rouge">/</code>, e.g., <code class="language-plaintext highlighter-rouge">3.14..</code>.</p>
-</blockquote>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">%</code> : modulo, <code class="language-plaintext highlighter-rouge">a % b</code> returns the remainder of the division.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print(22 % 7)
-</script></pre></div>
-
-<h3 id="operator-precedence">Operator Precedence</h3>
-
-<p>The order of the arithmetic operations follows the usual <em>operator precedence</em>:</p>
-
-<ol>
-  <li>parantheses <code class="language-plaintext highlighter-rouge">(...)</code></li>
-  <li>multiplication and division (<code class="language-plaintext highlighter-rouge">/</code> or <code class="language-plaintext highlighter-rouge">//</code>)</li>
-  <li>addition and subtraction.</li>
-</ol>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print((1 + 2)* 3)
-print( 1 + 2 * 3)
-</script></pre></div>
-
-<h3 id="exercises">Exercises</h3>
-
-<hr />
-<p><strong>E1:</strong> Python Shell</p>
-
-<p>Run some of the commands above in the <a href="/pythonlab/terminal/" target="_blank">Python shell</a>.</p>
-
-<ul>
-  <li>The shell displays a default <em>representation</em> of the commands’ outputs if you
-don’t use <code class="language-plaintext highlighter-rouge">print</code>. The representation of an object (e.g., text), is more
-informative. That’s what you get when you enter commands into the shell.</li>
-  <li>The output of <code class="language-plaintext highlighter-rouge">print</code> is meant to be human-readable and formatted. This may
-hide some of the information about the object.</li>
-</ul>
-
-<blockquote>
-  <p>Keep the terminal open when reading through the pages of this site to quickly
-try out different variations of the commands in the shell.</p>
-</blockquote>
-
-<hr />
-<p><strong>E2:</strong> Fix a Syntax Error</p>
-
-<p>Note that, compared to other programming languages, <em>indentation</em> is important
-in Python.</p>
-
-<ul>
-  <li>Fix the error in the code so that it is able to run by correcting the indentation.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print(1 + 2)
-  print(3 + 4)
-</script></pre></div>
-
-<blockquote>
-  <p>In your browser the above won’t run and might not display any errors. In Python,
-indentation defines a code block. We will revisit indentation in the coming sections.</p>
-</blockquote>
-
-<hr />
-<p><strong>E3:</strong> Floor Division with Negative Numbers</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-print( -13 // 7  )
-print(-(13 // 7) )
-</script></pre></div>
-
-<p>Apply <code class="language-plaintext highlighter-rouge">//</code> to negative numbers. How does floor division behave in this case?</p>
-
-<blockquote>
-  <p>Tip: compare the results of floor division with the ones you get from the
-regular division operations <code class="language-plaintext highlighter-rouge">/</code>.</p>
-</blockquote>
-
-<hr />
-
-<div class="prevnextlinks">
-    <a id="previous" href="01">Previous: Standard Library</a>
-    <a id="next" href="03">Next: Strings</a>
-</div>
-<script src="/pythonlab/assets/js/navigation.js" defer=""></script>
-
-
-  </div>
-
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/pythonlab/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Python Lab</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>Python workshops and tutorials</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
+					import("/pythonlab/_app/immutable/entry/start.CpU3sPut.js").then(async (kit) => {
+						kit.init(__sveltekit_1xn1djt);
+						const app = await import("/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js");
+						kit.start(app, element, {
+							node_ids: [0, 2, 7],
+							data: [null,null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>

@@ -1,0 +1,29 @@
+{
+	"name": "pythonlab",
+	"private": true,
+	"type": "module",
+	"imports": {
+		"#lib/*": "./src/lib/*"
+	},
+	"scripts": {
+		"dev": "vite dev",
+		"build": "npm run check && vite build",
+		"preview": "vite preview",
+		"check": "svelte-kit sync && prettier --check . && svelte-check --tsconfig ./tsconfig.json",
+		"format": "prettier --write ."
+	},
+	"devDependencies": {
+		"@sveltejs/adapter-static": "^4.0.1",
+		"@sveltejs/kit": "^3.2.0",
+		"@sveltejs/vite-plugin-svelte": "^7.3.1",
+		"@wterm/dom": "^0.5.10",
+		"@wterm/ghostty": "^0.5.10",
+		"prettier": "^3.9.10",
+		"prettier-plugin-svelte": "^4.1.1",
+		"shiki": "^4.6.0",
+		"svelte": "^5.57.3",
+		"svelte-check": "^4.7.8",
+		"typescript": "^6.0.3",
+		"vite": "^8.3.8"
+	}
+}

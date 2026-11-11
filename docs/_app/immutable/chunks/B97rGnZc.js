@@ -1,0 +1,1 @@
+import{t as e}from"./Qy3lbiMF.js";var t=e.version;export{t};

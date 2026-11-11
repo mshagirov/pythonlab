@@ -1,484 +1,208 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Variables and Types | Python Lab</title>
-<meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Variables and Types" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Variable" />
-<meta property="og:description" content="Variable" />
-<link rel="canonical" href="https://mshagirov.github.io/pythonlab/pythonlab/introduction/04" />
-<meta property="og:url" content="https://mshagirov.github.io/pythonlab/pythonlab/introduction/04" />
-<meta property="og:site_name" content="Python Lab" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2026-02-13T03:41:09+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Variables and Types" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2026-02-13T03:41:09+08:00","datePublished":"2026-02-13T03:41:09+08:00","description":"Variable","headline":"Variables and Types","mainEntityOfPage":{"@type":"WebPage","@id":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/04"},"url":"https://mshagirov.github.io/pythonlab/pythonlab/introduction/04"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/pythonlab/assets/main.css">
-  <!-- <link rel="shortcut icon" type="image/png" href="/favicon.png"> -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐍</text></svg>">
-  <!-- PyScript CSS -->
-  <link rel="stylesheet" href="https://pyscript.net/releases/2025.2.3/core.css">
-  <!-- This script tag bootstraps PyScript -->
-  <script type="module" src="https://pyscript.net/releases/2025.2.3/core.js"></script><link type="application/atom+xml" rel="alternate" href="https://mshagirov.github.io/pythonlab/pythonlab/feed.xml" title="Python Lab" /><!---->
-
-</head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/pythonlab/">Python Lab</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post">
-
-  <header class="post-header">
-    <h1 class="post-title">Variables and Types</h1>
-  </header>
-
-  <div class="post-content">
-    <h3 id="variable">Variable</h3>
-
-<p><em>Variable</em> in programming represents a named location in
-<a href="https://en.wikipedia.org/wiki/Computer_memory" target="_blank">memory</a>
-that stores a value. The value of a variable represents a specific type of
-data such as a number or a text.</p>
-
-<p>It is very simple to define a varible in Python, all you need is to <em>assign</em> a
-value to the variable with <code class="language-plaintext highlighter-rouge">=</code>.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">variable_name</span> <span class="o">=</span> <span class="n">value</span>
-</code></pre></div></div>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">variable_name</code>: <em>Variable name</em> can be any alphanumeric sequence of characters
-that starts with a letter or an underscore <code class="language-plaintext highlighter-rouge">_</code>, e.g., <code class="language-plaintext highlighter-rouge">abc</code>, <code class="language-plaintext highlighter-rouge">ABC123</code>, <code class="language-plaintext highlighter-rouge">_abc123</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">value</code>: <em>Value</em> can be any value with a built-in or valid user defined <em>type</em>,
-where the type refers to the type of the data stored in the memory, e.g., a text.</li>
-</ul>
-
-<p>For example, the following defines a variable <code class="language-plaintext highlighter-rouge">username</code>, uses it in a f-string,
-and prints the result.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-username = "Kenobi"
-print(f"General {username}!")
-</script></pre></div>
-
-<p>Here, the variable <code class="language-plaintext highlighter-rouge">username</code> refers to a string <code class="language-plaintext highlighter-rouge">Kenobi</code>.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Name</th>
-      <th style="text-align: center">Value</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">username</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">"Kenobi"</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>You can also define multiple variables on a single line.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x, y = 2, 3.14
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="icon" href="/pythonlab/favicon.svg" />
+		<script>
+			try {
+				const t = localStorage.getItem('theme');
+				if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t;
+			} catch {}
+		</script>
+		<link href="/pythonlab/_app/immutable/entry/start.CpU3sPut.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Qy3lbiMF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DclECHGd.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DBrBSLK6.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/BJyiuK88.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DzUl7sO8.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CQPq-i72.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B97rGnZc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/0.CCzg5ABr.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/DK3Fl9T5.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/2._uC6cJXM.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/CvZV8c7A.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B3nTlWl4.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/-ONV97Vs.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/pgpAOKmc.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/nodes/9.D4T2_5R_.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Ci6wYkGF.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/BzAisrpb.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/B6Mavmg2.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/UsLUVTBu.js" rel="modulepreload">
+		<link href="/pythonlab/_app/immutable/chunks/Bbtk1QNP.js" rel="modulepreload">
+		<!--1br2sqw--><!----><title>Variables and Types | Python Lab</title>
+		<link href="/pythonlab/_app/immutable/assets/0.mPArHM8_.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/ThemeToggle.IFdHOAqk.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/2.1az9wYOo.css" rel="stylesheet">
+		<link href="/pythonlab/_app/immutable/assets/PyCell.CemWU0_8.css" rel="stylesheet">
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents"><!--[--><!--[--><!--[0--><!--[--><!--[--><!--[0--><!--[--><header><a href="/pythonlab/">🐍 Python Lab</a> <button type="button" aria-label="Theme: system" title="Theme: system" class="svelte-1cmi4dh"><!--[-1--><svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><path d="M10.854 1.064A7.5 7.5 0 1 0 10.854 14.936A7 7 0 0 1 10.854 1.064Z" fill="currentColor"></path></svg><!----> <span class="divider svelte-1cmi4dh"></span> <svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="3.2" fill="currentColor"></circle><g stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><line x1="8" y1="1" x2="8" y2="3"></line><line x1="8" y1="13" x2="8" y2="15"></line><line x1="1" y1="8" x2="3" y2="8"></line><line x1="13" y1="8" x2="15" y2="8"></line><line x1="3.05" y1="3.05" x2="4.46" y2="4.46"></line><line x1="12.95" y1="3.05" x2="11.54" y2="4.46"></line><line x1="3.05" y1="12.95" x2="4.46" y2="11.54"></line><line x1="12.95" y1="12.95" x2="11.54" y2="11.54"></line></g></svg><!----><!--]--></button><!----></header> <main><!--[0--><h1>Variables and Types</h1><!--]--> <!--[--><!--[-1--><!--[--><h3>Variable</h3> <p><em>Variable</em> in programming represents a named location in <a href="https://en.wikipedia.org/wiki/Computer_memory" target="_blank" rel="noopener">memory</a> that stores a value. The value of a variable represents a specific type of data such as a number or
+	a text.</p> <p>It is very simple to define a varible in Python, all you need is to <em>assign</em> a value to the
+	variable with <code>=</code>.</p> <!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">variable_name </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> value</span></span></code></pre><!----><!----> <ul><li><code>variable_name</code>: <em>Variable name</em> can be any alphanumeric sequence of
+		characters that starts with a letter or an underscore <code>_</code>, e.g., <code>abc</code>, <code>ABC123</code>, <code>_abc123</code>.</li> <li><code>value</code>: <em>Value</em> can be any value with a built-in or valid user defined <em>type</em>, where the type refers to the type of the data stored in the memory, e.g., a text.</li></ul> <p>For example, the following defines a variable <code>username</code>, uses it in a f-string, and
+	prints the result.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">username </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "Kenobi"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"General </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">username</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">!"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">username = "Kenobi"
+print(f"General {username}!")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Here, the variable <code>username</code> refers to a string <code>Kenobi</code>.</p> <table><thead><tr><th align="center">Name</th><th align="center">Value</th></tr></thead><tbody><tr><td align="center"><code>username</code></td><td align="center"><code>"Kenobi"</code></td></tr></tbody></table> <p>You can also define multiple variables on a single line.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x, y </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3.14</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"x: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"y: </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">y</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x, y = 2, 3.14
 
 print(f"x: {x}")
-print(f"y: {y}")
-</script></pre></div>
-
-<blockquote>
-  <p>Don’t overuse this feature. It might be hard to read code with <code class="language-plaintext highlighter-rouge">&gt;2-3</code> variables
-defined on a single line, especially when you have long variable names. The
-future you will thank you if you write a code that is easier to read.</p>
-</blockquote>
-
-<h3 id="naming-variables">Naming Variables</h3>
-
-<p>By convention, Python programmers use <em>snake case</em> when naming their variables.
-In snake case, characters are written in lower case and for multi-word names, the
-words are separated by underscore <code class="language-plaintext highlighter-rouge">_</code>.
-E.g., <code class="language-plaintext highlighter-rouge">user_id</code>, <code class="language-plaintext highlighter-rouge">circle_diameter</code>, etc. This is a not enforced by the Python
-interpreter but it is a preferred convention for code readability.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-user_id = "Ripley"
-print(f"{user_id} is logged-in.")
-</script></pre></div>
-
-<p>You may stray away from this convention in some cases. For
-instance, to include units of measurement, e.g., <code class="language-plaintext highlighter-rouge">force_N</code> doesn’t use snake
-case as it contains an upper case character.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-force_N = 0.21
+print(f"y: {y}")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <blockquote><p>Don't overuse this feature. It might be hard to read code with <code>>2-3</code> variables
+		defined on a single line, especially when you have long variable names. The future you will thank
+		you if you write a code that is easier to read.</p></blockquote> <h3>Naming Variables</h3> <p>By convention, Python programmers use <em>snake case</em> when naming their variables. In snake
+	case, characters are written in lower case and for multi-word names, the words are separated by
+	underscore <code>_</code>. E.g., <code>user_id</code>, <code>circle_diameter</code>, etc. This is
+	a not enforced by the Python interpreter but it is a preferred convention for code readability.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">user_id </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "Ripley"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">user_id</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> is logged-in."</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">user_id = "Ripley"
+print(f"{user_id} is logged-in.")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>You may stray away from this convention in some cases. For instance, to include units of
+	measurement, e.g., <code>force_N</code> doesn't use snake case as it contains an upper case character.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">force_N </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0.21</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">area_m2 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 0.05</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">stress_Pa </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> force_N </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> area_m2</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Stress (Pa): </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">stress_Pa</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">force_N = 0.21
 area_m2 = 0.05
 
 stress_Pa = force_N / area_m2
-print(f"Stress (Pa): {stress_Pa}")
-</script></pre></div>
-
-<p>Be careful to NOT name your variables <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">float</code>, <code class="language-plaintext highlighter-rouge">string</code> or any other
-Python <em>key words</em>. This will override the default objects’ names and will lead to
-bugs in your code.</p>
-
-<blockquote>
-  <p>Unfortunately, Python interpreter does not enforce this as a
-rule and you just have to remember to not use these as variable names.
-For instance, <code class="language-plaintext highlighter-rouge">int="integer"</code>, <code class="language-plaintext highlighter-rouge">str=2</code>, or <code class="language-plaintext highlighter-rouge">float=3.14</code> are valid syntax for
-defining variables. Try it for yourself, by defining some “forbidden variables”
-in the above cell and print them out, Python will happily run the code for you.</p>
-</blockquote>
-
-<h3 id="updating-variables-value">Updating Variable’s Value</h3>
-
-<p>To update or change the value of a variable, you simply assign it a new value.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-length = 42
+print(f"Stress (Pa): {stress_Pa}")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Be careful to NOT name your variables <code>int</code>, <code>float</code>, <code>string</code> or
+	any other Python <em>key words</em>. This will override the default objects' names and will
+	lead to bugs in your code.</p> <blockquote><p>Unfortunately, Python interpreter does not enforce this as a rule and you just have to remember
+		to not use these as variable names. For instance, <code>int="integer"</code>, <code>str=2</code>, or <code>float=3.14</code> are valid syntax for defining variables. Try it for
+		yourself, by defining some "forbidden variables" in the above cell and print them out, Python
+		will happily run the code for you.</p></blockquote> <h3>Updating Variable's Value</h3> <p>To update or change the value of a variable, you simply assign it a new value.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">length </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 42</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"old value:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, length)</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">length </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"new value:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, length)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">length = 42
 print("old value:", length)
 
 length = 1
-print("new value:", length)
-</script></pre></div>
-
-<h3 id="types">Types</h3>
-
-<p>Computer stores everything in its memory as a binary data composed of zeros and
-ones. The <em>type</em> of the data determines what these zeros and ones actually represent.
-The Python standard library comes with a wide range of built-in types that you
-can use to represent your data.</p>
-
-<p>We have already seen the following:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">int</code>: Signed integers, e.g., <code class="language-plaintext highlighter-rouge">-423</code>, <code class="language-plaintext highlighter-rouge">0</code>, <code class="language-plaintext highlighter-rouge">12897</code>. Python automatically adjusts
-the size of an <code class="language-plaintext highlighter-rouge">int</code> in the memory (number of bytes) depending on the value of
-the integer.</li>
-  <li><code class="language-plaintext highlighter-rouge">float</code>: Floats or
-<a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic" target="_blank">floating-point numbers</a>
-are a subset of real numbers that can be approximated with binary fractions. They
-are stored as 64-bit or <em>double precision</em> numbers in most Python implementations.</li>
-  <li><code class="language-plaintext highlighter-rouge">str</code>: Strings in Python represent textual data. E.g., <code class="language-plaintext highlighter-rouge">"Kenobi"</code>, <code class="language-plaintext highlighter-rouge">"Hello there!"</code>.</li>
-</ul>
-
-<table>
-  <thead>
-    <tr>
-      <th style="text-align: center">Name</th>
-      <th style="text-align: center">Value</th>
-      <th style="text-align: center">Type</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">username</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">"Kenobi"</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">str</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">x</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">2</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">int</code></td>
-    </tr>
-    <tr>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">y</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">3.14</code></td>
-      <td style="text-align: center"><code class="language-plaintext highlighter-rouge">float</code></td>
-    </tr>
-  </tbody>
-</table>
-
-<p>Additionally, Python also implements types for working with bytes, dates and
-times, and sequences. We will learn about more complex types such as sequences
-in the following sections. For a complete list of data types in Python refer
-to
-<a href="https://docs.python.org/3/library/stdtypes.html#built-in-types" target="_blank">the official documentation</a>.</p>
-
-<h3 id="boolean-type">Boolean Type</h3>
-
-<p>Another frequently used type in Python is a <code class="language-plaintext highlighter-rouge">bool</code>.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">bool</code> : <em>Boolean</em> type has two possible values <code class="language-plaintext highlighter-rouge">True</code> and <code class="language-plaintext highlighter-rouge">False</code> that represent
-truth values.</li>
-  <li>To get a <em>logical complement</em> of a <code class="language-plaintext highlighter-rouge">bool</code> variable use the <code class="language-plaintext highlighter-rouge">not</code> operator.</li>
-</ul>
-
-<p>We will use <code class="language-plaintext highlighter-rouge">bool</code> when doing logical operations and writing conditional statements
-(<em>if-else</em> statements).</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-is_mutant = True
+print("new value:", length)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Types</h3> <p>Computer stores everything in its memory as a binary data composed of zeros and ones. The <em>type</em> of the data determines what these zeros and ones actually represent. The Python standard library comes
+	with a wide range of built-in types that you can use to represent your data.</p> <p>We have already seen the following:</p> <ul><li><code>int</code>: Signed integers, e.g., <code>-423</code>, <code>0</code>, <code>12897</code>.
+		Python automatically adjusts the size of an <code>int</code> in the memory (number of bytes) depending
+		on the value of the integer.</li> <li><code>float</code>: Floats or <a href="https://en.wikipedia.org/wiki/Floating-point_arithmetic" target="_blank" rel="noopener">floating-point numbers</a> are a subset of real numbers that can be approximated with binary fractions. They are stored as 64-bit
+		or <em>double precision</em> numbers in most Python implementations.</li> <li><code>str</code>: Strings in Python represent textual data. E.g., <code>"Kenobi"</code>, <code>"Hello there!"</code>.</li></ul> <table><thead><tr><th align="center">Name</th><th align="center">Value</th><th align="center">Type</th></tr></thead><tbody><tr><td align="center"><code>username</code></td><td align="center"><code>"Kenobi"</code></td><td align="center"><code>str</code></td></tr><tr><td align="center"><code>x</code></td><td align="center"><code>2</code></td><td align="center"><code>int</code></td></tr><tr><td align="center"><code>y</code></td><td align="center"><code>3.14</code></td><td align="center"><code>float</code></td></tr></tbody></table> <p>Additionally, Python also implements types for working with bytes, dates and times, and sequences.
+	We will learn about more complex types such as sequences in the following sections. For a complete
+	list of data types in Python refer to <a href="https://docs.python.org/3/library/stdtypes.html#built-in-types" target="_blank" rel="noopener">the official documentation</a>.</p> <h3>Boolean Type</h3> <p>Another frequently used type in Python is a <code>bool</code>.</p> <ul><li><code>bool</code> : <em>Boolean</em> type has two possible values <code>True</code> and <code>False</code> that represent truth values.</li> <li>To get a <em>logical complement</em> of a <code>bool</code> variable use the <code>not</code> operator.</li></ul> <p>We will use <code>bool</code> when doing logical operations and writing conditional statements (<em>if-else</em> statements).</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">is_mutant </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> True</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">likes_pizza </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> not</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> False</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Mutant turtle:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, is_mutant)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Likes pizza:"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, likes_pizza)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">is_mutant = True
 likes_pizza = not False
 
 print("Mutant turtle:", is_mutant)
-print("Likes pizza:", likes_pizza)
-</script></pre></div>
-
-<p>When used with mathematical operations, Python implicitly
-casts <code class="language-plaintext highlighter-rouge">bool</code> to <code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">float</code> and treats it as a number, <code class="language-plaintext highlighter-rouge">True</code> is 1, and
-<code class="language-plaintext highlighter-rouge">False</code> is 0.</p>
-
-<h3 id="none-type">None Type</h3>
-
-<p>In Python, <code class="language-plaintext highlighter-rouge">NoneType</code> represents a null or absence of a value. <code class="language-plaintext highlighter-rouge">NoneType</code> only has
-a single value <code class="language-plaintext highlighter-rouge">None</code>. Compared to other programming langugages, <code class="language-plaintext highlighter-rouge">None</code> in Python
-is a distinct object and doesn’t represent zero value, e.g., these are NOT null in
-Python, an empty string <code class="language-plaintext highlighter-rouge">""</code>, numerical <code class="language-plaintext highlighter-rouge">0</code>, etc. Also, note that <code class="language-plaintext highlighter-rouge">str</code> <code class="language-plaintext highlighter-rouge">"None"</code>
-is not the same as <code class="language-plaintext highlighter-rouge">None</code>.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-n, s = None, "None"
+print("Likes pizza:", likes_pizza)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>When used with mathematical operations, Python implicitly casts <code>bool</code> to <code>int</code> or <code>float</code> and treats it as a number, <code>True</code> is 1, and <code>False</code> is 0.</p> <h3>None Type</h3> <p>In Python, <code>NoneType</code> represents a null or absence of a value. <code>NoneType</code> only has a single value <code>None</code>. Compared to other programming langugages, <code>None</code> in Python is a distinct object and doesn't represent zero value, e.g., these are NOT null in Python,
+	an empty string <code>""</code>, numerical <code>0</code>, etc. Also, note that <code>str</code> <code>"None"</code> is not the same as <code>None</code>.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">n, s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> None</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"None"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(n, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(NoneType)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(str)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">n, s = None, "None"
 print(n, "(NoneType)")
-print(s, "(str)")
-</script></pre></div>
-
-<p>When you print the <code class="language-plaintext highlighter-rouge">None</code> and a string <code class="language-plaintext highlighter-rouge">"None"</code> they appear to be the same. To
-determine if the variable is <code class="language-plaintext highlighter-rouge">NoneType</code> or just a string you can use the following:</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">repr</code> function</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-n, s = None, "None"
+print(s, "(str)")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>When you print the <code>None</code> and a string <code>"None"</code> they appear to be
+	the same. To determine if the variable is <code>NoneType</code> or just a string you can use the following:</p> <ul><li><code>repr</code> function</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">n, s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> None</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"None"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">repr</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(n), </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(NoneType)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">repr</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s), </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(str)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">n, s = None, "None"
 print(repr(n), "(NoneType)")
-print(repr(s), "(str)")
-</script></pre></div>
-
-<ul>
-  <li>Use <code class="language-plaintext highlighter-rouge">is</code> or <code class="language-plaintext highlighter-rouge">==</code> to compare the value with actual <code class="language-plaintext highlighter-rouge">None</code>:</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-n, s = None, "None"
+print(repr(s), "(str)")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>Use <code>is</code> or <code>==</code> to compare the value with actual <code>None</code>:</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">n, s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> None</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"None"</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(n </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> None</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(NoneType)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> None</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"(str)"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">n, s = None, "None"
 print(n is None, "(NoneType)")
-print(s is None, "(str)")
-</script></pre></div>
-
-<ul>
-  <li>Or use one of the type checking methods in the next section, e.g., <code class="language-plaintext highlighter-rouge">type</code> or
-<code class="language-plaintext highlighter-rouge">isinstance</code>.</li>
-</ul>
-
-<h3 id="determining-and-verifying-types">Determining and Verifying Types</h3>
-
-<p>You can determine the type of a varible using <code class="language-plaintext highlighter-rouge">type()</code> method.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">type(object)</code> takes in an object, variable or value, and returns the type of
-the object, <code class="language-plaintext highlighter-rouge">int</code>, <code class="language-plaintext highlighter-rouge">str</code> etc. You can further compare the value of the type
-obtained from this function with an actual target type using <code class="language-plaintext highlighter-rouge">is</code> and <code class="language-plaintext highlighter-rouge">==</code>.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x = 42
+print(s is None, "(str)")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <ul><li>Or use one of the type checking methods in the next section, e.g., <code>type</code> or <code>isinstance</code>.</li></ul> <h3>Determining and Verifying Types</h3> <p>You can determine the type of a varible using <code>type()</code> method.</p> <ul><li><code>type(object)</code> takes in an object, variable or value, and returns the type of the
+		object, <code>int</code>, <code>str</code> etc. You can further compare the value of the type
+		obtained from this function with an actual target type using <code>is</code> and <code>==</code>.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 42</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Is </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> int? </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> int}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Is </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> float? </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x) </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">is</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> float}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x = 42
 print(f"Is {x} int? {type(x) is int}")
-print(f"Is {x} float? {type(x) is float}")
-</script></pre></div>
-
-<p>Alternatively, you can also use <code class="language-plaintext highlighter-rouge">isinstance</code> to verify type of a given variable
-instead of a comparison.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">isinstance(object, type)</code> takes in the object and a type, and returns a <code class="language-plaintext highlighter-rouge">bool</code>
-value. <code class="language-plaintext highlighter-rouge">True</code> if the types match and <code class="language-plaintext highlighter-rouge">False</code> otherwise.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x = 42
-print(f"Is {x} int?", isinstance(x, int))
-</script></pre></div>
-
-<h3 id="type-casting">Type Casting</h3>
-
-<p>Type casting in programming means converting one type to another. For example,
-when you do mathematical operations on variables with <code class="language-plaintext highlighter-rouge">float</code> and <code class="language-plaintext highlighter-rouge">int</code> types,
-the interpreter implicitly <em>type casts</em> <code class="language-plaintext highlighter-rouge">int</code> to <code class="language-plaintext highlighter-rouge">float</code> (the result will have
-decimal <code class="language-plaintext highlighter-rouge">.</code>).</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x = 2
+print(f"Is {x} float? {type(x) is float}")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Alternatively, you can also use <code>isinstance</code> to verify type of a given variable instead of
+	a comparison.</p> <ul><li><code>isinstance(object, type)</code> takes in the object and a type, and returns a <code>bool</code> value. <code>True</code> if the types match and <code>False</code> otherwise.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 42</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"Is </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> int?"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">isinstance</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">))</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x = 42
+print(f"Is {x} int?", isinstance(x, int))</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <h3>Type Casting</h3> <p>Type casting in programming means converting one type to another. For example, when you do
+	mathematical operations on variables with <code>float</code> and <code>int</code> types, the
+	interpreter implicitly <em>type casts</em> <code>int</code> to <code>float</code> (the result will
+	have decimal <code>.</code>).</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 2</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x = 2
 print(x + 2)
-print(x + 2.)
-</script></pre></div>
-
-<p>The decimal point <code class="language-plaintext highlighter-rouge">.</code> is used to define a <code class="language-plaintext highlighter-rouge">float</code>. E.g., <code class="language-plaintext highlighter-rouge">2.</code> is a <code class="language-plaintext highlighter-rouge">float</code> equal
-to <code class="language-plaintext highlighter-rouge">2.0</code>. Using division <code class="language-plaintext highlighter-rouge">/</code> always produces <code class="language-plaintext highlighter-rouge">float</code>, and floor division <code class="language-plaintext highlighter-rouge">\\</code>
-produces <code class="language-plaintext highlighter-rouge">int</code> unless one of the numbers is a <code class="language-plaintext highlighter-rouge">float</code>.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x, y = 6, 3
+print(x + 2.)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>The decimal point <code>.</code> is used to define a <code>float</code>. E.g., <code>2.</code> is
+	a <code>float</code> equal to <code>2.0</code>. Using division <code>/</code> always produces <code>float</code>, and floor division <code>\\</code> produces <code>int</code> unless one of the numbers is a <code>float</code>.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x, y </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 6</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">/</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> y)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">//</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> y)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">//</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 3</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">.)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x, y = 6, 3
 
 print(x / y)
 print(x // y)
-print(x // 3.)
-</script></pre></div>
-
-<p>Sometimes you may want to <em>explicitly</em> convert one type to another. For instance,
-<code class="language-plaintext highlighter-rouge">int</code> to a <code class="language-plaintext highlighter-rouge">str</code>, or <code class="language-plaintext highlighter-rouge">float</code> to <code class="language-plaintext highlighter-rouge">int</code> etc. For this you may use Python’s type
-casting <em>methods</em> to convert between types.</p>
-
-<ul>
-  <li><code class="language-plaintext highlighter-rouge">int(object)</code> : convert any compatible object to <code class="language-plaintext highlighter-rouge">int</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">float(object)</code>: convert a compatible object to <code class="language-plaintext highlighter-rouge">float</code>.</li>
-  <li><code class="language-plaintext highlighter-rouge">str(object)</code>: convert any object to its string representation.</li>
-</ul>
-
-<blockquote>
-  <p>Note that when casting higher precision type <code class="language-plaintext highlighter-rouge">float</code> to a lower precision type
-<code class="language-plaintext highlighter-rouge">int</code> data loss may occur. Also, some values might not be compatible for type
-conversion, e.g.,
-<a href="https://docs.python.org/3/library/functions.html#int" target="_blank">non-numeric string to a numeric <code class="language-plaintext highlighter-rouge">int</code> or <code class="language-plaintext highlighter-rouge">float</code></a>.</p>
-</blockquote>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-my_number = 4.2
+print(x // 3.)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Sometimes you may want to <em>explicitly</em> convert one type to another. For instance, <code>int</code> to a <code>str</code>, or <code>float</code> to <code>int</code> etc. For this
+	you may use Python's type casting <em>methods</em> to convert between types.</p> <ul><li><code>int(object)</code> : convert any compatible object to <code>int</code>.</li> <li><code>float(object)</code>: convert a compatible object to <code>float</code>.</li> <li><code>str(object)</code>: convert any object to its string representation.</li></ul> <blockquote><p>Note that when casting higher precision type <code>float</code> to a lower precision type <code>int</code> data loss may occur. Also, some values might not be compatible for type
+		conversion, e.g., <a href="https://docs.python.org/3/library/functions.html#int" target="_blank" rel="noopener">non-numeric string to a numeric <code>int</code> or <code>float</code></a>.</p></blockquote> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">my_number </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 4.2</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">text </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "My number is "</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> +</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> str</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(my_number)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(text)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">my_number = 4.2
 text = "My number is " + str(my_number)
-print(text)
-</script></pre></div>
-
-<p>Below is another example that uses type casting with <code class="language-plaintext highlighter-rouge">int()</code> and <code class="language-plaintext highlighter-rouge">float()</code> methods.</p>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x = int(3.14)
+print(text)</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>Below is another example that uses type casting with <code>int()</code> and <code>float()</code> methods.</p> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">3.14</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">y </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> int</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">" 2 "</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(y, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(y))</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">z </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> float</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(x </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">+</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> y)</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(z, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">type</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(z))</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x = int(3.14)
 print(x, type(x))
 
 y = int(" 2 ")
 print(y, type(y))
 
 z = float(x + y)
-print(z, type(z))
-</script></pre></div>
-
-<p>The last two lines convert an <code class="language-plaintext highlighter-rouge">int</code> object with value <code class="language-plaintext highlighter-rouge">x + y</code> to a <code class="language-plaintext highlighter-rouge">float</code> and
-print it.</p>
-
-<h3 id="dynamic-typing">Dynamic Typing</h3>
-
-<p>Python is a <strong>dynamically typed</strong> language where Python automatically infers a
-variable’s type when you run the code. This leads to less boilerplate code when
-defining variables and functions, and allows quicker prototyping. The dynamic
-typing comes at a cost as a lower performance (slower running code),
-and potentially runtime type errors.</p>
-
-<p>The performance hit is due to type checking of the variables by the interpreter
-during the runtime which takes up the CPU time. We have to accept it as a cost for
-convenience.</p>
-
-<p>On the other hand, the effect of the type errors can be minimised. For instance,
-if your code expects a certain type of data and you accidentally change the type
-of a variable, the interpreter will not be aware of the error until you run the
-code. E.g., the following might lead to runtime type errors:</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">delta_t</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="bp">...</span>
-<span class="n">delta_t</span> <span class="o">=</span> <span class="sh">"</span><span class="s">one hour</span><span class="sh">"</span>
-</code></pre></div></div>
-
-<p>You can avoid this by creating a new type of variable instead of overriding the
-old value and its type.</p>
-
-<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">delta_t</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="bp">...</span>
-<span class="n">delta_t_info</span> <span class="o">=</span> <span class="sh">"</span><span class="s">one hour</span><span class="sh">"</span>
-</code></pre></div></div>
-
-<h3 id="exercises">Exercises</h3>
-
-<hr />
-<p><strong>E1:</strong> Calculate Sum and Average</p>
-
-<ul>
-  <li>Complete the following code so that it computes and prints a sum and average
-of the numbers <code class="language-plaintext highlighter-rouge">x1</code>, <code class="language-plaintext highlighter-rouge">x2</code>, <code class="language-plaintext highlighter-rouge">x3</code>, and <code class="language-plaintext highlighter-rouge">x4</code>.</li>
-</ul>
-
-<div class="language-python highlighter-rouge">
-<pre class="highlight"><script type="py-editor" worker="">
-x1, x2, x3, x4 = 44, 37, 40, 47
+print(z, type(z))</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----> <p>The last two lines convert an <code>int</code> object with value <code>x + y</code> to a <code>float</code> and print it.</p> <h3>Dynamic Typing</h3> <p>Python is a <strong>dynamically typed</strong> language where Python automatically infers a variable's
+	type when you run the code. This leads to less boilerplate code when defining variables and functions,
+	and allows quicker prototyping. The dynamic typing comes at a cost as a lower performance (slower running
+	code), and potentially runtime type errors.</p> <p>The performance hit is due to type checking of the variables by the interpreter during the runtime
+	which takes up the CPU time. We have to accept it as a cost for convenience.</p> <p>On the other hand, the effect of the type errors can be minimised. For instance, if your code
+	expects a certain type of data and you accidentally change the type of a variable, the interpreter
+	will not be aware of the error until you run the code. E.g., the following might lead to runtime
+	type errors:</p> <!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">delta_t </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">delta_t </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "one hour"</span></span></code></pre><!----><!----> <p>You can avoid this by creating a new type of variable instead of overriding the old value and its
+	type.</p> <!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">delta_t </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 1</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">...</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">delta_t_info </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF"> "one hour"</span></span></code></pre><!----><!----> <h3>Exercises</h3> <hr/> <p><strong>E1:</strong> Calculate Sum and Average</p> <ul><li>Complete the following code so that it computes and prints a sum and average of the numbers <code>x1</code>, <code>x2</code>, <code>x3</code>, and <code>x4</code>.</li></ul> <div class="cell svelte-1dy9781"><div class="frame svelte-1dy9781" role="group"><div class="editor svelte-1dy9781"><div class="highlight svelte-1dy9781" aria-hidden="true"><!----><pre class="shiki shiki-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e" tabindex="0"><code><span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">x1, x2, x3, x4 </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 44</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">37</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">40</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">, </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">47</span></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># DO NOT edit above this line</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> ?</span></span>
+<span class="line"><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">avg </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#B31D28;--shiki-light-font-style:italic;--shiki-dark:#FDAEB7;--shiki-dark-font-style:italic"> ?</span></span>
+<span class="line"></span>
+<span class="line"><span style="--shiki-light:#6A737D;--shiki-dark:#6A737D"># DO NOT edit below this line</span></span>
+<span class="line"><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">print</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">f</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"sum = </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">s</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">; average = </span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">{</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">avg</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF">}</span><span style="--shiki-light:#032F62;--shiki-dark:#9ECBFF">"</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">)</span></span></code></pre><!----></div> <textarea class="code svelte-1dy9781" aria-label="Python code" spellcheck="false" autocapitalize="off" autocomplete="off" wrap="off" rows="1">x1, x2, x3, x4 = 44, 37, 40, 47
 # DO NOT edit above this line
 
 s = ?
 avg = ?
 
 # DO NOT edit below this line
-print(f"sum = {s}; average = {avg}")
-</script></pre></div>
+print(f"sum = {s}; average = {avg}")</textarea></div> <div class="actions svelte-1dy9781"><button type="button" class="icon svelte-1dy9781" aria-label="Reset" title="Reset"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" class="svelte-1dy9781"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path><path d="M3 3v5h5"></path></svg></button> <button type="button" class="icon toggle svelte-1dy9781" aria-label="Run" title="Run"><!--[-1--><svg viewBox="0 0 16 16" aria-hidden="true" class="svelte-1dy9781"><path d="M4 2.5v11l9-5.5z" fill="currentColor"></path></svg><!--]--></button></div></div> <!--[-1--><!--]--> <!--[-1--><!--]--></div><!----><!--]--><!--]--><!--]--><!----> <!--[0--><!--[0--><nav class="prevnext svelte-1cvcwf8"><!--[0--><a id="previous" href="/pythonlab/introduction/03">Previous: Strings</a><!--]--> <!--[0--><a id="next" href="/pythonlab/introduction/05" class="svelte-1cvcwf8">Next: Numerical and Logical Operations</a><!--]--></nav><!--]--><!--]--></main> <footer>Python Lab — Python workshops and tutorials</footer><!--]--><!--]--><!--]--><!----><!--]--><!--]--><!--]--><!----> <!--[-1--><!--]--><!--]-->
+			
+			<script>
+				{
+					__sveltekit_1xn1djt = {
+						base: "/pythonlab",
+						version: "1794389132849",
+						assets: "/pythonlab"
+					};
 
-<hr />
+					const element = document.currentScript.parentElement;
 
-<div class="prevnextlinks">
-    <a id="previous" href="03">Previous: Strings</a>
-    <a id="next" href="05">Next: Numerical Operations</a>
-</div>
-<script src="/pythonlab/assets/js/navigation.js"></script>
-
-
-  </div>
-
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/pythonlab/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Python Lab</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Python Lab</li><li><a class="u-email" href="mailto:shagirov(at)nus.edu.sg">shagirov(at)nus.edu.sg</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/mshagirov"><svg class="svg-icon"><use xlink:href="/pythonlab/assets/minima-social-icons.svg#github"></use></svg> <span class="username">mshagirov</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>Python workshops and tutorials</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
+					import("/pythonlab/_app/immutable/entry/start.CpU3sPut.js").then(async (kit) => {
+						kit.init(__sveltekit_1xn1djt);
+						const app = await import("/pythonlab/_app/immutable/entry/app.Bqdqn9gg.js");
+						kit.start(app, element, {
+							node_ids: [0, 2, 9],
+							data: [null,null,null],
+							form: null,
+							error: null
+						});
+					});
+				}
+			</script>
+		</div>
+	</body>
 </html>

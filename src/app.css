@@ -1,0 +1,167 @@
+:root {
+	color-scheme: light dark;
+	--bg: light-dark(#ffffff, #16181c);
+	--fg: light-dark(#1f2328, #e6e6e6);
+	--muted: light-dark(#59636e, #9aa4af);
+	--border: light-dark(#d1d9e0, #30363d);
+	--link: light-dark(#0550ae, #6cb6ff);
+	--code-bg: light-dark(#f6f8fa, #1e2228);
+}
+
+:root[data-theme='light'] {
+	color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+	color-scheme: dark;
+}
+
+.shiki,
+.shiki span {
+	color: light-dark(var(--shiki-light), var(--shiki-dark));
+}
+
+body {
+	margin: 0 auto;
+	max-width: 46rem;
+	padding: 1.5rem 1rem 3rem;
+	background: var(--bg);
+	color: var(--fg);
+	font-family:
+		system-ui,
+		-apple-system,
+		'Segoe UI',
+		Roboto,
+		Helvetica,
+		Arial,
+		sans-serif;
+	line-height: 1.6;
+}
+
+a {
+	color: var(--link);
+}
+
+code,
+pre {
+	font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, monospace;
+}
+
+pre {
+	background: var(--code-bg);
+	padding: 1rem;
+	border-radius: 6px;
+	overflow-x: auto;
+	line-height: 1.45;
+}
+
+:not(pre) > code {
+	background: var(--code-bg);
+	padding: 0.1em 0.35em;
+	border-radius: 4px;
+	font-size: 0.9em;
+}
+
+blockquote {
+	margin: 1rem 0;
+	padding: 0.25rem 0 0.25rem 1rem;
+	border-left: 3px solid var(--border);
+	color: var(--muted);
+}
+
+details {
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	padding: 0.5rem 0.75rem;
+	margin: 1rem 0;
+}
+
+summary {
+	cursor: pointer;
+	font-weight: 600;
+}
+
+/* display: block lets a wide table scroll instead of overflowing the page;
+   rows are then wrapped in an anonymous table box, which inherits
+   border-collapse, so the collapsed borders still apply. */
+table {
+	display: block;
+	width: fit-content;
+	max-width: 100%;
+	margin: 1.5rem auto;
+	overflow-x: auto;
+	border-collapse: collapse;
+}
+
+table th,
+table td {
+	padding: 0.4rem 0.75rem;
+	border: 1px solid var(--border);
+}
+
+table th {
+	font-weight: 600;
+}
+
+table thead th {
+	border-bottom: 2px solid var(--fg);
+}
+
+table tr > :first-child {
+	border-left: 0;
+}
+
+table tr > :last-child {
+	border-right: 0;
+}
+
+table thead tr:first-child > *,
+table > tbody:first-child tr:first-child > * {
+	border-top: 0;
+}
+
+table tbody tr:last-child > * {
+	border-bottom: 0;
+}
+
+hr {
+	border: 0;
+	border-top: 1px solid var(--border);
+	margin: 2rem 0;
+}
+
+header,
+footer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 1rem;
+	padding-bottom: 1rem;
+	border-bottom: 1px solid var(--border);
+	margin-bottom: 1.5rem;
+}
+
+footer {
+	justify-content: center;
+	border-bottom: 0;
+	border-top: 1px solid var(--border);
+	margin-top: 3rem;
+	padding-top: 1rem;
+	color: var(--muted);
+	font-size: 0.9rem;
+}
+
+header a {
+	font-weight: 600;
+	text-decoration: none;
+}
+
+button {
+	font: inherit;
+	color: inherit;
+	background: var(--code-bg);
+	border: 1px solid var(--border);
+	border-radius: 6px;
+	padding: 0.25rem 0.6rem;
+	cursor: pointer;
+}
