@@ -1,5 +1,5 @@
 ---
-description: Generates and fixes code for the SvelteKit + TypeScript port from a precise task brief
+description: Generates and fixes code from a precise task brief
 mode: subagent
 model: opencode-go/deepseek-v4.1-flash#high
 ---

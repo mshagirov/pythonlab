@@ -132,7 +132,7 @@
 
 <blockquote>
 	<p>
-		Feel free to modify the code. If you make a mistake, just reload the page to reset all code
-		cells on the page.
+		Feel free to modify the code. If you make a mistake, click the reset button to reload the
+		original code.
 	</p>
 </blockquote>

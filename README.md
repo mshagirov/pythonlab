@@ -1,7 +1,9 @@
 # Python Lab
 
-Python workshop lessons with runnable code cells and an in-browser Python shell.
-A static SvelteKit + TypeScript site, built by Vite into `docs/` for GitHub Pages.
+> A static SvelteKit + TS/JS site, built by Vite into `docs/` for GitHub Pages.
+
+Python workshop lessons for beginners. Start with in-browser lessons. Then, build
+your first Python project on your machine.
 
 ## Quick start
 
@@ -16,12 +18,13 @@ Commit `docs/` after `npm run build`; it is the deployed site. Never edit it by 
 
 ## Edit a page
 
-Each page is one file, `src/routes/(site)/<section>/<NN>/+page.svelte`, written as HTML plus:
+Each page is one file, `src/routes/(site)/<section>/<NN>/+page.svelte`, written
+as HTML plus:
 
 ```svelte
 <script lang="ts">
-	import Code from '#lib/components/Code.svelte';
-	import PyCell from '#lib/components/PyCell.svelte';
+    import Code from '#lib/components/Code.svelte';
+    import PyCell from '#lib/components/PyCell.svelte';
 </script>
 
 <PyCell code={String.raw`print("runs in the browser")`} />
@@ -39,12 +42,3 @@ Each page is one file, `src/routes/(site)/<section>/<NN>/+page.svelte`, written 
 
 The page title and the previous/next links (Ctrl/Cmd+`,` and `.`) come from `nav.ts`.
 
-## Where things are
-
-- `src/routes/(site)/`: home page and the `introduction` and `lab-01` lessons.
-- `src/routes/terminal/`: Python shell (Pyodide + Ghostty terminal via wterm).
-- `src/lib/python/`: the Pyodide web worker shared by cells and the shell.
-- `src/lib/components/`, `src/app.css`: components and the light/dark theme.
-- `vite.config.ts`: base path (`/pythonlab`) and output directory (`docs`).
-
-Pyodide loads from the jsDelivr CDN, so running Python needs a network connection.

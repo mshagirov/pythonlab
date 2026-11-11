@@ -289,7 +289,10 @@ print( list(six_letter_words) )`}
 	<p>
 		AI is very useful when you get stuck while coding. Be careful not to generate very long code
 		(e.g., <code>&gt;&gt;10-20</code> lines). Code with too many lines is difficult to read and debug.
-		Try to build your code line by line.
+		Try to build your code line by line. Since the first rollout of this workshop, AI has gotten a lot
+		better at writing code, a looot better than a beginner and average Python developer. But be careful
+		to not rely heavily on AI early in your learning journey. This may severely hinder your learning important
+		programming concepts that can come only from experience writing code by hand!
 	</p>
 </blockquote>
 
