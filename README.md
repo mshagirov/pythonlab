@@ -14,7 +14,8 @@ npm run build    # format check + type check + static build into docs/
 npm run format   # fix formatting with Prettier
 ```
 
-Commit `docs/` after `npm run build`; it is the deployed site. Never edit it by hand.
+Pushing to `main` builds and deploys the site with GitHub Actions
+(`.github/workflows/deploy.yml`). `docs/` is local build output and is not committed.
 
 ## Edit a page
 

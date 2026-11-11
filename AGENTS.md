@@ -1,12 +1,12 @@
 # Repository instructions
 
-Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, built by Vite and deployed via GitHub Pages from `docs/`. npm only; every package is a devDependency.
+Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, built by Vite into `docs/` and deployed to GitHub Pages by `.github/workflows/deploy.yml` on push to `main`. npm only; every package is a devDependency.
 
 ## Commands
 
 - `npm install` once; `npm run dev` serves at `http://localhost:5173/pythonlab`; `npm run preview` serves the last build (restart it after rebuilding, or it serves stale asset names).
-- `npm run check` is the only verification step: `svelte-kit sync`, `prettier --check .`, `svelte-check`. There is no ESLint, no test runner and no CI.
-- `npm run build` runs `check` and then prerenders into `docs/`. `docs/` is committed and is the deployed site: rebuild after source changes and never edit it by hand.
+- `npm run check` is the only verification step: `svelte-kit sync`, `prettier --check .`, `svelte-check`. There is no ESLint and no test runner; CI only runs `npm run build` (which includes `check`).
+- `npm run build` runs `check` and then prerenders into `docs/`. `docs/` is gitignored build output; CI runs `npm ci && npm run build` and deploys it, so never commit or hand-edit it.
 - `npm run format` fixes formatting (tabs, single quotes, width 100). Prettier skips `*.md`, `.opencode/` and `docs/`.
 
 ## SvelteKit 3 specifics
