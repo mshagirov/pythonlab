@@ -1,1 +1,0 @@
-import{D as e,G as t,K as n,L as r,U as i,b as a,l as o,t as s,y as c}from"./BJyiuK88.js";import{t as l}from"./B6Mavmg2.js";function u(u,d){n(d,!0);let f=s(d,`lang`,3,`text`),p=i(()=>d.code.replace(/^(?:[ \t]*\r?\n)+/,``).replace(/(?:\r?\n[ \t]*)+$/,``)),m=i(()=>l(e(p),f()));var h=a(),g=r(h);o(g,()=>e(m)),c(u,h),t()}export{u as t};

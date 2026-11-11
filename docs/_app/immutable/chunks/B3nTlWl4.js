@@ -1,1 +1,0 @@
-import{t as e}from"./DzUl7sO8.js";function t(t){return e(``)+t}function n(t){let n=e(``);return t.startsWith(n)?t.slice(n.length):t.slice(1)}export{n,t};
