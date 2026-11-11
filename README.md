@@ -43,3 +43,7 @@ as HTML plus:
 
 The page title and the previous/next links (Ctrl/Cmd+`,` and `.`) come from `nav.ts`.
 
+
+## License
+
+[MIT](LICENSE) -- Copyright (c) 2025 Murat Shagirov.
