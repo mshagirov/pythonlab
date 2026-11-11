@@ -5,7 +5,7 @@ Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, b
 ## Commands
 
 - `npm install` once; `npm run dev` serves at `http://localhost:5173/pythonlab`; `npm run preview` serves the last build (restart it after rebuilding, or it serves stale asset names).
-- `npm run check` is the only verification step: `svelte-kit sync`, `prettier --check .`, `svelte-check`. There is no ESLint and no test runner; CI only runs `npm run build` (which includes `check`).
+- `npm run check` is the only verification step: `svelte-kit sync`, `prettier --check .`, `svelte-check`. There is no ESLint and no test runner; CI only runs `npm run build` (which includes `check`), on PRs as well as on `main`, and deploys only from `main`.
 - `npm run build` runs `check` and then prerenders into `docs/`. `docs/` is gitignored build output; CI runs `npm ci && npm run build` and deploys it, so never commit or hand-edit it.
 - `npm run format` fixes formatting (tabs, single quotes, width 100). Prettier skips `*.md`, `.opencode/` and `docs/`.
 
@@ -32,7 +32,7 @@ Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, b
 - Page-to-worker messages are typed in `src/lib/python/protocol.ts`; change it together with `client.ts` and `worker.ts`.
 - Pyodide is loaded from jsDelivr at a version pinned in `src/lib/python/worker.ts`; it is not an npm dependency, and running Python needs a network connection.
 - GitHub Pages cannot send COOP/COEP headers, so there is no SharedArrayBuffer: `input()` raises an error, and Stop / Ctrl-C terminate and restart the worker instead of raising `KeyboardInterrupt`.
-- The string `'Python was restarted'` is duplicated in `client.ts` and `PyCell.svelte`; keep them identical.
+- The error message `'Python was restarted'` is duplicated in `client.ts`, `PyCell.svelte` and `src/routes/terminal/+page.svelte`; keep them identical.
 - `src/routes/terminal/` is outside the `(site)` layout: wterm (`@wterm/dom`) with the Ghostty WASM core, driven by the readline-style `src/lib/terminal/line-editor.ts`. Links to it use `data-sveltekit-reload` (see `LaunchPython.svelte`).
 
 ## Agents
