@@ -2,177 +2,108 @@
 	import Code from '#lib/components/Code.svelte';
 </script>
 
-<h3>The Project</h3>
-
-<p>
-	In this lab we will build a tool to analyse DNA sequences. We require this program to do the
-	following:
-</p>
-
-<ul>
-	<li>It is a command line tool (we will use it from the terminal)</li>
-	<li>Accept one or more paths to potential DNA sequence files (file locations)</li>
-	<li>Read those files and ignore any comments</li>
-	<li>Check if the sequence is a valid DNA data and ignore it if it is not</li>
-	<li>Count the bases <code>A</code>, <code>T</code>, <code>G</code>, and <code>C</code></li>
-	<li>Compute the GC content (%)</li>
-	<li>Estimate sequence&#39;s melting temperature (Tm assuming it is a plasmid)</li>
-	<li>Print out all the analysis results to the terminal</li>
-</ul>
-
-<Code
-	lang="python"
-	code={String.raw`                                      ▄                         
-█▀▀▄  █▀▀▄  ▄▀▀▄     ▄▀▀▄ ▄▄▄    ▄▄▄  █  ▄  ▄   ▄▄▄   ▄▄   ▄ ▄▄ 
-█  █  █  █  █▄▄█     █▄▄█ █  █  █  █  █  █  █  ▀▄▄   █▄▄█  █▀   
-█▄▄▀  █  █  █  █     █  █ █  █  ▀▄▀█  █  ▀▄▄█  ▄▄▄▀  ▀▄▄▄  █    
-                                          ▄▄▀                   
-Analysing sequences:
-+--------------------+--------+--------+--------+--------+--------+
-┊   Sequence File    ┊ #bases ┊ssMW kDa┊  GC%   ┊ AT/GC  ┊ Tm C°  ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊     BGH-R.pri      ┊   18   ┊  5.66  ┊ 55.56% ┊  0.80  ┊   56   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊    example1.txt    ┊  6458  ┊1998.87 ┊ 34.42% ┊  1.91  ┊ 17362  ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊    example3.dna    ┊   47   ┊ 14.61  ┊ 14.89% ┊  5.71  ┊  108   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊   MSCV-fwrd.pri    ┊   23   ┊  6.93  ┊ 60.87% ┊  0.64  ┊   74   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊   pBAD-fwrd.pri    ┊   20   ┊  6.10  ┊ 35.00% ┊  1.86  ┊   54   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊       T3.pri       ┊   21   ┊  6.45  ┊ 42.86% ┊  1.33  ┊   60   ┊
-+--------------------+--------+--------+--------+--------+--------+
-
-Skipped:
-❌     example2.txt      Not a DNA sequence
-❌     example4.rna      Not a DNA sequence`}
-/>
-
-<h3>Project Folder Organisation</h3>
+<h3>Verify Your System in the Terminal</h3>
 
 <blockquote>
 	<p>
-		Please create <code>~/workplace/pythonlab/lab1/dna-analyser</code> if you haven&#39;t already done
-		so.
+		Terminal is a type of a command line interface (CLI) and people use these terms interchangeably.
 	</p>
 </blockquote>
-
-<p>
-	<code>workspace/pythonlab/</code> will house all the projects that you will write in this and
-	future labs. Inside it, we will create directories for each lab, and each lab folder will contain
-	all the projects for that given lab. You are welcome to continue using <code>workspace</code> for your
-	future projects.
-</p>
-
-<blockquote>
-	<p>
-		I saw this structure from <a
-			href="https://blog.boot.dev/misc/how-i-organize-my-local-development-environment/"
-			target="_blank"
-			rel="noopener">Lane Wagner (boot.dev)</a
-		>
-		and have adopted it in my own workflow.
-	</p>
-</blockquote>
-
-<h3>Entry Point for Your Program : <code>main.py</code></h3>
 
 <ol>
-	<li>Open <code>~/workplace/pythonlab/lab1/dna-analyser</code> as a folder in VS Code.</li>
+	<li><p>Open <strong>VS Code</strong>.</p></li>
 	<li>
-		Create and open a new python file in the <code>dna-analyser</code>. Name the file
-		<code>main.py</code>. A Python file is just a text file with a name ending with
-		<code>.py</code>.
+		<p>Open VS Code terminal:</p>
+		<ul>
+			<li>
+				In VS Code, use keyboard shortcut <code>^`</code> ( press <code>Control</code> and
+				<code>`</code>
+				keys together) or from the menu toolbar go to <code>View &gt; Terminal</code>.
+			</li>
+		</ul>
 	</li>
-	<li>Open <code>main.py</code> in VS Code.</li>
+	<li>
+		<p>Inside the terminal, enter the following:</p>
+		<Code lang="bash" code={String.raw`uname`} />
+	</li>
 </ol>
 
-<blockquote>
-	<p>
-		<code>main.py</code> will be an <em>entry point</em> for our program. The name
-		<code>main.py</code>
-		is a conventional name given to the &quot;main&quot; file in your program that you run to use your
-		program. Naming your main file <code>main.py</code> is not a requirement. Nevertheless, it is more
-		convenient for organising our code by giving us a clear place to start reading our code in the future.
-	</p>
-</blockquote>
-
-<p>Copy the following into <code>main.py</code>:</p>
-
-<Code lang="python" code={String.raw`print("Hello from DNA Analyser!")`} />
-
 <p>
-	Then run the following from the VS Code terminal (make sure your current working directory is the
-	same as the location of the <code>main.py</code>, i.e.<code
-		>~/workspace/pythonlab/lab1/dna-analyser</code
-	>.
-</p>
-
-<Code lang="bash" code={String.raw`python3 main.py`} />
-
-<blockquote>
-	<p>
-		In the above we are &quot;telling&quot; Python interpreter to run our <code>main.py</code> code.
-	</p>
-</blockquote>
-
-<p>Congratulations, you have written your first Python program on your machine!🐍</p>
-
-<h3>Shebang Line</h3>
-
-<p>
-	Another convenient way to run Python programs in Unix-like systems (Linux, MacOS) is by adding a <em
-		>shebang</em
-	>
-	(<code>#!</code>) line on top of the file as shown below.
+	You should see the above print either <code>Linux</code> (WSL and Linux) or <code>Darwin</code>
+	(macOS). E.g., your terminal should look like this (the exact prompt, <code>$</code> and everything
+	in front of it may differ from the example below):
 </p>
 
 <Code
-	lang="python"
-	code={String.raw`#!/usr/bin/env python3
-
-print("Hello from DNA Analyser!")`}
+	lang="bash"
+	code={String.raw`$ uname
+Linux`}
 />
 
-<ul>
-	<li><p>Add the Python shebang as the very first line to <code>main.py</code>.</p></li>
-	<li>
-		<p>
-			Change <code>main.py</code> to be executable using <code>chmod +x</code> (this modifies file permissions
-			to executable or &quot;runnable&quot; file):
-		</p>
-		<Code lang="bash" code={String.raw`chmod +x main.py`} />
-	</li>
-	<li>
-		<p>Then run the following in the terminal:</p>
-		<Code lang="bash" code={String.raw`./main.py`} />
-	</li>
-</ul>
+<p>For macOS:</p>
 
-<p>
-	You should see your program run as usual. This time we did it without explicitly calling the
-	Python interpreter. The line with <code>#!</code> takes care of calling the interpreter when we run
-	the program.
-</p>
-
-<p>
-	Note the <code>./</code> in front of the file name. Here, we need to specify that the
-	<em>command</em> <code>main.py</code> is in the current directory as our system is not aware of its
-	location.
-</p>
+<Code
+	lang="bash"
+	code={String.raw`$ uname
+Darwin`}
+/>
 
 <blockquote>
 	<p>
-		To run commands without specifying their path, you need to add its directory (location) to the <a
-			href="https://en.wikipedia.org/wiki/PATH_(variable)"
-			target="_blank"
-			rel="noopener"><code>PATH</code> environment variable</a
-		>.
+		If you would rather use a different IDE or editor to VS Code, please feel free to run these
+		commands in your preferred terminal or IDE.
 	</p>
 </blockquote>
 
+<h3>Relative and Absolute Path</h3>
+
 <p>
-	Going forward you may run <code>main.py</code> either by directly <em>calling</em> it or using
-	<code>python3 main.py</code>.
+	Your operating system uses two types of paths to locate files and folders, <em>absolute path</em>
+	and <em>relative path</em>. E.g., <code>~</code> is a relative path (shortcut) that refers to the
+	home folder in Unix-based system like Linux and MacOS. An absolute path for home folder could look
+	something like <code>/home/murat</code> (Linux and WSL) or <code>/Users/murat</code> (macOS).
+</p>
+
+<p>Below are most commonly used relative path locations:</p>
+
+<table>
+	<thead>
+		<tr>
+			<th align="center">Relative path</th>
+			<th align="center">Meaning</th>
+			<th align="center">Usage</th>
+		</tr>
+	</thead>
+	<tbody
+		><tr>
+			<td align="center"><code>~</code></td>
+			<td align="center">User&#39;s home directory</td>
+			<td align="center"
+				><code>~/Documents/</code> refers to <code>Documents/</code> in my home directory</td
+			>
+		</tr>
+		<tr>
+			<td align="center"><code>.</code></td>
+			<td align="center">The current directory</td>
+			<td align="center"
+				><code>./file1</code> is same as just <code>file1</code> but the first one is more specific</td
+			>
+		</tr>
+		<tr>
+			<td align="center"><code>..</code></td>
+			<td align="center">The parent directory (of the current one)</td>
+			<td align="center"
+				><code>../..</code> refers to a &quot;grandparent&quot; directory of the curent
+				<code>.</code></td
+			>
+		</tr>
+	</tbody>
+</table>
+
+<p>
+	Inside our code you may use either of the relative or the absolute paths to refer to files and
+	folders on your machine. The relative path, as its name suggests, may depend on your current
+	working directory and change when you change your working directory or the environment. The
+	absolute path always starts with the root directory <code>/</code> and does not depend on your current
+	working directory or the environment (e.g., your username).
 </p>

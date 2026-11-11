@@ -16,9 +16,10 @@
 	<li>
 		Python Project 🚀
 		<ul>
-			<li><a href={href('lab-01/02')}>Part 1: Linux Commands</a></li>
-			<li><a href={href('lab-01/03')}>Part 2:</a></li>
-			<li><a href={href('lab-01/03')}>Part 3:</a></li>
+			<li><a href={href('lab-01/02')}>Introduction</a></li>
+			<li><a href={href('lab-01/03')}>Terminal</a></li>
+			<li><a href={href('lab-01/04')}>Relative Path</a></li>
+			<li><a href={href('lab-01/05')}>Linux Commands</a></li>
 		</ul>
 	</li>
 	<li>Managing Python Environments 📦</li>

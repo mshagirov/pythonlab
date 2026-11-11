@@ -303,7 +303,7 @@ sudo apt udgrade`}
 		packages.
 	</p>
 
-	<h3>Install VS Code (Recommended)</h3>
+	<h3>Install VS Code (Optional)</h3>
 
 	<p>
 		Follow the Linux installation steps to install VS Code from the
