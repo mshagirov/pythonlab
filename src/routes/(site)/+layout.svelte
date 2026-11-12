@@ -1,5 +1,7 @@
 <script lang="ts">
+	import { asset } from '$app/paths';
 	import { page } from '$app/state';
+	import PageCarousel from '#lib/components/PageCarousel.svelte';
 	import PrevNext from '#lib/components/PrevNext.svelte';
 	import SectionNavigation from '#lib/components/SectionNavigation.svelte';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
@@ -23,7 +25,10 @@
 </svelte:head>
 
 <header>
-	<a href={href('')}>🐍 Python Lab</a>
+	<a class="home" href={href('')}>
+		<img src={asset('pythonlab-icon.svg')} alt="" width="288" height="288" />
+		Python Lab
+	</a>
 	<ThemeToggle />
 </header>
 
@@ -33,18 +38,26 @@
 	class:section-reader={current?.steps?.length}
 >
 	{#if current}
+		{@const steps = current.steps}
+		<PrevNext previous={current.previous} next={current.next}>
+			{#if steps?.length}
+				<SectionNavigation {steps} {active} />
+			{/if}
+		</PrevNext>
 		<h1>{current.title}</h1>
 	{/if}
 
 	<div class="lesson-content">
-		{#if current?.steps?.length}
-			<SectionNavigation steps={current.steps} {active} />
-		{/if}
 		{@render children()}
 	</div>
 
 	{#if current}
-		<PrevNext previous={current.previous} next={current.next} />
+		<PageCarousel
+			sequence={current.sequence}
+			index={current.index}
+			previousPage={current.previousPage}
+			nextPage={current.nextPage}
+		/>
 	{/if}
 </main>
 
@@ -62,6 +75,17 @@
 </footer>
 
 <style>
+	.home {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4em;
+	}
+
+	.home img {
+		width: 1.2em;
+		height: 1.2em;
+	}
+
 	footer {
 		flex-wrap: wrap;
 		gap: 0.5rem;
@@ -120,11 +144,12 @@
 	.section-reader .lesson-content:global(.more-below)::after {
 		content: '';
 		position: absolute;
-		inset: auto 0 0;
-		height: 7rem;
+		/* Span the whole viewport width, not just the centred content column. */
+		inset: auto calc(50% - 50vw) 0;
+		height: 8rem;
 		pointer-events: none;
-		backdrop-filter: blur(2px);
-		background: linear-gradient(to bottom, transparent, var(--bg));
+		backdrop-filter: blur(4px);
+		background: linear-gradient(to bottom, transparent, var(--more-below));
 		mask-image: linear-gradient(to bottom, transparent, black);
 	}
 
@@ -139,11 +164,6 @@
 		overscroll-behavior-y: contain;
 		scrollbar-gutter: stable;
 		padding: 0 0.25rem;
-	}
-
-	.section-reader :global(.section-navigation) {
-		flex-shrink: 0;
-		margin-block: 0.25rem 0.375rem;
 	}
 
 	.section-reader :global(.lesson-content > section:not([hidden])) {
@@ -165,9 +185,12 @@
 
 	.viewport-reader :global(.prevnext) {
 		flex-shrink: 0;
+	}
+
+	.viewport-reader :global(.page-carousel) {
 		border-top: 0;
 		margin-top: 0.375rem;
-		padding-top: 0.25rem;
+		padding-top: 0;
 	}
 
 	:global(body:has(.viewport-reader)) footer {

@@ -188,7 +188,7 @@ export const sections: NavSection[] = [
 	},
 	{
 		path: 'lab-01/',
-		title: 'Lab 1: Setting Up Python Environment',
+		title: 'Prepare Python Environment',
 		pages: [
 			{ path: 'lab-01/01', title: 'Prerequisites', steps: lessonSteps['lab-01/01'] },
 			{ path: 'lab-01/02', title: 'Project', steps: lessonSteps['lab-01/02'] },
@@ -207,28 +207,57 @@ export interface NavLink {
 	label: string;
 }
 
+/** Link to a page's first or last section (or the page itself when it has none). */
+function pageLink(page: NavPage, at: 'first' | 'last'): NavLink {
+	const step = at === 'first' ? page.steps?.[0] : page.steps?.at(-1);
+	return { path: step ? `${page.path}#${step.id}` : page.path, label: page.title };
+}
+
 export function neighbours(
 	path: string,
 	hash = '',
-): { title: string; steps?: NavPage['steps']; previous?: NavLink; next?: NavLink } | undefined {
+):
+	| {
+			title: string;
+			steps?: NavPage['steps'];
+			previous?: NavLink;
+			next?: NavLink;
+			/** The section's index page followed by its lesson pages, for the carousel. */
+			sequence: NavLink[];
+			/** Position of the current page in `sequence`. */
+			index: number;
+			/** Last section of the previous page, for the carousel's left side. */
+			previousPage?: NavLink;
+			/** First section of the next page, for the carousel's right side. */
+			nextPage?: NavLink;
+	  }
+	| undefined {
 	for (const section of sections) {
 		const pages: NavPage[] = section.pages.flatMap((page) =>
 			page.steps
 				? page.steps.map((step) => ({ path: `${page.path}#${step.id}`, title: step.title }))
 				: [page],
 		);
+		const sequence: NavLink[] = [
+			{ path: section.path, label: section.title },
+			...section.pages.map((page) => ({ path: page.path, label: page.title })),
+		];
 		if (section.path === path) {
 			const first: NavPage | undefined = pages[0];
 			return {
 				title: section.title,
 				previous: { path: '', label: 'Back to Workshops' },
-				next: first ? { path: first.path, label: `Next: ${first.title}` } : undefined,
+				next: first ? { path: first.path, label: first.title } : undefined,
+				sequence,
+				index: 0,
+				nextPage: section.pages[0] && pageLink(section.pages[0], 'first'),
 			};
 		}
 
 		const page = section.pages.find((page) => page.path === path);
 		if (!page) continue;
 
+		const pageIndex = section.pages.indexOf(page);
 		const step = page.steps?.find((step) => `#${step.id}` === hash) ?? page.steps?.[0];
 		const currentPath = step ? `${path}#${step.id}` : path;
 		const index = pages.findIndex((page) => page.path === currentPath);
@@ -239,13 +268,19 @@ export function neighbours(
 			title: page.title,
 			steps: page.steps,
 			previous: before
-				? { path: before.path, label: `Previous: ${before.title}` }
-				: { path: section.path, label: `Previous: ${section.title}` },
+				? { path: before.path, label: before.title }
+				: { path: section.path, label: section.title },
 			next: after
-				? { path: after.path, label: `Next: ${after.title}` }
+				? { path: after.path, label: after.title }
 				: currentPath === 'introduction/13#next-steps'
-					? { path: section.path, label: `Next: ${section.title}` }
+					? { path: section.path, label: section.title }
 					: undefined,
+			sequence,
+			index: pageIndex + 1,
+			previousPage: section.pages[pageIndex - 1]
+				? pageLink(section.pages[pageIndex - 1], 'last')
+				: { path: section.path, label: section.title },
+			nextPage: section.pages[pageIndex + 1] && pageLink(section.pages[pageIndex + 1], 'first'),
 		};
 	}
 

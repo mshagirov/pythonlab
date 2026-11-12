@@ -1,11 +1,8 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-	import { href, navigateStep, toNavPath } from '#lib/href.ts';
-	import { neighbours } from '#lib/nav.ts';
 
 	let { steps, active }: { steps: { id: string; title: string }[]; active: number } = $props();
-	const current = $derived(neighbours(toNavPath(page.url.pathname), page.url.hash));
 
 	function resetReadingFocus(section: HTMLElement | null): void {
 		const focused = document.activeElement;
@@ -88,27 +85,6 @@
 </script>
 
 <nav class="section-navigation" aria-label="Lesson sections">
-	<div class="section-controls">
-		<span class="section-count" aria-live="polite">
-			<span class="current-number">{active + 1}</span> / {steps.length}
-		</span>
-		<a
-			class="arrow"
-			onclick={navigateStep}
-			href={current?.previous ? href(current.previous.path) : undefined}
-			aria-label={current?.previous?.label ?? 'Previous'}
-			aria-disabled={!current?.previous}
-			data-sveltekit-noscroll>←</a
-		>
-		<a
-			class="arrow"
-			onclick={navigateStep}
-			href={current?.next ? href(current.next.path) : undefined}
-			aria-label={current?.next?.label ?? 'Next'}
-			aria-disabled={!current?.next}
-			data-sveltekit-noscroll>→</a
-		>
-	</div>
 	<ol class="step-track">
 		{#each steps as step, index}
 			<li class:reached={index <= active}>
@@ -126,77 +102,19 @@
 
 <style>
 	.section-navigation {
-		display: grid;
-		grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
-		align-items: center;
-		gap: 0.4rem 0.5rem;
-		margin: -0.5rem 0 1.5rem;
+		display: flex;
+		justify-content: center;
 		width: 100%;
 		max-width: 100%;
 	}
 
-	.section-controls {
-		grid-column: 3;
-		grid-row: 1;
-		justify-self: end;
-		display: flex;
-		flex-shrink: 0;
-		align-items: center;
-		gap: 0.5rem;
-	}
-
-	.section-count {
-		margin-right: 0.5rem;
-		color: var(--muted);
-		font-size: 0.875rem;
-		font-variant-numeric: tabular-nums;
-	}
-
-	.current-number {
-		color: var(--fg);
-		font-weight: 650;
-	}
-
-	.arrow {
-		display: grid;
-		place-items: center;
-		width: 2rem;
-		height: 2rem;
-		border: 1px solid var(--border);
-		border-radius: 50%;
-		text-decoration: none;
-	}
-
-	.arrow[aria-disabled='true'] {
-		color: var(--muted);
-		opacity: 0.4;
-	}
-
 	.step-track {
-		grid-column: 2;
-		grid-row: 1;
-		justify-self: center;
 		display: flex;
 		flex-shrink: 0;
 		max-width: 100%;
 		list-style: none;
 		margin: 0;
 		padding: 0;
-	}
-
-	@media (max-width: 44rem) {
-		.section-navigation {
-			grid-template-columns: minmax(0, 1fr);
-		}
-
-		.section-controls {
-			grid-column: 1;
-		}
-
-		.step-track {
-			grid-column: 1;
-			grid-row: 2;
-		}
 	}
 
 	.step-track li {
@@ -252,7 +170,6 @@
 		outline-offset: 3px;
 	}
 
-	.arrow[href]:hover,
 	.step-track a:hover {
 		background: var(--code-bg);
 	}

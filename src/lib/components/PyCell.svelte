@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
 	import { highlight } from '#lib/highlight.ts';
+	import { isApple } from '#lib/platform.ts';
 	import { cells } from '#lib/python/client.ts';
 	import type { Stream } from '#lib/python/client.ts';
 
@@ -33,6 +34,11 @@
 	let status = $state('');
 	let typing = $state(false);
 	let textarea = $state<HTMLTextAreaElement | null>(null);
+	/** Shift key name for the Run tooltip; the PC name until we know we're on a Mac. */
+	let shift = $state('Shift');
+	$effect(() => {
+		if (isApple()) shift = '⇧';
+	});
 
 	// Shiki emits nothing for a final empty line; one more character keeps heights equal.
 	const highlighted = $derived(highlight(source.endsWith('\n') ? `${source} ` : source, 'python'));
@@ -96,7 +102,7 @@
 			insertTab();
 			return;
 		}
-		if (event.key === 'Enter' && (event.ctrlKey || event.metaKey || event.shiftKey)) {
+		if (event.key === 'Enter' && event.shiftKey) {
 			event.preventDefault();
 			void run();
 		}
@@ -117,6 +123,7 @@
 				autocomplete="off"
 				wrap="off"
 				rows="1"
+				aria-keyshortcuts="Shift+Enter"
 				oninput={() => (typing = true)}
 				onblur={() => (typing = false)}
 				{onkeydown}></textarea>
@@ -143,7 +150,6 @@
 				class:stop={running}
 				onclick={running ? stop : () => void run()}
 				aria-label={running ? 'Stop' : 'Run'}
-				title={running ? 'Stop' : 'Run'}
 			>
 				{#if running}
 					<svg viewBox="0 0 16 16" aria-hidden="true">
@@ -154,6 +160,13 @@
 						<path d="M4 2.5v11l9-5.5z" fill="currentColor" />
 					</svg>
 				{/if}
+				<span class="tooltip" aria-hidden="true">
+					{#if running}
+						Stop
+					{:else}
+						Run <kbd>{shift}</kbd><kbd>Enter</kbd>
+					{/if}
+				</span>
 			</button>
 		</div>
 	</div>
@@ -286,7 +299,38 @@
 	}
 
 	.actions button.toggle {
+		position: relative;
 		color: light-dark(#1a7f37, #3fb950);
+	}
+
+	.tooltip {
+		position: absolute;
+		top: calc(100% + 0.3rem);
+		right: 0;
+		display: flex;
+		align-items: center;
+		gap: 0.3rem;
+		padding: 0.3rem 0.5rem;
+		border: 1px solid var(--border);
+		border-radius: 4px;
+		background: var(--code-bg);
+		color: var(--fg);
+		font-size: 0.8rem;
+		white-space: nowrap;
+		pointer-events: none;
+		opacity: 0;
+		translate: 0 -0.25rem;
+		transition:
+			opacity 0.15s,
+			translate 0.15s;
+	}
+
+	.toggle:hover .tooltip,
+	.toggle:focus-visible .tooltip {
+		opacity: 1;
+		translate: 0 0;
+		/* A short delay so the tooltip doesn't flash while the pointer passes by. */
+		transition-delay: 0.3s;
 	}
 
 	.actions button.toggle.stop {

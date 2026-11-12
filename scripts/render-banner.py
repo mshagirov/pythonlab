@@ -20,6 +20,7 @@ SAMPLES = 4
 DETAIL_OPACITY = 0.45
 PARTS = {
     'logo': (24, 24),
+    'icon': (12, 12),
     'wordmark': (55, 7),
     'wordmark-mobile': (35, 16),
 }

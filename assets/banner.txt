@@ -38,6 +38,27 @@
        ○●●●●●○  ○
        ○●⋅●●●●○ ○
         ○○○○○○○○
+# Icon: hand-downscaled 12x12 logo for the favicon and site header; spaces are the eyes.
+[icon.blue]
+    ●●●●
+   ● ●●●
+   ●●●●●
+     ●●●
+ ●●●●●●●
+●●●●●●●●
+●●●
+●●●
+ ●●
+[icon.yellow 3 0]
+         ●●
+         ●●●
+         ●●●
+    ●●●●●●●●
+    ●●●●●●●
+    ●●●
+    ●●●●●
+    ●●● ●
+    ●●●●
 [wordmark.blue]
 ■■■■  ■   ■ ■■■■■ ■   ■  ■■■  ■   ■
 ■   ■ ■   ■   ■   ■   ■ ■   ■ ■■  ■
