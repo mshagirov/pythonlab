@@ -1,28 +1,30 @@
 <script lang="ts">
+	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
 </script>
 
-<h3>DNA Analyser</h3>
+<LessonSection id="dna-analyser">
+	<h3>DNA Analyser</h3>
 
-<p>
-	In this lab we will build a tool to analyse DNA sequences. We require this program to do the
-	following:
-</p>
+	<p>
+		In this lab we will build a tool to analyse DNA sequences. We require this program to do the
+		following:
+	</p>
 
-<ul>
-	<li>It is a command line tool (we will use it from the terminal)</li>
-	<li>Accept one or more paths to potential DNA sequence files (file locations)</li>
-	<li>Read those files and ignore any comments</li>
-	<li>Check if the sequence is a valid DNA data and ignore it if it is not</li>
-	<li>Count the bases <code>A</code>, <code>T</code>, <code>G</code>, and <code>C</code></li>
-	<li>Compute the GC content (%)</li>
-	<li>Estimate sequence&#39;s melting temperature (Tm assuming it is a plasmid)</li>
-	<li>Print out all the analysis results to the terminal</li>
-</ul>
+	<ul>
+		<li>It is a command line tool (we will use it from the terminal)</li>
+		<li>Accept one or more paths to potential DNA sequence files (file locations)</li>
+		<li>Read those files and ignore any comments</li>
+		<li>Check if the sequence is a valid DNA data and ignore it if it is not</li>
+		<li>Count the bases <code>A</code>, <code>T</code>, <code>G</code>, and <code>C</code></li>
+		<li>Compute the GC content (%)</li>
+		<li>Estimate sequence&#39;s melting temperature (Tm assuming it is a plasmid)</li>
+		<li>Print out all the analysis results to the terminal</li>
+	</ul>
 
-<Code
-	lang="python"
-	code={String.raw`                                      ▄                         
+	<Code
+		lang="python"
+		code={String.raw`                                      ▄                         
 █▀▀▄  █▀▀▄  ▄▀▀▄     ▄▀▀▄ ▄▄▄    ▄▄▄  █  ▄  ▄   ▄▄▄   ▄▄   ▄ ▄▄ 
 █  █  █  █  █▄▄█     █▄▄█ █  █  █  █  █  █  █  ▀▄▄   █▄▄█  █▀   
 █▄▄▀  █  █  █  █     █  █ █  █  ▀▄▀█  █  ▀▄▄█  ▄▄▄▀  ▀▄▄▄  █    
@@ -47,15 +49,17 @@ Analysing sequences:
 Skipped:
 ❌     example2.txt      Not a DNA sequence
 ❌     example4.rna      Not a DNA sequence`}
-/>
+	/>
+</LessonSection>
+<LessonSection id="goals-of-the-project">
+	<h3>Goals of the Project</h3>
 
-<h3>Goals of the Project</h3>
-
-<ul>
-	<li>Practice Python commands that we have learned from the previous session</li>
-	<li>Get familiar with your tooling (e.g., IDE, your machine etc)</li>
-	<li>Learn what is a Python environment</li>
-	<li>Learn how to set up a Python environment for your project</li>
-	<li>Practice writing (re-usable) Python modules</li>
-	<li>Have fun with Python!</li>
-</ul>
+	<ul>
+		<li>Practice Python commands that we have learned from the previous session</li>
+		<li>Get familiar with your tooling (e.g., IDE, your machine etc)</li>
+		<li>Learn what is a Python environment</li>
+		<li>Learn how to set up a Python environment for your project</li>
+		<li>Practice writing (re-usable) Python modules</li>
+		<li>Have fun with Python!</li>
+	</ul>
+</LessonSection>

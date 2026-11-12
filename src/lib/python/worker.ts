@@ -50,11 +50,18 @@ type AwaitFuture = (future: ConsoleFuture) => Promise<unknown>;
 /** Drops the console's half-entered block. */
 type ResetConsole = (console: Console) => void;
 
+type RunLimitedProgram = (
+	code: string,
+	globals: PyProxy,
+	maxLoopIterations: number,
+) => Promise<unknown>;
+
 interface Runtime {
 	pyodide: PyodideAPI;
 	console: Console;
 	awaitFut: AwaitFuture;
 	resetConsole: ResetConsole;
+	runLimitedProgram: RunLimitedProgram;
 }
 
 /* Talking to the page. */
@@ -201,10 +208,63 @@ reset_console
 		) as unknown as ResetConsole;
 		resetNamespace.destroy();
 
+		// Instrument only opted-in cells, leaving their source and shared globals intact.
+		const limitNamespace = pyodide.runPython('dict()') as PyProxy;
+		const runLimitedProgram = pyodide.runPython(
+			`
+import ast
+import inspect
+
+
+async def run_limited_program(source, namespace, limit):
+    if not isinstance(limit, int) or limit < 1:
+        raise ValueError("The loop iteration limit must be a positive integer")
+
+    tree = ast.parse(source, filename="<exec>")
+    guard_name = "__pythonlab_loop_guard"
+    while guard_name in namespace or guard_name in source:
+        guard_name += "_"
+
+    counts = {}
+
+    def check_iteration(loop_id):
+        count = counts.get(loop_id, 0)
+        if count >= limit:
+            raise RuntimeError(f"Loop iteration limit exceeded ({limit} iterations)")
+        counts[loop_id] = count + 1
+
+    # Check the body, not the condition: a terminating loop may test its
+    # condition 101 times while executing its body only 100 times.
+    for loop_id, node in enumerate(list(ast.walk(tree))):
+        if isinstance(node, (ast.While, ast.For, ast.AsyncFor)):
+            check = ast.Expr(value=ast.Call(
+                func=ast.Name(id=guard_name, ctx=ast.Load()),
+                args=[ast.Constant(value=loop_id)],
+                keywords=[],
+            ))
+            node.body.insert(0, ast.copy_location(check, node.body[0]))
+
+    ast.fix_missing_locations(tree)
+    program = compile(tree, "<exec>", "exec", flags=ast.PyCF_ALLOW_TOP_LEVEL_AWAIT)
+    namespace[guard_name] = check_iteration
+    try:
+        result = eval(program, namespace)
+        if inspect.isawaitable(result):
+            await result
+    finally:
+        namespace.pop(guard_name, None)
+
+
+run_limited_program
+`,
+			{ globals: limitNamespace },
+		) as unknown as RunLimitedProgram;
+		limitNamespace.destroy();
+
 		const pythonVersion = String(pyodide.runPython("__import__('sys').version.split()[0]"));
 		post({ type: 'ready', banner: `Python ${pythonVersion} (Pyodide ${pyodide.version})` });
 
-		return { pyodide, console, awaitFut, resetConsole };
+		return { pyodide, console, awaitFut, resetConsole, runLimitedProgram };
 	} catch (error) {
 		post({ type: 'error', message: errorText(error) });
 		throw error;
@@ -224,13 +284,22 @@ function getRuntime(): Promise<Runtime> {
 
 /* Requests. */
 
-async function runProgram(runtime: Runtime, id: number, code: string): Promise<void> {
+async function runProgram(
+	runtime: Runtime,
+	id: number,
+	code: string,
+	maxLoopIterations?: number,
+): Promise<void> {
 	activeId = id;
 	resetDecoders();
 
 	let failure: string | null = null;
 	try {
-		await runtime.pyodide.runPythonAsync(code);
+		if (maxLoopIterations === undefined) {
+			await runtime.pyodide.runPythonAsync(code);
+		} else {
+			await runtime.runLimitedProgram(code, runtime.pyodide.globals, maxLoopIterations);
+		}
 	} catch (error) {
 		failure = tracebackText(error);
 	}
@@ -287,8 +356,9 @@ function resetBlock(runtime: Runtime, id: number): void {
 
 async function handle(runtime: Runtime, request: Request): Promise<void> {
 	try {
-		if (request.type === 'run') await runProgram(runtime, request.id, request.code);
-		else if (request.type === 'reset') resetBlock(runtime, request.id);
+		if (request.type === 'run') {
+			await runProgram(runtime, request.id, request.code, request.maxLoopIterations);
+		} else if (request.type === 'reset') resetBlock(runtime, request.id);
 		else await pushLine(runtime, request.id, request.line);
 	} catch (error) {
 		// Never leave the page waiting: always answer with `done`.

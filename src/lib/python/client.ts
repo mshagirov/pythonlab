@@ -3,11 +3,15 @@ import type { Request, RequestBody, ResponseMessage } from '#lib/python/protocol
 export type Stream = 'stdout' | 'stderr';
 export type OutputHandler = (text: string, stream: Stream) => void;
 
+export interface RunOptions {
+	maxLoopIterations?: number;
+}
+
 export interface PythonSession {
 	/** Resolves with the banner once Python has loaded. Rejects if loading fails (e.g. offline). */
 	readonly ready: Promise<string>;
 	/** Run a whole program. Resolves when it has finished; Python errors are reported through onOutput as stderr, they do not reject. */
-	run(code: string, onOutput: OutputHandler): Promise<void>;
+	run(code: string, onOutput: OutputHandler, options?: RunOptions): Promise<void>;
 	/** REPL: feed one line. Resolves true when more input is needed (continuation). */
 	push(line: string, onOutput: OutputHandler): Promise<boolean>;
 	/** REPL: discard a half-entered block, as Ctrl-C at the continuation prompt does. */
@@ -38,8 +42,11 @@ class Session implements PythonSession {
 		return this.#whenReady();
 	}
 
-	async run(code: string, onOutput: OutputHandler): Promise<void> {
-		await this.#request({ type: 'run', code }, onOutput);
+	async run(code: string, onOutput: OutputHandler, options: RunOptions = {}): Promise<void> {
+		await this.#request(
+			{ type: 'run', code, maxLoopIterations: options.maxLoopIterations },
+			onOutput,
+		);
 	}
 
 	async push(line: string, onOutput: OutputHandler): Promise<boolean> {

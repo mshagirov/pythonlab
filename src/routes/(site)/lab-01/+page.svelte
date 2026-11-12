@@ -12,14 +12,14 @@
 <h3>Contents</h3>
 
 <ol>
-	<li><a href={href('lab-01/01')}>Prerequisites</a> 🛠️</li>
+	<li><a href={href('lab-01/01#prerequisites')}>Prerequisites</a> 🛠️</li>
 	<li>
 		Python Project 🚀
 		<ul>
-			<li><a href={href('lab-01/02')}>Introduction</a></li>
-			<li><a href={href('lab-01/03')}>Terminal</a></li>
-			<li><a href={href('lab-01/04')}>Relative Path</a></li>
-			<li><a href={href('lab-01/05')}>Linux Commands</a></li>
+			<li><a href={href('lab-01/02#dna-analyser')}>Introduction</a></li>
+			<li><a href={href('lab-01/03#verify-your-system-in-the-terminal')}>Terminal</a></li>
+			<li><a href={href('lab-01/04#relative-and-absolute-path')}>Relative Path</a></li>
+			<li><a href={href('lab-01/05#linux-commands')}>Linux Commands</a></li>
 		</ul>
 	</li>
 	<li>Managing Python Environments 📦</li>

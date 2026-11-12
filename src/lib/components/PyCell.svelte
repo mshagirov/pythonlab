@@ -1,10 +1,17 @@
 <script lang="ts">
-	import { untrack } from 'svelte';
+	import { onMount, untrack } from 'svelte';
 	import { highlight } from '#lib/highlight.ts';
 	import { cells } from '#lib/python/client.ts';
 	import type { Stream } from '#lib/python/client.ts';
 
-	let { code }: { code: string } = $props();
+	let { code, maxLoopIterations }: { code: string; maxLoopIterations?: number } = $props();
+
+	onMount(() => {
+		// Warm the shared worker while the reader studies the lesson, not on the first Run.
+		void cells.ready.catch(() => {
+			// A failed preload is silent; Run will retry and show any loading error.
+		});
+	});
 
 	interface Chunk {
 		text: string;
@@ -55,7 +62,7 @@
 		status = '';
 
 		try {
-			await cells.run(source, append);
+			await cells.run(source, append, { maxLoopIterations });
 		} catch (error) {
 			append(error instanceof Error ? error.message : String(error), 'stderr');
 		} finally {
@@ -299,11 +306,25 @@
 
 	.output {
 		margin: 0.75rem 0 0;
+		max-height: 20rem;
+		overflow-y: auto;
+		overscroll-behavior-y: contain;
 		white-space: pre-wrap;
 		overflow-wrap: anywhere;
 	}
 
 	.output .stderr {
 		color: light-dark(#b3261e, #ff7b72);
+	}
+
+	@media (max-width: 40rem) {
+		.editor {
+			font-size: 0.8125rem;
+		}
+
+		.editor :global(pre.shiki),
+		.code {
+			padding: 0.625rem;
+		}
 	}
 </style>

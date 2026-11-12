@@ -7,6 +7,7 @@ export interface RunRequest {
 	type: 'run';
 	id: number;
 	code: string;
+	maxLoopIterations?: number;
 }
 
 /** Feed one line to the interactive console. */

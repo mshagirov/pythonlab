@@ -52,18 +52,17 @@
 
 	@keyframes blink {
 		0%,
-		50% {
+		100% {
 			opacity: 1;
 		}
-		51%,
-		100% {
+		50% {
 			opacity: 0;
 		}
 	}
 
 	@media (prefers-reduced-motion: reduce) {
 		.cursor {
-			animation: none;
+			animation-duration: 2s;
 		}
 	}
 
