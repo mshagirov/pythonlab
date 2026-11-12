@@ -229,7 +229,8 @@
 	}
 
 	.code::selection {
-		background: light-dark(#b6d7ff, #2d4f77);
+		background: Highlight;
+		color: light-dark(HighlightText, var(--fg));
 	}
 
 	.frame {
