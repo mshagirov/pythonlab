@@ -1,10 +1,10 @@
 <script lang="ts">
-	import LaunchPython from '#lib/components/LaunchPython.svelte';
+	import HomeBanner from '#lib/components/HomeBanner.svelte';
 	import { href } from '#lib/href.ts';
 	import { sections } from '#lib/nav.ts';
 </script>
 
-<LaunchPython />
+<HomeBanner />
 
 <p><strong>Workshops and Tutorials</strong></p>
 
