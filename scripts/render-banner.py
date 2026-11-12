@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 STATIC = ROOT / 'static'
 CELL = 24
 SAMPLES = 4
+# Opacity of the *-detail palettes, so they stay subtle on dark backgrounds.
+DETAIL_OPACITY = 0.45
 PARTS = {
     'logo': (24, 24),
     'wordmark': (55, 7),
@@ -75,16 +77,21 @@ def render(part, columns, rows, entries):
                 raise ValueError(f'Character outside {part} bounds')
             cx, cy = (column + offset + 0.5) * CELL, (row + 0.5) * CELL
             color = entry['color']
+            opacity = entry['opacity']
             label = escape(character)
             if character in '○●⋅':
                 radius = CELL * (0.34 if character == '○' else 0.39 if character == '●' else 0.12)
                 paint = (f'fill="none" stroke="{color}" stroke-width="{CELL * 0.1}"'
                          if character == '○' else f'fill="{color}"')
+                if opacity != 1:
+                    paint += f' opacity="{opacity}"'
                 vectors.append(f'<circle aria-label="{label}" cx="{cx}" cy="{cy}" r="{radius}" {paint}/>')
             else:
                 half = CELL * (0.345 if character == '□' else 0.4 if character == '■' else 0.19)
                 paint = (f'fill="none" stroke="{color}" stroke-width="{CELL * 0.11}"'
                          if character == '□' else f'fill="{color}"')
+                if opacity != 1:
+                    paint += f' opacity="{opacity}"'
                 vectors.append(f'<rect aria-label="{label}" x="{cx - half}" y="{cy - half}" width="{half * 2}" height="{half * 2}" {paint}/>')
             for y in range(CELL):
                 for x in range(CELL):
@@ -97,7 +104,7 @@ def render(part, columns, rows, entries):
                         index = ((row * CELL + y) * width
                                  + (column + offset) * CELL + x) * 4
                         pixels[index:index + 4] = rgb + bytes([
-                            round(255 * coverage / SAMPLES ** 2)
+                            round(255 * opacity * coverage / SAMPLES ** 2)
                         ])
     write_png(STATIC / f'pythonlab-{part}.png', width, height, pixels)
     svg = ''.join(vectors)
@@ -128,7 +135,8 @@ def read_art():
             row, column = map(int, position) if position else (0, 0)
             color = colors[palette]
         elif part is not None:
-            entries.append({'part': part, 'row': row, 'column': column, 'text': line, 'color': color})
+            entries.append({'part': part, 'row': row, 'column': column, 'text': line, 'color': color,
+                            'opacity': DETAIL_OPACITY if palette.endswith('-detail') else 1})
             row += 1
     return entries
 
