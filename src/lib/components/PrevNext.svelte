@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { href } from '#lib/href.ts';
+	import { href, navigateStep } from '#lib/href.ts';
 	import type { NavLink } from '#lib/nav.ts';
 
 	let { previous, next }: { previous?: NavLink; next?: NavLink } = $props();
@@ -25,10 +25,10 @@
 {#if previous || next}
 	<nav class="prevnext">
 		{#if previous}
-			<a id="previous" href={href(previous.path)}>{previous.label}</a>
+			<a id="previous" href={href(previous.path)} onclick={navigateStep}>{previous.label}</a>
 		{/if}
 		{#if next}
-			<a id="next" href={href(next.path)}>{next.label}</a>
+			<a id="next" href={href(next.path)} onclick={navigateStep}>{next.label}</a>
 		{/if}
 	</nav>
 {/if}

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { page } from '$app/state';
-	import { href, toNavPath } from '#lib/href.ts';
+	import { href, navigateStep, toNavPath } from '#lib/href.ts';
 	import { neighbours } from '#lib/nav.ts';
 
 	let { steps, active }: { steps: { id: string; title: string }[]; active: number } = $props();
@@ -94,6 +94,7 @@
 		</span>
 		<a
 			class="arrow"
+			onclick={navigateStep}
 			href={current?.previous ? href(current.previous.path) : undefined}
 			aria-label={current?.previous?.label ?? 'Previous'}
 			aria-disabled={!current?.previous}
@@ -101,6 +102,7 @@
 		>
 		<a
 			class="arrow"
+			onclick={navigateStep}
 			href={current?.next ? href(current.next.path) : undefined}
 			aria-label={current?.next?.label ?? 'Next'}
 			aria-disabled={!current?.next}
