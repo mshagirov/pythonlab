@@ -9,9 +9,9 @@
 	<h3>Python Syntax</h3>
 
 	<p>
-		<em>Syntax</em> in programming refers to the (programming) language rules. The syntax determines the
-		structure and interpretation of the code when it runs. It may be easier to learn Python and its syntax
-		by trying to run and breaking Python code instead of purely reading the documentation.
+		<em>Syntax</em> in programming refers to the rules of a programming language. The syntax determines
+		the structure and interpretation of the code when it runs. It may be easier to learn Python and its
+		syntax by trying to run and break Python code instead of purely reading the documentation.
 	</p>
 
 	<p>Let&#39;s run (and break) some code...</p>
@@ -24,7 +24,7 @@
 		Python uses <code>#</code> for single-line, and <code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>
 		or
 		<code>&quot;&quot;&quot; ... &quot;&quot;&quot;</code>
-		for multi-line comments. The latter are technically just unused text objects, As for
+		for multi-line comments. The latter are technically just unused string literals. As for
 		<code>#</code>, any part of a line after <code>#</code> is completely ignored by the Python interpreter.
 	</p>
 
@@ -48,8 +48,8 @@ print(42) # prints 42, everything after '#' is a comment`}
 	<h3>Arithmetic Operators</h3>
 
 	<p>
-		For some code examples, let&#39;s start with the basic arithmetics. Python uses the following
-		operators to do basic arithmetics,
+		For some code examples, let&#39;s start with basic arithmetic. Python uses the following
+		operators to do basic arithmetic:
 	</p>
 
 	<ul>
@@ -96,8 +96,7 @@ print(22 / 7)`}
 
 	<blockquote>
 		<p>
-			Note the absence of decimal point <code>.</code> that you get when using <code>/</code>, e.g.,
-			<code>3.14..</code>.
+			Note the absence of the decimal point you get when using <code>/</code>.
 		</p>
 	</blockquote>
 
@@ -114,8 +113,12 @@ print(22 / 7)`}
 	<p>The order of the arithmetic operations follows the usual <em>operator precedence</em>:</p>
 
 	<ol>
-		<li>parantheses <code>(...)</code></li>
-		<li>multiplication and division (<code>/</code> or <code>//</code>)</li>
+		<li>parentheses <code>(...)</code>,</li>
+		<li>exponentiation <code>**</code>,</li>
+		<li>
+			multiplication, division, and modulo (<code>*</code>, <code>/</code>, <code>//</code>,
+			<code>%</code>),
+		</li>
 		<li>addition and subtraction.</li>
 	</ol>
 
@@ -155,7 +158,7 @@ print(42)
 	<ul>
 		<li>
 			The shell displays a default <em>representation</em> of the commands&#39; outputs if you
-			don&#39;t use <code>print</code>. The representation of an object (e.g., text), is more
+			don&#39;t use <code>print</code>. The representation of an object (e.g., text) is more
 			informative. That&#39;s what you get when you enter commands into the shell.
 		</li>
 		<li>
@@ -209,7 +212,7 @@ print(-(13 // 7) )`}
 	<blockquote>
 		<p>
 			Tip: compare the results of floor division with the ones you get from the regular division
-			operations <code>/</code>.
+			operator <code>/</code>.
 		</p>
 	</blockquote>
 </LessonSection>

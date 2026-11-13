@@ -9,16 +9,16 @@
 	<h3>Exceptions</h3>
 
 	<p>
-		Errors in Python are called <em>exceptions</em>. For example, syntax error is a special type of
-		exception where the code&#39;s syntax is wrong, such as, forgetting
-		<code>:</code> after <code>if</code> statement. You might even get errors when your code is
-		syntactically correct. These are other types of <em>exceptions</em>.
+		Errors in Python are called <em>exceptions</em>. For example, a syntax error is a special type
+		of exception where the code&#39;s syntax is wrong, such as forgetting <code>:</code> after an
+		<code>if</code> statement. You might even get errors when your code is syntactically correct.
+		These are other types of <em>exceptions</em>.
 	</p>
 
 	<table>
 		<thead>
 			<tr>
-				<th align="center">Syntax Error</th>
+				<th align="center">Syntax Errors</th>
 				<th align="center">Exceptions</th>
 			</tr>
 		</thead>
@@ -62,10 +62,9 @@ ZeroDivisionError: division by zero`}
 	/>
 
 	<p>
-		All error messages follow a similar format. Error message lists the location and a code snipped
-		where the error happened together with the type of the error (e.g., <code
-			>ZeroDivisionError</code
-		>).
+		All error messages follow a similar format. The error message lists the location and a code
+		snippet where the error happened, together with the type of the error (e.g.,
+		<code>ZeroDivisionError</code>).
 	</p>
 </LessonSection>
 <LessonSection id="memorising-errors">
@@ -73,8 +72,8 @@ ZeroDivisionError: division by zero`}
 
 	<p>
 		You don&#39;t have to memorise the exceptions and syntax errors. However, conceptual
-		understanding of syntax rules, and common errors, and their messages will help you resolve most
-		of the issues you face when writing code. <em
+		understanding of syntax rules, common errors, and their messages will help you resolve most of
+		the issues you face when writing code. <em
 			>You will naturally encounter and learn to recognise common errors as you gain more experience
 			in Python.</em
 		>
@@ -84,10 +83,10 @@ ZeroDivisionError: division by zero`}
 	<h3>Handling Exceptions</h3>
 
 	<p>
-		Errors disrupt the normal flow of the running program. When they occur the interpreter <em
+		Errors disrupt the normal flow of the running program. When they occur, the interpreter <em
 			>raises an exception</em
-		>. Python provides exception handling with
-		<code>try-except</code> block. This allows managing the errors to prevent the program from crashing.
+		>. Python provides exception handling with the <code>try-except</code> block. This allows managing
+		the errors to prevent the program from crashing.
 	</p>
 
 	<Code
@@ -102,21 +101,20 @@ except ExceptionType as e:
 	<ul>
 		<li>
 			<p>
-				<code>try</code> block encloses the code that might raise exceptions, e.g., a code that reads
-				files or a user input.
+				The <code>try</code> block encloses code that might raise exceptions, e.g., code that reads files
+				or user input.
 			</p>
 		</li>
 		<li>
 			<p>
-				<code>except</code> block catches the exception that matches a given
-				<code>ExceptionType</code> exception (error) type, e.g., <code>ValueError</code>,
-				<code>ZeroDivisionError</code>,
+				The <code>except</code> block catches exceptions that match the given
+				<code>ExceptionType</code>, e.g., <code>ValueError</code>, <code>ZeroDivisionError</code>,
 				<code>KeyError</code>, etc.
 			</p>
 		</li>
 		<li>
 			<p>
-				You can use <code>Exception</code> type to cover <em>all</em> built-in exceptions except
+				You can use the <code>Exception</code> type to cover <em>all</em> built-in exceptions except
 				<code>SystemExit</code>.
 			</p>
 		</li>
@@ -149,9 +147,9 @@ except AnotherExceptionType as e:
 
 	<blockquote>
 		<p>
-			It is not necessary to call the error as <code>e</code> and you can use any valid name or omit
-			the <code>as e</code> part altogether. If you omit the name, you need to refer to the
-			exception using the class name of the exception (type, e.g., <code>ZeroDivisionError</code>).
+			It is not necessary to name the error <code>e</code>; you can use any valid name or omit the
+			<code>as e</code> part altogether. If you omit the name, the <code>except</code> clause still
+			matches by exception class, e.g., <code>ZeroDivisionError</code>.
 		</p>
 	</blockquote>
 
@@ -172,7 +170,7 @@ except ZeroDivisionError as error:
 	<Code lang="python" code={String.raw`raise ExceptionType`} />
 
 	<p>
-		You can use <code>raise</code> with an exception with a custom message to force your own exceptions.
+		You can use <code>raise</code> with an exception and a custom message to force your own exceptions.
 	</p>
 
 	<blockquote>
@@ -197,26 +195,26 @@ except Exception as e:
 	/>
 
 	<p>
-		Forcing exception might seem counterintuitive. You might be wondering why would anyone need a
-		way to raise errors. You have to keep in mind that not all programs run in isolation, and
-		programs might interact with files, users, or communicate with other machines. In this
-		circumstances a program is expected to encounter errors.
+		Forcing an exception might seem counterintuitive. You might be wondering why anyone would need a
+		way to raise errors. You have to keep in mind that not all programs run in isolation: programs
+		might interact with files or users, or communicate with other machines. In these circumstances,
+		a program is expected to encounter errors.
 	</p>
 </LessonSection>
 <LessonSection id="assertions">
 	<h3>Assertions</h3>
 
 	<p>
-		Catching errors to gracefully handle, or intentionally raising them provides an additional way
-		to control your program. This also can be used to explicitly incorporate programmer&#39;s
+		Catching errors to handle them gracefully, or raising them intentionally, provides an additional
+		way to control your program. This can also be used to explicitly incorporate a programmer&#39;s
 		assumptions into the code. E.g., you might want to force a function to accept only a certain
 		image size or format.
 	</p>
 
 	<p>
 		For convenience, Python also provides an <code>assert</code> statement in addition to the
-		<code>raise</code>. Assertions are a convenient way to quickly include assumptions about a
-		program in a single line of code.
+		<code>raise</code> statement. Assertions are a convenient way to quickly include assumptions about
+		a program in a single line of code.
 	</p>
 
 	<Code lang="python" code={String.raw`assert condition`} />
@@ -229,7 +227,7 @@ except Exception as e:
 	<Code lang="python" code={String.raw`assert condition, msg`} />
 
 	<p>
-		E.g., in the below code cell <code>div(a, b)</code> runs only when <code>b</code> is non-zero.
+		E.g., in the code cell below, <code>div(a, b)</code> only completes when <code>b</code> is non-zero.
 	</p>
 
 	<PyCell

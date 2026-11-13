@@ -8,33 +8,32 @@
 	<h3>Other Language Features</h3>
 
 	<p>
-		Python has many other additional features for working with various data types and files,
-		networking, cryptography, multithreading and more. We have seen only the most commonly used
-		Python features. To complete our knowledge of basic Python, let&#39;s learn a few more features
-		that you may find useful in your future projects.
+		Python has many additional features for working with various data types and files, networking,
+		cryptography, multithreading, and more. We have seen only the most commonly used Python
+		features. To complete our knowledge of basic Python, let&#39;s learn a few more features that
+		you may find useful in your future projects.
 	</p>
 </LessonSection>
 <LessonSection id="iterable-unpacking">
 	<h3>Iterable Unpacking</h3>
 
 	<p>
-		As you are already aware, you can assign multiple variables using multiple values and variable
-		names. For instance,
+		As you are already aware, you can assign values to several variables in one statement. For
+		instance,
 	</p>
 
 	<Code lang="python" code={String.raw`x, y = 42, "abc"`} />
 
 	<p>
-		assigns <code>x</code> and <code>y</code>. This type of assignment is called
+		assigns values to <code>x</code> and <code>y</code>. This type of assignment is called
 		<em>tuple unpacking</em>
-		as the right-hand side of the assignment creates a tuple using comma-separated values,
+		because the right-hand side of the assignment creates a tuple using comma-separated values,
 		<code>42, &quot;abc&quot;</code>.
 	</p>
 
 	<p>
-		Similarly, tuples and other iterables can be unpacked into other tuples using the star (<code
-			>*</code
-		>) notation, where &quot;*&quot; groups the remaining values into a list.
+		Similarly, iterables can be unpacked with the star (<code>*</code>) notation, which collects the
+		remaining values into a list.
 	</p>
 
 	<PyCell
@@ -59,16 +58,15 @@ print(name)`}
 	<h3>Lambda Functions</h3>
 
 	<p>
-		<em>Lambda function</em> is a term used for anonymous functions in Python. Anonymous functions
+		A <em>lambda function</em> is a term used for anonymous functions in Python. Anonymous functions
 		do not have names like a usual function that you define with <code>def</code>. They are
 		generally short convenience functions, defined and used on the fly and then thrown away.
 	</p>
 
 	<ul>
 		<li>
-			<code>lambda var1, ...: code</code>: defines a lambda function. The function takes in
-			variables
-			<code>var1</code>, ..., and executes a given single line of short code.
+			<code>lambda var1, ...: code</code>: defines a lambda function. The function takes the
+			arguments <code>var1</code>, ..., and evaluates a single short expression.
 		</li>
 	</ul>
 
@@ -111,7 +109,8 @@ print(l)`}
 	/>
 
 	<p>
-		Similarly, Python also offers methods for building <code>dict</code> and <code>set</code> iterables.
+		Similarly, Python also offers comprehensions for building <code>dict</code> and <code>set</code>
+		collections.
 	</p>
 
 	<ul>
@@ -121,7 +120,7 @@ print(l)`}
 		<li><strong>Set comprehension</strong>: <code>&#123;k for k in items&#125;</code></li>
 	</ul>
 
-	<p>Comprehensions can be used with <code>if</code>clause to build filtered sequences.</p>
+	<p>Comprehensions can be used with an <code>if</code> clause to build filtered sequences.</p>
 
 	<ul>
 		<li><strong>Conditional filter</strong>: <code>[i for i in items if condition]</code></li>
@@ -141,9 +140,9 @@ print(l)`}
 
 	<p>
 		Python has two related functions for sorting, <code>list.sort</code> and <code>sorted</code>.
-		The first is a list instance method that sorts the values of a list and hence used only with the
-		list objects. The latter is a more general sorting function that takes in an input iterable and
-		outputs a sorted list of values.
+		The first is a list instance method that sorts the values of a list and is therefore used only
+		with list objects. The latter is a more general sorting function that takes an iterable and
+		returns a sorted list of values.
 	</p>
 
 	<ul>
@@ -164,10 +163,7 @@ items.sort()
 print(items)`}
 	/>
 
-	<p>
-		Strings also implement comparison based on order of the characters&#39; alphabetical (and
-		numerical values).
-	</p>
+	<p>Strings are compared in the alphabetical (and numerical) order of their characters.</p>
 
 	<ul>
 		<li>
@@ -188,8 +184,8 @@ print(sorted(items))`}
 
 	<ul>
 		<li>
-			<code>key</code>: a function with one input argument. Key is applied to each item before
-			comparing them. The default is <code>None</code>.
+			<code>key</code>: a function with one input argument. The key function is applied to each item
+			before the items are compared. The default is <code>None</code>.
 		</li>
 		<li>
 			<code>reverse</code>: a Boolean, reverses the sorting order if equal to <code>True</code>. The
@@ -209,7 +205,7 @@ print(sorted(items, key=last_char, reverse=True))`}
 	<h3>Map and Filter</h3>
 
 	<p>
-		Python&#39;s built-in <code>map</code> and <code>filter</code> functions allow working with iterables
+		Python&#39;s built-in <code>map</code> and <code>filter</code> functions allow you to work with iterables
 		without using loops or if statements.
 	</p>
 
@@ -218,7 +214,7 @@ print(sorted(items, key=last_char, reverse=True))`}
 			<a href="https://docs.python.org/3/library/functions.html#map" target="_blank" rel="noopener"
 				><code>map</code></a
 			>: accepts a function and at least one iterable. <code>map</code> applies the input function
-			on each item of an iterable. The function&#39;s inputs must match the number of input
+			to each item of an iterable. The function&#39;s inputs must match the number of input
 			iterables, e.g., in <code>map(func, iterable)</code>, <code>func</code> must accept a single
 			argument, and for <code>map(func, iterable1, iterable2)</code>, <code>func</code> must accept two
 			inputs.
@@ -235,9 +231,9 @@ print( list(nums_squared) )`}
 	<blockquote>
 		<p>
 			<code>map</code> returns a <code>map</code> object instead of the original iterable type and
-			uses a &quot;lazy&quot; evaluation. Use <code>list</code>, <code>tuple</code>,
-			<code>dict</code>, etc. to convert the output to your desired type of iterable. You can use
-			any function with any number of outputs.
+			uses lazy evaluation. Use <code>list</code>, <code>tuple</code>, <code>dict</code>, etc. to
+			convert the output to your desired type of iterable. You can use any function with any number
+			of inputs.
 		</p>
 	</blockquote>
 
@@ -248,9 +244,9 @@ print( list(nums_squared) )`}
 				target="_blank"
 				rel="noopener"><code>filter</code></a
 			>: accepts a function and an iterable. The <code>function</code>
-			should return either <code>True</code> or <code>False</code> (and <code>None</code>) and it
-			works as a filter over the items in the <code>iterable</code>. All the elements of the input
-			iterable that produce <code>False</code> are removed.
+			should return a truthy or falsy value, and it works as a filter over the items in the
+			<code>iterable</code>. All the elements of the input iterable that produce
+			<code>False</code> are removed.
 		</li>
 	</ul>
 
@@ -265,9 +261,9 @@ print( list(six_letter_words) )`}
 	<h3>Getting Help</h3>
 
 	<p>
-		You will most likely forget about the commands you have learned so far. It could be a name, or
-		number or type of inputs, or usage of a command. This is completely fine and you should expect
-		it.
+		You will most likely forget about the commands you have learned so far. It could be a name,
+		number or type of inputs, or the usage of a command. This is completely fine and you should
+		expect it.
 	</p>
 
 	<blockquote>
@@ -277,22 +273,22 @@ print( list(six_letter_words) )`}
 	<p>
 		So what do you do if you forget a command or its usage? You will need a way to find commands
 		that you need together with their usage details, a.k.a.
-		<em>documentation</em>. Below is my &quot;method&quot;, feel free to modify and adapt it to your
+		<em>documentation</em>. Below is my &quot;method&quot;; feel free to modify and adapt it to your
 		own working style.
 	</p>
 
 	<ul>
 		<li>
-			<em>Somewhat familiar with the command</em>: use <code>help</code> function to lookup its
+			<em>Somewhat familiar with the command</em>: use the <code>help</code> function to look up its
 			documentation.
 			<code>help</code> is useful when you want to remind yourself on the usage details.
 		</li>
 		<li>
 			<em>Know the name but not familiar</em>: use the command and observe its outputs and errors.
-			Then, use <code>help</code> and search engine for the command&#39;s documentation and examples.
+			Then, use <code>help</code> and a search engine for the command&#39;s documentation and examples.
 		</li>
 		<li>
-			<em>Forgot the command or not familiar with it</em>: use your preferred search engine for
+			<em>Forgot the command or not familiar with it</em>: use your preferred search engine for the
 			command&#39;s name and documentation, usage examples, and tutorials. E.g., &quot;format float
 			in python&quot;.
 		</li>
@@ -306,11 +302,12 @@ print( list(six_letter_words) )`}
 	<blockquote>
 		<p>
 			AI is very useful when you get stuck while coding. Be careful not to generate very long code
-			(e.g., <code>&gt;&gt;10-20</code> lines). Code with too many lines is difficult to read and debug.
-			Try to build your code line by line. Since the first rollout of this workshop, AI has gotten a lot
-			better at writing code, a looot better than a beginner and average Python developer. But be careful
-			to not rely heavily on AI early in your learning journey. This may severely hinder your learning
-			important programming concepts that can come only from experience writing code by hand!
+			(e.g., more than 10–20 lines). Code with too many lines is difficult to read and debug. Try to
+			build your code line by line. Since the first rollout of this workshop, AI has gotten a lot
+			better at writing code — far better than a beginner or average Python developer. But be
+			careful not to rely heavily on AI early in your learning journey. This may severely hinder
+			your learning of important programming concepts that can come only from experience writing
+			code by hand!
 		</p>
 	</blockquote>
 </LessonSection>
@@ -321,7 +318,7 @@ print( list(six_letter_words) )`}
 		Complete the code below so that it prints a string with sorted characters
 		<code>123ABCabc</code>. Use the list&#39;s <code>.sort()</code> method. You may find
 		<code>list(...)</code>
-		and string&#39;s <code>&quot;&quot;.join(...)</code> useful for this task.
+		and the string method <code>&quot;&quot;.join(...)</code> useful for this task.
 	</p>
 
 	<PyCell
@@ -339,7 +336,7 @@ print(chars)`}
 	<p>
 		Please write a key using a lambda function that returns the last letter of an input word. The <code
 			>sorted</code
-		> function below should return sorted list of words based on the last letter of each word.
+		> function below should return a sorted list of words based on the last letter of each word.
 	</p>
 
 	<PyCell
@@ -366,8 +363,8 @@ print(sorted(items, key=lambda ?))`}
 		<code>filter</code>
 		to complete the code below. The final <code>print</code> should print a <em>sorted</em> sequence
 		of numbers that
-		<em>excludes</em> all numbers with absolute values (<code>abs(x)</code>) between 3-7, including
-		3 and 7. For example, an original sequence
+		<em>excludes</em> all numbers with absolute values (<code>abs(x)</code>) between 3 and 7,
+		including 3 and 7. For example, an original sequence
 	</p>
 
 	<Code lang="bash" code={String.raw`original: 8, -9, 3, 5, 8, -10, -4, 7, 5, -2`} />
@@ -404,7 +401,7 @@ print('filtered:', final)`}
 	<h3>Explore Built-in Functions</h3>
 
 	<p>
-		Use <code>help</code> to lookup help on <code>sum</code>, <code>max</code>, and
+		Use <code>help</code> to look up help on <code>sum</code>, <code>max</code>, and
 		<code>min</code>. Apply these commands on <code>range(10)</code>.
 	</p>
 

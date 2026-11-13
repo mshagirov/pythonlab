@@ -9,16 +9,15 @@
 	<h3>Functions</h3>
 
 	<p>
-		Functions in programming allow reusing and logically organising programs into blocks of code or <em
-			>modules</em
-		>. We have already used <code>print</code>, <code>len</code>, <code>hasattr</code>, and
+		Functions in programming allow us to reuse and logically organise programs into blocks of code
+		or <em>modules</em>. We have already used <code>print</code>, <code>len</code>,
+		<code>hasattr</code>, and
 		<code>isinstance</code>, which are all examples of built-in Python functions.
 	</p>
 
 	<p>
-		We have also used <em>methods</em>, <code>str</code>, <code>int</code>, <code>float</code>, and
-		<code>type</code>. Method is a concept from object-oriented programming that refers to
-		&quot;special&quot; functions that belong to specific objects or <em>classes</em> (of objects).
+		We have also used built-in functions such as <code>str</code>, <code>int</code>, and
+		<code>float</code> (these are used for type and function names).
 	</p>
 
 	<p>
@@ -38,9 +37,9 @@
 	<h3>Defining Functions</h3>
 
 	<p>
-		Python uses <code>def</code> keyword to <em>define</em> a function. You will need to provide a
-		name, and optionally input <em>parameters</em> (a.k.a <em>arguments</em>). A function also must
-		have a <em>body</em>, an indented block of code that runs each time you <em>call</em> the function.
+		Python uses the <code>def</code> keyword to <em>define</em> a function. You will need to provide
+		a name and, optionally, input <em>parameters</em> (a.k.a. <em>arguments</em>). A function also
+		must have a <em>body</em>, an indented block of code that runs each time you <em>call</em> the function.
 	</p>
 
 	<Code
@@ -51,7 +50,7 @@
 	/>
 
 	<p>
-		To define an empty (template) function, that you plan to implement later, use
+		To define an empty (template) function that you plan to implement later, use the
 		<code>pass</code> keyword. You must <em>always</em> include <code>()</code> and <code>:</code> after
 		the name of the function, even when you don&#39;t need to provide any input.
 	</p>
@@ -70,7 +69,7 @@
 			target="_blank"
 			rel="noopener">IDEs</a
 		>
-		allow setting dafault identation. Be consistent with the size and type (spaces or tabs) of indentation
+		allow setting the default indentation. Be consistent with the size and type (spaces or tabs) of indentation
 		you use throughout your code. This is mainly for readability but also to avoid bugs due to inconsistent
 		indentation.
 	</p>
@@ -93,7 +92,7 @@ print(result)`}
 
 	<ul>
 		<li>
-			If we don&#39;t provide any variables to <code>return</code>, the function stops at the return
+			If we don&#39;t provide any value to <code>return</code>, the function stops at the return
 			statement and returns <code>None</code>.
 		</li>
 	</ul>
@@ -102,14 +101,14 @@ print(result)`}
 		code={String.raw`def func1():
     x = 1
     return
-    print(f'fun1 : x= {x}') # never executed
+    print(f'func1 : x= {x}') # never executed
 
 print(func1())`}
 	/>
 
 	<ul>
 		<li>
-			If we completely omit the return statement, entire function body is executed, and once
+			If we completely omit the return statement, the entire function body is executed, and once
 			completed, the function returns <code>None</code>.
 		</li>
 	</ul>
@@ -117,7 +116,7 @@ print(func1())`}
 	<PyCell
 		code={String.raw`def func2():
     x = 1
-    print(f'fun2 : x= {x}')
+    print(f'func2 : x= {x}')
 
 print(func2())`}
 	/>
@@ -153,8 +152,8 @@ print(result)`}
 	<h3>Returning Multiple Values</h3>
 
 	<p>
-		Similarly, a function also can return multiple values by specifying multiple variables in the
-		return statement.
+		Similarly, a function can also return multiple values from a single <code>return</code>
+		statement.
 	</p>
 
 	<Code
@@ -179,9 +178,9 @@ print(c)`}
 	<h3>args and kwargs</h3>
 
 	<p>
-		For the <em>positional</em> arguments, the value is defined by its position in the function definition.
+		For <em>positional</em> arguments, the value is defined by its position in the function definition.
 		E.g., all the functions above used positional parameters. Python also allows defining default values
-		for function arguments as key-value pairs. Key in this case refers to the variable name that your
+		for function arguments as key-value pairs. The key in this case refers to the variable name that your
 		function uses inside its body.
 	</p>
 
@@ -199,7 +198,7 @@ print(c)`}
 	<blockquote>
 		<p>
 			In Python documentation, positional arguments are commonly called <code>args</code> and
-			keyword arguments are called as <code>kwargs</code>.
+			keyword arguments are called <code>kwargs</code>.
 		</p>
 	</blockquote>
 
@@ -227,13 +226,10 @@ print(f"new T={decrease_val(curr_T, delta=delta_T)}C (kwarg)")`}
 	<Code lang="python" code={String.raw`new_T = decrease_val(25, 10)`} />
 
 	<ul>
-		<li>
-			You can also specify the name of the positional argument to provide values with their names
-			inside the function.
-		</li>
+		<li>You can also pass positional arguments by name.</li>
 	</ul>
 
-	<Code lang="python" code={String.raw`new_T = decrease_value(delta=10, current=25)`} />
+	<Code lang="python" code={String.raw`new_T = decrease_val(delta=10, curr=25)`} />
 
 	<blockquote>
 		<p>
@@ -246,11 +242,11 @@ print(f"new T={decrease_val(curr_T, delta=delta_T)}C (kwarg)")`}
 	<h3>Fix a Greeter Function</h3>
 
 	<ul>
-		<li>Run the code. It should fail to run.</li>
+		<li>Run the code. It should fail.</li>
 		<li>Fix the code so that it prints <code>Hello, World!</code>.</li>
 		<li>
-			Set the <code>name</code> variable to your name as a <code>str</code> (using quotes or double quotes)
-			then run the code again to print a geeting.
+			Set the <code>name</code> variable to your name as a <code>str</code> (using single or double quotes),
+			then run the code again to print a greeting.
 		</li>
 	</ul>
 
@@ -278,7 +274,7 @@ greeter(name)`}
 			<a href="https://docs.python.org/3/library/math.html#math.sqrt" target="_blank" rel="noopener"
 				><code>sqrt</code> function</a
 			>
-			useful for this. I have already <em>imported</em> it for you as a part of built-in
+			useful for this. I have already <em>imported</em> it for you as part of the built-in
 			<code>math</code> module. You can call it with <code>math.sqrt(...)</code> as shown below.
 		</li>
 	</ul>
@@ -305,7 +301,7 @@ print(f"length of [{x1}, {x2}, {x3}] is {l}")`}
 			<a href="https://docs.python.org/3/tutorial/modules.html" target="_blank" rel="noopener"
 				>Modules</a
 			>
-			are files with reusable code. E.g., you can write your own module as text file ending with
+			are files with reusable code. E.g., you can write your own module as a text file ending with
 			<code>.py</code> with your functions and variables (a.k.a. Python file) and then import and reuse
 			it in other parts of your code.
 		</p>
@@ -357,9 +353,9 @@ main()`}
 	<ul>
 		<li>
 			You are including function calls for <code>l1_norm</code> and <code>l2_norm</code> before
-			Python is aware of them. Remembering that Python executes code sequentially, why doesn&#39;t
-			this lead to an error?
-			<em>Tip: function executes (runs) only when you call it.</em>
+			Python is aware of them. Remember that Python executes code sequentially. Why doesn&#39;t this
+			lead to an error?
+			<em>Tip: a function executes (runs) only when you call it.</em>
 		</li>
 		<li>What is the sequence of calls when you run the code above?</li>
 	</ul>
@@ -368,9 +364,9 @@ main()`}
 	<h3>Function Objects</h3>
 
 	<p>
-		As noted earlier on this page, Python treats functions as objects. You can check this using <code
-			>type</code
-		> method. Keeping this in mind, answer following question by running the code cell below.
+		As noted earlier on this page, Python treats functions as objects. You can check this using the
+		<code>type</code> function. Keeping this in mind, answer the following question by running the code
+		cell below.
 	</p>
 
 	<ul>

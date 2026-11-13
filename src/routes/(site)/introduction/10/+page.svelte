@@ -8,14 +8,11 @@
 	<h3>Loops</h3>
 
 	<p>
-		Loops in programming allow executing a block of code multiple times over and over until a
-		certain condition is met. They are essential in automating repetitive tasks, like creating,
-		reading, and processing lists and other iterable objects. Python has two primary types of loops, <em
-			>for loops</em
-		>
-		and <em>while loops</em>. Furthermore, Python also provides mechanisms like <code>break</code>
-		and
-		<code>continue</code> keywords for controlling the loop behaviours.
+		Loops in programming allow executing a block of code repeatedly until a certain condition is
+		met. They are essential in automating repetitive tasks, like creating, reading, and processing
+		lists and other iterable objects. Python has two primary types of loops, <em>for loops</em>
+		and <em>while loops</em>. Python also provides the <code>break</code> and <code>continue</code>
+		keywords for controlling loop behaviour.
 	</p>
 
 	<p>
@@ -41,12 +38,10 @@
 
 	<p>
 		The number of <em>iterations</em> of a for loop, the number of times the loop is executed, is
-		determined by the length of the iterable. The loop automatically assigns a value for the
-		<code>variable</code>
-		using the next value from the <code>iterable</code> starting with the first item at the first
-		iteration. The <code>variable</code> then can be used in the
-		<em>indented</em> block of code. The indented code is repeatedly executed during each execution of
-		the loop.
+		determined by the length of the iterable. The loop automatically assigns a value to the
+		<code>variable</code> using the next value from the <code>iterable</code>, starting with the
+		first item on the first iteration. The <code>variable</code> can then be used in the
+		<em>indented</em> block of code. The indented code is executed on each iteration of the loop.
 	</p>
 
 	<p>E.g., the code below iterates over the items in a shopping basket and prints them.</p>
@@ -73,7 +68,7 @@ for k in basket:
 		or you may just need a sequence of integers in your loop. Python&#39;s <code>range</code> allows
 		us to do just that. <code>range</code> is a type of iterable that defines a range of numbers as
 		its name suggests. For example,
-		<code>range(10)</code> defines a range of numbers 0--9 with length 10.
+		<code>range(10)</code> defines a range of numbers from 0 to 9 with length 10.
 	</p>
 
 	<ul>
@@ -122,8 +117,8 @@ for key in info:
 
 	<p>
 		To access the values, you can use the keys as indices with <code>info[key]</code>.
-		Alternatively, you can use <code>.values()</code> or <code>.items()</code> methods to access the values,
-		or key-value pairs, respectively.
+		Alternatively, you can use the <code>.values()</code> or <code>.items()</code> methods to access the
+		values or key-value pairs, respectively.
 	</p>
 
 	<PyCell
@@ -136,7 +131,7 @@ for key, val in info.items():
 	<blockquote>
 		<p>
 			<code>for value1, value2, ... in iterable</code> allows iterating over nested iterables, like
-			list of lists, tuple of tuples, etc. In the above, <code>dict</code> items is a nested
+			a list of lists or a tuple of tuples, etc. In the above, <code>dict</code> items is a nested
 			iterable of key-value pairs, <code>[(key1, value1), (key2, value2), ...]</code>.
 		</p>
 	</blockquote>
@@ -149,7 +144,7 @@ for key, val in info.items():
 	<ul>
 		<li>
 			<code>enumerate(iterable)</code> : enumerates the iterable by adding a counter for each item in
-			an iterable.
+			the iterable.
 		</li>
 	</ul>
 
@@ -164,10 +159,10 @@ for id, val in enumerate(basket):
 
 	<ul>
 		<li>
-			<code>zip(iterable1, iterable2, ...)</code>: combines multiple interables into a single
+			<code>zip(iterable1, iterable2, ...)</code>: combines multiple iterables into a single
 			iterable with items from multiple input iterables <code>iterable1</code>,
 			<code>iterable2</code>, etc. The length of the <em>zipped</em> iterable object is determined by
-			the input with the shorted length.
+			the input with the shortest length.
 		</li>
 	</ul>
 
@@ -268,7 +263,7 @@ while counter < 10:
 	<ul>
 		<li>Run the code and see what it does.</li>
 		<li>Fix the code so that it prints the name of the item with its index in the basket.</li>
-		<li>The code should print the total number of items in a list in last line.</li>
+		<li>The code should print the total number of items in the list on the last line.</li>
 	</ul>
 
 	<PyCell
@@ -294,7 +289,7 @@ print(f'\n{count} items')`}
 	<ul>
 		<li>Run the code.</li>
 		<li>
-			<strong>Reload this webpage to stop the execution of the code cell if gets stuck</strong>.
+			<strong>Reload this webpage to stop the execution of the code cell if it gets stuck</strong>.
 		</li>
 	</ul>
 
@@ -317,7 +312,7 @@ print(f'\n{count} items')`}
 		<p>
 			Usually you want to terminate your loops, but in some cases infinite loops may be useful.
 			E.g., this website is served using an infinite loop. The same is true for your browser. It is
-			running continuously in an infinite loop while waiting for your input actions!
+			running continuously in an infinite loop while waiting for your input!
 		</p>
 	</blockquote>
 

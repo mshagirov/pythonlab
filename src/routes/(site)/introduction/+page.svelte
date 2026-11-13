@@ -11,7 +11,7 @@
 	<li>
 		<a href={href('introduction/01#python')}>Python</a> 🐍 👈 <em><strong>start here</strong></em>
 	</li>
-	<li><a href={href('introduction/02#python-syntax')}>Syntax and Arithmetics</a></li>
+	<li><a href={href('introduction/02#python-syntax')}>Syntax and Arithmetic Operations</a></li>
 	<li><a href={href('introduction/03#strings')}>Strings</a></li>
 	<li><a href={href('introduction/04#variable')}>Variables</a></li>
 	<li><a href={href('introduction/05#infinity')}>Numerical and Logical Operations</a></li>

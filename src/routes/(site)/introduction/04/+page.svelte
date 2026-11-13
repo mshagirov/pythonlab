@@ -8,7 +8,7 @@
 	<h3>Variable</h3>
 
 	<p>
-		<em>Variable</em> in programming represents a named location in
+		A <em>variable</em> in programming represents a named location in
 		<a href="https://en.wikipedia.org/wiki/Computer_memory" target="_blank" rel="noopener">memory</a
 		>
 		that stores a value. The value of a variable represents a specific type of data such as a number or
@@ -16,7 +16,7 @@
 	</p>
 
 	<p>
-		It is very simple to define a varible in Python, all you need is to <em>assign</em> a value to
+		It is very simple to define a variable in Python; all you need is to <em>assign</em> a value to
 		the variable with <code>=</code>.
 	</p>
 
@@ -24,14 +24,13 @@
 
 	<ul>
 		<li>
-			<code>variable_name</code>: <em>Variable name</em> can be any alphanumeric sequence of
+			<code>variable_name</code>: A <em>variable name</em> can be any alphanumeric sequence of
 			characters that starts with a letter or an underscore <code>_</code>, e.g., <code>abc</code>,
 			<code>ABC123</code>, <code>_abc123</code>.
 		</li>
 		<li>
-			<code>value</code>: <em>Value</em> can be any value with a built-in or valid user defined
-			<em>type</em>, where the type refers to the type of the data stored in the memory, e.g., a
-			text.
+			<code>value</code>: A <em>value</em> can be any value with a built-in or valid user-defined
+			<em>type</em>, where the type refers to the type of the data stored in memory, e.g., a text.
 		</li>
 	</ul>
 
@@ -75,7 +74,7 @@ print(f"y: {y}")`}
 		<p>
 			Don&#39;t overuse this feature. It might be hard to read code with <code>&gt;2-3</code> variables
 			defined on a single line, especially when you have long variable names. The future you will thank
-			you if you write a code that is easier to read.
+			you if you write code that is easier to read.
 		</p>
 	</blockquote>
 </LessonSection>
@@ -85,9 +84,9 @@ print(f"y: {y}")`}
 
 	<p>
 		By convention, Python programmers use <em>snake case</em> when naming their variables. In snake
-		case, characters are written in lower case and for multi-word names, the words are separated by
-		underscore <code>_</code>. E.g., <code>user_id</code>, <code>circle_diameter</code>, etc. This
-		is a not enforced by the Python interpreter but it is a preferred convention for code
+		case, characters are written in lowercase, and for multi-word names, the words are separated by
+		an underscore <code>_</code>. E.g., <code>user_id</code>, <code>circle_diameter</code>, etc.
+		This is not enforced by the Python interpreter, but it is a preferred convention for code
 		readability.
 	</p>
 
@@ -97,8 +96,8 @@ print(f"{user_id} is logged-in.")`}
 	/>
 
 	<p>
-		You may stray away from this convention in some cases. For instance, to include units of
-		measurement, e.g., <code>force_N</code> doesn&#39;t use snake case as it contains an upper case character.
+		You may stray from this convention in some cases. For instance, to include units of measurement,
+		e.g., <code>force_N</code> doesn&#39;t use snake case because it contains an uppercase character.
 	</p>
 
 	<PyCell
@@ -110,19 +109,18 @@ print(f"Stress (Pa): {stress_Pa}")`}
 	/>
 
 	<p>
-		Be careful to NOT name your variables <code>int</code>, <code>float</code>, <code>string</code>
-		or any other Python <em>key words</em>. This will override the default objects&#39; names and
-		will lead to bugs in your code.
+		Be careful to NOT name your variables <code>int</code>, <code>float</code>, <code>str</code>,
+		<code>string</code>, or any other Python <em>built-in name or keyword</em>. This will override
+		the default names and will lead to bugs in your code.
 	</p>
 
 	<blockquote>
 		<p>
-			Unfortunately, Python interpreter does not enforce this as a rule and you just have to
-			remember to not use these as variable names. For instance, <code>int=&quot;integer&quot;</code
-			>,
-			<code>str=2</code>, or <code>float=3.14</code> are valid syntax for defining variables. Try it for
-			yourself, by defining some &quot;forbidden variables&quot; in the above cell and print them out,
-			Python will happily run the code for you.
+			Unfortunately, the Python interpreter does not enforce this as a rule, so you just have to
+			remember not to use these as variable names. For instance,
+			<code>int=&quot;integer&quot;</code>, <code>str=2</code>, or <code>float=3.14</code> are valid variable
+			definitions. Try it for yourself by defining some &quot;forbidden variables&quot; in the cell above
+			and printing them out; Python will happily run the code for you.
 		</p>
 	</blockquote>
 </LessonSection>
@@ -145,7 +143,7 @@ print("new value:", length)`}
 	<h3>Types</h3>
 
 	<p>
-		Computer stores everything in its memory as a binary data composed of zeros and ones. The <em
+		A computer stores everything in its memory as binary data composed of zeros and ones. The <em
 			>type</em
 		> of the data determines what these zeros and ones actually represent. The Python standard library
 		comes with a wide range of built-in types that you can use to represent your data.
@@ -156,8 +154,8 @@ print("new value:", length)`}
 	<ul>
 		<li>
 			<code>int</code>: Signed integers, e.g., <code>-423</code>, <code>0</code>,
-			<code>12897</code>. Python automatically adjusts the size of an <code>int</code> in the memory (number
-			of bytes) depending on the value of the integer.
+			<code>12897</code>. Python automatically adjusts the size of an <code>int</code> in memory (the
+			number of bytes) depending on the value of the integer.
 		</li>
 		<li>
 			<code>float</code>: Floats or
@@ -167,7 +165,7 @@ print("new value:", length)`}
 				rel="noopener">floating-point numbers</a
 			>
 			are a subset of real numbers that can be approximated with binary fractions. They are stored as
-			64-bit or <em>double precision</em> numbers in most Python implementations.
+			64-bit <em>double-precision</em> numbers in most Python implementations.
 		</li>
 		<li>
 			<code>str</code>: Strings in Python represent textual data. E.g.,
@@ -221,11 +219,12 @@ print("new value:", length)`}
 
 	<ul>
 		<li>
-			<code>bool</code> : <em>Boolean</em> type has two possible values <code>True</code> and
+			<code>bool</code> : The <em>Boolean</em> type has two possible values <code>True</code> and
 			<code>False</code> that represent truth values.
 		</li>
 		<li>
-			To get a <em>logical complement</em> of a <code>bool</code> variable use the <code>not</code> operator.
+			To get the <em>logical complement</em> of a <code>bool</code> variable, use the
+			<code>not</code> operator.
 		</li>
 	</ul>
 
@@ -246,7 +245,7 @@ print("Likes pizza:", likes_pizza)`}
 	<p>
 		When used with mathematical operations, Python implicitly casts <code>bool</code> to
 		<code>int</code>
-		or <code>float</code> and treats it as a number, <code>True</code> is 1, and
+		or <code>float</code> and treats it as a number: <code>True</code> is 1 and
 		<code>False</code> is 0.
 	</p>
 </LessonSection>
@@ -255,13 +254,12 @@ print("Likes pizza:", likes_pizza)`}
 	<h3>None Type</h3>
 
 	<p>
-		In Python, <code>NoneType</code> represents a null or absence of a value. <code>NoneType</code>
-		only has a single value <code>None</code>. Compared to other programming langugages,
-		<code>None</code>
-		in Python is a distinct object and doesn&#39;t represent zero value, e.g., these are NOT null in Python,
-		an empty string <code>&quot;&quot;</code>, numerical <code>0</code>, etc. Also, note that
-		<code>str</code> <code>&quot;None&quot;</code>
-		is not the same as <code>None</code>.
+		In Python, <code>NoneType</code> represents null or the absence of a value.
+		<code>NoneType</code>
+		has only a single value, <code>None</code>. Compared with other programming languages,
+		<code>None</code> in Python is a distinct object and does not represent a zero value; e.g., an
+		empty string <code>&quot;&quot;</code> and the number <code>0</code> are NOT null in Python.
+		Also, note that the string <code>&quot;None&quot;</code> is not the same as <code>None</code>.
 	</p>
 
 	<PyCell
@@ -271,9 +269,9 @@ print(s, "(str)")`}
 	/>
 
 	<p>
-		When you print the <code>None</code> and a string <code>&quot;None&quot;</code> they appear to
-		be the same. To determine if the variable is <code>NoneType</code> or just a string you can use the
-		following:
+		When you print <code>None</code> and the string <code>&quot;None&quot;</code>, they appear to be
+		the same. To determine whether the variable is <code>NoneType</code> or just a string, you can use
+		the following:
 	</p>
 
 	<ul>
@@ -300,7 +298,7 @@ print(s is None, "(str)")`}
 
 	<ul>
 		<li>
-			Or use one of the type checking methods in the next section, e.g., <code>type</code> or
+			Or use one of the type-checking functions in the next section, e.g., <code>type</code> or
 			<code>isinstance</code>.
 		</li>
 	</ul>
@@ -309,7 +307,7 @@ print(s is None, "(str)")`}
 <LessonSection id="determining-and-verifying-types">
 	<h3>Determining and Verifying Types</h3>
 
-	<p>You can determine the type of a varible using <code>type()</code> method.</p>
+	<p>You can determine the type of a variable using the <code>type()</code> function.</p>
 
 	<ul>
 		<li>
@@ -327,15 +325,14 @@ print(f"Is {x} float? {type(x) is float}")`}
 	/>
 
 	<p>
-		Alternatively, you can also use <code>isinstance</code> to verify type of a given variable instead
+		Alternatively, you can also use <code>isinstance</code> to verify the type of a given variable instead
 		of a comparison.
 	</p>
 
 	<ul>
 		<li>
-			<code>isinstance(object, type)</code> takes in the object and a type, and returns a
-			<code>bool</code>
-			value. <code>True</code> if the types match and <code>False</code> otherwise.
+			<code>isinstance(object, type)</code> takes in the object and a type and returns a
+			<code>bool</code>: <code>True</code> if the types match and <code>False</code> otherwise.
 		</li>
 	</ul>
 
@@ -363,9 +360,10 @@ print(x + 2.)`}
 
 	<p>
 		The decimal point <code>.</code> is used to define a <code>float</code>. E.g., <code>2.</code>
-		is a <code>float</code> equal to <code>2.0</code>. Using division <code>/</code> always produces
-		<code>float</code>, and floor division <code>\\</code>
-		produces <code>int</code> unless one of the numbers is a <code>float</code>.
+		is a <code>float</code> equal to <code>2.0</code>. Division with <code>/</code> always produces
+		a
+		<code>float</code>, and floor division with <code>//</code> produces an <code>int</code> unless
+		one of the numbers is a <code>float</code>.
 	</p>
 
 	<PyCell
@@ -430,15 +428,15 @@ print(z, type(z))`}
 	<h3>Dynamic Typing</h3>
 
 	<p>
-		Python is a <strong>dynamically typed</strong> language where Python automatically infers a variable&#39;s
-		type when you run the code. This leads to less boilerplate code when defining variables and functions,
-		and allows quicker prototyping. The dynamic typing comes at a cost as a lower performance (slower
-		running code), and potentially runtime type errors.
+		Python is a <strong>dynamically typed</strong> language: it automatically infers a variable&#39;s
+		type when you run the code. This leads to less boilerplate code when defining variables and functions
+		and allows quicker prototyping. Dynamic typing comes at the cost of lower performance (slower-running
+		code) and potential runtime type errors.
 	</p>
 
 	<p>
-		The performance hit is due to type checking of the variables by the interpreter during the
-		runtime which takes up the CPU time. We have to accept it as a cost for convenience.
+		The performance hit comes from the interpreter type-checking variables at runtime, which takes
+		up CPU time. We have to accept it as the cost of convenience.
 	</p>
 
 	<p>
@@ -456,8 +454,7 @@ delta_t = "one hour"`}
 	/>
 
 	<p>
-		You can avoid this by creating a new type of variable instead of overriding the old value and
-		its type.
+		You can avoid this by creating a new variable instead of overwriting the old value and its type.
 	</p>
 
 	<Code
@@ -473,7 +470,7 @@ delta_t_info = "one hour"`}
 
 	<ul>
 		<li>
-			Complete the following code so that it computes and prints a sum and average of the numbers <code
+			Complete the following code so that it computes and prints the sum and average of the numbers <code
 				>x1</code
 			>, <code>x2</code>, <code>x3</code>, and <code>x4</code>.
 		</li>

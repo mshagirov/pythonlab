@@ -14,14 +14,14 @@
 
 	<p>
 		Congratulations on completing the Introduction to Python Workshop! Over the course of this
-		workshop, you’ve gained a solid foundation in Python programming by exploring key concepts and
-		tools from the Python Standard Library. Let’s recap the essential topics we covered:
+		workshop, you&#39;ve gained a solid foundation in Python programming by exploring key concepts
+		and tools from the Python Standard Library. Let&#39;s recap the essential topics we covered:
 	</p>
 
 	<ul>
 		<li>
 			<p>
-				<strong>Python Basics</strong>: You learned about Python’s syntax and the importance of
+				<strong>Python Basics</strong>: You learned about Python&#39;s syntax and the importance of
 				indentation for structuring code, along with performing basic arithmetic and numerical
 				operations.
 			</p>
@@ -70,7 +70,7 @@
 
 	<p>
 		These skills form the backbone of Python programming and provide a strong foundation for further
-		exploration. Whether you’re automating tasks, analyzing data, or building applications, the
+		exploration. Whether you&#39;re automating tasks, analysing data, or building applications, the
 		concepts covered in this workshop will serve as a stepping stone to more advanced topics like
 		object-oriented programming, data science, and development of scientific applications.
 	</p>
@@ -85,13 +85,13 @@
 		</li>
 		<li>
 			In the next workshop, we will install Python on our laptops and practice by building small
-			projects and explore libraries like numpy and pandas for data analysis.
+			projects and exploring libraries like NumPy and pandas for data analysis.
 		</li>
 		<li>
 			You can also try out other ways to use Python, e.g., using online tools like <a
 				href="https://colab.google/"
 				target="_blank"
-				rel="noopener">Google colab notebooks</a
+				rel="noopener">Google Colab notebooks</a
 			>.
 		</li>
 		<li>

@@ -22,8 +22,8 @@
 		<p>
 			<code>inf</code> is used to initialise values or to handle special cases for various
 			algorithms. E.g., to find a maximum value, you may start with <code>-inf</code>
-			and compare you numbers to it. Using <code>-inf</code> in the initial step will ensure that your
-			program will update the current maximum value.
+			and compare your numbers to it. Starting with <code>-inf</code> ensures that your program updates
+			the current maximum value.
 		</p>
 	</blockquote>
 </LessonSection>
@@ -41,8 +41,8 @@
 	<h3>Augmented Assignments</h3>
 
 	<p>
-		Python also provides a shorthand notation for updating values of numerical variables. These type
-		of operations are called <em>in-place updates</em> or <em>augmented assignments</em>.
+		Python also provides a shorthand notation for updating values of numerical variables. These
+		types of operations are called <em>in-place updates</em> or <em>augmented assignments</em>.
 	</p>
 
 	<ul>
@@ -51,13 +51,13 @@
 			assign.
 		</li>
 		<li>
-			<em>Decrement</em>: <code>a -= b</code> is equivalent to <code>a = a - b</code>, substract
-			then assign.
+			<em>Decrement</em>: <code>a -= b</code> is equivalent to <code>a = a - b</code>, subtract then
+			assign.
 		</li>
 	</ul>
 
 	<p>
-		These operations, first evaluate an expression on the right side of <code>=</code> using the old
+		These operations first evaluate an expression on the right side of <code>=</code> using the old
 		value of a variable <code>a</code>, then assign the result to update <code>a</code> in-place.
 	</p>
 
@@ -93,11 +93,10 @@ print(x)`}
 	<h3>Formatting Numbers</h3>
 
 	<p>
-		For easier entry and readability, Python also allows entering numbers with
+		For easier entry and readability, Python also allows entering numbers with an
 		<code>_</code> separator. For instance, to enter 1,000,000 you could either use
 		<code>1000000</code> or <code>1_000_000</code>, and the latter is easier to read. You can put
-		<code>_</code>
-		between any two numeric characters including <code>float</code> numbers.
+		<code>_</code> between any two numeric characters, including in <code>float</code> numbers.
 	</p>
 
 	<p>
@@ -113,10 +112,10 @@ print(f"small = {small}") # automatically uses sci notation`}
 	/>
 
 	<p>
-		When printing or reading numbers on the screen we &quot;see&quot; the representation of the
-		number, such as using scientific notation for very small or large numbers. You can also set your
+		When printing or reading numbers on the screen, we &quot;see&quot; the representation of the
+		number, such as scientific notation for very small or very large numbers. You can also set your
 		preferred representation using the <em>format specification</em>
-		when formatting strings with f-strings and <code>format</code> method.
+		when formatting strings with f-strings and the <code>format</code> method.
 	</p>
 
 	<PyCell
@@ -131,8 +130,8 @@ print( "small = " + format(small, "018.12f"))`}
 	/>
 
 	<p>
-		In the above, <code>f</code> and <code>e</code>, in <code>1.2e</code> or in
-		<code>018.12f</code>, are types.
+		In the above, <code>f</code> and <code>e</code> in <code>1.2e</code> or in
+		<code>018.12f</code> are types.
 	</p>
 
 	<ul>
@@ -153,9 +152,9 @@ print( "small = " + format(small, "018.12f"))`}
 	<PyCell code={String.raw`print(f"{' Hi! ':-^15}")`} />
 
 	<p>
-		Here we are formatting value of a string <code>&#39; Hi! &#39;</code>, <code>^</code> is center
-		alignment, and
-		<code>-</code> is the filler and can be any character, <code>15</code> specifies the width.
+		Here we are formatting the value of the string <code>&#39; Hi! &#39;</code>. <code>^</code> is
+		center alignment, <code>-</code> is the fill character (it can be any character), and
+		<code>15</code> specifies the width.
 	</p>
 
 	<blockquote>
@@ -174,17 +173,17 @@ print( "small = " + format(small, "018.12f"))`}
 	<h3>Comparison and Logical Operations</h3>
 
 	<p>
-		<em>Comparison expressions</em> use logical operators to test equality or compare values and
+		<em>Comparison expressions</em> use comparison operators to test equality or compare values and
 		result in <code>bool</code> values, <code>True</code> or <code>False</code>. These types of
 		expressions are also known as <em>Boolean expressions</em>. Python defines the following
-		comparison <em>operators</em> to be used in Boolean expressions,
+		comparison <em>operators</em> to be used in Boolean expressions:
 	</p>
 
 	<ul>
 		<li><code>==</code> : equality test.</li>
-		<li><code>!=</code> : not equal, returns <code>True</code> if values are not equal.</li>
-		<li><code>&gt;</code>, <code>&lt;</code>: larger than, and less than.</li>
-		<li><code>&gt;=</code>: larger than or equal, and</li>
+		<li><code>!=</code> : not equal; returns <code>True</code> if values are not equal.</li>
+		<li><code>&gt;</code>, <code>&lt;</code>: larger than and less than.</li>
+		<li><code>&gt;=</code>: larger than or equal.</li>
 		<li><code>&lt;=</code>: less than or equal.</li>
 	</ul>
 
@@ -200,9 +199,8 @@ print( "small = " + format(small, "018.12f"))`}
 			<code>False</code> otherwise.
 		</li>
 		<li>
-			<code>A or B</code> : <code>True</code> if either A or B are <code>True</code>,
-			<code>False</code>
-			if both A and B <code>False</code>.
+			<code>A or B</code> : <code>True</code> if either A or B is <code>True</code>,
+			<code>False</code> if both A and B are <code>False</code>.
 		</li>
 		<li>
 			<code>not EXPRESSION</code>: negates a Boolean expression, e.g., <code>not True</code> is
@@ -219,7 +217,7 @@ print((x <= y) and (x != y))`}
 
 	<blockquote>
 		<p>
-			<code>x &lt; y</code> is equvalent to <code>(x &lt;= y) and (x != y)</code> with the latter
+			<code>x &lt; y</code> is equivalent to <code>(x &lt;= y) and (x != y)</code>, with the latter
 			using three operations instead of just one <code>&lt;</code>.
 		</p>
 	</blockquote>
@@ -236,8 +234,8 @@ print(is_member)`}
 	/>
 
 	<p>
-		Equality operations, <code>==</code> and <code>!=</code> can be used with any data type. For
-		instance, you can check if a variable&#39;s <em>value</em> is equal to a string &quot;Python&quot;.
+		The equality operators <code>==</code> and <code>!=</code> can be used with any data type. For
+		instance, you can check whether a variable&#39;s <em>value</em> is equal to the string &quot;Python&quot;.
 	</p>
 
 	<PyCell

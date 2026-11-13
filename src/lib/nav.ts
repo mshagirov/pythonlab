@@ -61,7 +61,7 @@ export const sections: NavSection[] = [
 			},
 			{
 				path: 'introduction/02',
-				title: 'Syntax and Arithmetics',
+				title: 'Syntax and Arithmetic Operations',
 				steps: [
 					{ id: 'python-syntax', title: 'Python Syntax' },
 					{ id: 'commenting-your-code', title: 'Commenting Your Code' },

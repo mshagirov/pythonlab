@@ -22,7 +22,7 @@
 		</li>
 		<li>
 			<strong>Automation and scripting</strong>: Python automates repetitive tasks, such as renaming
-			files, sending emails, data entry, and more.
+			files, sending emails, entering data, and more.
 		</li>
 		<li>
 			<strong>Deep learning and artificial intelligence</strong>: Deep learning frameworks like
@@ -66,12 +66,12 @@
 		<li><strong>Have Fun Coding</strong>: Roll up our sleeves and have fun writing Python code.</li>
 		<li>
 			<strong>Understand Core Python Concepts</strong>: Learn fundamental programming concepts, such
-			as, variables, data types, etc., and operations on these types which will enable us to write
+			as variables, data types, etc., and operations on these types, which will enable us to write
 			simple Python programs.
 		</li>
 		<li>
 			<strong>Explore Functions</strong>: Learn to define and use functions to organise our code
-			effectively and learn reusable and <em>modular</em> programs.
+			effectively and write reusable, <em>modular</em> programs.
 		</li>
 		<li>
 			<strong>Master Control Structures</strong>: Learn the use of loops and conditionals which will
@@ -112,12 +112,12 @@
 	</blockquote>
 
 	<p>
-		Generally, it is used to display output of a program. We will use <code>print</code>
+		Generally, it is used to display the output of a program. We will use <code>print</code>
 		throughout this workshop to examine and debug our code.
 	</p>
 
 	<ul>
-		<li>Run the following code to print a text with <code>Hello there!</code> to the console.</li>
+		<li>Run the following code to print the text <code>Hello there!</code> to the console.</li>
 	</ul>
 
 	<PyCell code={String.raw`print("Hello there!")`} />

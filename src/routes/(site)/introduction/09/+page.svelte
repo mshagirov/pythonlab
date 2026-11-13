@@ -9,7 +9,7 @@
 
 	<p>
 		An <em>if statement</em> specifies the part of the code that runs <em>only</em> when a given condition
-		is met. This allows a programmer to control the logical flow and execution of a computer programme.
+		is met. This allows a programmer to control the logical flow and execution of a computer program.
 		If statements consist of
 	</p>
 
@@ -19,7 +19,7 @@
 		<li>an indented code block.</li>
 	</ul>
 
-	<p>The following is a definition of Python if statement.</p>
+	<p>The following is the definition of a Python if statement.</p>
 
 	<Code
 		lang="python"
@@ -55,7 +55,7 @@ if value < 42:
 	</blockquote>
 
 	<p>
-		I used comparison operations as conditions for the statements above. You can use any <em
+		I used comparison operators as conditions for the statements above. You can use any <em
 			>Boolean expression</em
 		>
 		that produces <code>True</code> or <code>False</code> as a condition of the statement.
@@ -64,8 +64,8 @@ if value < 42:
 	<p>
 		The code above uses multiple checks of the same value which is redundant. Once we check that a
 		value is <em>not</em> larger than 42, we also know that the value must be either less than or
-		equal to 42. You can use <code>else</code> statement when you have an alternative code that runs
-		when the condition is <code>False</code>, as shown below.
+		equal to 42. You can use the <code>else</code> statement when you have an alternative code that
+		runs when the condition is <code>False</code>, as shown below.
 	</p>
 
 	<Code
@@ -94,13 +94,13 @@ if value == 42:
 
 	<p>
 		In the above, we are still checking the value twice using two separate if statements. These if
-		statements potential print redundant information, e.g., when <code>value = 42</code>. Also, it
+		statements potentially print redundant information, e.g., when <code>value = 42</code>. Also, it
 		is not immediately clear whether these <code>if</code> blocks are logically connected without carefully
 		reading the code first.
 	</p>
 
 	<p>
-		Python allows us further combine these statements into a single <code>if-elif-else</code>
+		Python allows us to further combine these statements into a single <code>if-elif-else</code>
 		block as shown below.
 	</p>
 
@@ -151,7 +151,7 @@ else:
 	<p>
 		Python provides another type of if statement in addition to the ones shown above. These are
 		called <em>conditional expressions</em>
-		or <em>ternary operators</em>. These expressions allow value assignment using an in-line if
+		or <em>ternary operators</em>. These expressions allow assigning a value with an inline if
 		statement. The syntax of a conditional expression is as follows.
 	</p>
 
@@ -174,8 +174,8 @@ print(result)`}
 
 	<blockquote>
 		<p>
-			Ternary means that the operator consists of three parts. The parts of the above operator are a
-			value if a condition is met, a condition, and an alternative value if the condition is false.
+			Ternary means that the operator has three parts: the value to use when the condition is true,
+			the condition, and the value to use when it is false.
 		</p>
 	</blockquote>
 </LessonSection>

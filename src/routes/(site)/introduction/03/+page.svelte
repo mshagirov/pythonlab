@@ -35,7 +35,7 @@ print('or include quotes \" and \' by escaping with \\ character')`}
 		For example, use <code>\n</code> to include the <em>new line</em> character. As its name
 		suggests,
 		<code>\n</code> creates new lines in text files and in the printed output. These types of
-		characters that start with the backwards slash <code>\</code> are called
+		characters that start with the backslash <code>\</code> are called
 		<em>escape sequences</em>.
 	</p>
 
@@ -48,7 +48,7 @@ print('or include quotes \" and \' by escaping with \\ character')`}
 			<a
 				href="https://docs.python.org/3/reference/lexical_analysis.html#escape-sequences"
 				target="_blank"
-				rel="noopener">the official documention</a
+				rel="noopener">the official documentation</a
 			>.
 		</p>
 	</blockquote>
@@ -82,17 +82,17 @@ for analysis.""")`}
 	</p>
 
 	<PyCell
-		code={String.raw`print(r"This characters \n are on the same line")
-print(r'\t is a tab and \n is a new line sequences')`}
+		code={String.raw`print(r"These characters \n are on the same line")
+print(r'\t is a tab and \n is a newline sequence')`}
 	/>
 
 	<ul>
 		<li>
-			Raw strings produce regular strings but without a need to use the backwards slash
-			<code>\</code> (escape) when defining a string
+			Raw strings produce regular strings without needing to escape the backslash <code>\</code>
+			when defining a string
 		</li>
 		<li>
-			Run the print commands with and without
+			Run the print commands with and without the
 			<code>r</code> prefix to see the differences between raw and regular Python strings.
 		</li>
 	</ul>
@@ -117,7 +117,9 @@ print("These are the same two strings\\n")`}
 
 	<PyCell code={String.raw`print("Weyland-" + "Yutani " + "Corporation")`} />
 
-	<p>Use <code>len</code> function to get a string length, the number of characters in a string.</p>
+	<p>
+		Use the <code>len</code> function to get the length of a string, the number of characters in it.
+	</p>
 
 	<ul>
 		<li><code>len(string)</code>: returns the length of the input string</li>
@@ -140,9 +142,10 @@ print("These are the same two strings\\n")`}
 	</blockquote>
 
 	<p>
-		Formatted strings, f-strings for short, allow you to include and format the value of Python
-		expression into strings. To define f-string, use <code>f</code> or <code>F</code> prefix and
-		insert Python expressions as placeholders in curly braces <code>&#123;expression&#125;</code>.
+		Formatted strings, f-strings for short, allow you to include the value of a Python expression in
+		a string and format it. To define an f-string, use <code>f</code> or <code>F</code> prefix and
+		insert Python expressions as placeholders in curly braces
+		<code>&#123;expression&#125;</code>.
 	</p>
 
 	<ul>
@@ -153,14 +156,14 @@ print("These are the same two strings\\n")`}
 	</ul>
 
 	<p>
-		For instance, the following evaluates an addition, formats, and prints the result as a string.
+		For instance, the following evaluates an addition and prints the result as a formatted string.
 	</p>
 
 	<PyCell code={String.raw`print(f"The new route takes {8 + 10} months to reach Earth.")`} />
 
 	<p>
-		You are not limited to simple expressions like above, and you can use any valid Python
-		expression inside the placeholders. E.g., in the code below, we call <code>len</code>
+		You are not limited to simple expressions like the one above, and you can use any valid Python
+		expression inside the placeholders. E.g., in the code below, we call the <code>len</code>
 		function.
 	</p>
 
@@ -199,8 +202,8 @@ for analysis."""`}
 
 	<blockquote>
 		<p>
-			You can also use built-in <code>repr</code> command with <code>print</code> to print the
-			objects representation in Python. E.g., <code>print(repr(...))</code>.
+			You can also use the built-in <code>repr</code> function with <code>print</code> to print the
+			object&#39;s representation in Python. E.g., <code>print(repr(...))</code>.
 		</p>
 	</blockquote>
 
