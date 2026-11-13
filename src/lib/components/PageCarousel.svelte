@@ -105,7 +105,7 @@
 	.page-carousel {
 		position: relative;
 		flex-shrink: 0;
-		margin-bottom: 0.375rem;
+		margin-bottom: 0.3rem;
 	}
 
 	.half {
@@ -136,7 +136,7 @@
 
 	.carousel {
 		position: relative;
-		height: 4.125rem;
+		height: 3.3rem;
 		overflow: hidden;
 		mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 		pointer-events: none;

@@ -285,7 +285,7 @@ print( list(six_letter_words) )`}
 		<li>
 			<em>Somewhat familiar with the command</em>: use <code>help</code> function to lookup its
 			documentation.
-			<code>help</code> is useful when you want to remind youself on the usage details.
+			<code>help</code> is useful when you want to remind yourself on the usage details.
 		</li>
 		<li>
 			<em>Know the name but not familiar</em>: use the command and observe its outputs and errors.
