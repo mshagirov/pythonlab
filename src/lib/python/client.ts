@@ -1,6 +1,6 @@
-import type { Request, RequestBody, ResponseMessage } from '#lib/python/protocol.ts';
+import type { Request, RequestBody, ResponseMessage, Stream } from '#lib/python/protocol.ts';
 
-export type Stream = 'stdout' | 'stderr';
+export type { Stream };
 export type OutputHandler = (text: string, stream: Stream) => void;
 
 export interface RunOptions {
@@ -20,7 +20,8 @@ export interface PythonSession {
 	restart(): void;
 }
 
-const RESTARTED = 'Python was restarted';
+/** Message of the error that pending work is rejected with when a session restarts. */
+export const RESTARTED = 'Python was restarted';
 
 interface PendingRequest {
 	onOutput: OutputHandler;
@@ -28,18 +29,21 @@ interface PendingRequest {
 	fail: (error: Error) => void;
 }
 
+/** Everything that belongs to one worker; replaced as a whole when Python restarts. */
+interface Connection {
+	worker: Worker;
+	/** Resolves with the banner once Python has loaded. */
+	ready: Promise<string>;
+	rejectReady: (error: Error) => void;
+	pending: Map<number, PendingRequest>;
+}
+
 class Session implements PythonSession {
-	#worker: Worker | null = null;
-	#ready: Promise<string> | null = null;
-	#resolveReady: ((banner: string) => void) | null = null;
-	#rejectReady: ((error: Error) => void) | null = null;
-	#pending = new Map<number, PendingRequest>();
+	#connection: Connection | null = null;
 	#nextId = 1;
-	/** Bumped by `restart()`, so a request between `ready` and `postMessage` can notice. */
-	#generation = 0;
 
 	get ready(): Promise<string> {
-		return this.#whenReady();
+		return this.#connect().ready;
 	}
 
 	async run(code: string, onOutput: OutputHandler, options: RunOptions = {}): Promise<void> {
@@ -58,110 +62,81 @@ class Session implements PythonSession {
 	}
 
 	restart(): void {
-		this.#generation += 1;
-		const worker = this.#worker;
-		const rejectReady = this.#rejectReady;
-		this.#worker = null;
-		this.#ready = null;
-		this.#resolveReady = null;
-		this.#rejectReady = null;
-		worker?.terminate();
-
-		const pending = [...this.#pending.values()];
-		this.#pending.clear();
-		rejectReady?.(new Error(RESTARTED));
-		for (const request of pending) request.fail(new Error(RESTARTED));
+		this.#close(new Error(RESTARTED));
 	}
 
 	async #request(body: RequestBody, onOutput: OutputHandler): Promise<boolean> {
-		const generation = this.#generation;
-		await this.#whenReady();
-		if (generation !== this.#generation) throw new Error(RESTARTED);
-
-		const worker = this.#worker;
-		if (!worker) throw new Error(RESTARTED);
+		const connection = this.#connect();
+		await connection.ready;
+		if (connection !== this.#connection) throw new Error(RESTARTED);
 
 		const id = this.#nextId++;
 		const request: Request = { ...body, id };
 		return await new Promise<boolean>((settle, fail) => {
-			this.#pending.set(id, { onOutput, settle, fail });
-			worker.postMessage(request);
+			connection.pending.set(id, { onOutput, settle, fail });
+			connection.worker.postMessage(request);
 		});
 	}
 
-	#whenReady(): Promise<string> {
-		if (this.#ready) return this.#ready;
+	/** The connection in use, or a fresh worker with its listeners. */
+	#connect(): Connection {
+		if (this.#connection) return this.#connection;
 
-		const worker = this.#spawn();
-		worker.addEventListener('message', (event: MessageEvent<ResponseMessage>) => {
-			this.#receive(worker, event.data);
-		});
-		worker.addEventListener('error', (event: ErrorEvent) => {
-			this.#fail(worker, new Error(event.message || 'The Python worker failed to start'));
-		});
-
-		const ready = new Promise<string>((resolve, reject) => {
-			this.#resolveReady = resolve;
-			this.#rejectReady = reject;
+		const worker = new Worker(new URL('./worker.ts', import.meta.url), { type: 'module' });
+		let resolve!: (banner: string) => void;
+		let reject!: (error: Error) => void;
+		const ready = new Promise<string>((res, rej) => {
+			resolve = res;
+			reject = rej;
 		});
 		// A restart or a failed load may reject this while nobody listens.
 		ready.catch(() => {});
-		this.#ready = ready;
-		return ready;
+
+		const connection: Connection = { worker, ready, rejectReady: reject, pending: new Map() };
+		this.#connection = connection;
+
+		worker.addEventListener('message', (event: MessageEvent<ResponseMessage>) => {
+			if (this.#connection !== connection) return; // A stale worker.
+			const message = event.data;
+			switch (message.type) {
+				case 'ready': {
+					resolve(message.banner);
+					break;
+				}
+				case 'output': {
+					connection.pending.get(message.id)?.onOutput(message.text, message.stream);
+					break;
+				}
+				case 'done': {
+					const request = connection.pending.get(message.id);
+					if (!request) break;
+					connection.pending.delete(message.id);
+					request.settle(message.more === true);
+					break;
+				}
+				case 'error': {
+					this.#close(new Error(message.message));
+					break;
+				}
+			}
+		});
+		worker.addEventListener('error', (event: ErrorEvent) => {
+			if (this.#connection !== connection) return; // A stale worker.
+			this.#close(new Error(event.message || 'The Python worker failed to start'));
+		});
+
+		return connection;
 	}
 
-	#spawn(): Worker {
-		if (this.#worker) return this.#worker;
-		const worker = new Worker(new URL('./worker.ts', import.meta.url), { type: 'module' });
-		this.#worker = worker;
-		return worker;
-	}
+	/** The worker is gone: forget it and reject everything that was waiting. */
+	#close(error: Error): void {
+		const connection = this.#connection;
+		if (!connection) return;
 
-	#receive(worker: Worker, message: ResponseMessage): void {
-		if (worker !== this.#worker) return;
-
-		switch (message.type) {
-			case 'ready': {
-				const resolve = this.#resolveReady;
-				this.#resolveReady = null;
-				this.#rejectReady = null;
-				resolve?.(message.banner);
-				break;
-			}
-			case 'output': {
-				this.#pending.get(message.id)?.onOutput(message.text, message.stream);
-				break;
-			}
-			case 'done': {
-				const request = this.#pending.get(message.id);
-				if (!request) break;
-				this.#pending.delete(message.id);
-				request.settle(message.more === true);
-				break;
-			}
-			case 'error': {
-				this.#fail(worker, new Error(message.message));
-				break;
-			}
-		}
-	}
-
-	/** The worker is unusable: forget it and reject everything that was waiting. */
-	#fail(worker: Worker, error: Error): void {
-		if (worker !== this.#worker) return;
-
-		this.#generation += 1;
-		this.#worker = null;
-		this.#ready = null;
-		const rejectReady = this.#rejectReady;
-		this.#resolveReady = null;
-		this.#rejectReady = null;
-		worker.terminate();
-
-		const pending = [...this.#pending.values()];
-		this.#pending.clear();
-		rejectReady?.(error);
-		for (const request of pending) request.fail(error);
+		this.#connection = null;
+		connection.worker.terminate();
+		connection.rejectReady(error);
+		for (const request of connection.pending.values()) request.fail(error);
 	}
 }
 

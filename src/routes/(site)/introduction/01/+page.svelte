@@ -1,18 +1,9 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import LessonSection from '#lib/components/LessonSection.svelte';
 	import PyCell from '#lib/components/PyCell.svelte';
-	import { introductionSteps as steps } from '#lib/nav.ts';
-
-	const active = $derived(
-		Math.max(
-			0,
-			steps.findIndex((step) => `#${step.id}` === page.url.hash),
-		),
-	);
 </script>
 
-<!-- Keep sections mounted so code edits and output survive navigation between steps. -->
-<section id="python" hidden={active !== 0} aria-label="Python">
+<LessonSection id="python">
 	<p>
 		Python is a general-purpose programming language designed for readability, flexibility, and fast
 		development. Its wide range of applications, robust community support, and simplicity make it
@@ -55,10 +46,10 @@
 			<a href="https://www.python.org/" target="_blank" rel="noopener">www.python.org</a>.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="workshop" hidden={active !== 1} aria-labelledby="workshop-title">
-	<h2 id="workshop-title">About This Workshop</h2>
+<LessonSection id="workshop">
+	<h2>About This Workshop</h2>
 
 	<p>
 		This workshop session will mainly focus on the Python language and its built-in features. We
@@ -98,10 +89,10 @@
 		environment that encourages curiosity and experimentation, empowering participants to continue
 		exploring Python independently.
 	</p>
-</section>
+</LessonSection>
 
-<section id="code-example" hidden={active !== 2} aria-labelledby="code-example-title">
-	<h2 id="code-example-title">A Code Example</h2>
+<LessonSection id="code-example">
+	<h2>A Code Example</h2>
 
 	<p>
 		As an example, let&#39;s use Python&#39;s <code>print</code> function. It takes an input which
@@ -134,10 +125,10 @@
 	<blockquote>
 		<p>Hover over the code and click the run button.</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="exercise" hidden={active !== 3} aria-labelledby="exercise-title">
-	<h2 id="exercise-title">Exercises</h2>
+<LessonSection id="exercise">
+	<h2>Exercises</h2>
 
 	<p>
 		<strong>E1:</strong> Edit the following code to print a greeting by replacing the question mark
@@ -152,10 +143,10 @@
 			original code.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="standard-library" hidden={active !== 4} aria-labelledby="standard-library-title">
-	<h2 id="standard-library-title">The Python Standard Library</h2>
+<LessonSection id="standard-library">
+	<h2>The Python Standard Library</h2>
 	<p>
 		Python comes with an assortment of built-in features and tools in the form of its standard
 		library. In this workshop session, we will discuss some of the most frequently used features and
@@ -168,4 +159,4 @@
 		journey. This resource offers explanations and usage examples of the built-in functions and
 		tools. Referring to the documentation may help you understand and use Python more effectively.
 	</p>
-</section>
+</LessonSection>

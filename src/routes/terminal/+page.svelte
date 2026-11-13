@@ -1,12 +1,14 @@
 <script lang="ts">
 	import '@wterm/dom/css';
 	import { onMount } from 'svelte';
+	import type { Attachment } from 'svelte/attachments';
+	import { on } from 'svelte/events';
 	import type { WTerm } from '@wterm/dom';
 	import type { GhosttyCore } from '@wterm/ghostty';
 	import { href } from '#lib/href.ts';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { highlightAnsi } from '#lib/highlight.ts';
-	import { createSession } from '#lib/python/client.ts';
+	import { createSession, RESTARTED } from '#lib/python/client.ts';
 	import type { Stream } from '#lib/python/client.ts';
 	import { LineEditor } from '#lib/terminal/line-editor.ts';
 
@@ -17,7 +19,6 @@
 	type Phase = 'starting' | 'idle' | 'running';
 
 	let host = $state<HTMLDivElement>();
-	let toggle = $state<HTMLSpanElement>();
 	let term: WTerm | null = null;
 
 	function focusTerminal(): void {
@@ -25,6 +26,9 @@
 		if (window.getSelection()?.isCollapsed === false) return;
 		term?.focus();
 	}
+
+	/** A click on the element puts the keyboard focus back in the terminal. */
+	const refocus: Attachment<HTMLElement> = (element) => on(element, 'click', focusTerminal);
 
 	function prefersDark(): boolean {
 		const forced = document.documentElement.dataset.theme;
@@ -55,13 +59,38 @@
 			term?.write(text);
 		}
 
+		const red = (text: string): string => `\x1b[31m${toTerminalText(text)}\x1b[0m`;
+
 		function showError(message: string): void {
-			write(`\x1b[31m${toTerminalText(message)}\x1b[0m\r\n`);
+			write(`${red(message)}\r\n`);
 		}
 
 		function onOutput(text: string, stream: Stream): void {
-			const body = toTerminalText(text);
-			write(stream === 'stderr' ? `\x1b[31m${body}\x1b[0m` : body);
+			write(stream === 'stderr' ? red(text) : toTerminalText(text));
+		}
+
+		/** Accept input again, at the main prompt or the continuation prompt. */
+		function prompt(text: string): void {
+			nextPrompt = text;
+			phase = 'idle';
+			editor?.prompt(text);
+		}
+
+		/** Wait for Python to answer a request, then prompt again. */
+		function wait(request: Promise<boolean | void>): void {
+			phase = 'running';
+			void request.then(
+				(more) => {
+					if (!disposed) prompt(more ? CONTINUATION : PROMPT);
+				},
+				(error: unknown) => {
+					const message = error instanceof Error ? error.message : String(error);
+					// Ctrl-C during execution restarts Python, and that path prompts again.
+					if (disposed || message === RESTARTED) return;
+					showError(message);
+					prompt(PROMPT);
+				},
+			);
 		}
 
 		async function startPython(first: boolean): Promise<void> {
@@ -71,9 +100,7 @@
 				if (disposed) return;
 				write(`${banner}\r\n`);
 				if (first) write(HINT);
-				phase = 'idle';
-				nextPrompt = PROMPT;
-				editor?.prompt(PROMPT);
+				prompt(PROMPT);
 			} catch {
 				if (disposed) return;
 				write('Could not load Python (are you offline?)\r\n');
@@ -81,25 +108,7 @@
 		}
 
 		function runLine(line: string): void {
-			if (phase !== 'idle') return;
-			phase = 'running';
-			void session.push(line, onOutput).then(
-				(more: boolean) => {
-					if (disposed) return;
-					nextPrompt = more ? CONTINUATION : PROMPT;
-					phase = 'idle';
-					editor?.prompt(nextPrompt);
-				},
-				(error: unknown) => {
-					if (disposed) return;
-					// Ctrl-C during execution restarts Python, and that path prompts again.
-					if (error instanceof Error && error.message === 'Python was restarted') return;
-					phase = 'idle';
-					nextPrompt = PROMPT;
-					showError(error instanceof Error ? error.message : String(error));
-					editor?.prompt(nextPrompt);
-				},
-			);
+			if (phase === 'idle') wait(session.push(line, onOutput));
 		}
 
 		function interrupt(): void {
@@ -112,30 +121,10 @@
 			}
 			if (phase === 'starting') return;
 			write('^C\r\n');
-			if (nextPrompt === PROMPT) {
-				editor?.prompt(PROMPT);
-				return;
-			}
 			// A half-entered block must be discarded inside Python too, or the
 			// console would keep asking for more lines.
-			phase = 'running';
-			void session.reset().then(
-				() => {
-					if (disposed) return;
-					nextPrompt = PROMPT;
-					phase = 'idle';
-					editor?.prompt(PROMPT);
-				},
-				(error: unknown) => {
-					if (disposed) return;
-					// Ctrl-C during execution restarts Python, and that path prompts again.
-					if (error instanceof Error && error.message === 'Python was restarted') return;
-					nextPrompt = PROMPT;
-					phase = 'idle';
-					showError(error instanceof Error ? error.message : String(error));
-					editor?.prompt(PROMPT);
-				},
-			);
+			if (nextPrompt === PROMPT) editor?.prompt(PROMPT);
+			else wait(session.reset());
 		}
 
 		void (async () => {
@@ -180,13 +169,8 @@
 			else element.textContent = `Could not start the terminal (${detail})`;
 		});
 
-		element.addEventListener('click', focusTerminal);
-		toggle?.addEventListener('click', focusTerminal);
-
 		return () => {
 			disposed = true;
-			element.removeEventListener('click', focusTerminal);
-			toggle?.removeEventListener('click', focusTerminal);
 			term?.destroy();
 			term = null;
 			core?.dispose();
@@ -201,10 +185,10 @@
 
 <div class="shell">
 	<div class="bar">
-		<span bind:this={toggle}><ThemeToggle /></span>
+		<span {@attach refocus}><ThemeToggle /></span>
 		<a href={href('')}>🐍 back to pythonlab</a>
 	</div>
-	<div class="screen" bind:this={host} aria-label="Python shell"></div>
+	<div class="screen" bind:this={host} {@attach refocus} aria-label="Python shell"></div>
 </div>
 
 <style>
@@ -213,8 +197,8 @@
 		inset: 0;
 		display: flex;
 		flex-direction: column;
-		background: light-dark(#ffffff, #16181c);
-		color: light-dark(#1f2328, #e6e6e6);
+		background: var(--bg);
+		color: var(--fg);
 	}
 
 	.bar {
@@ -224,12 +208,12 @@
 		align-items: center;
 		gap: 0.75rem;
 		padding: 0.25rem 0.75rem;
-		border-bottom: 1px solid light-dark(#d1d9e0, #30363d);
+		border-bottom: 1px solid var(--border);
 		font-size: 0.85rem;
 	}
 
 	.bar a {
-		color: light-dark(#0550ae, #6cb6ff);
+		color: var(--link);
 		text-decoration: none;
 	}
 
@@ -239,11 +223,9 @@
 	}
 
 	.screen:global(.wterm) {
-		flex: 1 1 0;
-		min-height: 0;
-		--term-bg: light-dark(#ffffff, #16181c);
-		--term-fg: light-dark(#1f2328, #e6e6e6);
-		--term-cursor: light-dark(#0550ae, #6cb6ff);
+		--term-bg: var(--bg);
+		--term-fg: var(--fg);
+		--term-cursor: var(--link);
 		--term-color-0: light-dark(#24292f, #484f58);
 		--term-color-1: light-dark(#cf222e, #ff7b72);
 		--term-color-2: light-dark(#116329, #7ee787);

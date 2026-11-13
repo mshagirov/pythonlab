@@ -1,21 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
 	import PyCell from '#lib/components/PyCell.svelte';
 	import { href } from '#lib/href.ts';
-	import { stringSteps as steps } from '#lib/nav.ts';
-
-	const active = $derived(
-		Math.max(
-			0,
-			steps.findIndex((step) => `#${step.id}` === page.url.hash),
-		),
-	);
 </script>
 
-<!-- Keep sections mounted so code edits and output survive navigation between steps. -->
-<section id="strings" hidden={active !== 0} aria-labelledby="strings-title">
-	<h3 id="strings-title">String Literals</h3>
+<LessonSection id="strings">
+	<h3>String Literals</h3>
 
 	<p>
 		In Python, <em>strings</em> represent text objects. Python uses single and double quotes,
@@ -61,10 +52,10 @@ print('or include quotes \" and \' by escaping with \\ character')`}
 			>.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="multiline-strings" hidden={active !== 1} aria-labelledby="multiline-strings-title">
-	<h3 id="multiline-strings-title">Multiline Strings</h3>
+<LessonSection id="multiline-strings">
+	<h3>Multiline Strings</h3>
 
 	<p>
 		You can define multi-line strings with <code>&#39;&#39;&#39;...&#39;&#39;&#39;</code> or
@@ -77,10 +68,10 @@ print('or include quotes \" and \' by escaping with \\ character')`}
 Insure the return of organism
 for analysis.""")`}
 	/>
-</section>
+</LessonSection>
 
-<section id="raw-strings" hidden={active !== 2} aria-labelledby="raw-strings-title">
-	<h3 id="raw-strings-title">Raw Strings</h3>
+<LessonSection id="raw-strings">
+	<h3>Raw Strings</h3>
 
 	<p>
 		Sometimes you want Python to <em>not</em> interpret an escape sequence. E.g., you may want to
@@ -110,14 +101,10 @@ print(r'\t is a tab and \n is a new line sequences')`}
 		code={String.raw`print(r"These are the same two strings\n")
 print("These are the same two strings\\n")`}
 	/>
-</section>
+</LessonSection>
 
-<section
-	id="string-concatenation-and-length"
-	hidden={active !== 3}
-	aria-labelledby="string-concatenation-and-length-title"
->
-	<h3 id="string-concatenation-and-length-title">String Concatenation and Length</h3>
+<LessonSection id="string-concatenation-and-length">
+	<h3>String Concatenation and Length</h3>
 
 	<p>You can concatenate (join) multiple strings together using <code>+</code>.</p>
 
@@ -137,10 +124,10 @@ print("These are the same two strings\\n")`}
 	</ul>
 
 	<PyCell code={String.raw`print(len("cargo"))`} />
-</section>
+</LessonSection>
 
-<section id="f-strings" hidden={active !== 4} aria-labelledby="f-strings-title">
-	<h3 id="f-strings-title">F-Strings</h3>
+<LessonSection id="f-strings">
+	<h3>F-Strings</h3>
 
 	<blockquote>
 		<p>
@@ -178,28 +165,20 @@ print("These are the same two strings\\n")`}
 	</p>
 
 	<PyCell code={String.raw`print(f"Word 'Alien' is {len("Alien")} characters long.")`} />
-</section>
+</LessonSection>
 
-<section
-	id="debug-a-syntax-error"
-	hidden={active !== 5}
-	aria-labelledby="debug-a-syntax-error-title"
->
-	<h3 id="debug-a-syntax-error-title">Debug a Syntax Error</h3>
+<LessonSection id="debug-a-syntax-error">
+	<h3>Debug a Syntax Error</h3>
 
 	<ul>
 		<li>Oh no! I broke Python. Fix the following code so that it prints two lines.</li>
 	</ul>
 
 	<PyCell code={String.raw`print("Neo: 'I know kung-fu'\nMorpheus: 'Show me'')`} />
-</section>
+</LessonSection>
 
-<section
-	id="string-representation"
-	hidden={active !== 6}
-	aria-labelledby="string-representation-title"
->
-	<h3 id="string-representation-title">String Representation</h3>
+<LessonSection id="string-representation">
+	<h3>String Representation</h3>
 
 	<ul>
 		<li>
@@ -230,4 +209,4 @@ for analysis."""`}
 Insure the return of organism
 for analysis."""))`}
 	/>
-</section>
+</LessonSection>

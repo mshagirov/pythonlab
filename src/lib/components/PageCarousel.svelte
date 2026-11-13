@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { clipped } from '#lib/clipped.ts';
 	import { href } from '#lib/href.ts';
 	import type { NavLink } from '#lib/nav.ts';
 
@@ -19,42 +20,45 @@
 	/** How many neighbours stay visible on each side of the current title. */
 	const VISIBLE = 3;
 
-	/** 3D look of a carousel title `offset` steps away from the current one. */
-	function look(offset: number): string {
-		const distance = Math.min(Math.abs(offset), VISIBLE + 1);
-		const side = Math.sign(offset);
-		return [
-			`--turn: ${-side * 30}deg`,
-			// The current title is enlarged a little; neighbours shrink with distance.
-			`--scale: ${distance === 0 ? 1.1 : 0.85 ** distance}`,
-			`--blur: ${distance * 0.8}px`,
-			`--fade: ${Math.max(0, 1 - distance * 0.25)}`,
-			// Shrink toward the centre so neighbours stay close to the current title.
-			`transform-origin: ${side < 0 ? 'right' : side > 0 ? 'left' : 'center'} center`,
-		].join('; ');
-	}
+	/** Space between neighbouring titles, in rem. */
+	const GAP = 2.25;
 
 	let track = $state<HTMLElement>();
-	/** Horizontal shift that centres the current title; null until first measured. */
-	let shift = $state<number | null>(null);
+	/**
+	 * Left edge of each title, relative to the carousel's centre, so that the titles sit
+	 * side by side around the current one. All movement is then a transform, which
+	 * animates in one smooth transition. Unset until first measured.
+	 */
+	let positions = $state.raw<number[]>();
 	let animate = $state(false);
 
 	$effect(() => {
-		const element = track;
-		const position = index;
-		if (!element) return;
+		if (!track) return;
+		// Runs again for a new section (`sequence`) and for a new page (`index`): the
+		// current title is bold, so the widths change with it.
+		const count = sequence.length;
+		const current = index;
+		const items = [...track.children] as HTMLElement[];
+		if (items.length !== count || !items[current]) return;
 
 		function measure() {
-			const current = element?.children[position];
-			if (!(current instanceof HTMLElement)) return;
-			shift = current.offsetLeft + current.offsetWidth / 2;
+			const gap = GAP * parseFloat(getComputedStyle(document.documentElement).fontSize);
+			const widths = items.map((item) => item.offsetWidth);
+			// Work outwards from the current title, which is centred.
+			const left: number[] = [];
+			left[current] = -widths[current] / 2;
+			for (let i = current + 1; i < count; i++) left[i] = left[i - 1] + widths[i - 1] + gap;
+			for (let i = current - 1; i >= 0; i--) left[i] = left[i + 1] - gap - widths[i];
+			positions = left;
 		}
 
 		measure();
 		// Only animate later moves, not the initial placement after page load.
 		const frame = requestAnimationFrame(() => (animate = true));
+		// Transforms don't change offsetWidth, so this only fires for real size changes
+		// such as web fonts loading.
 		const observer = new ResizeObserver(measure);
-		observer.observe(element);
+		for (const item of items) observer.observe(item);
 		return () => {
 			cancelAnimationFrame(frame);
 			observer.disconnect();
@@ -65,21 +69,18 @@
 {#if sequence.length > 1}
 	<nav class="page-carousel" aria-label="Lesson pages">
 		<div class="carousel" aria-hidden="true">
-			<div
-				class="track"
-				class:animate
-				class:measured={shift !== null}
-				style:--shift={`${shift ?? 0}px`}
-				bind:this={track}
-			>
+			<div class="track" class:animate class:measured={!!positions} bind:this={track}>
 				{#each sequence as item, position (item.path)}
 					{@const offset = position - index}
+					{@const current = offset === 0}
 					<span
 						class="item"
-						class:current={offset === 0}
+						class:current
 						class:before={offset < 0}
 						class:after={offset > 0}
-						style={look(offset)}>{item.label}</span
+						class:hidden={Math.abs(offset) > VISIBLE}
+						style:--x={`${positions?.[position] ?? 0}px`}
+						{@attach clipped(current)}>{item.label}</span
 					>
 				{/each}
 			</div>
@@ -104,9 +105,7 @@
 	.page-carousel {
 		position: relative;
 		flex-shrink: 0;
-		margin-top: 3rem;
-		padding-top: 0.5rem;
-		border-top: 1px solid var(--border);
+		margin-bottom: 0.375rem;
 	}
 
 	.half {
@@ -133,15 +132,13 @@
 	.page-carousel:has(.go-previous:hover, .go-previous:focus-visible) .item.before,
 	.page-carousel:has(.go-next:hover, .go-next:focus-visible) .item.after {
 		filter: blur(0);
-		opacity: max(var(--fade), 0.6);
 	}
 
 	.carousel {
 		position: relative;
-		height: 2.75rem;
+		height: 4.125rem;
 		overflow: hidden;
-		perspective: 40rem;
-		mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
+		mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
 		pointer-events: none;
 		user-select: none;
 	}
@@ -150,11 +147,6 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		display: flex;
-		align-items: center;
-		gap: 2.5rem;
-		transform-style: preserve-3d;
-		transform: translate(calc(-1 * var(--shift)), -50%);
 		visibility: hidden;
 	}
 
@@ -162,20 +154,24 @@
 		visibility: visible;
 	}
 
+	/* Titles are placed by the script (--x) and move by transform only, so the layout
+	   never changes while animating. All titles share one font size; scaling or turning
+	   them distorts the text. */
 	.item {
-		flex-shrink: 0;
+		position: absolute;
+		top: 0;
+		left: 0;
 		max-width: 12rem;
 		overflow: hidden;
 		color: var(--muted);
 		font-size: 0.85rem;
 		white-space: nowrap;
-		text-overflow: ellipsis;
-		opacity: var(--fade);
-		filter: blur(var(--blur));
-		transform: rotateY(var(--turn)) scale(var(--scale));
+		/* Every neighbour shares one opacity and blur; only the current title is sharp. */
+		opacity: 0.7;
+		filter: blur(0.8px);
+		transform: translate(var(--x), -50%);
 	}
 
-	.animate,
 	.animate .item {
 		transition:
 			transform 0.4s ease,
@@ -184,13 +180,23 @@
 			color 0.4s ease;
 	}
 
+	/* A title longer than max-width fades out at its end instead of showing an ellipsis. */
+	.item:global([data-clipped]) {
+		mask-image: linear-gradient(to right, black calc(100% - 2.5rem), transparent);
+	}
+
 	.item.current {
 		color: var(--fg);
 		font-weight: 600;
+		opacity: 1;
+		filter: blur(0);
+	}
+
+	.item.hidden {
+		opacity: 0;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		.animate,
 		.animate .item {
 			transition: none;
 		}

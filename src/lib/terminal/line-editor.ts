@@ -25,24 +25,51 @@ const PASTE_START = `${ESC}[200~`;
 const PASTE_END = `${ESC}[201~`;
 const INDENT = '    ';
 
-/** Escape sequences the editor understands, longest first. */
-const BINDINGS: ReadonlyArray<readonly [sequence: string, key: string]> = [
-	[`${ESC}[1~`, 'home'],
-	[`${ESC}[3~`, 'delete'],
-	[`${ESC}[4~`, 'end'],
-	[`${ESC}[A`, 'up'],
-	[`${ESC}[B`, 'down'],
-	[`${ESC}[C`, 'right'],
-	[`${ESC}[D`, 'left'],
-	[`${ESC}[F`, 'end'],
-	[`${ESC}[H`, 'home'],
-	[`${ESC}OA`, 'up'],
-	[`${ESC}OB`, 'down'],
-	[`${ESC}OC`, 'right'],
-	[`${ESC}OD`, 'left'],
-	[`${ESC}OF`, 'end'],
-	[`${ESC}OH`, 'home'],
-];
+/** What a key does; control characters and escape sequences share these actions. */
+type Action =
+	| 'left'
+	| 'right'
+	| 'home'
+	| 'end'
+	| 'up'
+	| 'down'
+	| 'deleteBackward'
+	| 'deleteForward'
+	| 'killBefore'
+	| 'killAfter'
+	| 'clear'
+	| 'indent';
+
+/**
+ * Every key the editor understands. No entry is the start of another one, so the order in which
+ * escape sequences are tried does not matter.
+ */
+const KEYS: Readonly<Record<string, Action>> = {
+	'\x7f': 'deleteBackward',
+	'\b': 'deleteBackward',
+	'\x01': 'home',
+	'\x05': 'end',
+	'\x15': 'killBefore',
+	'\x0b': 'killAfter',
+	'\x0c': 'clear',
+	'\x04': 'deleteForward',
+	'\t': 'indent',
+	[`${ESC}[1~`]: 'home',
+	[`${ESC}[3~`]: 'deleteForward',
+	[`${ESC}[4~`]: 'end',
+	[`${ESC}[A`]: 'up',
+	[`${ESC}[B`]: 'down',
+	[`${ESC}[C`]: 'right',
+	[`${ESC}[D`]: 'left',
+	[`${ESC}[F`]: 'end',
+	[`${ESC}[H`]: 'home',
+	[`${ESC}OA`]: 'up',
+	[`${ESC}OB`]: 'down',
+	[`${ESC}OC`]: 'right',
+	[`${ESC}OD`]: 'left',
+	[`${ESC}OF`]: 'end',
+	[`${ESC}OH`]: 'home',
+};
 
 export class LineEditor {
 	private readonly options: LineEditorOptions;
@@ -55,7 +82,7 @@ export class LineEditor {
 	/** `history.length` means "editing the line in progress". */
 	private historyIndex = 0;
 	/** The line in progress, restored when walking back down through history. */
-	private draft: string[] = [];
+	private draft = '';
 	/** Input waiting for the next `prompt()`: leftover from a paste, or typed while a line ran. */
 	private queue: string[] = [];
 
@@ -66,23 +93,17 @@ export class LineEditor {
 	/** Print the prompt and start accepting a new line. */
 	prompt(text: string): void {
 		this.promptText = text;
-		this.buffer = [];
-		this.cursor = 0;
-		this.historyIndex = this.history.length;
-		this.draft = [];
+		this.reset();
 		this.active = true;
+		this.historyIndex = this.history.length;
 		this.options.write(text);
-
-		if (this.queue.length > 0) {
-			const pending = this.queue.join('');
-			this.queue = [];
-			this.feed(pending);
-		}
+		// Input typed while the previous line ran is replayed now.
+		if (this.queue.length > 0) this.feed(this.queue.splice(0).join(''));
 	}
 
 	/** Feed raw input from the terminal's `onData`. */
 	input(data: string): void {
-		this.feed(stripPasteMarkers(data));
+		this.feed(data.replaceAll(PASTE_START, '').replaceAll(PASTE_END, ''));
 	}
 
 	private feed(text: string): void {
@@ -126,52 +147,19 @@ export class LineEditor {
 			}
 
 			i += 1;
-			this.applyCharacter(char);
-		}
-	}
-
-	private applyCharacter(char: string): void {
-		switch (char) {
-			case '\x7f':
-			case '\b':
-				this.deleteBackward();
-				return;
-			case '\x01':
-				this.moveHome();
-				return;
-			case '\x05':
-				this.moveEnd();
-				return;
-			case '\x15':
-				this.killBefore();
-				return;
-			case '\x0b':
-				this.killAfter();
-				return;
-			case '\x0c':
-				this.options.write(`${ESC}[2J${ESC}[H`);
-				this.redraw();
-				return;
-			case '\x04':
-				// Ctrl-D only deletes at the cursor; on an empty line it does nothing.
-				if (this.buffer.length > 0) this.deleteForward();
-				return;
-			case '\t':
-				this.insert(INDENT);
-				return;
-			default: {
-				const code = char.codePointAt(0) ?? 0;
-				if (code >= 0x20 && code !== 0x7f) this.insert(char);
-			}
+			// Every control key is in `KEYS`, so whatever is left and printable is text.
+			const action = KEYS[char];
+			if (action) this.act(action);
+			else if ((char.codePointAt(0) ?? 0) >= 0x20) this.insert(char);
 		}
 	}
 
 	/** Handle the escape sequence at `chars[start]` and return how many code points it used. */
 	private consumeEscape(chars: string[], start: number): number {
 		const rest = chars.slice(start).join('');
-		for (const [sequence, key] of BINDINGS) {
+		for (const [sequence, action] of Object.entries(KEYS)) {
 			if (!rest.startsWith(sequence)) continue;
-			this.applyKey(key);
+			this.act(action);
 			return sequence.length;
 		}
 
@@ -189,129 +177,103 @@ export class LineEditor {
 		return length;
 	}
 
-	private applyKey(key: string): void {
-		switch (key) {
+	/**
+	 * Run one key action. An edit redraws only when it actually applies; typing and switching to
+	 * a history line always redraw, even when the visible text stays the same.
+	 */
+	private act(action: Action): void {
+		switch (action) {
 			case 'left':
-				if (this.cursor > 0) {
-					this.cursor -= 1;
-					this.redraw();
-				}
+				if (this.cursor > 0) this.update(this.buffer, this.cursor - 1);
 				return;
 			case 'right':
-				if (this.cursor < this.buffer.length) {
-					this.cursor += 1;
-					this.redraw();
-				}
+				if (this.cursor < this.buffer.length) this.update(this.buffer, this.cursor + 1);
 				return;
 			case 'home':
-				this.moveHome();
+				if (this.cursor > 0) this.update(this.buffer, 0);
 				return;
 			case 'end':
-				this.moveEnd();
+				if (this.cursor < this.buffer.length) this.update(this.buffer, this.buffer.length);
+				return;
+			case 'deleteBackward':
+				if (this.cursor === 0) return;
+				this.update(this.buffer.toSpliced(this.cursor - 1, 1), this.cursor - 1);
+				return;
+			case 'deleteForward':
+				// Ctrl-D and Delete alike: at the end of the line there is nothing to delete.
+				if (this.cursor === this.buffer.length) return;
+				this.update(this.buffer.toSpliced(this.cursor, 1), this.cursor);
+				return;
+			case 'killBefore':
+				if (this.cursor === 0) return;
+				this.update(this.buffer.slice(this.cursor), 0);
+				return;
+			case 'killAfter':
+				if (this.cursor === this.buffer.length) return;
+				this.update(this.buffer.slice(0, this.cursor), this.cursor);
+				return;
+			case 'clear':
+				this.options.write(`${ESC}[2J${ESC}[H`);
+				this.redraw();
+				return;
+			case 'indent':
+				this.insert(INDENT);
 				return;
 			case 'up':
-				this.historyUp();
+				if (this.historyIndex === 0) return;
+				if (this.historyIndex === this.history.length) this.draft = this.buffer.join('');
+				this.historyIndex -= 1;
+				this.showText(this.history[this.historyIndex]);
 				return;
 			case 'down':
-				this.historyDown();
-				return;
-			case 'delete':
-				this.deleteForward();
+				if (this.historyIndex === this.history.length) return;
+				this.historyIndex += 1;
+				if (this.historyIndex === this.history.length) this.showText(this.draft);
+				else this.showText(this.history[this.historyIndex]);
 				return;
 		}
 	}
 
 	private insert(text: string): void {
 		const chars = Array.from(text);
-		this.buffer = [
-			...this.buffer.slice(0, this.cursor),
-			...chars,
-			...this.buffer.slice(this.cursor),
-		];
-		this.cursor += chars.length;
-		this.redraw();
+		this.update(this.buffer.toSpliced(this.cursor, 0, ...chars), this.cursor + chars.length);
 	}
 
-	private deleteBackward(): void {
-		if (this.cursor === 0) return;
-		this.buffer.splice(this.cursor - 1, 1);
-		this.cursor -= 1;
-		this.redraw();
+	/** Show `text` as the current line, with the cursor at its end. */
+	private showText(text: string): void {
+		const chars = Array.from(text);
+		this.update(chars, chars.length);
 	}
 
-	private deleteForward(): void {
-		if (this.cursor >= this.buffer.length) return;
-		this.buffer.splice(this.cursor, 1);
-		this.redraw();
-	}
-
-	private moveHome(): void {
-		if (this.cursor === 0) return;
-		this.cursor = 0;
-		this.redraw();
-	}
-
-	private moveEnd(): void {
-		if (this.cursor === this.buffer.length) return;
-		this.cursor = this.buffer.length;
-		this.redraw();
-	}
-
-	private killBefore(): void {
-		if (this.cursor === 0) return;
-		this.buffer = this.buffer.slice(this.cursor);
-		this.cursor = 0;
-		this.redraw();
-	}
-
-	private killAfter(): void {
-		if (this.cursor === this.buffer.length) return;
-		this.buffer = this.buffer.slice(0, this.cursor);
-		this.redraw();
-	}
-
-	private historyUp(): void {
-		if (this.history.length === 0 || this.historyIndex === 0) return;
-		if (this.historyIndex === this.history.length) this.draft = [...this.buffer];
-		this.historyIndex -= 1;
-		this.buffer = Array.from(this.history[this.historyIndex]);
-		this.cursor = this.buffer.length;
-		this.redraw();
-	}
-
-	private historyDown(): void {
-		if (this.historyIndex >= this.history.length) return;
-		this.historyIndex += 1;
-		this.buffer =
-			this.historyIndex === this.history.length
-				? [...this.draft]
-				: Array.from(this.history[this.historyIndex]);
-		this.cursor = this.buffer.length;
+	/** Replace the line and the cursor, then repaint. */
+	private update(buffer: string[], cursor: number): void {
+		this.buffer = buffer;
+		this.cursor = cursor;
 		this.redraw();
 	}
 
 	private submit(): void {
 		const line = this.buffer.join('');
-		this.active = false;
-		this.buffer = [];
-		this.cursor = 0;
-		this.draft = [];
+		this.reset();
 		this.options.write('\r\n');
 
-		if (line.length > 0 && this.history[this.history.length - 1] !== line) {
-			this.history.push(line);
-		}
+		if (line.length > 0 && this.history.at(-1) !== line) this.history.push(line);
 		this.historyIndex = this.history.length;
 		this.options.onLine(line);
 	}
 
 	private interrupt(): void {
+		this.reset();
+		this.queue = [];
+		this.options.onInterrupt();
+	}
+
+	/** Forget the line in progress; the editor stops accepting input until the next `prompt()`. */
+	private reset(): void {
 		this.active = false;
 		this.buffer = [];
 		this.cursor = 0;
-		this.draft = [];
-		this.queue = [];
-		this.options.onInterrupt();
+		this.draft = '';
 	}
 
 	/** Simple single-row redraw: rewrite the line and put the cursor back. */
@@ -332,8 +294,4 @@ export class LineEditor {
 			return line;
 		}
 	}
-}
-
-function stripPasteMarkers(data: string): string {
-	return data.split(PASTE_START).join('').split(PASTE_END).join('');
 }

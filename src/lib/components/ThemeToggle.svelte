@@ -1,14 +1,33 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { cycleTheme, getTheme } from '#lib/theme.svelte.ts';
 
-	let mounted = $state(false);
+	type Theme = 'system' | 'light' | 'dark';
+
+	// Rendered as 'system' on the server; the real choice is only known in the browser.
+	let theme = $state<Theme>('system');
+	const label = $derived(`Theme: ${theme}`);
+
 	onMount(() => {
-		mounted = true;
+		// app.html copies the stored choice onto <html> before the first paint.
+		const stored = document.documentElement.dataset.theme;
+		if (stored === 'light' || stored === 'dark') theme = stored;
 	});
 
-	const theme = $derived(mounted ? getTheme() : 'system');
-	const label = $derived(`Theme: ${theme}`);
+	function cycle(): void {
+		theme = theme === 'system' ? 'light' : theme === 'light' ? 'dark' : 'system';
+		const root = document.documentElement;
+		try {
+			if (theme === 'system') {
+				delete root.dataset.theme;
+				localStorage.removeItem('theme');
+			} else {
+				root.dataset.theme = theme;
+				localStorage.setItem('theme', theme);
+			}
+		} catch {
+			// Storage may be blocked; the theme still applies to this page.
+		}
+	}
 </script>
 
 {#snippet moon()}
@@ -36,7 +55,7 @@
 	</svg>
 {/snippet}
 
-<button type="button" onclick={cycleTheme} aria-label={label} title={label}>
+<button type="button" onclick={cycle} aria-label={label} title={label}>
 	{#if theme === 'dark'}
 		{@render moon()}
 	{:else if theme === 'light'}

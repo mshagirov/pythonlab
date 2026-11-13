@@ -1,87 +1,7 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
-	import { page } from '$app/state';
+	import type { NavStep } from '#lib/nav.ts';
 
-	let { steps, active }: { steps: { id: string; title: string }[]; active: number } = $props();
-
-	function resetReadingFocus(section: HTMLElement | null): void {
-		const focused = document.activeElement;
-		if (focused !== document.body && (!focused || !section?.contains(focused))) return;
-
-		// Gecko can focus a scroll frame while reporting BODY as activeElement.
-		// Explicitly focus a neutral target before blurring to clear that state too.
-		const body = document.body;
-		const tabindex = body.getAttribute('tabindex');
-		body.setAttribute('tabindex', '-1');
-		body.focus({ preventScroll: true });
-		body.blur();
-		if (tabindex === null) body.removeAttribute('tabindex');
-		else body.setAttribute('tabindex', tabindex);
-	}
-
-	onMount(() => {
-		let frame: number;
-		function resetAfterLoad() {
-			cancelAnimationFrame(frame);
-			frame = requestAnimationFrame(() => {
-				const sectionId = steps[active]?.id;
-				resetReadingFocus(sectionId ? document.getElementById(sectionId) : null);
-			});
-		}
-
-		// Native fragment focus and restored form focus may arrive after hydration.
-		window.addEventListener('load', resetAfterLoad);
-		window.addEventListener('pageshow', resetAfterLoad);
-		if (document.readyState === 'complete') resetAfterLoad();
-		return () => {
-			cancelAnimationFrame(frame);
-			window.removeEventListener('load', resetAfterLoad);
-			window.removeEventListener('pageshow', resetAfterLoad);
-		};
-	});
-
-	$effect(() => {
-		const url = page.url.href;
-		const sectionId = steps[active]?.id;
-		// Run after native hash scrolling and the new section's DOM update.
-		const frame = requestAnimationFrame(() => {
-			if (page.url.href === url) {
-				if (sectionId) {
-					const section = document.getElementById(sectionId);
-					resetReadingFocus(section);
-					section?.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-				}
-				window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
-			}
-		});
-		return () => cancelAnimationFrame(frame);
-	});
-
-	$effect(() => {
-		const sectionId = steps[active]?.id;
-		const section = sectionId ? document.getElementById(sectionId) : null;
-		const container = section?.parentElement;
-		if (!section || !container) return;
-
-		function updateOverflow() {
-			if (!section || !container) return;
-			const remaining = section.scrollHeight - section.clientHeight - section.scrollTop;
-			container.classList.toggle('more-below', remaining > 2);
-		}
-
-		// Watch content as well as the panel: running code can add or resize output.
-		const observer = new ResizeObserver(updateOverflow);
-		observer.observe(section);
-		for (const child of section.children) observer.observe(child);
-		section.addEventListener('scroll', updateOverflow, { passive: true });
-		updateOverflow();
-
-		return () => {
-			observer.disconnect();
-			section.removeEventListener('scroll', updateOverflow);
-			container.classList.remove('more-below');
-		};
-	});
+	let { steps, active }: { steps: NavStep[]; active: number } = $props();
 </script>
 
 <nav class="section-navigation" aria-label="Lesson sections">
@@ -93,7 +13,7 @@
 					aria-label={`Section ${index + 1} of ${steps.length}: ${step.title}`}
 					aria-current={index === active ? 'step' : undefined}
 					title={step.title}
-					data-sveltekit-noscroll><span class="node"></span></a
+					data-sveltekit-reset="false"><span class="node"></span></a
 				>
 			</li>
 		{/each}

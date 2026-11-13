@@ -6,18 +6,15 @@
 	import SectionNavigation from '#lib/components/SectionNavigation.svelte';
 	import ThemeToggle from '#lib/components/ThemeToggle.svelte';
 	import { href, toNavPath } from '#lib/href.ts';
-	import { neighbours } from '#lib/nav.ts';
+	import { locate } from '#lib/nav.ts';
 
 	let { children } = $props();
 
-	const current = $derived(neighbours(toNavPath(page.url.pathname), page.url.hash));
-	const viewportReader = $derived(
-		Boolean(current?.steps?.length) ||
-			['', 'introduction/', 'lab-01/'].includes(toNavPath(page.url.pathname)),
-	);
-	const active = $derived(
-		Math.max(0, current?.steps?.findIndex((step) => `#${step.id}` === page.url.hash) ?? 0),
-	);
+	const current = $derived(locate(toNavPath(page.url.pathname), page.url.hash));
+	const steps = $derived(current?.steps ?? []);
+	// The home page, contents pages and lessons with steps fit the viewport and scroll
+	// inside it; only a lesson without steps scrolls as a whole page.
+	const viewportReader = $derived(steps.length > 0 || !current || current.index === 0);
 </script>
 
 <svelte:head>
@@ -35,13 +32,18 @@
 <main
 	class="site-main"
 	class:viewport-reader={viewportReader}
-	class:section-reader={current?.steps?.length}
+	class:section-reader={steps.length > 0}
 >
 	{#if current}
-		{@const steps = current.steps}
+		<PageCarousel
+			sequence={current.sequence}
+			index={current.index}
+			previousPage={current.previousPage}
+			nextPage={current.nextPage}
+		/>
 		<PrevNext previous={current.previous} next={current.next}>
-			{#if steps?.length}
-				<SectionNavigation {steps} {active} />
+			{#if steps.length > 0}
+				<SectionNavigation {steps} active={current.active} />
 			{/if}
 		</PrevNext>
 		<h1>{current.title}</h1>
@@ -50,22 +52,13 @@
 	<div class="lesson-content">
 		{@render children()}
 	</div>
-
-	{#if current}
-		<PageCarousel
-			sequence={current.sequence}
-			index={current.index}
-			previousPage={current.previousPage}
-			nextPage={current.nextPage}
-		/>
-	{/if}
 </main>
 
 <footer>
 	<span>Copyright © 2025 Murat Shagirov</span>
 	<span aria-hidden="true">|</span>
 	<a href="https://github.com/mshagirov/pythonlab">
-		<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+		<svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 			<path
 				d="M12 .297a12 12 0 0 0-3.793 23.385c.6.111.82-.261.82-.577v-2.234c-3.338.726-4.043-1.416-4.043-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.09-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.323 3.301 1.23a11.52 11.52 0 0 1 6.006 0c2.291-1.553 3.297-1.23 3.297-1.23.654 1.652.243 2.873.119 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.216.694.825.576A12.001 12.001 0 0 0 12 .297Z"
 			/>
@@ -88,13 +81,13 @@
 
 	footer {
 		flex-wrap: wrap;
-		gap: 0.5rem;
+		gap: 0.4rem;
 	}
 
 	footer a {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.35rem;
+		gap: 0.3rem;
 	}
 
 	:global(body:has(.site-main)) {
@@ -104,12 +97,10 @@
 
 	:global(body:has(.viewport-reader)) {
 		box-sizing: border-box;
-		max-width: 72rem;
 		display: flex;
 		flex-direction: column;
 		height: 100dvh;
 		overflow: hidden;
-		padding: 0.5rem 0.25rem;
 	}
 
 	:global(body:has(.viewport-reader)) header {
@@ -153,26 +144,20 @@
 		mask-image: linear-gradient(to bottom, transparent, black);
 	}
 
+	/* The scrolling box: the visible section, or the whole content when there are none. */
 	.viewport-reader:not(.section-reader) .lesson-content,
 	.section-reader :global(.lesson-content > section:not([hidden])) {
-		scrollbar-width: thin;
-		scrollbar-color: var(--muted) transparent;
-	}
-
-	.viewport-reader:not(.section-reader) .lesson-content {
 		overflow-y: auto;
 		overscroll-behavior-y: contain;
 		scrollbar-gutter: stable;
+		scrollbar-width: thin;
+		scrollbar-color: var(--muted) transparent;
 		padding: 0 0.25rem;
 	}
 
 	.section-reader :global(.lesson-content > section:not([hidden])) {
 		flex: 1;
 		min-height: 0;
-		overflow-y: auto;
-		overscroll-behavior-y: contain;
-		scrollbar-gutter: stable;
-		padding: 0 0.25rem;
 	}
 
 	.section-reader :global(.lesson-content > section > :first-child) {
@@ -187,16 +172,10 @@
 		flex-shrink: 0;
 	}
 
-	.viewport-reader :global(.page-carousel) {
-		border-top: 0;
-		margin-top: 0.375rem;
-		padding-top: 0;
-	}
-
 	:global(body:has(.viewport-reader)) footer {
 		flex-shrink: 0;
 		border-top: 0;
-		margin-block: 0.375rem 0;
-		padding-block: 0.25rem 0;
+		margin-block: 0.25rem 0;
+		padding-block: 0.5rem 0;
 	}
 </style>

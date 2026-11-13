@@ -14,6 +14,10 @@ interface PyProxy {
 	destroy(): void;
 }
 
+interface PyDict extends PyProxy {
+	get(name: string): unknown;
+}
+
 interface WriteHandler {
 	write(buffer: Uint8Array): number;
 }
@@ -120,6 +124,18 @@ function flushStreams(pyodide: PyodideAPI): void {
 	}
 }
 
+/** Flush what Python still buffers, then report the request's final text. */
+function finish(runtime: Runtime, id: number, text: string, stream: Stream): void {
+	flushStreams(runtime.pyodide);
+	endStreams();
+	emit(id, text, stream);
+}
+
+/** Text ending in exactly one newline. */
+function endWithNewline(text: string): string {
+	return `${text.replace(/\n+$/, '')}\n`;
+}
+
 /* Errors. */
 
 function errorText(error: unknown): string {
@@ -136,50 +152,38 @@ function tracebackText(error: unknown): string {
 	const start = lines.findIndex((line) => line.startsWith('  File "<exec>"'));
 	const header = start > 0 ? lines.lastIndexOf('Traceback (most recent call last):', start) : -1;
 	const trimmed = header >= 0 ? [lines[header], ...lines.slice(start)].join('\n') : text;
-	return `${trimmed.replace(/\n+$/, '')}\n`;
+	return endWithNewline(trimmed);
 }
 
 /* Loading. */
 
-let runtimePromise: Promise<Runtime> | null = null;
-
-async function loadRuntime(): Promise<Runtime> {
-	try {
-		const { loadPyodide } = (await import(/* @vite-ignore */ PYODIDE_URL)) as PyodideModule;
-		const pyodide = await loadPyodide({ indexURL: PYODIDE_INDEX_URL });
-
-		pyodide.setStdout({ write: (buffer) => write('stdout', buffer) });
-		pyodide.setStderr({ write: (buffer) => write('stderr', buffer) });
-
-		// `input()` needs SharedArrayBuffer to block, which a worker does not have.
-		pyodide.runPython(`
+/**
+ * Every helper lives in one private namespace, so its names never show up in the
+ * user's globals. The console's globals are Pyodide's globals (`__main__`), which
+ * keeps names crossing between `run` and `push` as they would in a notebook.
+ */
+const SETUP = String.raw`
+import ast
 import builtins
-
-
-def _input_not_supported(*args, **kwargs):
-    raise RuntimeError("input() is not supported in the browser")
-
-
-builtins.input = _input_not_supported
-del _input_not_supported
-`);
-
-		// One console for the whole worker. Its globals are Pyodide's globals, so
-		// names cross between `run` and `push` as they would in a notebook.
-		const console = pyodide.runPython(`
+import inspect
+import sys
 from pyodide.console import PyodideConsole
-PyodideConsole(globals())
-`) as Console;
-
-		// Awaiting a future inside Python avoids the JavaScript `await` unwrapping
-		// async results, and lets `repr` run on the Python object itself.
-		const namespace = pyodide.runPython('dict()') as PyProxy;
-		const awaitFut = pyodide.runPython(
-			`
-import builtins
 from pyodide.ffi import to_js
 
 
+# input() needs SharedArrayBuffer to block, which a worker does not have.
+def input_not_supported(*args, **kwargs):
+    raise RuntimeError("input() is not supported in the browser")
+
+
+builtins.input = input_not_supported
+
+console = PyodideConsole(sys.modules["__main__"].__dict__)
+version = sys.version.split()[0]
+
+
+# Awaiting a future inside Python avoids the JavaScript await unwrapping async
+# results, and lets repr run on the Python object itself.
 async def await_fut(future):
     result = await future
     if result is not None:
@@ -188,34 +192,12 @@ async def await_fut(future):
     return to_js([None])
 
 
-await_fut
-`,
-			{ globals: namespace },
-		) as unknown as AwaitFuture;
-		namespace.destroy();
-
-		// A half-entered block only lives in the console's `buffer` list.
-		const resetNamespace = pyodide.runPython('dict()') as PyProxy;
-		const resetConsole = pyodide.runPython(
-			`
+# A half-entered block only lives in the console's buffer list.
 def reset_console(console):
     console.buffer.clear()
 
 
-reset_console
-`,
-			{ globals: resetNamespace },
-		) as unknown as ResetConsole;
-		resetNamespace.destroy();
-
-		// Instrument only opted-in cells, leaving their source and shared globals intact.
-		const limitNamespace = pyodide.runPython('dict()') as PyProxy;
-		const runLimitedProgram = pyodide.runPython(
-			`
-import ast
-import inspect
-
-
+# Instrument only opted-in cells, leaving their source and shared globals intact.
 async def run_limited_program(source, namespace, limit):
     if not isinstance(limit, int) or limit < 1:
         raise ValueError("The loop iteration limit must be a positive integer")
@@ -253,47 +235,39 @@ async def run_limited_program(source, namespace, limit):
             await result
     finally:
         namespace.pop(guard_name, None)
+`;
 
+async function loadRuntime(): Promise<Runtime> {
+	const { loadPyodide } = (await import(/* @vite-ignore */ PYODIDE_URL)) as PyodideModule;
+	const pyodide = await loadPyodide({ indexURL: PYODIDE_INDEX_URL });
 
-run_limited_program
-`,
-			{ globals: limitNamespace },
-		) as unknown as RunLimitedProgram;
-		limitNamespace.destroy();
+	pyodide.setStdout({ write: (buffer) => write('stdout', buffer) });
+	pyodide.setStderr({ write: (buffer) => write('stderr', buffer) });
 
-		const pythonVersion = String(pyodide.runPython("__import__('sys').version.split()[0]"));
-		post({ type: 'ready', banner: `Python ${pythonVersion} (Pyodide ${pyodide.version})` });
+	const helpers = pyodide.runPython('dict()') as PyDict;
+	pyodide.runPython(SETUP, { globals: helpers });
+	const console = helpers.get('console') as Console;
+	const awaitFut = helpers.get('await_fut') as AwaitFuture;
+	const resetConsole = helpers.get('reset_console') as ResetConsole;
+	const runLimitedProgram = helpers.get('run_limited_program') as RunLimitedProgram;
+	const version = String(helpers.get('version'));
+	helpers.destroy();
 
-		return { pyodide, console, awaitFut, resetConsole, runLimitedProgram };
-	} catch (error) {
-		post({ type: 'error', message: errorText(error) });
-		throw error;
-	}
-}
+	post({ type: 'ready', banner: `Python ${version} (Pyodide ${pyodide.version})` });
 
-function getRuntime(): Promise<Runtime> {
-	if (!runtimePromise) {
-		runtimePromise = loadRuntime().catch((error: unknown) => {
-			// Let a later request try again instead of caching the failure.
-			runtimePromise = null;
-			throw error;
-		});
-	}
-	return runtimePromise;
+	return { pyodide, console, awaitFut, resetConsole, runLimitedProgram };
 }
 
 /* Requests. */
 
+/** Runs a whole program: its output first, then the traceback if it failed. */
 async function runProgram(
 	runtime: Runtime,
 	id: number,
 	code: string,
 	maxLoopIterations?: number,
 ): Promise<void> {
-	activeId = id;
-	resetDecoders();
-
-	let failure: string | null = null;
+	let failure = '';
 	try {
 		if (maxLoopIterations === undefined) {
 			await runtime.pyodide.runPythonAsync(code);
@@ -303,106 +277,60 @@ async function runProgram(
 	} catch (error) {
 		failure = tracebackText(error);
 	}
-
-	flushStreams(runtime.pyodide);
-	endStreams();
-	if (failure !== null) emit(id, failure, 'stderr');
-	activeId = null;
-	post({ type: 'done', id });
+	finish(runtime, id, failure, 'stderr');
 }
 
-async function pushLine(runtime: Runtime, id: number, line: string): Promise<void> {
-	activeId = id;
-	resetDecoders();
-
+/** Feeds one line to the console; returns true when the block is still open. */
+async function pushLine(runtime: Runtime, id: number, line: string): Promise<boolean> {
 	const future = runtime.console.push(line);
 
-	if (future.syntax_check === 'incomplete') {
-		activeId = null;
-		post({ type: 'done', id, more: true });
-		return;
-	}
+	if (future.syntax_check === 'incomplete') return true;
 
 	if (future.syntax_check === 'syntax-error') {
-		const message = future.formatted_error ?? 'Syntax error\n';
-		emit(id, `${message.replace(/\n+$/, '')}\n`, 'stderr');
-		activeId = null;
-		post({ type: 'done', id, more: false });
-		return;
+		emit(id, endWithNewline(future.formatted_error ?? 'Syntax error\n'), 'stderr');
+		return false;
 	}
 
-	let printed: string | null = null;
-	let failure: string | null = null;
 	try {
-		const [text] = (await runtime.awaitFut(future)) as [string | undefined];
-		printed = text ?? null;
+		const [text] = (await runtime.awaitFut(future)) as [string | null | undefined];
+		finish(runtime, id, text == null ? '' : `${text}\n`, 'stdout');
 	} catch (error) {
-		failure = future.formatted_error ?? tracebackText(error);
+		finish(runtime, id, endWithNewline(future.formatted_error ?? tracebackText(error)), 'stderr');
 	}
-
-	flushStreams(runtime.pyodide);
-	endStreams();
-	if (failure !== null) emit(id, `${failure.replace(/\n+$/, '')}\n`, 'stderr');
-	else if (printed !== null) emit(id, `${printed}\n`, 'stdout');
-	activeId = null;
-	post({ type: 'done', id, more: false });
-}
-
-/** Throw away a half-entered block, so the prompt goes back to `>>> `. */
-function resetBlock(runtime: Runtime, id: number): void {
-	runtime.resetConsole(runtime.console);
-	post({ type: 'done', id, more: false });
+	return false;
 }
 
 async function handle(runtime: Runtime, request: Request): Promise<void> {
+	activeId = request.id;
+	resetDecoders();
+
+	let more = false;
 	try {
 		if (request.type === 'run') {
 			await runProgram(runtime, request.id, request.code, request.maxLoopIterations);
-		} else if (request.type === 'reset') resetBlock(runtime, request.id);
-		else await pushLine(runtime, request.id, request.line);
+		} else if (request.type === 'push') {
+			more = await pushLine(runtime, request.id, request.line);
+		} else {
+			// Throw away a half-entered block, so the prompt goes back to `>>> `.
+			runtime.resetConsole(runtime.console);
+		}
 	} catch (error) {
 		// Never leave the page waiting: always answer with `done`.
-		activeId = null;
 		emit(request.id, tracebackText(error), 'stderr');
-		post({ type: 'done', id: request.id, more: false });
 	}
+	activeId = null;
+	post({ type: 'done', id: request.id, more });
 }
 
-const queue: Request[] = [];
-let busy = false;
+// Start downloading as soon as the worker starts; the client only creates the worker
+// on first use, so nothing is loaded until then.
+const loading = loadRuntime();
+// The client terminates this worker when loading fails, so there is nothing to retry.
+loading.catch((error: unknown) => post({ type: 'error', message: errorText(error) }));
 
-/** Process requests strictly one at a time, in arrival order. */
-async function pump(): Promise<void> {
-	if (busy) return;
-	busy = true;
-	try {
-		while (queue.length > 0) {
-			const request = queue.shift();
-			if (!request) break;
-
-			let runtime: Runtime;
-			try {
-				runtime = await getRuntime();
-			} catch {
-				// Loading failed and the client has already been told with `error`;
-				// drop the rest of the queue rather than running it later.
-				queue.length = 0;
-				break;
-			}
-			await handle(runtime, request);
-		}
-	} finally {
-		busy = false;
-	}
-}
+/** Requests run strictly one at a time, in arrival order. */
+let last: Promise<unknown> = loading;
 
 scope.onmessage = (event: MessageEvent<Request>): void => {
-	queue.push(event.data);
-	void pump();
+	last = last.then(async () => handle(await loading, event.data)).catch(() => {});
 };
-
-// Start downloading as soon as the worker starts; the client only creates the
-// worker on first use, so nothing is loaded until then.
-getRuntime().catch(() => {
-	// Reported to the page as an `error` message by `loadRuntime`.
-});

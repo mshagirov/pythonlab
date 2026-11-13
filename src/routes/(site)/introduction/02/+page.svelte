@@ -1,21 +1,12 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
 	import PyCell from '#lib/components/PyCell.svelte';
 	import { href } from '#lib/href.ts';
-	import { syntaxSteps as steps } from '#lib/nav.ts';
-
-	const active = $derived(
-		Math.max(
-			0,
-			steps.findIndex((step) => `#${step.id}` === page.url.hash),
-		),
-	);
 </script>
 
-<!-- Keep sections mounted so code edits and output survive navigation between steps. -->
-<section id="python-syntax" hidden={active !== 0} aria-labelledby="python-syntax-title">
-	<h3 id="python-syntax-title">Python Syntax</h3>
+<LessonSection id="python-syntax">
+	<h3>Python Syntax</h3>
 
 	<p>
 		<em>Syntax</em> in programming refers to the (programming) language rules. The syntax determines the
@@ -24,14 +15,10 @@
 	</p>
 
 	<p>Let&#39;s run (and break) some code...</p>
-</section>
+</LessonSection>
 
-<section
-	id="commenting-your-code"
-	hidden={active !== 1}
-	aria-labelledby="commenting-your-code-title"
->
-	<h3 id="commenting-your-code-title">Commenting Your Code</h3>
+<LessonSection id="commenting-your-code">
+	<h3>Commenting Your Code</h3>
 
 	<p>
 		Python uses <code>#</code> for single-line, and <code>&#39;&#39;&#39;...&#39;&#39;&#39;</code>
@@ -55,14 +42,10 @@ print(123)
 
 print(42) # prints 42, everything after '#' is a comment`}
 	/>
-</section>
+</LessonSection>
 
-<section
-	id="arithmetic-operators"
-	hidden={active !== 2}
-	aria-labelledby="arithmetic-operators-title"
->
-	<h3 id="arithmetic-operators-title">Arithmetic Operators</h3>
+<LessonSection id="arithmetic-operators">
+	<h3>Arithmetic Operators</h3>
 
 	<p>
 		For some code examples, let&#39;s start with the basic arithmetics. Python uses the following
@@ -93,14 +76,10 @@ print(22 / 7)`}
 		When you run your code, Python interprets the code <em>sequentially line-by-line</em>. Try
 		switching the sequence, deleting, and adding print statements to the above to see the effect.
 	</p>
-</section>
+</LessonSection>
 
-<section
-	id="floor-division-and-modulo-operators"
-	hidden={active !== 3}
-	aria-labelledby="floor-division-and-modulo-operators-title"
->
-	<h3 id="floor-division-and-modulo-operators-title">Floor Division and Modulo Operators</h3>
+<LessonSection id="floor-division-and-modulo-operators">
+	<h3>Floor Division and Modulo Operators</h3>
 
 	<p>In addition to these, Python also has <em>integer division</em> and modulo operators.</p>
 
@@ -127,10 +106,10 @@ print(22 / 7)`}
 	</ul>
 
 	<PyCell code={String.raw`print(22 % 7)`} />
-</section>
+</LessonSection>
 
-<section id="operator-precedence" hidden={active !== 4} aria-labelledby="operator-precedence-title">
-	<h3 id="operator-precedence-title">Operator Precedence</h3>
+<LessonSection id="operator-precedence">
+	<h3>Operator Precedence</h3>
 
 	<p>The order of the arithmetic operations follows the usual <em>operator precedence</em>:</p>
 
@@ -144,14 +123,10 @@ print(22 / 7)`}
 		code={String.raw`print((1 + 2)* 3)
 print( 1 + 2 * 3)`}
 	/>
-</section>
+</LessonSection>
 
-<section
-	id="practice-with-python-shell"
-	hidden={active !== 5}
-	aria-labelledby="practice-with-python-shell-title"
->
-	<h3 id="practice-with-python-shell-title">Practice with Python Shell</h3>
+<LessonSection id="practice-with-python-shell">
+	<h3>Practice with Python Shell</h3>
 
 	<p>
 		Try the examples below in the <a href={href('terminal/')} target="_blank" data-sveltekit-reload
@@ -195,10 +170,10 @@ print(42)
 			different variations of the commands in the shell.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="fix-a-syntax-error" hidden={active !== 6} aria-labelledby="fix-a-syntax-error-title">
-	<h3 id="fix-a-syntax-error-title">Fix a Syntax Error</h3>
+<LessonSection id="fix-a-syntax-error">
+	<h3>Fix a Syntax Error</h3>
 
 	<p>
 		Note that, compared to other programming languages, <em>indentation</em> is important in Python.
@@ -219,14 +194,10 @@ print(42)
 			indentation defines a code block. We will revisit indentation in the coming sections.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section
-	id="floor-division-with-negative-numbers"
-	hidden={active !== 7}
-	aria-labelledby="floor-division-with-negative-numbers-title"
->
-	<h3 id="floor-division-with-negative-numbers-title">Floor Division with Negative Numbers</h3>
+<LessonSection id="floor-division-with-negative-numbers">
+	<h3>Floor Division with Negative Numbers</h3>
 
 	<PyCell
 		code={String.raw`print( -13 // 7  )
@@ -241,4 +212,4 @@ print(-(13 // 7) )`}
 			operations <code>/</code>.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>

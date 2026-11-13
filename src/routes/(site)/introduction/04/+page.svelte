@@ -1,20 +1,11 @@
 <script lang="ts">
-	import { page } from '$app/state';
+	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
 	import PyCell from '#lib/components/PyCell.svelte';
-	import { variableSteps as steps } from '#lib/nav.ts';
-
-	const active = $derived(
-		Math.max(
-			0,
-			steps.findIndex((step) => `#${step.id}` === page.url.hash),
-		),
-	);
 </script>
 
-<!-- Keep sections mounted so code edits and output survive navigation between steps. -->
-<section id="variable" hidden={active !== 0} aria-labelledby="variable-title">
-	<h3 id="variable-title">Variable</h3>
+<LessonSection id="variable">
+	<h3>Variable</h3>
 
 	<p>
 		<em>Variable</em> in programming represents a named location in
@@ -87,10 +78,10 @@ print(f"y: {y}")`}
 			you if you write a code that is easier to read.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section id="naming-variables" hidden={active !== 1} aria-labelledby="naming-variables-title">
-	<h3 id="naming-variables-title">Naming Variables</h3>
+<LessonSection id="naming-variables">
+	<h3>Naming Variables</h3>
 
 	<p>
 		By convention, Python programmers use <em>snake case</em> when naming their variables. In snake
@@ -134,14 +125,10 @@ print(f"Stress (Pa): {stress_Pa}")`}
 			Python will happily run the code for you.
 		</p>
 	</blockquote>
-</section>
+</LessonSection>
 
-<section
-	id="updating-variables-value"
-	hidden={active !== 2}
-	aria-labelledby="updating-variables-value-title"
->
-	<h3 id="updating-variables-value-title">Updating Variable&#39;s Value</h3>
+<LessonSection id="updating-variables-value">
+	<h3>Updating Variable&#39;s Value</h3>
 
 	<p>To update or change the value of a variable, you simply assign it a new value.</p>
 
@@ -152,10 +139,10 @@ print("old value:", length)
 length = 1
 print("new value:", length)`}
 	/>
-</section>
+</LessonSection>
 
-<section id="types" hidden={active !== 3} aria-labelledby="types-title">
-	<h3 id="types-title">Types</h3>
+<LessonSection id="types">
+	<h3>Types</h3>
 
 	<p>
 		Computer stores everything in its memory as a binary data composed of zeros and ones. The <em
@@ -225,10 +212,10 @@ print("new value:", length)`}
 			rel="noopener">the official documentation</a
 		>.
 	</p>
-</section>
+</LessonSection>
 
-<section id="boolean-type" hidden={active !== 4} aria-labelledby="boolean-type-title">
-	<h3 id="boolean-type-title">Boolean Type</h3>
+<LessonSection id="boolean-type">
+	<h3>Boolean Type</h3>
 
 	<p>Another frequently used type in Python is a <code>bool</code>.</p>
 
@@ -262,10 +249,10 @@ print("Likes pizza:", likes_pizza)`}
 		or <code>float</code> and treats it as a number, <code>True</code> is 1, and
 		<code>False</code> is 0.
 	</p>
-</section>
+</LessonSection>
 
-<section id="none-type" hidden={active !== 5} aria-labelledby="none-type-title">
-	<h3 id="none-type-title">None Type</h3>
+<LessonSection id="none-type">
+	<h3>None Type</h3>
 
 	<p>
 		In Python, <code>NoneType</code> represents a null or absence of a value. <code>NoneType</code>
@@ -317,14 +304,10 @@ print(s is None, "(str)")`}
 			<code>isinstance</code>.
 		</li>
 	</ul>
-</section>
+</LessonSection>
 
-<section
-	id="determining-and-verifying-types"
-	hidden={active !== 6}
-	aria-labelledby="determining-and-verifying-types-title"
->
-	<h3 id="determining-and-verifying-types-title">Determining and Verifying Types</h3>
+<LessonSection id="determining-and-verifying-types">
+	<h3>Determining and Verifying Types</h3>
 
 	<p>You can determine the type of a varible using <code>type()</code> method.</p>
 
@@ -360,10 +343,10 @@ print(f"Is {x} float? {type(x) is float}")`}
 		code={String.raw`x = 42
 print(f"Is {x} int?", isinstance(x, int))`}
 	/>
-</section>
+</LessonSection>
 
-<section id="type-casting" hidden={active !== 7} aria-labelledby="type-casting-title">
-	<h3 id="type-casting-title">Type Casting</h3>
+<LessonSection id="type-casting">
+	<h3>Type Casting</h3>
 
 	<p>
 		Type casting in programming means converting one type to another. For example, when you do
@@ -441,10 +424,10 @@ print(z, type(z))`}
 		The last two lines convert an <code>int</code> object with value <code>x + y</code> to a
 		<code>float</code> and print it.
 	</p>
-</section>
+</LessonSection>
 
-<section id="dynamic-typing" hidden={active !== 8} aria-labelledby="dynamic-typing-title">
-	<h3 id="dynamic-typing-title">Dynamic Typing</h3>
+<LessonSection id="dynamic-typing">
+	<h3>Dynamic Typing</h3>
 
 	<p>
 		Python is a <strong>dynamically typed</strong> language where Python automatically infers a variable&#39;s
@@ -483,14 +466,10 @@ delta_t = "one hour"`}
 ...
 delta_t_info = "one hour"`}
 	/>
-</section>
+</LessonSection>
 
-<section
-	id="calculate-sum-and-average"
-	hidden={active !== 9}
-	aria-labelledby="calculate-sum-and-average-title"
->
-	<h3 id="calculate-sum-and-average-title">Calculate Sum and Average</h3>
+<LessonSection id="calculate-sum-and-average">
+	<h3>Calculate Sum and Average</h3>
 
 	<ul>
 		<li>
@@ -510,4 +489,4 @@ avg = ?
 # DO NOT edit below this line
 print(f"sum = {s}; average = {avg}")`}
 	/>
-</section>
+</LessonSection>

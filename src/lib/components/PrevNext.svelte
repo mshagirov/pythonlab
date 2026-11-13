@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { Snippet } from 'svelte';
-	import type { Attachment } from 'svelte/attachments';
+	import { clipped } from '#lib/clipped.ts';
 	import { href, navigateStep } from '#lib/href.ts';
 	import type { NavLink } from '#lib/nav.ts';
 	import { isApple } from '#lib/platform.ts';
@@ -22,33 +22,14 @@
 		if (isApple()) modifier = '⌘';
 	});
 
-	function click(id: string): boolean {
-		const link = document.getElementById(id);
-		if (!(link instanceof HTMLAnchorElement)) return false;
-		link.click();
-		return true;
-	}
-
+	/** Ctrl/Cmd+, and Ctrl/Cmd+. follow the Previous and Next links. */
 	function onkeydown(event: KeyboardEvent) {
 		if (!event.ctrlKey && !event.metaKey) return;
-
-		if (event.key === ',') {
-			if (click('previous')) event.preventDefault();
-		} else if (event.key === '.') {
-			if (click('next')) event.preventDefault();
-		}
-	}
-
-	/** Marks a title that is too long for its box, so only those fade out. */
-	function overflow(label: string): Attachment<HTMLElement> {
-		return (element) => {
-			const update = () =>
-				element.classList.toggle('overflowing', element.scrollWidth > element.clientWidth);
-			update();
-			const observer = new ResizeObserver(update);
-			observer.observe(element);
-			return () => observer.disconnect();
-		};
+		const id = event.key === ',' ? 'previous' : event.key === '.' ? 'next' : '';
+		const link = document.getElementById(id);
+		if (!link) return;
+		event.preventDefault();
+		link.click();
 	}
 </script>
 
@@ -65,7 +46,7 @@
 				aria-keyshortcuts="Control+Comma Meta+Comma"
 			>
 				<span class="arrow" aria-hidden="true">←</span>
-				<span class="title" {@attach overflow(previous.label)}>{previous.label}</span>
+				<span class="title" {@attach clipped(previous.label)}>{previous.label}</span>
 				<span class="tooltip" aria-hidden="true">Previous <kbd>{modifier}</kbd><kbd>,</kbd></span>
 			</a>
 		{/if}
@@ -76,7 +57,7 @@
 				onclick={navigateStep}
 				aria-keyshortcuts="Control+Period Meta+Period"
 			>
-				<span class="title" {@attach overflow(next.label)}>{next.label}</span>
+				<span class="title" {@attach clipped(next.label)}>{next.label}</span>
 				<span class="arrow" aria-hidden="true">→</span>
 				<span class="tooltip" aria-hidden="true">Next <kbd>{modifier}</kbd><kbd>.</kbd></span>
 			</a>
@@ -131,10 +112,7 @@
 		transition: opacity 0.15s;
 	}
 
-	#previous:hover,
-	#previous:focus-visible,
-	#next:hover,
-	#next:focus-visible {
+	:is(#previous, #next):is(:hover, :focus-visible) {
 		opacity: 1;
 	}
 
@@ -148,44 +126,12 @@
 		justify-self: end;
 	}
 
-	.tooltip {
-		position: absolute;
-		top: calc(100% + 0.25rem);
-		z-index: 10;
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
-		padding: 0.3rem 0.5rem;
-		border: 1px solid var(--border);
-		border-radius: 4px;
-		background: var(--code-bg);
-		color: var(--fg);
-		font-size: 0.8rem;
-		white-space: nowrap;
-		pointer-events: none;
-		opacity: 0;
-		translate: 0 -0.25rem;
-		transition:
-			opacity 0.15s,
-			translate 0.15s;
-	}
-
 	#previous .tooltip {
 		left: 0;
 	}
 
 	#next .tooltip {
 		right: 0;
-	}
-
-	#previous:hover .tooltip,
-	#previous:focus-visible .tooltip,
-	#next:hover .tooltip,
-	#next:focus-visible .tooltip {
-		opacity: 1;
-		translate: 0 0;
-		/* A short delay so the tooltip doesn't flash while the pointer passes by. */
-		transition-delay: 0.3s;
 	}
 
 	.arrow {
@@ -217,7 +163,7 @@
 		text-align: right;
 	}
 
-	.title:global(.overflowing) {
+	.title:global([data-clipped]) {
 		mask-image: linear-gradient(to right, black calc(100% - 4em), transparent);
 	}
 </style>

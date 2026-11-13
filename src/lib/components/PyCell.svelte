@@ -1,8 +1,8 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
-	import { highlight } from '#lib/highlight.ts';
+	import { highlight, trimBlankLines } from '#lib/highlight.ts';
 	import { isApple } from '#lib/platform.ts';
-	import { cells } from '#lib/python/client.ts';
+	import { cells, RESTARTED } from '#lib/python/client.ts';
 	import type { Stream } from '#lib/python/client.ts';
 
 	let { code, maxLoopIterations }: { code: string; maxLoopIterations?: number } = $props();
@@ -19,21 +19,14 @@
 		stream: Stream;
 	}
 
-	/** Mirrors the message `client.ts` rejects with when a worker is terminated. */
-	const RESTARTED = 'Python was restarted';
-
-	// Strip leading and trailing blank lines only, keeping the first line's indentation.
 	// The cell only ever uses the initial value of `code`, so untrack it on purpose.
-	const initial = untrack(() =>
-		code.replace(/^(?:[ \t]*\r?\n)+/, '').replace(/(?:\r?\n[ \t]*)+$/, ''),
-	);
+	const initial = untrack(() => trimBlankLines(code));
 
 	let source = $state(initial);
 	let output = $state<Chunk[]>([]);
 	let running = $state(false);
 	let status = $state('');
 	let typing = $state(false);
-	let textarea = $state<HTMLTextAreaElement | null>(null);
 	/** Shift key name for the Run tooltip; the PC name until we know we're on a Mac. */
 	let shift = $state('Shift');
 	$effect(() => {
@@ -41,10 +34,15 @@
 	});
 
 	// Shiki emits nothing for a final empty line; one more character keeps heights equal.
-	const highlighted = $derived(highlight(source.endsWith('\n') ? `${source} ` : source, 'python'));
+	const highlighted = $derived(
+		highlight(source.endsWith('\n') ? `${source} ` : source, 'python', false),
+	);
 
+	/** Add output, extending the last chunk when it came from the same stream. */
 	function append(text: string, stream: Stream): void {
-		output = [...output, { text, stream }];
+		const last = output.at(-1);
+		if (last?.stream === stream) last.text += text;
+		else output.push({ text, stream });
 	}
 
 	async function run(): Promise<void> {
@@ -55,23 +53,15 @@
 
 		try {
 			await cells.ready;
-		} catch (error) {
 			status = '';
-			running = false;
-			const message = error instanceof Error ? error.message : String(error);
-			append(
-				message === RESTARTED ? message : 'Could not load Python (are you offline?)',
-				'stderr',
-			);
-			return;
-		}
-		status = '';
-
-		try {
 			await cells.run(source, append, { maxLoopIterations });
 		} catch (error) {
-			append(error instanceof Error ? error.message : String(error), 'stderr');
+			const message = error instanceof Error ? error.message : String(error);
+			// Still loading: anything but a restart means Python could not be fetched.
+			const offline = status !== '' && message !== RESTARTED;
+			append(offline ? 'Could not load Python (are you offline?)' : message, 'stderr');
 		} finally {
+			status = '';
 			running = false;
 		}
 	}
@@ -85,24 +75,15 @@
 		output = [];
 	}
 
-	function insertTab(): void {
-		const element = textarea;
-		if (!element) return;
-		const start = element.selectionStart ?? 0;
-		const end = element.selectionEnd ?? 0;
-		element.value = `${element.value.slice(0, start)}    ${element.value.slice(end)}`;
-		element.selectionStart = element.selectionEnd = start + 4;
-		source = element.value;
-	}
-
-	function onkeydown(event: KeyboardEvent): void {
+	function onkeydown(event: KeyboardEvent & { currentTarget: HTMLTextAreaElement }): void {
 		if (event.key === 'Tab') {
 			event.preventDefault();
 			typing = true;
-			insertTab();
-			return;
-		}
-		if (event.key === 'Enter' && event.shiftKey) {
+			const editor = event.currentTarget;
+			editor.setRangeText('    ', editor.selectionStart, editor.selectionEnd, 'end');
+			// setRangeText fires no input event, so update the bound value by hand.
+			source = editor.value;
+		} else if (event.key === 'Enter' && event.shiftKey) {
 			event.preventDefault();
 			void run();
 		}
@@ -114,7 +95,6 @@
 		<div class="editor">
 			<div class="highlight" aria-hidden="true">{@html highlighted}</div>
 			<textarea
-				bind:this={textarea}
 				bind:value={source}
 				class="code"
 				aria-label="Python code"
@@ -148,7 +128,7 @@
 				type="button"
 				class="icon toggle"
 				class:stop={running}
-				onclick={running ? stop : () => void run()}
+				onclick={running ? stop : run}
 				aria-label={running ? 'Stop' : 'Run'}
 			>
 				{#if running}
@@ -304,33 +284,8 @@
 	}
 
 	.tooltip {
-		position: absolute;
 		top: calc(100% + 0.3rem);
 		right: 0;
-		display: flex;
-		align-items: center;
-		gap: 0.3rem;
-		padding: 0.3rem 0.5rem;
-		border: 1px solid var(--border);
-		border-radius: 4px;
-		background: var(--code-bg);
-		color: var(--fg);
-		font-size: 0.8rem;
-		white-space: nowrap;
-		pointer-events: none;
-		opacity: 0;
-		translate: 0 -0.25rem;
-		transition:
-			opacity 0.15s,
-			translate 0.15s;
-	}
-
-	.toggle:hover .tooltip,
-	.toggle:focus-visible .tooltip {
-		opacity: 1;
-		translate: 0 0;
-		/* A short delay so the tooltip doesn't flash while the pointer passes by. */
-		transition-delay: 0.3s;
 	}
 
 	.actions button.toggle.stop {
