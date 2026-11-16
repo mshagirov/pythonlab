@@ -37,6 +37,11 @@ Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, b
 - The restart message is exported as `RESTARTED` from `src/lib/python/client.ts`; `PyCell.svelte` and the terminal page import it instead of repeating the string.
 - `src/routes/terminal/` is outside the `(site)` layout: wterm (`@wterm/dom`) with the Ghostty WASM core, driven by the readline-style `src/lib/terminal/line-editor.ts`. Links to it use `data-sveltekit-reload` (see `LaunchPython.svelte`).
 
+## Browser debugging
+
+- `opencode.jsonc` starts the `chrome-devtools` MCP server with `bunx --bun chrome-devtools-mcp@latest --isolated`, so it drives its own disposable Chrome instead of an existing session.
+- The `.chrome-devtools-mcp/` directory is gitignored: run `mkdir -p .chrome-devtools-mcp` and save every file a tool can write (screenshots, traces, heap snapshots, Lighthouse reports) there, never in the repo root or `src/`/`static/`.
+
 ## Agents
 
 - `.opencode/agents/code-generator.md` defines a `code-generator` subagent that expects a precise task brief and the verification commands to run.

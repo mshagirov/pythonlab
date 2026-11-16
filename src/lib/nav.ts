@@ -284,7 +284,10 @@ export const sections: NavSection[] = [
 			{
 				path: 'lab1/99',
 				title: 'Managing Python Environments',
-				steps: [{ id: 'python-environments', title: 'Managing Python Environments' }],
+				steps: [
+					{ id: 'python-environments', title: 'Managing Python Environments' },
+					{ id: 'sequence-dot-plot', title: 'Sequence Dot Plot' },
+				],
 			},
 		],
 	},

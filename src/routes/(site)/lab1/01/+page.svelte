@@ -50,10 +50,10 @@ Skipped:
 
 	<ul>
 		<li>Practice the Python commands we learned in the previous session</li>
-		<li>Get familiar with your tools (e.g., your IDE and computer)</li>
-		<li>Learn what a Python environment is</li>
-		<li>Learn how to set up Python projects</li>
-		<li>Practice writing reusable Python modules</li>
+		<li>Get familiar with your code editor and IDE</li>
+		<li>Create and use isolated Python environments for your projects</li>
+		<li>Develop Python modules and a CLI tool</li>
+		<li>Install and use external Python package</li>
 		<li>Have fun with Python!</li>
 	</ul>
 </LessonSection>

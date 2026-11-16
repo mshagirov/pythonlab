@@ -15,6 +15,7 @@
 	<li><a href={href('lab1/01#dna-analyser')}>Project Goals</a> 🚀</li>
 	<li><a href={href('lab1/02#prerequisites')}>Prerequisites</a> 🛠️</li>
 	<li><a href={href('lab1/03#terminal')}>Command Line</a> 🐧</li>
-	<li>Managing Python Environments 📦</li>
-	<li>Jupyter Notebook, Data Analysis venv 🔬</li>
+	<li><a href={href('lab1/06#project-folder-organisation')}>Part 2: DNA Analysis Tool</a> 🧬</li>
+	<li><a href={href('lab1/07#write-and-test')}>Project: Part 3</a> 📝</li>
+	<li><a href={href('lab1/99#python-environments')}>Managing Python Environments</a> 📦</li>
 </ol>

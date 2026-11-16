@@ -7,3 +7,5 @@ node_modules/
 docs/
 test-results/
 playwright-report/
+# Chrome DevTools MCP logs and artifact files
+.chrome-devtools-mcp/
