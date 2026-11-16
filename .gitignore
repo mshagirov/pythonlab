@@ -5,3 +5,5 @@ __pycache__/
 node_modules/
 .svelte-kit/
 docs/
+test-results/
+playwright-report/

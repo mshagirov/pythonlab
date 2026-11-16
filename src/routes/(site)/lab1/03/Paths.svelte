@@ -7,19 +7,24 @@
 	<h3>Relative and Absolute Path</h3>
 
 	<p>
-		Your operating system uses two types of paths to locate files and folders, <em>absolute path</em
-		>
-		and <em>relative path</em>. E.g., <code>~</code> is a relative path (shortcut) that refers to
-		the home folder on Unix-based system like Linux and MacOS. An absolute path for home folder
-		could look something like <code>/home/murat</code> (Linux and WSL) or <code>/Users/murat</code> (macOS).
+		Your operating system uses <em>absolute paths</em> and <em>relative paths</em> to locate files
+		and folders. An absolute path starts at the root directory, such as <code>/home/murat</code>
+		on Linux or <code>/Users/murat</code> on macOS. A relative path starts from your current working directory.
 	</p>
 
-	<p>Below are most commonly used relative path locations:</p>
+	<blockquote>
+		<p>
+			<strong>Windows / WSL:</strong> Use Linux paths inside WSL, such as
+			<code>/home/murat</code>, rather than Windows paths such as <code>C:\Users\murat</code>.
+		</p>
+	</blockquote>
+
+	<p>These shortcuts are useful in Zed's terminal:</p>
 
 	<table>
 		<thead>
 			<tr>
-				<th align="center">Relative path</th>
+				<th align="center">Shortcut</th>
 				<th align="center">Meaning</th>
 				<th align="center">Usage</th>
 			</tr>
@@ -43,22 +48,25 @@
 				<td align="center"><code>..</code></td>
 				<td align="center">The parent directory (of the current one)</td>
 				<td align="center"
-					><code>../..</code> refers to a &quot;grandparent&quot; directory of the curent
+					><code>../..</code> refers to a &quot;grandparent&quot; directory of the current
 					<code>.</code></td
 				>
 			</tr>
 		</tbody>
 	</table>
+
+	<p>
+		The shell expands <code>~</code> to your home directory's absolute path; it is not a relative path.
+	</p>
 </LessonSection>
 <LessonSection id="using-relative-and-absolute-paths">
 	<h3>Where Do We Use Relative and Absolute Paths?</h3>
 
 	<p>
-		Inside our code you may use either of the relative or the absolute paths to refer to files and
-		folders on your machine. The relative path, as its name suggests, may depend on your current
-		working directory and change when you change your working directory or the environment. The
-		absolute path always starts with the root directory <code>/</code> and does not depend on your current
-		working directory or the environment (e.g., your username).
+		In Python code and terminal commands, you can use either relative or absolute paths. A relative
+		path is resolved from the current working directory, so the same path can refer to different
+		files after you change directories. An absolute path starts with <code>/</code> and does not depend
+		on the current directory, but it may differ between machines or users.
 	</p>
 
 	<p>As an exercise, list the contents of your home directory using <code>ls</code> command:</p>

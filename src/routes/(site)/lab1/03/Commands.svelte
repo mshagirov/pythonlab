@@ -72,43 +72,49 @@
 	<h3>Should You Use the Terminal or Graphical User Interface?</h3>
 
 	<p>
-		Above we saw just a glimpse of what is possible with CLI or the terminal. You may continue
-		practicing these and other CLI commands if you want to get better at it. Going forward you way
-		use either the terminal and/or the Explorer to manage your files and folders. You can also use
-		your operating system&#39;s tools such as Finder or File Explorer to browse and manage your
-		files. I leave this up to your preferences.
+		You can manage files and folders in Zed's terminal or project panel. You can also use your
+		operating system's file manager, such as Finder or File Explorer. Choose whichever is most
+		comfortable for the task.
 	</p>
 
 	<p>
-		Nevertheless, it is generally much faster to navigate the filesystem and manage your files via
-		the terminal. Hence, I strongly suggest you to try to learn and use the terminal (CLI) commands.
+		Terminal commands are especially useful for repeatable tasks and remote environments. Practise
+		the commands below so you can navigate folders and run your Python program.
 	</p>
-
-	<hr />
 
 	<blockquote>
 		<p>
-			Keep the <code>dna-analyser</code> folder open in VS Code. We will use it in the next part.
+			<strong>VS Code:</strong> The Explorer panel serves the same purpose as Zed's project panel.
 		</p>
 	</blockquote>
-
-	<hr />
 </LessonSection>
 <LessonSection id="workspace-folder">
 	<h3>Workspace Folder</h3>
 
 	<p>
-		Let&#39;s use terminal to navigate to the home folder to setup our workspace. Enter the CLI
-		commands below to your terminal. Refer to the tables above for explanations and names of the
-		commands.
+		Use Zed's terminal to navigate to your home folder and set up a workspace. Enter the commands
+		below one at a time.
 	</p>
+
+	<blockquote>
+		<p>
+			<strong>Windows / WSL:</strong> Keep working in your WSL connection. When opening folders in Zed,
+			choose folders from the remote Linux environment.
+		</p>
+	</blockquote>
+
+	<blockquote>
+		<p>
+			<strong>VS Code:</strong> Follow the same terminal commands. Use
+			<code>File &gt; Open Folder...</code> to open folders in Explorer; on Windows, use a WSL window.
+		</p>
+	</blockquote>
 
 	<ol>
 		<li>
 			<p>
 				Go to your home folder using <code>cd</code> command. You may either enter <code>cd</code>
-				(without any arguments) or <code>cd ~</code> (use <code>~</code> to specify the relative path
-				to the home folder).
+				(without any arguments) or <code>cd ~</code> (the shell expands <code>~</code> to your home folder).
 			</p>
 			<Code lang="bash" code={String.raw`cd ~`} />
 			<p>
@@ -150,12 +156,12 @@
 					<code>/</code> after directory names.
 				</li>
 				<li>
-					Use VS Code shortcut <code>^-Shift-P</code> (<code>Cmd-Shift-P</code> on macOS) to use the
-					search field and enter &quot;Open Folder&quot; and press enter. Alternatively, go to
-					<code>File &gt; Open Folder...</code> on the menu bar. Open your home folder to see its contents
-					in the (file) Explorer tab of VS Code.
+					Open your home folder in Zed using <code>File &gt; Open...</code>.
 				</li>
-				<li>Does the output from <code>ls -a</code> match what you see in the Explorer tab?</li>
+				<li>
+					Compare the output from <code>ls -a</code> with Zed's project panel. Hidden or ignored files
+					may be filtered out in the panel.
+				</li>
 			</ul>
 		</li>
 		<li>
@@ -172,8 +178,8 @@ pwd`}
 			<Code lang="bash" code={String.raw`touch file1 file2 file3`} />
 			<ul>
 				<li>
-					Verify that the files exists by listing them with <code>ls -l</code>. Can you see these
-					files in the &quot;Explorer&quot;?
+					Verify that the files exist by listing them with <code>ls -l</code>. Can you see these
+					files in Zed's project panel?
 				</li>
 			</ul>
 		</li>
@@ -182,11 +188,9 @@ pwd`}
 			<Code lang="bash" code={String.raw`cd ..`} />
 			<ul>
 				<li>
-					Open <code>workspace</code> folder in the VS Code (file) <em>Explorer</em> panel. Note
-					that VS Code&#39;s terminal automatically changes its current location to the folder that
-					you have just opened. If you don&#39;t see the Explorer panel, press
-					<code>Ctrl-Shift-P</code>
-					(<code>Cmd-Shift-P</code> on MacOS), then type &quot;Open Folder&quot;, and press Enter.
+					Open <code>workspace</code> as a project in Zed, then open a terminal with
+					<code>terminal: new</code> from the command palette. Check its location with
+					<code>pwd</code>; if needed, run <code>cd ~/workspace</code>.
 				</li>
 			</ul>
 		</li>
@@ -221,19 +225,24 @@ pwd`}
 		</li>
 		<li>
 			<p>
-				Create a new directory with path <code>~/workplace/pythonlab/lab1/dna-analyser</code>. For
+				Create a new directory with path <code>~/workspace/pythonlab/lab1/dna-analyser</code>. For
 				this, you need to create multiple directories. In the terminal, this can be done with
 				<code>mkdir -p NEW_DIR</code>, <code>-p</code> option allows you to automatically create parent
 				directories for your path.
 			</p>
-			<Code lang="bash" code={String.raw`mkdir -p ~/workplace/pythonlab/lab1/dna-analyser`} />
+			<Code lang="bash" code={String.raw`mkdir -p ~/workspace/pythonlab/lab1/dna-analyser`} />
 		</li>
 		<li>
 			<p>
-				Use either Explorer panel or terminal (<code>cd</code>) to navigate to
-				<code>dna-analyser</code>
-				directory. Then, verify the current directory path with <code>pwd</code>.
+				Open <code>~/workspace/pythonlab/lab1/dna-analyser</code> as your project folder in Zed. Open
+				a terminal and run the commands below to confirm its working directory. Keep this project open
+				for the next part.
 			</p>
+			<Code
+				lang="bash"
+				code={String.raw`cd ~/workspace/pythonlab/lab1/dna-analyser
+pwd`}
+			/>
 		</li>
 	</ol>
 </LessonSection>

@@ -1,6 +1,5 @@
 <script lang="ts">
 	import LessonSection from '#lib/components/LessonSection.svelte';
-	import Code from '#lib/components/Code.svelte';
 </script>
 
 <LessonSection id="dna-analyser">
@@ -22,24 +21,19 @@
 		<li>Print out all the analysis results to the terminal</li>
 	</ul>
 
-	<Code
-		lang="python"
-		code={String.raw`                                      ▄                         
+	<pre class="terminal-output"><code
+			><span class="ansi-art"
+				>{String.raw`                                      ▄                         
 █▀▀▄  █▀▀▄  ▄▀▀▄     ▄▀▀▄ ▄▄▄    ▄▄▄  █  ▄  ▄   ▄▄▄   ▄▄   ▄ ▄▄ 
 █  █  █  █  █▄▄█     █▄▄█ █  █  █  █  █  █  █  ▀▄▄   █▄▄█  █▀   
 █▄▄▀  █  █  █  █     █  █ █  █  ▀▄▀█  █  ▀▄▄█  ▄▄▄▀  ▀▄▄▄  █    
                                           ▄▄▀                   
-Analysing sequences:
+`}</span
+			>{String.raw`Analysing sequences:
 +--------------------+--------+--------+--------+--------+--------+
 ┊   Sequence File    ┊ #bases ┊ssMW kDa┊  GC%   ┊ AT/GC  ┊ Tm C°  ┊
 +--------------------+--------+--------+--------+--------+--------+
 ┊     BGH-R.pri      ┊   18   ┊  5.66  ┊ 55.56% ┊  0.80  ┊   56   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊    example1.txt    ┊  6458  ┊1998.87 ┊ 34.42% ┊  1.91  ┊ 17362  ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊    example3.dna    ┊   47   ┊ 14.61  ┊ 14.89% ┊  5.71  ┊  108   ┊
-+--------------------+--------+--------+--------+--------+--------+
-┊   MSCV-fwrd.pri    ┊   23   ┊  6.93  ┊ 60.87% ┊  0.64  ┊   74   ┊
 +--------------------+--------+--------+--------+--------+--------+
 ┊   pBAD-fwrd.pri    ┊   20   ┊  6.10  ┊ 35.00% ┊  1.86  ┊   54   ┊
 +--------------------+--------+--------+--------+--------+--------+
@@ -48,18 +42,29 @@ Analysing sequences:
 
 Skipped:
 ❌     example2.txt      Not a DNA sequence
-❌     example4.rna      Not a DNA sequence`}
-	/>
+❌     example4.rna      Not a DNA sequence`}</code
+		></pre>
 </LessonSection>
 <LessonSection id="goals-of-the-project">
-	<h3>Goals of the Project</h3>
+	<h3>Learning Objectives</h3>
 
 	<ul>
-		<li>Practice Python commands that we have learned from the previous session</li>
-		<li>Get familiar with your tooling (e.g., IDE, your machine etc)</li>
-		<li>Learn what is a Python environment</li>
-		<li>Learn how to set up a Python environment for your project</li>
-		<li>Practice writing (re-usable) Python modules</li>
+		<li>Practice the Python commands we learned in the previous session</li>
+		<li>Get familiar with your tools (e.g., your IDE and computer)</li>
+		<li>Learn what a Python environment is</li>
+		<li>Learn how to set up Python projects</li>
+		<li>Practice writing reusable Python modules</li>
 		<li>Have fun with Python!</li>
 	</ul>
 </LessonSection>
+
+<style>
+	.terminal-output {
+		background: #1e1e1e;
+		color: #e5e5e5;
+	}
+
+	.ansi-art {
+		color: #ff99ff;
+	}
+</style>

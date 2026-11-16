@@ -1,6 +1,8 @@
 export interface NavStep {
 	id: string;
 	title: string;
+	/** Accessible by direct link, but skipped by the default navigation. */
+	optional?: boolean;
 }
 
 export interface NavPage {
@@ -27,7 +29,7 @@ export interface NavLink {
 export interface NavLocation {
 	title: string;
 	steps?: NavStep[];
-	/** Position of the current step in `steps`. */
+	/** Position of the current or preceding visible step in `steps`. */
 	active: number;
 	previous?: NavLink;
 	next?: NavLink;
@@ -226,48 +228,37 @@ export const sections: NavSection[] = [
 		],
 	},
 	{
-		path: 'lab-01/',
-		title: 'Prepare Python Environment',
+		path: 'lab1/',
+		title: 'First Python Project',
 		pages: [
 			{
-				path: 'lab-01/01',
+				path: 'lab1/01',
+				title: 'Project Goals',
+				steps: [
+					{ id: 'dna-analyser', title: 'DNA Analyser' },
+					{ id: 'goals-of-the-project', title: 'Learning Objectives' },
+				],
+			},
+			{
+				path: 'lab1/02',
 				title: 'Prerequisites',
 				steps: [
 					{ id: 'prerequisites', title: 'Prerequisites' },
-					{ id: 'setup-your-system', title: 'Setup Your System' },
+					{ id: 'check-and-install-python', title: 'Check and Install Python' },
+					{ id: 'install-zed', title: 'Install Zed' },
+					{ id: 'install-vscode', title: 'Install VS Code', optional: true },
 				],
 			},
 			{
-				path: 'lab-01/02',
-				title: 'Project',
+				path: 'lab1/03',
+				title: 'Command Line',
 				steps: [
-					{ id: 'dna-analyser', title: 'DNA Analyser' },
-					{ id: 'goals-of-the-project', title: 'Goals of the Project' },
-				],
-			},
-			{
-				path: 'lab-01/03',
-				title: 'Terminal',
-				steps: [
-					{ id: 'verify-your-system-in-the-terminal', title: 'Verify Your System in the Terminal' },
-					{ id: 'relative-and-absolute-path', title: 'Relative and Absolute Path' },
-				],
-			},
-			{
-				path: 'lab-01/04',
-				title: 'Relative Path',
-				steps: [
+					{ id: 'terminal', title: 'Terminal' },
 					{ id: 'relative-and-absolute-path', title: 'Relative and Absolute Path' },
 					{
 						id: 'using-relative-and-absolute-paths',
 						title: 'Where Do We Use Relative and Absolute Paths?',
 					},
-				],
-			},
-			{
-				path: 'lab-01/05',
-				title: 'Linux Commands (Optional)',
-				steps: [
 					{ id: 'linux-commands', title: 'Some Linux Commands (Optional)' },
 					{
 						id: 'terminal-or-gui',
@@ -277,7 +268,7 @@ export const sections: NavSection[] = [
 				],
 			},
 			{
-				path: 'lab-01/06',
+				path: 'lab1/06',
 				title: 'Part 2: DNA Analysis Tool',
 				steps: [
 					{ id: 'project-folder-organisation', title: 'Project Folder Organisation' },
@@ -286,12 +277,12 @@ export const sections: NavSection[] = [
 				],
 			},
 			{
-				path: 'lab-01/07',
+				path: 'lab1/07',
 				title: 'Project: Part 3',
 				steps: [{ id: 'write-and-test', title: 'Write and Test a Python Program' }],
 			},
 			{
-				path: 'lab-01/99',
+				path: 'lab1/99',
 				title: 'Managing Python Environments',
 				steps: [{ id: 'python-environments', title: 'Managing Python Environments' }],
 			},
@@ -306,9 +297,9 @@ function link(item: { path: string; title: string }): NavLink {
 /** Every stop on a page in reading order: its steps, or the page itself when it has none. */
 function stops(page: NavPage): NavLink[] {
 	return (
-		page.steps?.map((step) => ({ path: `${page.path}#${step.id}`, label: step.title })) ?? [
-			link(page),
-		]
+		page.steps
+			?.filter((step) => !step.optional)
+			.map((step) => ({ path: `${page.path}#${step.id}`, label: step.title })) ?? [link(page)]
 	);
 }
 
@@ -357,15 +348,24 @@ export function locate(path: string, hash = ''): NavLocation | undefined {
 		const before: NavPage | undefined = pages[pageIndex - 1];
 		const after: NavPage | undefined = pages[pageIndex + 1];
 		// Step through this page first, then cross into the neighbouring page.
-		const here = stops(page);
+		const steps = page.steps?.filter((step) => !step.optional);
+		const previousStep = page.steps?.slice(0, active).findLast((step) => !step.optional);
+		const nextStep = page.steps?.slice(active + 1).find((step) => !step.optional);
+		const stepLink = (step: NavStep): NavLink => ({
+			path: `${page.path}#${step.id}`,
+			label: step.title,
+		});
 
 		return {
 			title: page.title,
-			steps: page.steps,
-			active,
-			previous: here[active - 1] ?? (before ? stops(before).at(-1) : contents),
+			steps,
+			active: Math.max(
+				0,
+				(page.steps?.slice(0, active + 1).filter((step) => !step.optional).length ?? 1) - 1,
+			),
+			previous: previousStep ? stepLink(previousStep) : before ? stops(before).at(-1) : contents,
 			next:
-				here[active + 1] ??
+				(nextStep ? stepLink(nextStep) : undefined) ??
 				(after ? stops(after)[0] : section.endsAtContents ? contents : undefined),
 			sequence,
 			index: pageIndex + 1,

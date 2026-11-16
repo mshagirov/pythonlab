@@ -5,7 +5,7 @@ Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, b
 ## Commands
 
 - `npm install` once; `npm run dev` serves at `http://localhost:5173/pythonlab`; `npm run preview` serves the last build (restart it after rebuilding, or it serves stale asset names).
-- `npm run check` is the only verification step: `svelte-kit sync`, `prettier --check .`, `svelte-check`. There is no ESLint and no test runner; CI only runs `npm run build` (which includes `check`), on PRs as well as on `main`, and deploys only from `main`.
+- `npm run check` runs `svelte-kit sync`, `prettier --check .`, and `svelte-check`. There is no ESLint. `npm test` runs Playwright browser regressions (see `tests/README.md` for browser installation and testing an existing dev server). CI only runs `npm run build` (which includes `check`), on PRs as well as on `main`, and deploys only from `main`.
 - `npm run build` runs `check` and then prerenders into `docs/`. `docs/` is gitignored build output; CI runs `npm ci && npm run build` and deploys it, so never commit or hand-edit it.
 - `npm run format` fixes formatting (tabs, single quotes, width 100). Prettier skips `*.md`, `.opencode/` and `docs/`.
 
@@ -18,7 +18,7 @@ Static SvelteKit 3 + Svelte 5 + TypeScript 6 site for Python workshop lessons, b
 ## Routing and navigation
 
 - Build internal links with `href('introduction/02')` from `#lib/href.ts` so they carry the base path; a bare `/terminal/` breaks on GitHub Pages.
-- Lessons are `src/routes/(site)/<section>/<NN>/+page.svelte`. URLs must stay `/pythonlab/introduction/NN` and `/pythonlab/lab-01/NN`.
+- Lessons are `src/routes/(site)/<section>/<NN>/+page.svelte`. URLs must stay `/pythonlab/introduction/NN` and `/pythonlab/lab1/NN`.
 - `trailingSlash` is `'never'` in the root layout and `'always'` in the `+page.ts` of each section index and of the terminal, so nav paths look like `introduction/`, `introduction/02`, `terminal/`.
 - `src/lib/nav.ts` lists every section and page, and the steps of each page that has in-page sections. The `(site)` layout takes the page title, `<h1>`, carousel and prev/next links from it, so lesson pages contain no `<h1>` of their own. A new lesson needs a `nav.ts` entry plus a link in the section's hand-written contents list (`<section>/+page.svelte`).
 - Pages with steps wrap each section in `<LessonSection id="…">` (`#lib/components/LessonSection.svelte`), which hides inactive sections, resets focus and scroll when the reader arrives, and marks the scroll container `more-below` for the bottom haze.
