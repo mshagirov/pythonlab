@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount, untrack } from 'svelte';
+	import CopyButton from './CopyButton.svelte';
 	import { highlight, trimBlankLines } from '#lib/highlight.ts';
 	import { isApple } from '#lib/platform.ts';
 	import { cells, RESTARTED } from '#lib/python/client.ts';
@@ -110,6 +111,7 @@
 		</div>
 
 		<div class="actions">
+			<CopyButton text={source} />
 			<button type="button" class="icon" onclick={reset} aria-label="Reset" title="Reset">
 				<svg
 					viewBox="0 0 24 24"

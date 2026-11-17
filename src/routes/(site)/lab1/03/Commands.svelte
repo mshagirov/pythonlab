@@ -4,7 +4,7 @@
 </script>
 
 <LessonSection id="linux-commands">
-	<h3>Some Linux Commands (Optional)</h3>
+	<h3>Linux Commands</h3>
 
 	<blockquote>
 		<p>
@@ -68,34 +68,7 @@
 		</p>
 	</blockquote>
 </LessonSection>
-<LessonSection id="terminal-or-gui">
-	<h3>Should You Use the Terminal or Graphical User Interface?</h3>
-
-	<p>
-		You can manage files and folders in Zed's terminal or project panel. You can also use your
-		operating system's file manager, such as Finder or File Explorer. Choose whichever is most
-		comfortable for the task.
-	</p>
-
-	<p>
-		Terminal commands are especially useful for repeatable tasks and remote environments. Practise
-		the commands below so you can navigate folders and run your Python program.
-	</p>
-
-	<blockquote>
-		<p>
-			<strong>VS Code:</strong> The Explorer panel serves the same purpose as Zed's project panel.
-		</p>
-	</blockquote>
-</LessonSection>
 <LessonSection id="workspace-folder">
-	<h3>Workspace Folder</h3>
-
-	<p>
-		Use Zed's terminal to navigate to your home folder and set up a workspace. Enter the commands
-		below one at a time.
-	</p>
-
 	<blockquote>
 		<p>
 			<strong>Windows / WSL:</strong> Keep working in your WSL connection. When opening folders in Zed,
@@ -110,18 +83,20 @@
 		</p>
 	</blockquote>
 
-	<ol>
+	<h3>Workspace Folder</h3>
+
+	<p>
+		Use Zed's terminal to navigate to your home folder and set up a workspace. Enter the commands
+		below one at a time.
+	</p>
+
+	<ul>
 		<li>
 			<p>
 				Go to your home folder using <code>cd</code> command. You may either enter <code>cd</code>
 				(without any arguments) or <code>cd ~</code> (the shell expands <code>~</code> to your home folder).
 			</p>
 			<Code lang="bash" code={String.raw`cd ~`} />
-			<p>
-				That is <code>cd</code> space and <code>~</code>. The <em>command signature</em> is the same
-				for all other commands <code>COMMAND [OPTIONS] [ARGUMENTS]</code>, where square brackets
-				represent optional inputs.
-			</p>
 		</li>
 		<li>
 			<p>
@@ -131,41 +106,40 @@
 			<Code lang="bash" code={String.raw`pwd`} />
 		</li>
 		<li>
-			<p>List the contents of your home folder with <code>ls</code>.</p>
-			<Code lang="bash" code={String.raw`ls`} />
-			<ul>
-				<li><code>ls</code> accepts <em>options</em>, e.g.,</li>
-				<li><code>ls -l</code>: lists contents line-by-line,</li>
-				<li>
-					<code>ls -a</code>: lists <em>all</em> content including <em>hidden</em> files and folders.
-				</li>
-				<li>
-					<code>ls -la</code> or <code>ls -al</code>: combines <code>-l</code> and <code>-a</code> options.
-				</li>
-			</ul>
+			<p>
+				List the contents of your home folder with <code>ls</code>. For convenience, use
+				<code>ls -l</code>. The <code>-l</code> option shows each entry on a separate row, along
+				with metadata such as permissions, owner, size, and modification time. Use
+				<code>ls -al</code>
+				to also include hidden files and folders by combining
+				<code>-a</code> with <code>-l</code>.
+			</p>
+			<Code lang="bash" code={String.raw`ls -l`} />
 			<Code lang="bash" code={String.raw`ls -al`} />
+			<blockquote>
+				<p>
+					Many Linux distributions configure <code>ll</code> as an alias for a long listing, such as
+					<code>ls -al</code>
+					(the exact options vary). To add this shortcut to Zsh on macOS, add
+					<code>alias ll='ls -al'</code>
+					to your <code>~/.zshrc</code> file, then open a new terminal or run
+					<code>source ~/.zshrc</code> in the current terminal.
+				</p>
+			</blockquote>
 		</li>
 		<li>
-			<p>Create a new directory named <code>workspace</code>.</p>
-			<Code lang="bash" code={String.raw`mkdir workspace`} />
-			<ul>
-				<li>
-					Verify that <code>workspace</code> was properly created with <code>ls -alF</code>. The
-					<code>-F</code>
-					option shows
-					<code>/</code> after directory names.
-				</li>
-				<li>
-					Open your home folder in Zed using <code>File &gt; Open...</code>.
-				</li>
-				<li>
-					Compare the output from <code>ls -a</code> with Zed's project panel. Hidden or ignored files
-					may be filtered out in the panel.
-				</li>
-			</ul>
+			<p>Create a new directory named <code>workspace</code> and verify with <code>ls</code>.</p>
+			<Code
+				lang="bash"
+				code={String.raw`mkdir workspace
+ls`}
+			/>
 		</li>
 		<li>
-			<p><code>cd</code> to <code>workspace</code>. You may verify this with <code>pwd</code></p>
+			<p>
+				You should see the new <code>workspace</code> directory in the listing. Use <code>cd</code>
+				to enter it, then verify your current path with <code>pwd</code>.
+			</p>
 			<Code
 				lang="bash"
 				code={String.raw`cd workspace
@@ -174,26 +148,64 @@ pwd`}
 			/>
 		</li>
 		<li>
-			<p>Create some test files:</p>
-			<Code lang="bash" code={String.raw`touch file1 file2 file3`} />
-			<ul>
-				<li>
-					Verify that the files exist by listing them with <code>ls -l</code>. Can you see these
-					files in Zed's project panel?
-				</li>
-			</ul>
+			<p>Create some test files and verify with <code>ls</code>:</p>
+			<Code
+				lang="bash"
+				code={String.raw`touch file1 file2 file3
+ls -l`}
+			/>
+			<blockquote>
+				<p>
+					In Bash and Zsh, you can also use <em>brace expansion</em>, such as
+					<code>file&#123;1,2,3&#125;</code>. For example, in
+					<code>touch file&#123;1,2,3&#125;</code>, the shell expands
+					<code>file&#123;1,2,3&#125;</code> into
+					<code>file1 file2 file3</code>
+					before running <code>touch</code>. Not all shells support this shorthand, so you may need
+					to use an alternative method in those shells.
+				</p>
+			</blockquote>
 		</li>
 		<li>
-			<p>From the <code>workspace</code>, go to its parent directory (your home directory):</p>
-			<Code lang="bash" code={String.raw`cd ..`} />
-			<ul>
-				<li>
-					Open <code>workspace</code> as a project in Zed, then open a terminal with
-					<code>terminal: new</code> from the command palette. Check its location with
-					<code>pwd</code>; if needed, run <code>cd ~/workspace</code>.
-				</li>
-			</ul>
+			<p>
+				From <code>workspace</code>, go to its parent directory (your home directory), then list its
+				contents with <code>ls -lF</code>. The test files are inside <code>workspace</code>, so they
+				will not appear in this listing:
+			</p>
+			<Code
+				lang="bash"
+				code={String.raw`cd ..
+ls -lF`}
+			/>
 		</li>
+		<li>
+			<p>
+				Open <code>workspace</code> as a project in Zed, then open a terminal with
+				<code>workspace: new terminal</code> from the command palette. Check its location with
+				<code>pwd</code>.
+			</p>
+			<p>
+				Zed's project panel and the terminal's current directory are not automatically kept in sync.
+				Browsing folders in the panel does not change the terminal's location, and
+				<code>cd</code> does not change the project folder. By default, opening a new terminal starts
+				it in the project directory.
+			</p>
+		</li>
+		<li>
+			<p>
+				Run <code>pwd</code> in both the old and new terminals and compare the results. The old
+				terminal is still in your home directory, while the new terminal starts in
+				<code>workspace</code>. Each terminal keeps its own current working directory. You can now
+				close the old terminal by running the <code>exit</code> command in it.
+			</p>
+		</li>
+	</ul>
+</LessonSection>
+
+<LessonSection id="prepare-project-folder">
+	<h3>Prepare the Project Folder</h3>
+
+	<ul>
 		<li>
 			<p>
 				Go to <code>workspace</code> with <code>cd</code> if you are not in it. Then, remove
@@ -244,5 +256,5 @@ pwd`}
 pwd`}
 			/>
 		</li>
-	</ol>
+	</ul>
 </LessonSection>

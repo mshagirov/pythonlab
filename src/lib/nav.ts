@@ -254,17 +254,19 @@ export const sections: NavSection[] = [
 				title: 'Command Line',
 				steps: [
 					{ id: 'terminal', title: 'Terminal' },
+					{
+						id: 'terminal-or-gui',
+						title: 'Should You Use the Terminal or Graphical User Interface?',
+					},
+					{ id: 'using-the-terminal', title: 'Open Terminal in Zed' },
 					{ id: 'relative-and-absolute-path', title: 'Relative and Absolute Path' },
 					{
 						id: 'using-relative-and-absolute-paths',
 						title: 'Where Do We Use Relative and Absolute Paths?',
 					},
-					{ id: 'linux-commands', title: 'Some Linux Commands (Optional)' },
-					{
-						id: 'terminal-or-gui',
-						title: 'Should You Use the Terminal or Graphical User Interface?',
-					},
+					{ id: 'linux-commands', title: 'Linux Commands' },
 					{ id: 'workspace-folder', title: 'Workspace Folder' },
+					{ id: 'prepare-project-folder', title: 'Prepare the Project Folder' },
 				],
 			},
 			{

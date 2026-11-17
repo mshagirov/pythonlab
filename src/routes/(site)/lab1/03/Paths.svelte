@@ -8,16 +8,13 @@
 
 	<p>
 		Your operating system uses <em>absolute paths</em> and <em>relative paths</em> to locate files
-		and folders. An absolute path starts at the root directory, such as <code>/home/murat</code>
-		on Linux or <code>/Users/murat</code> on macOS. A relative path starts from your current working directory.
+		and folders. An absolute path starts at the root directory <code><strong>/</strong></code>, such
+		as the first <code>/</code> in
+		<code><strong class="root-slash">/</strong>home/murat</code>
+		(Linux) and <code><strong class="root-slash">/</strong>Users/murat</code> (macOS). A relative
+		path starts from your current working directory, represented by <code>.</code>, and can use the
+		shortcuts shown below.
 	</p>
-
-	<blockquote>
-		<p>
-			<strong>Windows / WSL:</strong> Use Linux paths inside WSL, such as
-			<code>/home/murat</code>, rather than Windows paths such as <code>C:\Users\murat</code>.
-		</p>
-	</blockquote>
 
 	<p>These shortcuts are useful in Zed's terminal:</p>
 
@@ -31,13 +28,6 @@
 		</thead>
 		<tbody
 			><tr>
-				<td align="center"><code>~</code></td>
-				<td align="center">User&#39;s home directory</td>
-				<td align="center"
-					><code>~/Documents/</code> refers to <code>Documents/</code> in my home directory</td
-				>
-			</tr>
-			<tr>
 				<td align="center"><code>.</code></td>
 				<td align="center">The current directory</td>
 				<td align="center"
@@ -56,8 +46,17 @@
 	</table>
 
 	<p>
-		The shell expands <code>~</code> to your home directory's absolute path; it is not a relative path.
+		Another shortcut is <code>~</code>, which the shell expands to your home directory's absolute
+		path (<code>HOME</code>); it is not a relative path. For example, <code>~/Documents/</code>
+		refers to the <code>Documents/</code> folder in your home directory.
 	</p>
+
+	<blockquote>
+		<p>
+			<strong>Windows / WSL:</strong> Use Linux paths inside WSL, such as
+			<code>/home/murat</code>, rather than Windows paths such as <code>C:\Users\murat</code>.
+		</p>
+	</blockquote>
 </LessonSection>
 <LessonSection id="using-relative-and-absolute-paths">
 	<h3>Where Do We Use Relative and Absolute Paths?</h3>
@@ -69,14 +68,53 @@
 		on the current directory, but it may differ between machines or users.
 	</p>
 
-	<p>As an exercise, list the contents of your home directory using <code>ls</code> command:</p>
+	<p>
+		As an exercise, list the contents of your <em>home directory</em> using the
+		<code>ls</code> command:
+	</p>
 
 	<Code lang="bash" code={String.raw`ls ~`} />
 
 	<blockquote>
 		<p>
-			In the above, <code>ls</code> is a command that takes the input &quot;<code>~</code>&quot;
-			(path to your home directory) and lists its contents on the terminal.
+			In the above, the shell expands <code>~</code> to your home directory's path before passing it
+			to <code>ls</code>, which lists that directory's contents. Quoting it as
+			<code>"~"</code> or <code>'~'</code> prevents this expansion: both pass a literal
+			<code>~</code>, so <code>ls</code> looks for an entry named <code>~</code> in the current directory
+			instead.
+		</p>
+	</blockquote>
+
+	<p>To list the contents of your <em>current working directory</em>, use <code>.</code>:</p>
+
+	<Code lang="bash" code={String.raw`ls .`} />
+
+	<p>To list the contents of the <em>parent directory</em>, use <code>..</code>:</p>
+
+	<Code lang="bash" code={String.raw`ls ..`} />
+
+	<blockquote>
+		<p>
+			To browse your project's files in Zed, open the command palette with
+			<kbd>Cmd+Shift+P</kbd> (macOS) or <kbd>Ctrl+Shift+P</kbd> (Linux/Windows), then search for
+			<code>project panel: toggle focus</code>. The Project Panel shows your project's files and
+			folders; click a folder to expand it or a file to open it.
+		</p>
+	</blockquote>
+
+	<blockquote>
+		<p>
+			To open a different folder in Zed, choose <code>File &gt; Open</code> or press
+			<kbd>Cmd+O</kbd> (macOS) or <kbd>Ctrl+O</kbd> (Linux/Windows), then select the folder and
+			click <strong>Open</strong>. Its files and subfolders will appear in the Project Panel.
 		</p>
 	</blockquote>
 </LessonSection>
+
+<style>
+	.root-slash {
+		color: var(--link);
+		font-weight: 700;
+		text-decoration: underline;
+	}
+</style>

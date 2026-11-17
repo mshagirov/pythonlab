@@ -273,6 +273,36 @@ sudo dnf install python3`}
 			> to connect Zed to your WSL environment.
 		</p>
 	</blockquote>
+
+	<details>
+		<summary>Optional: Set up the Zed command-line interface (CLI)</summary>
+		<p>
+			The CLI lets you open files and folders from a terminal, for example with <code>zed .</code>
+			to open the current directory in Zed.
+		</p>
+		<ul>
+			<li>
+				<strong>macOS:</strong> Open Zed's command palette with <kbd>Cmd+Shift+P</kbd>, search for
+				<code>cli: install cli binary</code>, and run it to install <code>zed</code>.
+			</li>
+			<li>
+				<strong>Linux:</strong> The CLI is included with Zed; depending on your distribution, the
+				command may be named <code>zed</code> or <code>zeditor</code>.
+			</li>
+			<li>
+				<strong>Windows / WSL:</strong> The CLI is included with native Windows Zed. Add Zed's
+				installation directory to your Windows <code>PATH</code> if needed, then reopen your
+				terminal. From WSL, use <code>zed.exe .</code> to open the current directory in Windows Zed.
+			</li>
+		</ul>
+		<p>
+			Check the installation with <code>zed --version</code> (or <code>zeditor --version</code>
+			on Linux, or <code>zed.exe --version</code> in WSL). See the
+			<a href="https://zed.dev/docs/reference/cli" target="_blank" rel="noopener"
+				>Zed CLI documentation</a
+			> for details.
+		</p>
+	</details>
 </LessonSection>
 
 <LessonSection id="install-vscode">
