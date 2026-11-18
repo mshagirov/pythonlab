@@ -267,16 +267,24 @@ export const sections: NavSection[] = [
 					{ id: 'linux-commands', title: 'Linux Commands' },
 					{ id: 'workspace-folder', title: 'Workspace Folder' },
 					{ id: 'prepare-project-folder', title: 'Prepare the Project Folder' },
+					{ id: 'project-folder-organisation', title: 'Project Folder Organisation' },
 				],
 			},
 			{
-				path: 'lab1/06',
-				title: 'Part 2: DNA Analysis Tool',
+				path: 'lab1/04',
+				title: 'Python Environment',
 				steps: [
-					{ id: 'project-folder-organisation', title: 'Project Folder Organisation' },
-					{ id: 'entry-point', title: 'Entry Point for Your Program: main.py' },
+					{ id: 'entry-point', title: 'main.py' },
 					{ id: 'shebang-line', title: 'Shebang Line' },
+					{ id: 'virtual-environment', title: 'Virtual Environment' },
+					{ id: 'run-main-py-in-venv', title: 'Run main.py in venv' },
+					{ id: 'managing-with-uv', title: 'Managing with uv' },
 				],
+			},
+			{
+				path: 'lab1/05',
+				title: 'DNA Analyser',
+				steps: [{ id: 'create-project', title: 'Create Project' }],
 			},
 			{
 				path: 'lab1/07',

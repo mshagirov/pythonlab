@@ -15,7 +15,7 @@
 	</p>
 
 	<ul>
-		<li><strong>Graphical IDEs</strong>: VS Code, PyCharm</li>
+		<li><strong>Graphical editors and IDEs</strong>: Zed, VS Code, PyCharm</li>
 		<li><strong>Keyboard-centric editors</strong>: Neovim, Vim, Emacs</li>
 		<li><strong>Specialised IDEs</strong>: Android Studio, Xcode</li>
 	</ul>
@@ -72,8 +72,8 @@
 
 		<p>
 			For Windows, we will follow
-			<a href="https://code.visualstudio.com/docs/remote/wsl" target="_blank" rel="noopener"
-				>VS Code instructions for developing in WSL</a
+			<a href="https://learn.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener"
+				>Microsoft's WSL installation instructions</a
 			>:
 		</p>
 
@@ -306,10 +306,10 @@ sudo dnf install python3`}
 </LessonSection>
 
 <LessonSection id="install-vscode">
-	<h3>Install VS Code</h3>
+	<h3>Install VS Code (Optional)</h3>
 
 	<p>
-		With Python installed, set up your editor by following the instructions for
+		If you prefer VS Code to Zed, set it up by following the instructions for
 		<em><u>your</u></em> operating system below.
 	</p>
 

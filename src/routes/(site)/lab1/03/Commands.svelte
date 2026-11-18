@@ -115,7 +115,6 @@
 				<code>-a</code> with <code>-l</code>.
 			</p>
 			<Code lang="bash" code={String.raw`ls -l`} />
-			<Code lang="bash" code={String.raw`ls -al`} />
 			<blockquote>
 				<p>
 					Many Linux distributions configure <code>ll</code> as an alias for a long listing, such as
@@ -129,11 +128,7 @@
 		</li>
 		<li>
 			<p>Create a new directory named <code>workspace</code> and verify with <code>ls</code>.</p>
-			<Code
-				lang="bash"
-				code={String.raw`mkdir workspace
-ls`}
-			/>
+			<Code lang="bash" code={String.raw`mkdir workspace`} />
 		</li>
 		<li>
 			<p>
@@ -146,14 +141,15 @@ ls`}
 # check if you are in "workspace" directory
 pwd`}
 			/>
+			<blockquote>
+				<p>
+					In shell commands, <code>#</code> starts a comment; the rest of that line is ignored.
+				</p>
+			</blockquote>
 		</li>
 		<li>
 			<p>Create some test files and verify with <code>ls</code>:</p>
-			<Code
-				lang="bash"
-				code={String.raw`touch file1 file2 file3
-ls -l`}
-			/>
+			<Code lang="bash" code={String.raw`touch file1 file2 file3`} />
 			<blockquote>
 				<p>
 					In Bash and Zsh, you can also use <em>brace expansion</em>, such as
@@ -169,24 +165,19 @@ ls -l`}
 		<li>
 			<p>
 				From <code>workspace</code>, go to its parent directory (your home directory), then list its
-				contents with <code>ls -lF</code>. The test files are inside <code>workspace</code>, so they
-				will not appear in this listing:
+				contents with <code>ls -lF</code>. The <code>-F</code> option adds file-type indicators,
+				such as <code>/</code> after directory names and <code>*</code> after executable files. The
+				test files are inside <code>workspace</code>, so they will not appear in this listing:
 			</p>
-			<Code
-				lang="bash"
-				code={String.raw`cd ..
-ls -lF`}
-			/>
+			<Code lang="bash" code={String.raw`cd ..`} />
 		</li>
 		<li>
 			<p>
 				Open <code>workspace</code> as a project in Zed, then open a terminal with
 				<code>workspace: new terminal</code> from the command palette. Check its location with
-				<code>pwd</code>.
-			</p>
-			<p>
-				Zed's project panel and the terminal's current directory are not automatically kept in sync.
-				Browsing folders in the panel does not change the terminal's location, and
+				<code>pwd</code>. Zed's project panel and the terminal's current directory are not
+				automatically kept in sync. Browsing folders in the panel does not change the terminal's
+				location, and
 				<code>cd</code> does not change the project folder. By default, opening a new terminal starts
 				it in the project directory.
 			</p>
@@ -220,41 +211,39 @@ ls -lF`}
 				Many Linux commands accept wildcard <code>*</code> to match patterns, e.g.,
 				<code>file*</code>
 				matches all file and folder names that start with <code>file</code>. Be careful to not
-				delete your other files that match this pattern.
+				delete your other files that match this pattern. Delete all files with names that start with
+				<code>file</code> inside <code>workspace/</code>. But before, let&#39;s do a sanity check by
+				listing these files (and folders):
 			</p>
-			<ul>
-				<li>
-					Delete all files with names that start with <code>file</code> inside
-					<code>workspace/</code>. But before, let&#39;s do a sanity check by listing these files
-					(and folders):
-				</li>
-			</ul>
 			<Code lang="bash" code={String.raw`ls -al file*`} />
-			<ul>
-				<li>If you are happy with what you see, go ahead and delete these files:</li>
-			</ul>
+		</li>
+		<li>
+			<p>If you are happy with what you see, go ahead and delete these files:</p>
 			<Code lang="bash" code={String.raw`rm file*`} />
 		</li>
 		<li>
 			<p>
-				Create a new directory with path <code>~/workspace/pythonlab/lab1/dna-analyser</code>. For
-				this, you need to create multiple directories. In the terminal, this can be done with
+				Create a new directory with path <code>~/workspace/pythonlab/lab1</code>. For this, you need
+				to create multiple directories. In the terminal, this can be done with
 				<code>mkdir -p NEW_DIR</code>, <code>-p</code> option allows you to automatically create parent
 				directories for your path.
 			</p>
-			<Code lang="bash" code={String.raw`mkdir -p ~/workspace/pythonlab/lab1/dna-analyser`} />
+			<Code lang="bash" code={String.raw`mkdir -p ~/workspace/pythonlab/lab1`} />
 		</li>
 		<li>
 			<p>
-				Open <code>~/workspace/pythonlab/lab1/dna-analyser</code> as your project folder in Zed. Open
-				a terminal and run the commands below to confirm its working directory. Keep this project open
-				for the next part.
+				Open <code>~/workspace/pythonlab/lab1</code> as your project folder in Zed. Open a terminal,
+				use <code>cd</code> to enter this directory if necessary, and confirm your location with
+				<code>pwd</code>.
 			</p>
 			<Code
 				lang="bash"
-				code={String.raw`cd ~/workspace/pythonlab/lab1/dna-analyser
+				code={String.raw`cd ~/workspace/pythonlab/lab1
 pwd`}
 			/>
+		</li>
+		<li>
+			<p><strong>Keep this project open for the next part.</strong></p>
 		</li>
 	</ul>
 </LessonSection>

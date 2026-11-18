@@ -140,3 +140,31 @@ Darwin`}
 </LessonSection>
 <Paths />
 <Commands />
+
+<LessonSection id="project-folder-organisation">
+	<h3>Project Folder Organisation</h3>
+
+	<blockquote>
+		<p>
+			I saw this structure from <a
+				href="https://blog.boot.dev/misc/how-i-organize-my-local-development-environment/"
+				target="_blank"
+				rel="noopener">Lane Wagner (boot.dev)</a
+			>
+			and have adopted it in my own workflow.
+		</p>
+	</blockquote>
+
+	<p>
+		<code>workspace/pythonlab/</code> will house all the projects that you will write in this and
+		future labs. Inside it, we will create directories for each lab, and each lab folder will
+		contain all the projects for that given lab. You are welcome to continue using
+		<code>workspace</code> for your future projects.
+	</p>
+
+	<blockquote>
+		<p>
+			Please create <code>~/workspace/pythonlab/lab1</code> if you haven&#39;t already done so.
+		</p>
+	</blockquote>
+</LessonSection>
