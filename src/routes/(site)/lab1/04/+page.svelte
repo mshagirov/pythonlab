@@ -311,8 +311,15 @@ plt.show()`}
 			<a href="https://docs.astral.sh/uv/" target="_blank" rel="noopener">uv</a> is a modern, fast Python
 			package and project manager by Astral. It provides an all-in-one replacement for tools such as pip,
 			pip-tools, pipx, and virtualenv. It can manage Python versions, virtual environments, dependencies,
-			and project commands. Written in Rust, it is typically much faster than pip at installing packages.
+			and project commands.
 		</p>
+
+		<blockquote>
+			<p>
+				From uv's website: &quot;An extremely fast Python package and project manager, written in
+				Rust.&quot;
+			</p>
+		</blockquote>
 	</details>
 
 	<details open>
@@ -358,7 +365,7 @@ plt.show()`}
 			</li>
 			<li>
 				<p>Initialise the current project with Python 3.15:</p>
-				<Code lang="bash" code={String.raw`uv init --python 3.15`} />
+				<Code lang="bash" code={String.raw`uv init --no-package --python 3.15`} />
 				<p>
 					Unlike <code>venv</code>, uv can download Python if the requested version is missing. It
 					records the selected version in <code>.python-version</code>.

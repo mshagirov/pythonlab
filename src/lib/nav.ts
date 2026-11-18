@@ -284,7 +284,13 @@ export const sections: NavSection[] = [
 			{
 				path: 'lab1/05',
 				title: 'DNA Analyser',
-				steps: [{ id: 'create-project', title: 'Create Project' }],
+				steps: [
+					{ id: 'create-project', title: 'Create Project' },
+					{ id: 'main-function', title: 'Main Function' },
+					{ id: 'reading-files', title: 'Reading Files' },
+					{ id: 'more-examples', title: 'More Examples' },
+					{ id: 'importing-modules', title: 'Importing Modules' },
+				],
 			},
 			{
 				path: 'lab1/07',
