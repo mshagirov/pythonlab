@@ -72,7 +72,8 @@
 		container-type: inline-size;
 		display: grid;
 		/* Both side columns are always this wide, even without a button, so the middle stays centred. */
-		--title-width: min(14rem, calc(50vw - 5rem));
+		/* Give extra space on wide screens to the titles, keeping room for the middle. */
+		--title-width: min(max(14rem, calc(50vw - 22rem)), calc(50vw - 5rem));
 		--side: calc(var(--title-width) + 1.75rem + 0.6rem);
 		grid-template-columns: var(--side) minmax(0, 1fr) var(--side);
 		align-items: center;

@@ -6,19 +6,12 @@
 	let {
 		sequence,
 		index,
-		previousPage,
-		nextPage,
 	}: {
 		/** The section's index page followed by its lesson pages. */
 		sequence: NavLink[];
 		/** Position of the current page in `sequence`. */
 		index: number;
-		previousPage?: NavLink;
-		nextPage?: NavLink;
 	} = $props();
-
-	/** How many neighbours stay visible on each side of the current title. */
-	const VISIBLE = 3;
 
 	/** Space between neighbouring titles, in rem. */
 	const GAP = 2.25;
@@ -68,36 +61,22 @@
 
 {#if sequence.length > 1}
 	<nav class="page-carousel" aria-label="Lesson pages">
-		<div class="carousel" aria-hidden="true">
+		<div class="carousel">
 			<div class="track" class:animate class:measured={!!positions} bind:this={track}>
 				{#each sequence as item, position (item.path)}
 					{@const offset = position - index}
 					{@const current = offset === 0}
-					<span
+					<a
 						class="item"
 						class:current
-						class:before={offset < 0}
-						class:after={offset > 0}
-						class:hidden={Math.abs(offset) > VISIBLE}
+						href={href(item.path)}
+						aria-current={current ? 'page' : undefined}
 						style:--x={`${positions?.[position] ?? 0}px`}
-						{@attach clipped(current)}>{item.label}</span
+						{@attach clipped(current)}>{item.label}</a
 					>
 				{/each}
 			</div>
 		</div>
-		<!-- Each half of the carousel jumps a whole page: back to the previous page's
-	     last section, or on to the next page's first section. -->
-		{#if previousPage}
-			<a
-				class="half go-previous"
-				href={href(previousPage.path)}
-				aria-label={`Previous page: ${previousPage.label}`}
-			></a>
-		{/if}
-		{#if nextPage}
-			<a class="half go-next" href={href(nextPage.path)} aria-label={`Next page: ${nextPage.label}`}
-			></a>
-		{/if}
 	</nav>
 {/if}
 
@@ -108,29 +87,12 @@
 		margin-bottom: 0.3rem;
 	}
 
-	.half {
-		position: absolute;
-		inset-block: 0;
-		width: 50%;
-		border-radius: 4px;
-	}
-
-	.go-previous {
-		left: 0;
-	}
-
-	.go-next {
-		right: 0;
-	}
-
-	.half:focus-visible {
+	.item:focus-visible {
 		outline: 2px solid var(--link);
 		outline-offset: -2px;
 	}
 
-	/* Bring the side being pointed at into focus, without changing its colour. */
-	.page-carousel:has(.go-previous:hover, .go-previous:focus-visible) .item.before,
-	.page-carousel:has(.go-next:hover, .go-next:focus-visible) .item.after {
+	.item:is(:hover, :focus-visible) {
 		filter: blur(0);
 	}
 
@@ -139,7 +101,6 @@
 		height: 3.3rem;
 		overflow: hidden;
 		mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
-		pointer-events: none;
 		user-select: none;
 	}
 
@@ -165,6 +126,7 @@
 		overflow: hidden;
 		color: var(--muted);
 		font-size: 0.85rem;
+		text-decoration: none;
 		white-space: nowrap;
 		/* Every neighbour shares one opacity and blur; only the current title is sharp. */
 		opacity: 0.7;
@@ -190,10 +152,6 @@
 		font-weight: 600;
 		opacity: 1;
 		filter: blur(0);
-	}
-
-	.item.hidden {
-		opacity: 0;
 	}
 
 	@media (prefers-reduced-motion: reduce) {

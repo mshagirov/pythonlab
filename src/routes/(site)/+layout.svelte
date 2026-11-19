@@ -35,12 +35,7 @@
 	class:section-reader={steps.length > 0}
 >
 	{#if current}
-		<PageCarousel
-			sequence={current.sequence}
-			index={current.index}
-			previousPage={current.previousPage}
-			nextPage={current.nextPage}
-		/>
+		<PageCarousel sequence={current.sequence} index={current.index} />
 		<PrevNext previous={current.previous} next={current.next}>
 			{#if steps.length > 0}
 				<SectionNavigation {steps} active={current.active} />
@@ -91,8 +86,16 @@
 	}
 
 	:global(body:has(.site-main)) {
-		max-width: 72rem;
+		max-width: none;
 		padding: 0.5rem 0.25rem;
+	}
+
+	.site-main > h1,
+	.lesson-content {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: 72rem;
+		margin-inline: auto;
 	}
 
 	:global(body:has(.viewport-reader)) {
