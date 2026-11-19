@@ -142,9 +142,11 @@ source .venv/bin/activate`}
 	</blockquote>
 
 	<p>
-		There are two common ways to list packages for a virtual environment,
-		<code>requirements.txt</code> and <code>pyproject.toml</code>. Choose one approach; you don't
-		need to maintain both files. The modern <code>pyproject.toml</code> approach is preferred.
+		<strong>
+			There are two common ways to list packages for a virtual environment,
+			<code>requirements.txt</code> and <code>pyproject.toml</code>. Choose one approach; you don't
+			need to maintain both files. The modern <code>pyproject.toml</code> approach is preferred.
+		</strong>
 	</p>
 
 	<details open>
@@ -195,15 +197,19 @@ matplotlib`}
 		<Code lang="bash" code={String.raw`python -m pip install -r requirements.txt`} />
 	</details>
 
-	<p>
-		Run this command from <code>test-project</code> to check that both packages are available in your
-		environment:
-	</p>
+	<details open>
+		<summary>Verify the Environment</summary>
 
-	<Code
-		lang="bash"
-		code={String.raw`python -c "import numpy, matplotlib; print(numpy.__version__, matplotlib.__version__)"`}
-	/>
+		<p>
+			Run this command from <code>test-project</code> to check that both packages are available in your
+			environment:
+		</p>
+
+		<Code
+			lang="bash"
+			code={String.raw`python -c "import numpy, matplotlib; print(numpy.__version__, matplotlib.__version__)"`}
+		/>
+	</details>
 </LessonSection>
 
 <LessonSection id="run-main-py-in-venv">
@@ -393,6 +399,96 @@ plt.show()`}
 				</p>
 			</li>
 		</ol>
+	</details>
+</LessonSection>
+
+<LessonSection id="summary">
+	<h3>Why Use Virtual Environments?</h3>
+
+	<ul>
+		<li>
+			<strong>Keep projects separate.</strong> Give each project its own virtual environment in
+			<code>.venv</code>, with a Python interpreter, activation scripts, and third-party packages,
+			so its dependencies do not interfere with other projects.
+		</li>
+		<li>
+			<strong>Keep system Python clean.</strong> Install project packages in <code>.venv</code>
+			instead of modifying global packages that system tools may rely on.
+		</li>
+		<li>
+			<strong>Make environments reproducible.</strong> Save dependency versions in a lockfile and record
+			the Python version so you can recreate a consistent setup.
+		</li>
+		<li>
+			<strong>Experiment and clean up easily.</strong> Try packages in an isolated environment, then
+			delete <code>.venv</code> to remove its installed packages without affecting other projects.
+		</li>
+		<li>
+			<strong>Avoid permission issues.</strong> Installing packages in an environment you own usually
+			requires no administrator privileges.
+		</li>
+	</ul>
+
+	<details open>
+		<summary>Working with uv</summary>
+
+		<p>
+			uv manages Python environments quickly and records exact dependency versions in a lockfile for
+			reproducible setups. Run the commands below from your project directory.
+			<code>uv run ...</code> uses the project's environment without manual activation.
+		</p>
+
+		<ul>
+			<li>
+				Add packages with <code>uv add ...</code>. This installs them, updates
+				<code>pyproject.toml</code>, and records resolved versions in <code>uv.lock</code>.
+			</li>
+			<li>
+				Create or update the environment from the project's dependency files with
+				<code>uv sync</code>.
+			</li>
+			<li>
+				Check for missing or incompatible package dependencies with <code>uv pip check</code>.
+			</li>
+			<li>Run your program with <code>uv run main.py</code>.</li>
+			<li>
+				Commit or share <code>pyproject.toml</code> and <code>uv.lock</code> so others can recreate the
+				environment.
+			</li>
+			<li>Do not track or commit the <code>.venv</code> directory in Git.</li>
+		</ul>
+	</details>
+
+	<details>
+		<summary>When not to use environments (optional)</summary>
+
+		<p>
+			A dedicated environment is usually best for projects with third-party dependencies, rather
+			than installing packages into your operating system's Python. However, you may not need a
+			separate virtual environment in these cases:
+		</p>
+
+		<ul>
+			<li>
+				<strong>Standard-library-only scripts.</strong> Quick calculations or small scripts that use only
+				Python's built-in modules need no third-party packages to isolate.
+			</li>
+			<li>
+				<strong>An environment is already provided.</strong> Managed containers and notebook platforms,
+				such as Google Colab or Kubeflow, may already provide Python and the packages you need. Follow
+				the platform's setup instructions rather than creating another environment inside it.
+			</li>
+			<li>
+				<strong>Standalone command-line tools.</strong> Use <code>uv tool install</code> or
+				<code>pipx</code> for tools you run across projects. These manage isolated environments for you
+				instead of adding the tools to each project's dependencies.
+			</li>
+			<li>
+				<strong>uv not available.</strong> If uv is unavailable or you prefer fewer tools, Python's
+				built-in <code>venv</code> with <code>pip</code> is a valid alternative for managing a virtual
+				environment.
+			</li>
+		</ul>
 	</details>
 </LessonSection>
 

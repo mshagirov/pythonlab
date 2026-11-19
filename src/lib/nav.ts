@@ -279,17 +279,28 @@ export const sections: NavSection[] = [
 					{ id: 'virtual-environment', title: 'Virtual Environment' },
 					{ id: 'run-main-py-in-venv', title: 'Run main.py in venv' },
 					{ id: 'managing-with-uv', title: 'Managing with uv' },
+					{ id: 'summary', title: 'Why Use Virtual Environments?' },
 				],
 			},
 			{
 				path: 'lab1/05',
 				title: 'DNA Analyser',
 				steps: [
-					{ id: 'create-project', title: 'Create Project' },
-					{ id: 'main-function', title: 'Main Function' },
+					{ id: 'create-project', title: 'Create dna-analyser Project' },
+					{ id: 'main-function', title: 'main() Function' },
 					{ id: 'reading-files', title: 'Reading Files' },
-					{ id: 'more-examples', title: 'More Examples' },
-					{ id: 'importing-modules', title: 'Importing Modules' },
+					{ id: 'importing-modules', title: 'Reader Module' },
+					{ id: 'handling-exceptions', title: 'Handling Exceptions' },
+					{ id: 'cleaning-input', title: 'Cleaning Input' },
+				],
+			},
+			{
+				path: 'lab1/06',
+				title: 'Reading Multiple Files',
+				steps: [
+					{ id: 'command-line-arguments', title: 'Passing command-line arguments' },
+					{ id: 'more-examples', title: 'Test Sequences' },
+					{ id: 'read-seq-files', title: 'read_batch()' },
 				],
 			},
 			{

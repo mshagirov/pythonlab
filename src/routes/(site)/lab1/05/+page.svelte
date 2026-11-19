@@ -1,27 +1,35 @@
 <script lang="ts">
 	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
-	import PyCell from '#lib/components/PyCell.svelte';
 </script>
 
 <LessonSection id="create-project">
-	<h3>Create Project</h3>
+	<h3>Create dna-analyser Project</h3>
 
 	<ul>
 		<li>
+			<p>In Zed's terminal, switch to your lab folder:</p>
+			<Code lang="bash" code={String.raw`cd ~/workspace/pythonlab/lab1`} />
+		</li>
+		<li>
 			<p>
-				You can create <code>dna-analyser</code> inside <code>~/workspace/pythonlab/lab1/</code>
-				manually with <code>mkdir</code> and add <code>main.py</code> and
-				<code>pyproject.toml</code> as before, or let uv set up the project for you. Let's use uv to create
-				and set up the project folder automatically. Run these commands in Zed's terminal:
+				Inside <code>~/workspace/pythonlab/lab1/</code>, use uv to create and set up the project
+				folder automatically. Run these commands in Zed's terminal:
 			</p>
 
 			<Code
 				lang="bash"
-				code={String.raw`cd ~/workspace/pythonlab/lab1
-uv init --no-package dna-analyser
+				code={String.raw`uv init --no-package dna-analyser
 cd dna-analyser`}
 			/>
+
+			<blockquote>
+				<p>
+					You can create <code>dna-analyser</code> inside <code>~/workspace/pythonlab/lab1/</code>
+					manually with <code>mkdir</code> and add <code>main.py</code> and
+					<code>pyproject.toml</code> as before, or let uv set up the project for you.
+				</p>
+			</blockquote>
 		</li>
 		<li>
 			Open <code>dna-analyser</code> as your project folder in Zed, then open
@@ -75,7 +83,7 @@ cd dna-analyser`}
 </LessonSection>
 
 <LessonSection id="main-function">
-	<h3>Main Function</h3>
+	<h3><code>main()</code> Function</h3>
 
 	<p>
 		When you ran <code>uv run main.py</code>, it printed
@@ -99,15 +107,20 @@ if __name__ == "__main__":
 		starts and what it does, while the details live in other functions.
 	</p>
 
-	<p>
-		The <code>if __name__ == "__main__":</code> line decides whether <code>main()</code> runs.
-		Python sets the special variable <code>__name__</code> to <code>"__main__"</code> in the file
-		you run directly. When another file imports <code>main.py</code> with <code>import main</code>,
-		<code>__name__</code> is <code>"main"</code> instead, so the functions are defined but
-		<code>main()</code> does not run. Check the value of <code>__name__</code> in the cell below:
-	</p>
-
-	<PyCell code={String.raw`print(__name__)`} />
+	<ul>
+		<li>
+			The <code>if __name__ == "__main__":</code> line decides whether <code>main()</code> runs.
+		</li>
+		<li>
+			Python sets the special variable <code>__name__</code> to <code>"__main__"</code> in the file you
+			run directly.
+		</li>
+		<li>
+			When another file imports <code>main.py</code> with <code>import main</code>,
+			<code>__name__</code> is <code>"main"</code> instead, so the functions are defined but
+			<code>main()</code> does not run.
+		</li>
+	</ul>
 
 	<p>
 		<strong
@@ -115,6 +128,16 @@ if __name__ == "__main__":
 			<code>uv run main.py</code> again.</strong
 		>
 	</p>
+
+	<blockquote>
+		<p>
+			To explore how <code>__name__</code> works, add the following line to <code>main.py</code> and compare
+			its output when you run the file directly (and when you import it from another file in the coming
+			sections):
+		</p>
+
+		<Code lang="python" code={String.raw`print(__name__)`} />
+	</blockquote>
 </LessonSection>
 
 <LessonSection id="reading-files">
@@ -158,27 +181,35 @@ TAGAAGGCACAGTCGAGG`}
 			</li>
 		</ul>
 
-		<ul>
-			<li>
+		<blockquote>
+			<p>
 				In <code>open('examples/BGH-R.pri', 'r')</code>, the first argument is the path to the file
 				and the second is the mode, which says what you want to do with it:
-				<ul>
-					<li><code>'r'</code>: read the file (the default if you leave out the mode).</li>
-					<li>
-						<code>'w'</code>: write to the file. It creates the file, or empties it first if it
-						already exists.
-					</li>
-					<li>
-						<code>'a'</code>: append, that is, write to the end of the file and keep what is there.
-					</li>
-					<li>
-						<code>'b'</code>: binary, combined with one of the others, such as <code>'rb'</code>.
-						Use it for files that are not text, such as images; you get bytes instead of strings.
-						<code>'b'</code> on its own, without <code>'r'</code>, <code>'w'</code> or
-						<code>'a'</code>, raises a <code>ValueError</code>, so write <code>'rb'</code> rather
-						than just <code>'b'</code>.
-					</li>
-				</ul>
+			</p>
+			<ul>
+				<li><code>'r'</code>: read the file (the default if you leave out the mode).</li>
+				<li>
+					<code>'w'</code>: write to the file. It creates the file, or empties it first if it
+					already exists.
+				</li>
+				<li>
+					<code>'a'</code>: append, that is, write to the end of the file and keep what is there.
+				</li>
+				<li>
+					<code>'b'</code>: binary, combined with one of the others, such as <code>'rb'</code>. Use
+					it for files that are not text, such as images; you get bytes instead of strings.
+					<code>'b'</code> on its own, without <code>'r'</code>, <code>'w'</code> or
+					<code>'a'</code>, raises a <code>ValueError</code>, so write <code>'rb'</code> rather than
+					just <code>'b'</code>.
+				</li>
+			</ul>
+		</blockquote>
+
+		<ul>
+			<li>
+				Modify <code>main()</code> in <code>main.py</code> to print the file contents after reading
+				them. Save the file and run <code>uv run main.py</code> to check that it prints the contents
+				of <code>examples/BGH-R.pri</code>.
 			</li>
 		</ul>
 	</details>
@@ -227,177 +258,225 @@ f.close()`}
 	</details>
 </LessonSection>
 
-<LessonSection id="more-examples">
-	<h3>More Examples</h3>
+<LessonSection id="importing-modules">
+	<h3>Reader Module</h3>
 
 	<p>
-		Create the following files inside the <code>examples/</code> folder. Make sure to preserve
-		spaces and all other characters. <code>example2.txt</code> must be an empty file (no contents).
+		Let's turn the file-reading code into a reusable function, then move it into its own module. A
+		module is a Python file whose code you can import into another Python file.
 	</p>
 
-	<details>
-		<summary>example1.txt</summary>
+	<ol>
+		<li>
+			<p>
+				In <code>main.py</code>, define a function called <code>read_file(file_path)</code> above
+				<code>main()</code>. Move the <code>with open(...)</code> block from <code>main()</code>
+				into this function, using <code>file_path</code> instead of the fixed file path:
+			</p>
 
-		<Code
-			lang="text"
-			code={String.raw`# E.coli Plasmid pMccC7 mccA,B,C,D,E,F genes
-% GenBank: X57583.1
-// Source: https://www.ncbi.nlm.nih.gov/nuccore/X57583.1?report=fasta
+			<Code
+				lang="python"
+				code={String.raw`def read_file(file_path):
+    # Return the file contents as a string.`}
+			/>
 
-GATGATTATATTCTGTATGGTTATTTATGTCTAAATATATAAATTAATAAATTTTAGAATAAAAATGTAG
-AATCGCAAATAATATGATTGTGCTGTTCTTTTTTTGTGAAATAAATCTATGTTTGTATATTTTTATAAGG
-AATATTGTTTTTTATAGTGATAAAAACACTTGTGAATTAATCACAGTAATAGGAGGCGTAAAATGCGTAC
-TGGTAATGCAAACTAATGGAAAAATATAAATGTCCATTAAATGCCACCCTGTACAGGGTGGCATACAAAA
-GTTATCTGCGAGGTTTATTTATGGATTATATATTGGGTCGCTATGTCAAAATTGCTCGATACGGGAGCGG
-TGGATTAGTTGGTGGAGGCGGAAAGGAGCAATATGTTGAGAATTTAGTGCTTTGGGAAAATATTATAAAA
-ACCGCATATTGTTTCATAACCCCATCGAGTTATACTGCAGCGTTGGAAACGGCCAATATACCTGAAAAAG
-ATTTCTCTAATTGCTTTAGGTTCCTTAAGGAAAATTTCTTTATTATACCTGGCGAGTATAATAACTCTAC
-TGAGAATAATCGTTACTCTCGTAACTTTTTACATTATCAAAGTTATGGTGCTAATCCTGTTCTTGTGCAA
-GATAAACTAAAAAATGCTAAGGTAGTAATTCTTGGTTGTGGGGGTATAGGAAATCATGTGTCTGTTATAC
-TCGCAACGTCTGGTATTGGCGAAATTATACTAATTGATAATGATCAAATAGAAAATACAAATTTGACAAG
-GCAGGTTTTATTTTCAGAGGATGATGTCGGTAAAAATAAAACAGAAGTTATAAAACGCGAGTTATTAAAA
-AGAAACTCTGAAATTTCGGTGTCTGAAATCGCTTTGAATATAAACGATTACACTGATCTTCATAAGGTAC
-CAGAAGCTGATATATGGGTTGTTTCTGCAGATCATCCATTTAATCTGATTAACTGGGTTAATAAATATTG
-CGTTAGAGCAAATCAGCCCTATATAAATGCTGGGTATGTTAATGATATTGCAGTCTTTGGTCCATTATAT
-GTTCCTGGTAAAACAGGATGTTATGAGTGCCAAAAAGTCGTGGCAGATCTATATGGTTCAGAAAAGGAAA
-ACATTGATCATAAGATTAAGCTAATCAATAGCAGATTTAAACCGGCAACATTTGCACCTGTGAATAATGT
-TGCCGCTGCATTATGTGCGGCAGACGTAATTAAGTTCATTGGAAAATACTCCGAGCCATTATCACTTAAT
-AAAAGAATAGGCATCTGGTCAGATGAAATAAAAATACATTCCCAAAATATGGGCCGTTCGCCTGTTTGCT
-CTGTGTGTGGAAATAGAATGTGAATACTGCAAATATTTTATCTGTGAACTATGGAGCTTATAATGCTATA
-CGTATGTTAATTGGTGTCTACCATGCAGCATTTCTTATATCTACAGGTGTCACTATATCTCAACTTGCTG
-TTTTACAGATCGTTTTTTCTGTGACAGTGCTGATTCTTGATTTTCCTTTATCTGTCATTGCAGACAGATT
-TTACAGGAAACAGGTTGTAGTTAGTGGCGTATTTTTTACTATATTATTTTACCCTCTTTGTATTCAGTCT
-CCTGATATGCTGGCATTGGTTTTTTCTGAAATATTTTATGCCATTGGTATTTGTTGTATATCTGGGGCTA
-TAGAGGGATGGGTGTTAAGTGCTCTGGATGGTAGAAATGAAAAGTTTACCTTATGTGCTCATTTATGCGA
-AAGGGTATCTTCCTTTGGGAGTGTGATAACTGGTGCTGTTGGAATATTAGTTGTCTACTTCTATGATTCT
-TATAAATCTGGCTATATAGTATCGTTCTTCTTGATGTTTGTTGTCTTTATCGTTTTTTTATGTGTGAAAA
-CTAATGGCAGTGGAGGTGAAAAAGAAGCACGAGATAGTATTATTAAACAGGCAAAAGAGAGTATTGGATT
-GATAACAGGAAGTTATAATGGGACATATTTTTTATCTATAACATGTATGTTTACAATTGGTATACAGGTA
-ATTTATCATTTTTGGCAGCCAATTATGCTATCTGGGGAAAGTATTGGCTCATTATCAAAAAGAGAGCTTA
-TAACTTTACTGATGTGTCATATTGGTGCATTTTCAATGCAATATATAGCAAACTATCTTATGCCAAAGAT
-AGATGTAAGGTGTAAACTTTATATACTTGTTTGTACATTATGTTCATTTCTTAGTTCAATCGCCTGTATT
-TTACTATTTATGTTAATAACAGATAATAAGGTTGTTCTCGGCGTAGCTATTTTCTCTATAATCCATGGGA
-TGATTTCAACAATACCTGTTGGAGCACAGAATATATTCATAAGCAGACTTAATGGCAATTATAAGAATAT
-TATTTCGGGAGCTCTTGGTCTTGTTTCTCTTTCATGTCGTGTTGCTTCCATTTCTGTGTTGGGAGTTATA
-TCTGTATTACCAGGTAATATGCCTGTCACCACTTATATATTTATCTCTGCAATTGCATGTGTACTGTGCG
-GTTGTTTGTTCTTAATGTGGTCCTTTAAAAAGGAGATGGTATGACGATTAAACATGCTGAAGAATTGACG
-GAAGAAGTTATTTTAAATATGAATTACCCTGATTTTGTTGCTCTGATGCAACAGGATAACACTCCTCCTG
-GAGCAGAGTACACCATAGACTACTGGATCAAGCATGGATGTATTAACAAAAAGTCTCACCTATTAGATTT
-AGCATGTTCCACGGGTTTTAGTTCACGTGAATGCTTCAAAAAAGAAGGTGCATCTGCAGAGGGTATTGAT
-ATATCTGAATCAGCTGTAATGGTCGCAAATGAAAAGGCAAAAAAGCTTAAGGCTAATAATTTATTGAAAT
-ATTATGTAGCTGATGCTTGTGATTTACCATTTGAAGATAACTCTTTTACACATGTTCTCGGTGGATGTAA
-TTTTGCATTTATACAAAATCGGTTAATAGCTTTGAATGAAACTCATCGATGTTTAAACCACATGGGAAGC
-ATGTGCATTTCAAATTTTTATTACAGGCGTAAAATATCAGATAAACTTATCAATGATGTATATAATGCAA
-TAAATTTCAGACCCAATCCTTTGTGGACTTTGGAATACTGGCATCAGTTTTTTTCTGAAAGATTTACTCT
-TGTTTCAGAAGAAAACCATGAGATGGAATCTCAAAGTGAAGATGAGTTAAAAGCCGATATTTATGATTAC
-ATTTTCAATAGAAATGAGTTTACAAAAGGTTTGAATGGTTCACTTCAGAATGTATTTTTTGAAAGATTTT
-TAAAAATACGCAGACCATTAAATATCCAAAGAGATTATCAGGGAGTTACATTGCAAATATGGCGCAAAAA
-ATAACACCATCTAAAATTGTTAAACATGCCCGGGAGTTAATTATTAAGGGGATTGAATCGGGCGAAAACT
-CATTTGTCATTTTTGATGTAGATGGAGCTCTGGAGCGTCTGGATCATTACAGGTGTCAACTTAAGAGTTT
-TTTCCCCAACAGTAGTATCGCATATTCATATAAGTCAAATAATCTGGCACAATGGTGCAGATTATCTCAG
-GTAAAGGTTTGTATGCAGAGGTGTGCTCTGTTGATGAAATGAACCTCGCCAAAAGAGACGGTTTTAAGCG
-GATTGTTTTTGATGGCCCTTTAAAAAAAACGAGTGAACTATTAAAGGCAATAGAGATTGGGGCATTAATT
-GAAGTTGACAATATTGATGAATGTAAAAGACTTAATGAACTATGTAAGTTGCATAAGCTGACATGTAGAA
-TTCATTTGAGATTATCGCATTACTATGATGATAATTTATCAAGATTTGGCTTATCTGAAAGTGAGGCTAT
-TAATTTACTGGAGATGTTGATCAGTAAGTCAGAGTATCTCATTTTAGACGGGTTCCATTTACATGTTGGC
-TCTAATCTACCCAATGCGGAAAAAATATGTAAAGCTATTATACAGTATCATGAGTTGATTCTTAGGTATA
-TGCCAGATGATGGCACTCTTAATCTTGGTAGTGGGATACCTGCAGATTCTTTCTCAGCATCCAGTGATAA
-CCCAACTCCATGTCCGGAGGTATTTTTCTCATCGATATATGATACAATAAAAAATTGCTTCGGTACTGTA
-TGTGATAAATGGAACTATATTTTTGAACCAGGGAGACATCTGGTCGAAGACTTTGGCTACTTTATAGGGA
-AAGTTATTAGTACTAAAAACAGGTATGGTGTTAAAGTTGCTCAAACTAACATTGGTATAAACTGGATACC
-TTCGATCAGAAATTGGGACCATTCATTTACATTGTTTCATAATCATAACCATATTTCAGATGATAAATCT
-GATGAGTATATTATTGCTGGATTCAATTGCTTTGAATGTGATTGCTTGTTTCCTTCAGTTATTCTTCCCA
-GTAACTTATCTGATTATTTATTTTCTGTTCGAGGGTGTGGTGCTTATGATATGCAAACAGGAAACCAGTG
-GACGCGTAATCTTTATGCTGTATATACCATAACAAATGATGTTGTTAATATATCAAGGATTCACAGAAGA
-GAACTTGATTTCCGGAAGTATGATGTATCTCTTACGCCATCAGGAATAAAAGTAAATGATGAAATTACAT
-TATTGTATCCAGCGTTAAAATACGCTGAAGAGTTATATTTGCTCATTAATCAAAACAAAATAAATTTCAT
-TAAAAGCATGGCATGGCCAGCGTTTGTTAATAACATTTCTGATTCTGTTTCTTTCATTGAGCAATCAATG
-ATTGATAACCAGAATGAAAAAGCATTAATCCTCTTTATTAAATACAAAACTAAGATAGCTGGCGTTGTAT
-CGTTTAATATTATTGACCATGCCAATAAAACAGCATATATTGGCTATTGGTTAGGTGCTAACTTTCAGGG
-GAAGGGGATTGTAACCAATGCTATAAATAAACTGATACAGGAGTATGGGGATTCGGGCGTTATAAAAAGA
-TTTGTTATAAAATGTATTGTTGATAATAAAAAAAGTAATGCCACGGCATTGAGGTGTGGCTTCACCTTAG
-AAGGTGTTCTGCAAAAAGCAGAAATACTCAACGGTGTATCATACGATCAAAATATTTATTCAAAAGTAAT
-TGGTTAATACTGTATGGCGTAGTATTCTACGCATTTTGTTTATGTCTGTGAGATGATAATATTTATTTCT
-CGGTAGATAGATATTGTTCTGTTATAGATATATTTTTGTTGTCAAAGTCAATAGCTAATTTTACACCAAG
-TGGAAGAGTTAGCATTGGATGTGTATGTGAACAATCAAATCCATCCAGTACAGGAATCTGTTTCCCATCT
-AATACCTCTGTTAATACTTCATATGGTCTGCGTTTACTTCCTGCACAATCAAAAAGCTCATGTTTCCCGA
-GTATTATTGCACTAACTTTATCAAACACGCGATTAAGCTTTAGCATAGAGAATAATCGTTCAATTGTTGC
-AATGCTTTTCCGACTGTCCTCAATAAACAATATATCTCCATTAAGAATTTCAGGCATCCATTCACTCCCC
-CATATACCTGTCAAAGTATTTAGATTTCCTCCAATTACACGCCCCTCAACTTTTCCGGAACCATAAAAGG
-CACAGTTGTTTTTATATAGCTTCTTAGGCCTTAATATCTTGTTTTCATTCCAGTTTATGCTCTCATCACT
-CCACTTTTCAGGTAATGTGTAGGTATATATTCCTGATTGTTTTCTTGTTAGTATTTTAATAAATGATTCA
-TATGTTATATCCACAAGAGGTGGATGTTCACCAAACGAAGGAATAAGAGCTGGTCCATAGAATGTTATTA
-ACCCTGTTTTTGCATATATTCCTGCTAATAAAGCAGTTGTATCTGAGTAACCTATGATAATTTTGGGGTT
-TGCAATGATAGCATCATAGTCCAGAAACGGTAGTAGTGAATTACTGTTATCTCCACCGATCGTTGACATT
-ATACAGGTAATATCAGGATTGTAGACTAACTCATTAAATTCTTGAGCTCTTTCTTTAATAGTACCTGAAC
-GATAAAAATCTGTTTTACCGGTAAGCTTCCCTGATACCAGCTTAAATCCCTTTCTCTGAAGAAACTCAAC
-TCCCCGAAAAAAACGATTTTTTGCAGTAACTGTTGCCGGAGCAGATGATGAAAAGAAACCAATTGTATCT
-CCTACTGCCAGGGGAGCGGCCAGTAGTGGATGAGATTGTATCATCATGAGGATTTTTCCTTTCCATTTAG
-TGTCAAAATGAACCCGTTTTGAGATATGTCAGTAGCACTTTCAGTTTATGGGCTTTTTTTGAAAATCGCA
-GTGTTCTCTCGTAAATTTTCTCGTCCAATCCCCCCCGAAAAGCCTCAGATTTCACGTAGCGCACCGCCAC
-TACTGTATCCATCAAAAAAACTGATAGCTTTTTTAATCATCTGTTGTGCTGCAACTTACTGAAAAAAATG
-GATTCATGAAAACGCCGA`}
-		/>
-	</details>
+			<p>
+				Replace the comment with your code. Use <code>return</code> to send the contents back to the
+				caller, rather than printing them inside <code>read_file</code>. Update
+				<code>main()</code> to call your function and print the returned string:
+			</p>
 
-	<details>
-		<summary>example2.txt</summary>
+			<Code
+				lang="python"
+				code={String.raw`def main():
+    content = read_file('examples/BGH-R.pri')
+    print(content)`}
+			/>
 
-		<p>Create an empty file.</p>
-	</details>
+			<p>
+				Keep the <code>if __name__ == "__main__":</code> block at the bottom of
+				<code>main.py</code>. Save and run <code>uv run main.py</code> from the
+				<code>dna-analyser</code> folder. Check that it still prints the file contents.
+			</p>
+		</li>
+		<li>
+			<p>
+				Create a new file called <code>reader.py</code> in the same folder as
+				<code>main.py</code>. Move the entire <code>read_file</code> function into
+				<code>reader.py</code>, removing its definition from <code>main.py</code>. Leave
+				<code>main()</code> and its call in <code>main.py</code>.
+			</p>
+		</li>
+		<li>
+			<p>
+				At the top of <code>main.py</code>, import <code>read_file</code> from your new module:
+			</p>
 
-	<details>
-		<summary>example3.dna</summary>
+			<Code lang="python" code={String.raw`from reader import read_file`} />
 
-		<Code lang="text" code={String.raw`ATTAATAAATTTTAGAATAAAAATGTAGAATCGCAAATAATATGATT`} />
-	</details>
+			<p>
+				Use <code>reader</code>, not <code>reader.py</code>, in the import. Save both files and run
+				<code>uv run main.py</code> again. It should print the same text as before, but now the file-reading
+				function lives in a separate module.
+			</p>
+		</li>
+	</ol>
+</LessonSection>
 
-	<details>
-		<summary>example4.rna</summary>
+<LessonSection id="handling-exceptions">
+	<h3>Handling Exceptions</h3>
 
-		<Code
-			lang="text"
-			code={String.raw`% Example RNA sequence
+	<ul>
+		<li>
+			<p>
+				If the file does not exist, <code>open()</code> in the <code>with</code> block raises a
+				<code>FileNotFoundError</code>. Modify <code>read_file</code> in <code>reader.py</code> so
+				that it returns an empty string <code>''</code> and prints a warning when the file is missing,
+				for example:
+			</p>
 
-UGAGGUAGUAGGUUGUAUAGUU`}
-		/>
-	</details>
+			<Code lang="python" code={String.raw`print(f'⚠️ Error: "{file_path}" not found!')`} />
 
-	<details>
-		<summary>MSCV-fwrd.pri</summary>
+			<blockquote>
+				<p>
+					<strong>Tip:</strong> Put the <code>with</code> block inside a <code>try</code> block. Use
+					<code>except FileNotFoundError:</code>
+					to print the warning and return
+					<code>''</code>.
+				</p>
+			</blockquote>
+		</li>
+		<li>
+			<p>
+				Test this by calling <code>read_file</code> with a path to a file that does not exist in
+				<code>main()</code>, then run <code>uv run main.py</code>. Check that it prints the warning
+				instead of a traceback. Switch back to <code>examples/BGH-R.pri</code> and check that existing
+				files still work.
+			</p>
+		</li>
+	</ul>
 
-		<Code
-			lang="text"
-			code={String.raw`# Murine stem cell virus; Forward
+	<details open>
+		<summary>Why not fail silently?</summary>
 
-CCCTTGAACCTCCTCGTTCGACC`}
-		/>
-	</details>
-
-	<details>
-		<summary>pBAD-fwrd.pri</summary>
-
-		<Code
-			lang="text"
-			code={String.raw`# For vectors with E. coli araBAD promoter; Forward
-ATGCCATAGCATTTTTATCC`}
-		/>
-	</details>
-
-	<details>
-		<summary>T3.pri</summary>
-
-		<Code
-			lang="text"
-			code={String.raw`# T3 promoter; Forward
-
-GCAATTAACCCTCACTAAAGG`}
-		/>
+		<p>
+			Here we warn the user when the file does not exist rather than failing silently, which we
+			should never do. In most cases, raising an exception is preferable to returning an empty
+			string, because it lets the caller distinguish a missing file from an empty one and decide how
+			to handle the problem.
+		</p>
 	</details>
 </LessonSection>
 
-<LessonSection id="importing-modules">
-	<h3>Importing Modules</h3>
+<LessonSection id="cleaning-input">
+	<h3>Cleaning Input</h3>
+
+	<p>
+		We should not assume that input files will be perfect and clean: they may contain comments,
+		spaces, line breaks and lowercase letters. Our app will analyse only DNA, so let's start
+		preparing the input by removing comments and formatting before we check the sequence itself.
+	</p>
+
+	<ol>
+		<li>
+			<p>
+				In <code>reader.py</code>, define a new function called
+				<code>clean_input(input_text)</code>. It should take the text returned by
+				<code>read_file</code> and return a cleaned string:
+			</p>
+
+			<Code
+				lang="python"
+				code={String.raw`def clean_input(input_text):
+    """Removes whitespace characters and converts to upper case letters"""
+    # Return the cleaned input as a string.`}
+			/>
+		</li>
+		<li>
+			<p>
+				Replace the comment with your code. First, use <code>input_text.splitlines()</code> to
+				create a list of lines and store it in <code>lines</code>.
+			</p>
+		</li>
+		<li>
+			<p>
+				Remove comment lines that start with <code>'# '</code>, <code>'% '</code> or
+				<code>'//'</code>, then join the remaining lines into one string called
+				<code>no_comment</code>.
+			</p>
+
+			<blockquote>
+				<p>
+					<strong>Tip:</strong> <code>l[:2]</code> gives the first two characters of a line.
+					<code>filter</code> keeps items for which a function returns <code>True</code>, and
+					<code>''.join(...)</code> joins them without adding a separator:
+				</p>
+
+				<Code
+					lang="python"
+					code={String.raw`no_comment = ''.join(filter(lambda l: l[:2] not in ['# ', '% ', '//'], lines))`}
+				/>
+			</blockquote>
+		</li>
+		<li>
+			<p>
+				Clean <code>no_comment</code> by removing leading and trailing whitespace, converting
+				letters to uppercase and removing spaces, then return the result. Read the Python
+				documentation for
+				<a
+					href="https://docs.python.org/3/library/stdtypes.html#str.strip"
+					target="_blank"
+					rel="noopener"><code>str.strip()</code></a
+				>,
+				<a
+					href="https://docs.python.org/3/library/stdtypes.html#str.upper"
+					target="_blank"
+					rel="noopener"><code>str.upper()</code></a
+				>
+				and
+				<a
+					href="https://docs.python.org/3/library/stdtypes.html#str.replace"
+					target="_blank"
+					rel="noopener"><code>str.replace()</code></a
+				>
+				and work out how to combine these methods yourself.
+			</p>
+		</li>
+		<li>
+			<p>
+				In <code>main.py</code>, update your import to include <code>clean_input</code>:
+			</p>
+
+			<Code lang="python" code={String.raw`from reader import read_file, clean_input`} />
+
+			<p>
+				In <code>main()</code>, pass the file contents to <code>clean_input</code> and print its returned
+				string:
+			</p>
+
+			<Code
+				lang="python"
+				code={String.raw`content = read_file('examples/BGH-R.pri')
+sequence = clean_input(content)
+print(sequence)`}
+			/>
+
+			<p>
+				Save both files and run <code>uv run main.py</code>. The output should be
+				<code>TAGAAGGCACAGTCGAGG</code>, without the comment line. Try adding spaces, line breaks
+				and lowercase letters to the sequence in the input file, then check that the cleaned output
+				stays the same.
+			</p>
+		</li>
+	</ol>
+
+	<blockquote>
+		<p>
+			This function cleans formatting; it does not yet ensure that the result contains only DNA
+			letters. Other characters, including RNA's <code>U</code> and tabs inside a sequence, can still
+			remain, so cleaning is not a substitute for validation.
+		</p>
+	</blockquote>
 </LessonSection>
 
 <style>
