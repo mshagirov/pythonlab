@@ -18,6 +18,6 @@
 	<li><a href={href('lab1/04#entry-point')}>Python Environment</a> 🧰</li>
 	<li><a href={href('lab1/05#create-project')}>DNA Analyser</a> 🧬</li>
 	<li><a href={href('lab1/06#command-line-arguments')}>Reading Multiple Files</a></li>
-	<li><a href={href('lab1/07#write-and-test')}>Project: Part 3</a> 📝</li>
+	<li><a href={href('lab1/07#current-main')}>DNA Tools</a> 📝</li>
 	<li><a href={href('lab1/99#python-environments')}>Managing Python Environments</a> 📦</li>
 </ol>

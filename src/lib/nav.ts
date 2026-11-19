@@ -305,8 +305,14 @@ export const sections: NavSection[] = [
 			},
 			{
 				path: 'lab1/07',
-				title: 'Project: Part 3',
-				steps: [{ id: 'write-and-test', title: 'Write and Test a Python Program' }],
+				title: 'DNA Tools',
+				steps: [
+					{ id: 'current-main', title: 'Current state of main.py' },
+					{ id: 'is-it-dna', title: 'Is it DNA?' },
+					{ id: 'counting-bases', title: 'Counting Bases' },
+					{ id: 'gc-content', title: 'GC Content' },
+					{ id: 'molecular-weight', title: 'Molecular Weight' },
+				],
 			},
 			{
 				path: 'lab1/99',
