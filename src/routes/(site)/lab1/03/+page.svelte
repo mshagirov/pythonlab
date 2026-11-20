@@ -52,7 +52,9 @@
 		for the task.
 	</p>
 
-	<p>Then why do we need the command line or terminal? It offers several advantages:</p>
+	<h4>Why do we need the command line and terminal?</h4>
+
+	<p>Using command line interface (CLI) offers several advantages:</p>
 
 	<ul>
 		<li>
@@ -60,24 +62,16 @@
 			repeating a task or working with many files.
 		</li>
 		<li>
-			<strong>Lower resource usage:</strong> Text-based tools often use less memory and processing power
-			than graphical applications, which can also help reduce energy use.
-		</li>
-		<li>
 			<strong>Automation and scripting:</strong> Combine commands into a script to automate repetitive
 			work or build your own custom tool on the fly.
 		</li>
 		<li>
-			<strong>Remote access:</strong> Work on another computer over a text-based connection, even when
-			a remote desktop would be slow.
+			<strong>Remote access:</strong> Work on another computer over a text-based connection that stays
+			responsive even on a slow network.
 		</li>
 		<li>
 			<strong>AI agents:</strong> Commands and text output give LLM-based agents a natural interface for
 			running tools, checking results, and helping with programming tasks.
-		</li>
-		<li>
-			<strong>Focus:</strong> Keeping commands, results, and code close together can reduce window-switching
-			and help you stay focused.
 		</li>
 	</ul>
 

@@ -16,8 +16,6 @@
 		shortcuts shown below.
 	</p>
 
-	<p>These shortcuts are useful in Zed's terminal:</p>
-
 	<table>
 		<thead>
 			<tr>

@@ -229,7 +229,7 @@ export const sections: NavSection[] = [
 	},
 	{
 		path: 'lab1/',
-		title: 'First Python Project',
+		title: 'Build DNA Analyser',
 		pages: [
 			{
 				path: 'lab1/01',

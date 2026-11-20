@@ -25,8 +25,11 @@
 			>Zed</a
 		>, a fast, efficient code editor with a graphical user interface (GUI). Zed provides IDE
 		features such as syntax highlighting, code completion, and an integrated terminal to help us
-		write and run Python programs. If you are already comfortable with another IDE or editor, you
-		may use your preferred tool instead.
+		write and run Python programs.
+		<strong
+			>If you are already comfortable with another IDE or editor, you may use your preferred tool
+			instead.</strong
+		>
 	</p>
 
 	<p>

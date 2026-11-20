@@ -410,9 +410,9 @@ plt.show()`}
 	</blockquote>
 
 	<p>
-		The Python REPL (Read–Eval–Print Loop) is an interactive prompt. It reads a line of code, runs
-		it, prints the result and waits for the next line. Use it to try a small piece of code before
-		you put it in a file.
+		The Python REPL (Read–Evaluate–Print Loop) is an interactive prompt. It reads a line of code,
+		runs it, prints the result and waits for the next line. Use it to try a small piece of code
+		before you put it in a file.
 	</p>
 
 	<details open>
@@ -487,13 +487,10 @@ array([ 0,  1,  4,  9, 16])`}
 
 	<ul>
 		<li>
-			<strong>Keep projects separate.</strong> Give each project its own virtual environment in
+			<strong>Keep projects separate and system clean.</strong> Give each project its own virtual
+			environment in
 			<code>.venv</code>, with a Python interpreter, activation scripts, and third-party packages,
 			so its dependencies do not interfere with other projects.
-		</li>
-		<li>
-			<strong>Keep system Python clean.</strong> Install project packages in <code>.venv</code>
-			instead of modifying global packages that system tools may rely on.
 		</li>
 		<li>
 			<strong>Make environments reproducible.</strong> Save dependency versions in a lockfile and record
