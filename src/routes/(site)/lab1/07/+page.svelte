@@ -596,6 +596,344 @@ TypeError: Expected dict, but got str`}
 	</details>
 </LessonSection>
 
+<LessonSection id="melting-temperature">
+	<h3>Melting Temperature</h3>
+
+	<p>
+		The melting temperature, <var>T</var><sub>m</sub>, is the temperature at which half of the
+		double-stranded DNA has separated into single strands. It tells us, for example, at which
+		annealing temperature a PCR primer will bind to its target. Because G–C pairs are more stable
+		than A–T pairs, <var>T</var><sub>m</sub> depends on the base composition, and also on the length of
+		the sequence.
+	</p>
+
+	<details open>
+		<summary><code>melting_temperature()</code></summary>
+
+		<p>
+			Both formulas below, with a short explanation, are on
+			<a
+				href="https://www.thermofisher.com/us/en/home/life-science/cloning/cloning-learning-center/invitrogen-school-of-molecular-biology/pcr-education/pcr-reagents-enzymes/pcr-cycling-considerations.html"
+				target="_blank"
+				rel="noopener">Thermo Fisher's PCR cycling guide</a
+			>
+			(under <em>Primer annealing optimization</em>), so you can check them there.
+		</p>
+
+		<p>
+			For short oligonucleotides, typically 14 base pairs or fewer, the Wallace rule gives a quick
+			estimate in °C by adding 4 °C for every G–C pair and 2 °C for every A–T pair:
+		</p>
+
+		<p class="equation">
+			<var>T</var><sub>m</sub> ≈ 4 × (<var>G</var> + <var>C</var>) + 2 × (<var>A</var> +
+			<var>T</var>)
+		</p>
+
+		<p>
+			For longer sequences, we use the salt-adjusted form of the classic bulk-DNA relationship of
+			Marmur and Doty and of Schildkraut and Lifson, with a length correction:
+		</p>
+
+		<p class="equation">
+			<var>T</var><sub>m</sub> ≈ 81.5 + 16.6 × log<sub>10</sub>[Na<sup>+</sup>] + 0.41 × GC% − 675 /
+			<var>n</var>
+		</p>
+
+		<p>
+			where [Na<sup>+</sup>] is the sodium concentration in mol/L, GC% is the GC percentage and
+			<var>n</var> is the number of bases in the sequence. For other methods of estimating
+			<var>T</var><sub>m</sub>, see
+			<a
+				href="https://biopython.org/docs/latest/api/Bio.SeqUtils.MeltingTemp.html"
+				target="_blank"
+				rel="noopener">Biopython's <code>MeltingTemp</code> module</a
+			>.
+		</p>
+
+		<ol>
+			<li>
+				<p>
+					In <code>dnatools.py</code>, define a function called
+					<code>melting_temperature(base_count, na_molar=0.05)</code>. It takes the dictionary of
+					base counts and the sodium concentration in mol/L, and returns the estimated
+					<var>T</var><sub>m</sub> in °C: the Wallace rule if the sequence has 14 bases or fewer, otherwise
+					the salt-adjusted equation.
+				</p>
+
+				<Code
+					lang="python"
+					code={String.raw`def melting_temperature(base_count, na_molar=0.05):
+    # Return the estimated melting temperature in °C.
+    # Use the Wallace rule for sequences of 14 bases or fewer,
+    # otherwise the salt-adjusted Marmur-Doty / Schildkraut-Lifson equation.
+    # Raise TypeError if base_count is not a dict.`}
+				/>
+
+				<blockquote>
+					<p>
+						<strong>Default arguments:</strong> <code>na_molar=0.05</code> gives the parameter a
+						<a
+							href="https://docs.python.org/3/tutorial/controlflow.html#default-argument-values"
+							target="_blank"
+							rel="noopener">default value</a
+						>
+						of 0.05 M (50 mM Na<sup>+</sup>), a typical PCR buffer concentration. If you call
+						<code>melting_temperature(bases)</code>, Python uses
+						<code>0.05</code>; to model a different buffer, pass your own value, e.g.
+						<code>melting_temperature(bases, na_molar=0.1)</code>. The Wallace rule ignores the salt
+						concentration, so <code>na_molar</code> only affects sequences longer than 14 bases.
+					</p>
+				</blockquote>
+
+				<blockquote>
+					<p>
+						<strong>Tip:</strong> you already have a function for the GC percentage. Call
+						<code>gc_percent(base_count)</code> from the same module instead of computing it again.
+					</p>
+					<p>
+						<code>log<sub>10</sub></code> is
+						<a
+							href="https://docs.python.org/3/library/math.html#math.log10"
+							target="_blank"
+							rel="noopener"><code>math.log10()</code></a
+						>; add <code>import math</code> at the top of <code>dnatools.py</code> to use it.
+					</p>
+				</blockquote>
+			</li>
+			<li>
+				<p>
+					Test it in the REPL with <code>uv run python</code>.
+					<code>melting_temperature(count_bases('GATTACA'))</code> should return
+					<code>18</code>, and <code>melting_temperature('GATTACA')</code> should raise a
+					<code>TypeError</code>.
+				</p>
+			</li>
+		</ol>
+	</details>
+
+	<details open>
+		<summary>Use <code>melting_temperature()</code></summary>
+
+		<p>Let's add the melting temperature to the table as a new <code>Tm °C</code> column.</p>
+
+		<ol>
+			<li>
+				<p>
+					In <code>main.py</code>, add <code>melting_temperature</code> to the import:
+				</p>
+
+				<Code
+					lang="python"
+					code={String.raw`from dnatools import (
+    is_dna,
+    count_bases,
+    gc_percent,
+    at_to_gc_ratio,
+    ss_weight_daltons,
+    melting_temperature,
+)`}
+				/>
+			</li>
+			<li>
+				<p>
+					In <code>main()</code>, add <code>Tm °C</code> to the column names, and for each DNA file print
+					the melting temperature with two decimal places in the new column.
+				</p>
+			</li>
+			<li>
+				<p>
+					Save both files and run <code>uv run main.py examples/*</code>. The output should look
+					something like:
+				</p>
+
+				<Code
+					lang="text"
+					code={String.raw`   Sequence File        #bases  ssMW kDa       GC%     AT/GC     Tm °C
+    example3.dna            47     14.61    14.89%      5.71     51.65
+    example4.rna     NOT DNA ❌`}
+				/>
+			</li>
+		</ol>
+	</details>
+</LessonSection>
+
+<LessonSection id="summary">
+	<h3>Summary</h3>
+
+	<p>The DNA Analyser project now has three modules:</p>
+
+	<ul>
+		<li>
+			<code>main.py</code> takes file paths as command-line arguments and prints a table with one row
+			per file,
+		</li>
+		<li><code>reader.py</code> reads the batch of files and cleans their contents,</li>
+		<li>
+			<code>dnatools.py</code> checks whether a sequence is DNA and computes its base counts, GC content,
+			AT to GC ratio, molecular weight and melting temperature.
+		</li>
+	</ul>
+
+	<p>
+		Compare your code with the example solutions below. Yours does not have to match them exactly,
+		as long as it gives the same results.
+	</p>
+
+	<details>
+		<summary><code>main.py</code></summary>
+
+		<Code
+			lang="python"
+			code={String.raw`import sys
+from pathlib import Path
+from reader import read_batch
+from dnatools import (
+    is_dna,
+    count_bases,
+    gc_percent,
+    at_to_gc_ratio,
+    ss_weight_daltons,
+    melting_temperature,
+)
+
+
+def main(*input_files):
+    sequences = read_batch(input_files)
+
+    print(f'{"Sequence File":^20}{"#bases":^8}{"ssMW kDa":^8}{"GC%":^8}{"AT/GC":^8}{"Tm °C":^8}')
+
+    for file_path, sequence in sequences.items():
+        file_name = Path(file_path).name
+        print(f'{file_name:^20}', end='')
+
+        if not is_dna(sequence):
+            print('NOT DNA ❌')
+            continue
+
+        bases = count_bases(sequence)
+        total = sum(bases.values())
+        weight_kda = ss_weight_daltons(bases) / 1000
+        gc = f'{gc_percent(bases):.2f}%'
+        print(
+            f'{total:^8}'
+            f'{weight_kda:^8.2f}'
+            f'{gc:^8}'
+            f'{at_to_gc_ratio(bases):^8.2f}'
+            f'{melting_temperature(bases):^8.2f}'
+        )
+
+
+if __name__ == '__main__':
+    if len(sys.argv) < 2:
+        print('DNA Analyser requires at least 1 input file')
+        print(f'\t{sys.argv[0]} input_file1 [ input_file2 [ input_file3 ... ] ... ]\n')
+        sys.exit(1)
+
+    main(*sys.argv[1:])`}
+		/>
+	</details>
+
+	<details>
+		<summary><code>reader.py</code></summary>
+
+		<Code
+			lang="python"
+			code={String.raw`def read_file(file_path):
+    try:
+        with open(file_path, 'r') as f:
+            return f.read()
+    except FileNotFoundError:
+        print(f'⚠️ Error: "{file_path}" not found!')
+        return ''
+
+
+def clean_input(input_text):
+    """Removes whitespace characters and converts to upper case letters"""
+    lines = input_text.splitlines()
+    no_comment = ''.join(filter(lambda l: l[:2] not in ['# ', '% ', '//'], lines))
+    return no_comment.strip().upper().replace(' ', '')
+
+
+def read_batch(file_paths):
+    sequences = {}
+    for file_path in file_paths:
+        content = read_file(file_path)
+        sequences[file_path] = clean_input(content)
+    return sequences`}
+		/>
+	</details>
+
+	<details>
+		<summary><code>dnatools.py</code></summary>
+
+		<Code
+			lang="python"
+			code={String.raw`import math
+
+DNA_BASES = set('ATGC')
+
+
+def is_dna(seq):
+    return len(seq) > 0 and set(seq) <= DNA_BASES
+
+
+def count_bases(seq):
+    return {base: seq.count(base) for base in 'ATGC'}
+
+
+def gc_percent(bases):
+    if isinstance(bases, dict):
+        gc_count = bases['G'] + bases['C']
+        total = sum(bases.values())
+    else:
+        raise TypeError(f"Expected dict, but got {type(bases).__name__}")
+    return 100 * gc_count / total
+
+
+def at_to_gc_ratio(bases):
+    if not isinstance(bases, dict):
+        raise TypeError(f"Expected dict, but got {type(bases).__name__}")
+    return (bases['A'] + bases['T']) / (bases['G'] + bases['C'])
+
+
+def ss_weight_daltons(bases):
+    if not isinstance(bases, dict):
+        raise TypeError(f"Expected dict, but got {type(bases).__name__}")
+    return (
+        bases['A'] * 313.2
+        + bases['T'] * 304.2
+        + bases['G'] * 329.2
+        + bases['C'] * 289.2
+    )
+
+
+def melting_temperature(base_count, na_molar=0.05):
+    if not isinstance(base_count, dict):
+        raise TypeError(f"Expected dict, but got {type(base_count).__name__}")
+    n = sum(base_count.values())
+    if n <= 14:
+        return 4 * (base_count['G'] + base_count['C']) + 2 * (base_count['A'] + base_count['T'])
+    return 81.5 + 16.6 * math.log10(na_molar) + 0.41 * gc_percent(base_count) - 675 / n`}
+		/>
+	</details>
+
+	<p>Running <code>uv run main.py examples/*</code> with these files prints:</p>
+
+	<Code
+		lang="text"
+		code={String.raw`   Sequence File     #bases ssMW kDa  GC%    AT/GC   Tm °C
+     BGH-R.pri         18     5.66   55.56%   0.80   45.18
+    example1.txt      6458  1998.87  34.42%   1.91   73.91
+    example2.txt    NOT DNA ❌
+    example3.dna       47    14.61   14.89%   5.71   51.65
+    example4.rna    NOT DNA ❌
+   MSCV-fwrd.pri       23     6.93   60.87%   0.64   55.51
+   pBAD-fwrd.pri       20     6.10   35.00%   1.86   40.50
+       T3.pri          21     6.45   42.86%   1.33   45.33`}
+	/>
+</LessonSection>
+
 <style>
 	details {
 		border-color: transparent;

@@ -402,6 +402,86 @@ plt.show()`}
 	</details>
 </LessonSection>
 
+<LessonSection id="python-repl">
+	<h3>Python REPL</h3>
+
+	<blockquote>
+		<p>a.k.a. Python shell</p>
+	</blockquote>
+
+	<p>
+		The Python REPL (Read–Eval–Print Loop) is an interactive prompt. It reads a line of code, runs
+		it, prints the result and waits for the next line. Use it to try a small piece of code before
+		you put it in a file.
+	</p>
+
+	<details open>
+		<summary>Start the REPL with uv</summary>
+
+		<p>In Zed's terminal, make sure you are in <code>test-project</code> and run:</p>
+
+		<Code lang="bash" code={String.raw`uv run python`} />
+
+		<p>
+			uv starts the Python from the project's <code>.venv</code>, so the REPL can import the
+			project's packages and the modules in the current folder. The prompt changes to
+			<code>&gt;&gt;&gt;</code>. Type a line of Python and press <kbd>Enter</kbd> to run it:
+		</p>
+
+		<Code
+			lang="python"
+			code={String.raw`>>> 2 + 3
+5
+>>> import sys
+>>> sys.executable
+'/home/user/workspace/pythonlab/lab1/test-project/.venv/bin/python'
+>>> import numpy as np
+>>> np.arange(5) ** 2
+array([ 0,  1,  4,  9, 16])`}
+		/>
+
+		<p>
+			<code>sys.executable</code> shows the path of the running Python. It should be inside
+			<code>test-project/.venv</code>; your home folder may differ.
+		</p>
+	</details>
+
+	<details open>
+		<summary>Exit the REPL</summary>
+
+		<p>
+			Type <code>exit()</code> and press <kbd>Enter</kbd>, or press <kbd>Ctrl+D</kbd>, to return to
+			the terminal. Since Python 3.13 you can also type just <code>exit</code>.
+		</p>
+
+		<Code lang="python" code={String.raw`>>> exit()`} />
+
+		<p>
+			Variables and imports are lost when you exit. If you change a module, exit and restart the
+			REPL to load the new version.
+		</p>
+	</details>
+
+	<blockquote>
+		<p>
+			<strong>System Python:</strong> to try the Python installed on your system instead, make sure
+			no environment is active (run <code>deactivate</code> if needed) and run
+			<code>python3</code>. Exit it the same way. The system Python does not see the packages in
+			<code>.venv</code>, so <code>import numpy</code> may fail with a
+			<code>ModuleNotFoundError</code>.
+		</p>
+
+		<Code
+			lang="text"
+			code={String.raw`python3
+>>> import sys
+>>> sys.executable
+'/usr/bin/python3'
+>>> exit()`}
+		/>
+	</blockquote>
+</LessonSection>
+
 <LessonSection id="summary">
 	<h3>Why Use Virtual Environments?</h3>
 
