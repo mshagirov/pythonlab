@@ -24,13 +24,3 @@
 	<li><a href={href('introduction/12#exceptions')}>Handling Errors</a></li>
 	<li><a href={href('introduction/13#workshop-recap')}>Conclusion</a></li>
 </ol>
-
-<h3>Miscellaneous</h3>
-
-<ul>
-	<li>
-		<a href="https://www.youtube.com/watch?v=GfH4QL4VqJ0" target="_blank" rel="noopener"
-			>Python: The Documentary, by CultRepo (YouTube)</a
-		>
-	</li>
-</ul>

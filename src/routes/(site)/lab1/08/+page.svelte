@@ -7,10 +7,13 @@
 	<h3>Function Help</h3>
 
 	<p>
-		Our DNA Analyser works, but now is a good time to tidy up the code. Refactoring means changing
-		how code is written without changing what it does. Suppose you shared
-		<code>dna-analyser</code> with your colleagues, and they told you they don't understand how to use
-		it. Let's start by documenting our functions, so that anyone using them, including future you, knows
+		You have shared the DNA Analyser package with your colleagues, and they told you they don't
+		understand how to use it. Now is a good time to tidy up the code by refactoring it. Refactoring
+		means changing how code is written without changing what it does.
+	</p>
+
+	<p>
+		Let's start by documenting our functions, so that anyone using them, including future you, knows
 		what they expect and what they return.
 	</p>
 
@@ -123,25 +126,11 @@ def melting_temperature(base_count, na_molar=0.05):
 	<details open>
 		<summary><code>match</code></summary>
 
-		<p>
-			The <code>match</code> statement compares a value against a series of patterns and runs the
-			block of the first <code>case</code> that matches. See the
-			<a
-				href="https://docs.python.org/3/tutorial/controlflow.html#match-statements"
-				target="_blank"
-				rel="noopener">Python tutorial</a
-			>
-			and the
-			<a href="https://peps.python.org/pep-0636/" target="_blank" rel="noopener"
-				>pattern matching tutorial (PEP 636)</a
-			> for the many kinds of patterns it supports and where they are useful.
-		</p>
-
 		<ol>
 			<li>
 				<p>
-					With <code>if</code>/<code>elif</code>, a <code>gc_percent()</code> that accepts both types
-					could look like this:
+					Update the current <code>gc_percent()</code> so that it accepts both types. E.g. with
+					<code>if</code>/<code>elif</code> it could look like this:
 				</p>
 
 				<Code
@@ -160,6 +149,20 @@ def melting_temperature(base_count, na_molar=0.05):
 				/>
 			</li>
 			<li>
+				<p>
+					The <code>match</code> statement compares a value against a series of patterns and runs
+					the block of the first <code>case</code> that matches. See the
+					<a
+						href="https://docs.python.org/3/tutorial/controlflow.html#match-statements"
+						target="_blank"
+						rel="noopener">Python tutorial</a
+					>
+					and the
+					<a href="https://peps.python.org/pep-0636/" target="_blank" rel="noopener"
+						>pattern matching tutorial (PEP 636)</a
+					> for the many kinds of patterns it supports and where they are useful.
+				</p>
+
 				<p>
 					In <code>dnatools.py</code>, rewrite <code>gc_percent()</code> so that it does the same
 					with <code>match</code> instead of <code>if</code>/<code>elif</code>/<code>else</code>.
@@ -390,7 +393,7 @@ def display_banner():
 		<summary>Skipped files (optional)</summary>
 
 		<p>
-			The <code>NOT DNA ❌</code> lines break up the table. Let's list them after it instead.
+			The <code>NOT DNA ❌</code> lines break up the table. Let's list them after the table instead.
 		</p>
 
 		<ol>

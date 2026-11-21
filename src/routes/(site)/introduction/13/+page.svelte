@@ -106,3 +106,15 @@
 		session!
 	</p>
 </LessonSection>
+
+<LessonSection id="miscellaneous">
+	<h3>Miscellaneous</h3>
+
+	<ul>
+		<li>
+			<a href="https://www.youtube.com/watch?v=GfH4QL4VqJ0" target="_blank" rel="noopener"
+				>Python: The Documentary, by CultRepo (YouTube)</a
+			>
+		</li>
+	</ul>
+</LessonSection>

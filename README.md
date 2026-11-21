@@ -116,7 +116,7 @@ Put the file in `static/` and reference it with `asset()`, which adds the base p
    },
    ```
 
-   Set `endsAtContents: true` to make the last step lead back to the contents page.
+   Set `endsAtWorkshops: true` to make the last step lead back to the workshops page.
 
 2. Create the contents page `src/routes/(site)/lab2/+page.svelte`:
 

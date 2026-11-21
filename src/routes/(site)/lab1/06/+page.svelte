@@ -14,19 +14,10 @@
 	<ol>
 		<li>
 			<p>
-				In <code>main.py</code>, import Python's <code>sys</code> module.
-				<code>sys.argv</code> is a list of command-line arguments. The first item,
-				<code>sys.argv[0]</code>, is the script's name; <code>sys.argv[1:]</code> contains the arguments
-				that follow it. For example:
+				At the top of <code>main.py</code>, import Python's <code>sys</code> module.
 			</p>
 
-			<Code lang="bash" code={String.raw`uv run main.py examples/BGH-R.pri examples/BGH-R.pri`} />
-
-			<p>
-				Here, <code>sys.argv[1:]</code> contains the same file path twice, so the program will read
-				<code>examples/BGH-R.pri</code> twice. Try temporarily printing
-				<code>sys.argv</code> to see the list yourself.
-			</p>
+			<Code lang="python" code={String.raw`import sys`} />
 		</li>
 		<li>
 			<p>
@@ -45,6 +36,22 @@
 				Write a loop to read <code>input_files</code> one-by-one and print them to the CLI. For each
 				path, call <code>read_file</code>, pass the returned text to <code>clean_input</code>, then
 				print the cleaned sequence. Remove the fixed <code>'examples/BGH-R.pri'</code> path from the function.
+			</p>
+		</li>
+		<li>
+			<p>
+				<code>sys.argv</code> is a list of command-line arguments. The first item,
+				<code>sys.argv[0]</code>, is the script's name;
+				<code>sys.argv[1:]</code> contains the arguments that follow it. For example:
+			</p>
+
+			<Code lang="bash" code={String.raw`uv run main.py examples/BGH-R.pri examples/BGH-R.pri`} />
+
+			<p>
+				Here, <code>sys.argv[0]</code> is <code>'main.py'</code> and <code>sys.argv[1:]</code>
+				contains the same file path twice, so the program will read
+				<code>examples/BGH-R.pri</code> twice. Try temporarily printing the
+				<code>sys.argv</code> variable itself to see the list.
 			</p>
 		</li>
 		<li>
@@ -104,8 +111,8 @@
 	<h4>More Examples</h4>
 
 	<p>
-		Create the following files inside the <code>examples/</code> folder. Make sure to preserve
-		spaces and all other characters. <code>example2.txt</code> must be an empty file (no contents).
+		Create the following files inside the <code>examples/</code> folder. Make sure to preserve the
+		characters including spaces. <code>example2.txt</code> must be an empty file (no contents).
 	</p>
 
 	<details>
@@ -308,17 +315,20 @@ GCAATTAACCCTCACTAAAGG`}
 		<li>
 			<p>
 				In <code>main.py</code>, replace the import of <code>read_file</code> and
-				<code>clean_input</code> with just <code>read_batch</code>. Keep
-				<code>import sys</code> for command-line arguments and the input check.
+				<code>clean_input</code> with just <code>read_batch</code>.
 			</p>
 
 			<Code lang="python" code={String.raw`from reader import read_batch`} />
+
+			<blockquote>
+				<p>Keep <code>import sys</code>, we will use it for command-line arguments.</p>
+			</blockquote>
 		</li>
 		<li>
 			<p>
 				Update <code>main()</code> to pass <code>input_files</code> to your new function and print
-				the returned sequences. Use the dictionary's <code>items()</code> method to get each file path
-				and its sequence:
+				the first twenty characters of each returned sequence. Use the dictionary's
+				<code>items()</code> method to get each file path and its sequence:
 			</p>
 
 			<Code
@@ -328,13 +338,13 @@ GCAATTAACCCTCACTAAAGG`}
 
     for file_path, sequence in sequences.items():
         print(file_path)
-        print(sequence)`}
+        print(sequence[:20])`}
 			/>
 
 			<p>
 				Keep the input check and <code>main(*sys.argv[1:])</code> call at the bottom of
 				<code>main.py</code>. Save both files and run <code>uv run main.py examples/*</code>. Check
-				that each file path is followed by its cleaned sequence.
+				that each file path is followed by the first twenty characters of its cleaned sequence.
 			</p>
 		</li>
 	</ol>

@@ -101,32 +101,30 @@ if __name__ == "__main__":
     main()`}
 	/>
 
-	<p>
-		The file defines a function called <code>main</code> and calls it at the bottom. Putting the
-		program's top-level steps in one <code>main</code> function makes it easy to see where the program
-		starts and what it does, while the details live in other functions.
-	</p>
-
 	<ul>
+		<li>The file defines a function called <code>main</code> and calls it at the bottom.</li>
+		<li>
+			Putting the program's top-level steps in one <code>main</code> function makes it easy to see where
+			the program starts and what it does, while the details live in other functions.
+		</li>
 		<li>
 			The <code>if __name__ == "__main__":</code> line decides whether <code>main()</code> runs.
 		</li>
 		<li>
-			Python sets the special variable <code>__name__</code> to <code>"__main__"</code> in the file you
-			run directly.
+			Python sets the <em>special variable</em> <code>__name__</code> to <code>"__main__"</code> in
+			the file you run directly, e.g., with <code>uv run main.py</code>.
 		</li>
 		<li>
-			When another file imports <code>main.py</code> with <code>import main</code>,
-			<code>__name__</code> is <code>"main"</code> instead, so the functions are defined but
-			<code>main()</code> does not run.
+			When you import <code>main.py</code> as a module into another file, Python sets
+			<code>__name__</code> to the <em>name of the file</em>, <code>"main"</code>. Its functions
+			become available, but <code>main()</code> does not run unless the other file explicitly imports
+			and calls it.
 		</li>
 	</ul>
 
 	<p>
-		<strong
-			>Change the message in <code>main.py</code>, save the file and run
-			<code>uv run main.py</code> again.</strong
-		>
+		<strong>Exercise:</strong> Change the message in <code>main.py</code>, save the file and run
+		<code>uv run main.py</code> again.
 	</p>
 
 	<blockquote>
@@ -147,8 +145,8 @@ if __name__ == "__main__":
 		<summary>Example Text File</summary>
 
 		<p>
-			In Zed, create a folder called <code>examples</code> inside <code>dna-analyser</code>, and in
-			it a file called <code>BGH-R.pri</code> with these contents:
+			In your editor, create a folder called <code>examples</code> inside <code>dna-analyser</code>,
+			and in it a file called <code>BGH-R.pri</code> with these contents (copy entire code cell):
 		</p>
 
 		<Code
@@ -262,8 +260,7 @@ f.close()`}
 	<h3>Reader Module</h3>
 
 	<p>
-		Let's turn the file-reading code into a reusable function, then move it into its own module. A
-		module is a Python file whose code you can import into another Python file.
+		Let's turn the file-reading code into a reusable function, then move it into its own module.
 	</p>
 
 	<ol>
@@ -301,11 +298,15 @@ f.close()`}
 		</li>
 		<li>
 			<p>
-				Create a new file called <code>reader.py</code> in the same folder as
+				Create a new module, a file called <code>reader.py</code>, in the same folder as
 				<code>main.py</code>. Move the entire <code>read_file</code> function into
 				<code>reader.py</code>, removing its definition from <code>main.py</code>. Leave
 				<code>main()</code> and its call in <code>main.py</code>.
 			</p>
+
+			<blockquote>
+				<p>A module is a Python file whose code you can import into another Python file.</p>
+			</blockquote>
 		</li>
 		<li>
 			<p>
@@ -350,8 +351,12 @@ f.close()`}
 			<p>
 				Test this by calling <code>read_file</code> with a path to a file that does not exist in
 				<code>main()</code>, then run <code>uv run main.py</code>. Check that it prints the warning
-				instead of a traceback. Switch back to <code>examples/BGH-R.pri</code> and check that existing
-				files still work.
+				instead of a traceback.
+			</p>
+		</li>
+		<li>
+			<p>
+				Switch back to <code>examples/BGH-R.pri</code> and check that existing files still work.
 			</p>
 		</li>
 	</ul>
@@ -402,19 +407,21 @@ f.close()`}
 			<p>
 				Remove comment lines that start with <code>'# '</code>, <code>'% '</code> or
 				<code>'//'</code>, then join the remaining lines into one string called
-				<code>no_comment</code>.
+				<code>no_comment</code> and remove any tab characters (<code>'\t'</code>).
 			</p>
 
 			<blockquote>
 				<p>
 					<strong>Tip:</strong> <code>l[:2]</code> gives the first two characters of a line.
-					<code>filter</code> keeps items for which a function returns <code>True</code>, and
-					<code>''.join(...)</code> joins them without adding a separator:
+					<code>filter</code> keeps items for which a function returns <code>True</code>,
+					<code>''.join(...)</code> joins them without adding a separator, and
+					<code>.replace('\t', '')</code> removes the tabs:
 				</p>
 
 				<Code
 					lang="python"
-					code={String.raw`no_comment = ''.join(filter(lambda l: l[:2] not in ['# ', '% ', '//'], lines))`}
+					code={String.raw`no_comment = ''.join(filter(lambda l: l[:2] not in ['# ', '% ', '//'], lines))
+no_comment = no_comment.replace('\t', '')`}
 				/>
 			</blockquote>
 		</li>
@@ -473,8 +480,8 @@ print(sequence)`}
 	<blockquote>
 		<p>
 			This function cleans formatting; it does not yet ensure that the result contains only DNA
-			letters. Other characters, including RNA's <code>U</code> and tabs inside a sequence, can still
-			remain, so cleaning is not a substitute for validation.
+			letters. Other characters, including RNA's <code>U</code>, can still remain, so cleaning is
+			not a substitute for validation.
 		</p>
 	</blockquote>
 </LessonSection>

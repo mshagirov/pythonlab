@@ -15,8 +15,8 @@ export interface NavPage {
 export interface NavSection {
 	path: string;
 	title: string;
-	/** After the last step, "next" leads back to the section's contents page. */
-	endsAtContents?: boolean;
+	/** After the last step, "next" leads back to the workshops page. */
+	endsAtWorkshops?: boolean;
 	pages: NavPage[];
 }
 
@@ -47,8 +47,8 @@ export const sections: NavSection[] = [
 	{
 		path: 'introduction/',
 		title: 'Introduction to Python',
-		// The last step leads back to the contents page.
-		endsAtContents: true,
+		// The last step leads back to the workshops page.
+		endsAtWorkshops: true,
 		pages: [
 			{
 				path: 'introduction/01',
@@ -223,6 +223,7 @@ export const sections: NavSection[] = [
 				steps: [
 					{ id: 'workshop-recap', title: 'Workshop Recap' },
 					{ id: 'next-steps', title: 'Next Steps' },
+					{ id: 'miscellaneous', title: 'Miscellaneous' },
 				],
 			},
 		],
@@ -230,6 +231,8 @@ export const sections: NavSection[] = [
 	{
 		path: 'lab1/',
 		title: 'Build DNA Analyser',
+		// The last step leads back to the workshops page.
+		endsAtWorkshops: true,
 		pages: [
 			{
 				path: 'lab1/01',
@@ -377,13 +380,14 @@ export function locate(path: string, hash = ''): NavLocation | undefined {
 	for (const section of sections) {
 		const { pages } = section;
 		const contents = link(section);
+		const workshops: NavLink = { path: '', label: 'Back to Workshops' };
 		const sequence = [contents, ...pages.map(link)];
 
 		if (section.path === path) {
 			return {
 				title: section.title,
 				active: 0,
-				previous: { path: '', label: 'Back to Workshops' },
+				previous: workshops,
 				next: pages[0] && stops(pages[0])[0],
 				sequence,
 				index: 0,
@@ -417,7 +421,7 @@ export function locate(path: string, hash = ''): NavLocation | undefined {
 			previous: previousStep ? stepLink(previousStep) : before ? stops(before).at(-1) : contents,
 			next:
 				(nextStep ? stepLink(nextStep) : undefined) ??
-				(after ? stops(after)[0] : section.endsAtContents ? contents : undefined),
+				(after ? stops(after)[0] : section.endsAtWorkshops ? workshops : undefined),
 			sequence,
 			index: pageIndex + 1,
 			previousPage: before ? pageLink(before, -1) : contents,

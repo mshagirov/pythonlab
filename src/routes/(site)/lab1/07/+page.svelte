@@ -11,7 +11,7 @@
 	<ul>
 		<li>takes file paths as command-line arguments,</li>
 		<li>reads the batch of files and cleans them,</li>
-		<li>prints the file paths and contents to the terminal.</li>
+		<li>prints each file path and the first twenty characters of its sequence to the terminal.</li>
 	</ul>
 
 	<details>
@@ -27,7 +27,7 @@ def main(*input_files):
 
     for file_path, sequence in sequences.items():
         print(file_path)
-        print(sequence)
+        print(sequence[:20])
 
 if __name__ == '__main__':
     if len(sys.argv) < 2:
@@ -234,7 +234,7 @@ example4.rna NOT DNA ❌`}
 			<li>
 				<p>
 					Print the file name, the total number of bases and the dictionary returned by
-					<code>count_bases()</code> on one line. Printing the dictionary as it is is fine.
+					<code>count_bases()</code> on one line.
 				</p>
 
 				<blockquote>

@@ -1,7 +1,13 @@
 <script lang="ts">
+	import { page } from '$app/state';
 	import LessonSection from '#lib/components/LessonSection.svelte';
 	import Code from '#lib/components/Code.svelte';
+	import SnakeConfetti from '#lib/components/SnakeConfetti.svelte';
 </script>
+
+{#if page.url.hash === '#next-steps'}
+	<SnakeConfetti />
+{/if}
 
 <LessonSection id="recap">
 	<h3>Recap</h3>
@@ -312,9 +318,15 @@ def display_banner():
 			>. For working with data in Python, try their
 			<a href="https://www.boot.dev/courses/learn-pandas" target="_blank" rel="noopener"
 				>pandas course</a
-			>. This is not an ad, just a recommendation: I have taken their Git and Go courses and
-			projects, really enjoyed them and learned a lot.
+			>.
 		</p>
+
+		<blockquote>
+			<p>
+				This is just a recommendation. I have taken their Git, Python and Go courses and projects,
+				really enjoyed them and learned a lot.
+			</p>
+		</blockquote>
 	</details>
 
 	<details>
@@ -336,7 +348,7 @@ def display_banner():
 			<Code
 				lang="bash"
 				code={String.raw`git add .
-	git commit -m "Add DNA Analyser"`}
+git commit -m "Add DNA Analyser"`}
 			/>
 
 			<p>
@@ -349,8 +361,8 @@ def display_banner():
 			<Code
 				lang="bash"
 				code={String.raw`git remote add origin https://github.com/<your-username>/dna-analyser.git
-	git branch -M main
-	git push -u origin main`}
+git branch -M main
+git push -u origin main`}
 			/>
 		</blockquote>
 	</details>
