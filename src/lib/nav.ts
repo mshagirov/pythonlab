@@ -223,7 +223,6 @@ export const sections: NavSection[] = [
 				steps: [
 					{ id: 'workshop-recap', title: 'Workshop Recap' },
 					{ id: 'next-steps', title: 'Next Steps' },
-					{ id: 'miscellaneous', title: 'Miscellaneous' },
 				],
 			},
 		],

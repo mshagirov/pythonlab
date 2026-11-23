@@ -55,15 +55,22 @@
 	</svg>
 {/snippet}
 
+{#snippet monitor()}
+	<svg viewBox="0 0 16 16" width="16" height="16" aria-hidden="true">
+		<g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+			<rect x="1" y="1.5" width="14" height="10" rx="1" />
+			<path d="M8 11.5v3M5 14.5h6" />
+		</g>
+	</svg>
+{/snippet}
+
 <button type="button" onclick={cycle} aria-label={label} title={label}>
 	{#if theme === 'dark'}
 		{@render moon()}
 	{:else if theme === 'light'}
 		{@render sun()}
 	{:else}
-		{@render moon()}
-		<span class="divider"></span>
-		{@render sun()}
+		{@render monitor()}
 	{/if}
 </button>
 
@@ -73,17 +80,8 @@
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
-		gap: 0.25rem;
 		width: 3.25rem;
 		height: 2rem;
 		padding: 0;
-	}
-
-	.divider {
-		flex: 0 0 auto;
-		width: 1px;
-		height: 14px;
-		background: currentColor;
-		opacity: 0.6;
 	}
 </style>

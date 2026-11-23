@@ -105,16 +105,19 @@
 		the endless possibilities with Python. Stay tuned for the announcement of the next workshop
 		session!
 	</p>
-</LessonSection>
 
-<LessonSection id="miscellaneous">
-	<h3>Miscellaneous</h3>
+	<h4 id="miscellaneous">Miscellaneous</h4>
 
 	<ul>
 		<li>
 			<a href="https://www.youtube.com/watch?v=GfH4QL4VqJ0" target="_blank" rel="noopener"
 				>Python: The Documentary, by CultRepo (YouTube)</a
 			>
+			<p>
+				This documentary traces Python&#39;s journey from a side project by Guido van Rossum to one
+				of the world&#39;s most widely used programming languages. It explores the people and
+				community behind the language and how Python grew beyond its original ambitions.
+			</p>
 		</li>
 	</ul>
 </LessonSection>
