@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { asset } from '$app/paths';
 	import { page } from '$app/state';
+	import DnaBanner from '#lib/components/DnaBanner.svelte';
+	import JourneyBanner from '#lib/components/JourneyBanner.svelte';
 	import PageCarousel from '#lib/components/PageCarousel.svelte';
 	import PrevNext from '#lib/components/PrevNext.svelte';
 	import SectionNavigation from '#lib/components/SectionNavigation.svelte';
@@ -41,6 +43,15 @@
 				<SectionNavigation {steps} active={current.active} />
 			{/if}
 		</PrevNext>
+		{#if toNavPath(page.url.pathname) === 'lab1/' || toNavPath(page.url.pathname) === 'introduction/'}
+			<div class="contents-banner">
+				{#if toNavPath(page.url.pathname) === 'introduction/'}
+					<JourneyBanner />
+				{:else}
+					<DnaBanner />
+				{/if}
+			</div>
+		{/if}
 		<h1>{current.title}</h1>
 	{/if}
 
@@ -91,11 +102,21 @@
 	}
 
 	.site-main > h1,
+	.contents-banner,
 	.lesson-content {
 		box-sizing: border-box;
 		width: 100%;
 		max-width: 72rem;
 		margin-inline: auto;
+	}
+
+	.contents-banner {
+		container-type: inline-size;
+		flex-shrink: 0;
+		overflow-y: auto;
+		scrollbar-gutter: stable;
+		scrollbar-width: thin;
+		padding: 0 0.25rem;
 	}
 
 	:global(body:has(.viewport-reader)) {

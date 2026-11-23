@@ -98,6 +98,13 @@ Put the file in `static/` and reference it with `asset()`, which adds the base p
 <img src={asset('my-plot.png')} alt="Describe the plot" width="1200" height="800" />
 ```
 
+The DNA and journey banners are pre-rendered PNGs in `static/`. The journey uses
+the same full-map image at every width so it scales without breakpoint jumps.
+To edit their artwork, update `scripts/journey-art.ts` or
+`scripts/generate-banners.ts`, then run `npm run banners` (requires Playwright
+Chromium; use `PLAYWRIGHT_CHANNEL=chrome npm run banners` for installed Chrome).
+Regeneration uses Node's built-in TypeScript support (Node 22.18+).
+
 ## Add a workshop section
 
 1. Add the section to `sections` in `src/lib/nav.ts`:
